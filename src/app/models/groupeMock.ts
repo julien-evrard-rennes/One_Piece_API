@@ -1,5 +1,6 @@
 import { Personnage } from "./Personnage";
 
+
 export class GroupeMock {
         getGroupeList(): GroupeMock[] {
           throw new Error('Method not implemented.');

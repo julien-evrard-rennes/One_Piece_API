@@ -3,10 +3,10 @@ import { inject, Injectable } from '@angular/core';
 import { environment } from '../environments/environment.development';
 import { map } from 'rxjs/internal/operators/map';
 import { GroupeAPI } from '../models/groupeApi';
-import { ApiPerso } from './api-persos';
 import { PersonnageAPI } from '../models/PersonnageApi';
 import { Observable } from 'rxjs/internal/Observable';
 import { of } from 'rxjs';
+import { ApiPersoService } from './api-persos-service';
 
 
 @Injectable({
@@ -17,14 +17,14 @@ export class ApiGroupeService {
     throw new Error("Method not implemented.");
   }
   private readonly http: HttpClient = inject(HttpClient);
-  private readonly listePersoService = inject(ApiPerso);
+  private readonly listePersoService = inject(ApiPersoService);
 
-  getGroupes() {
+  getGroupesAPI() {
     return this.http.get<GroupeAPI[]>(environment.API_GROUPE_OP);
   }
 
 getGroupeById(groupeId: number) {
-  return this.getGroupes().pipe(
+  return this.getGroupesAPI().pipe(
     map(groupeList => {
       const found = groupeList.find(p => p.id === Number(groupeId));
       if (!found) throw new Error('Groupe non trouvé !');

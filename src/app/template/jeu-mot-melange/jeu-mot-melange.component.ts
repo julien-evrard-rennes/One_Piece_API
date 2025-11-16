@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { PersonnageAPI } from 'src/app/models/PersonnageApi';
-import { ApiPerso } from 'src/app/services/api-persos';
+import { ApiPersoService } from 'src/app/services/api-persos-service';
 import { JeuService } from 'src/app/services/jeu-service';
 
 @Component({
@@ -15,7 +15,7 @@ export class JeuMotMelangeComponent {
 
   personnage!: PersonnageAPI;
 
-  constructor(private listePersoService: ApiPerso,
+  constructor(private listeApiPersoService: ApiPersoService,
   private jeuService : JeuService, 
   private router: Router) {}
 

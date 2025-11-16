@@ -1,8 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ApiPerso } from 'src/app/services/api-persos';
 import { PersonnageAPI } from 'src/app/models/PersonnageApi';
 import { ChangeDetectorRef } from '@angular/core';
+import { ApiPersoService } from 'src/app/services/api-persos-service';
 
 @Component({
   selector: 'app-liste-personnages',
@@ -22,7 +22,7 @@ export class ListPersonnagesApiComponent implements OnInit {
   triAscendantPrime = true; 
 
 
-  constructor(private listePersoService: ApiPerso, 
+  constructor(private listePersoService: ApiPersoService, 
     private router: Router,) {}
 
   ngOnInit(): void {

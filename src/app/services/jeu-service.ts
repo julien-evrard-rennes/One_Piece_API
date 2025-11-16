@@ -1,13 +1,14 @@
 import { Injectable } from "@angular/core";
 import { PersonnageAPI } from "../models/PersonnageApi";
-import { ApiPerso } from "./api-persos";
+import { ApiPersoService } from "./api-persos-service";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class JeuService {
 
-constructor(private listePersoService: ApiPerso) {
+constructor(private listePersoService: ApiPersoService) {
 
 }
 

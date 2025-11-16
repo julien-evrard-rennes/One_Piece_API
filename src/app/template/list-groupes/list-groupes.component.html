@@ -1,17 +1,91 @@
+
+<div>
+    
 <table>
     <thead>
         <tr>
-            <th>Nom</th>
+            <th>Nom
+            <div class="button" (click)="onTrierParNom()"> TRIER @if (triAscendantNom) {
+                <span>⬇</span>
+                } @else {
+                <span>⬆</span>
+                }
+            </div>
+            </th>
+
+            <th>Nombre de Membres (théorique)
+            <div class="button" (click)="onTrierParNumber()"> TRIER @if (triAscendantNumber) {
+            <span>⬇</span>
+            } @else {
+            <span>⬆</span>
+            }</div>
+            </th>
+
+            <th>Nombre de Fiches Persos liées 
+                <div class="button" (click)="onTrierParMembresReels()"> TRIER @if (triAscendantReel) {
+                <span>⬇</span>
+                } @else {
+                <span>⬆</span>
+                }</div>
+
+            </th>
+
+            <th>Status
+            <div class="button" (click)="onTrierParStatus()"> TRIER @if (triAscendantStatus) {
+                <span>⬇</span>
+                } @else {
+                <span>⬆</span>
+                }
+            </div>
+            </th>
+            <th>Prime Totale
+                <div class="button" (click)="onTrierParPrime()"> TRIER @if (triAscendantPrime) {
+                    <span>⬇</span>
+                       } @else {
+                    <span>⬆</span>
+                         }
+                </div>
+            </th>
+
             <th>Détails</th>
         </tr>
     </thead>
     <tbody>
 
+  @if (isLoading) { 
+            <th colspan="6" class="container-spin">
+            <div class="spinner"></div>
+            <tr colspan="6">Chargement des groupes...</tr>
+            </th>
+}
         @for (groupe of groupeList; track groupe.id){
         <tr>
-            <td>{{groupe.nom}}</td>
+            <td>
+            @if (groupe.name == "Armarda du Chapeau de Paille") {
+            Armada du Chapeau de Paille
+                }
+            @else { {{groupe.name}}
+                }
+            </td>
+            <td>
+                @if (groupe.number) { {{groupe.number}} }
+                @else {inconnu }
+            </td>
+            <td>{{groupe.nbMembres }}</td>
+            <td>@if (groupe.status =="arr�t�") 
+                { arrêté }
+            @else { {{groupe.status}} }</td>
+            <td>
+                @if (groupe.total_prime) { {{groupe.total_prime}} }
+                @else {inconnu}
+            </td>
             <td><button (click)="onViewFicheGroupe(groupe)">Détails</button></td>
         </tr>
         }
+    
+
     </tbody>
 </table>
+
+</div>
+

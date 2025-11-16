@@ -2,12 +2,12 @@ import { Injectable } from "@angular/core";
 import { Personnage } from "../models/Personnage";
 import { GroupeMock } from "../models/groupeMock";
 
-@Injectable({
-    providedIn:'root'
-})
+@Injectable({ providedIn:'root' })
 export class MockGroupeService {
 
 groupeList: GroupeMock[]=[
+new GroupeMock( 1,"L’équipage du Chapeau de Paille", 11),
+new GroupeMock( 2,"L’équipage du Roux", 0),
 new GroupeMock( 3,"L’équipage d’Alvida", 0),
 new GroupeMock( 4,"L’équipage du Clown", 0),
 new GroupeMock( 5,"L’équipage des Pirates Roger", 24),

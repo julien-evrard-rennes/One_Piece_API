@@ -7,7 +7,7 @@ import { map } from 'rxjs/internal/operators/map';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiPerso {
+export class ApiPersoService {
   private readonly http: HttpClient = inject(HttpClient);
   
   getPersos() {
