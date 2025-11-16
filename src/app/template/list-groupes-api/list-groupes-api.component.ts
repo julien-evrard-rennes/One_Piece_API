@@ -1,6 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { forkJoin, map } from 'rxjs';
 import { GroupeAPI } from 'src/app/models/groupeApi';
 import { GroupeMock } from 'src/app/models/groupeMock';
 import { PersonnageAPI } from 'src/app/models/PersonnageApi';
@@ -21,6 +20,7 @@ export class ListGroupesApiComponent implements OnInit {
     groupeList! : GroupeAPI[];
     groupeMock! : GroupeMock;
     groupeMockList! : GroupeMock[];
+    persosParGroupe: { [id: number]: PersonnageAPI[] } = {};
     persoList: PersonnageAPI[] =[];
     nbMembres: { [id: number]: number } = {};
     triAscendantNom = true;
@@ -45,25 +45,26 @@ ngOnInit(): void {
   this.apiGroupeService.getGroupesAPI().subscribe({
     next: (groupeList: GroupeAPI[]) => {
       this.groupeList = groupeList;
-      let loadedCount = 0;
+let loaded = 0;
       groupeList.forEach(groupe => {
-        const mock = this.groupeMockList.find(g => g.id === groupe.id);
-        this.apiGroupeService.getNombreMembres(groupe.id).subscribe({
-          next: (count) => {
-            this.nbMembres[groupe.id] = mock?.nbMembres ?? count;
-            loadedCount++;
-            if (loadedCount === groupeList.length) {
-              this.isLoading = false;
+        this.apiGroupeService.getPersoList(groupe).subscribe({
+          next: (persos) => {
+            this.persosParGroupe[groupe.id] = persos;
+            this.nbMembres[groupe.id] = this.persosParGroupe[groupe.id].length;
+            loaded++;
+
+            if (loaded === groupeList.length) {
+              this.isLoading = false; // tout est chargé
             }
           },
-          error: (err) => console.error('Erreur récupération nombre membres :', err)
+          error: (err) => console.error("Erreur persos groupe", groupe.id, err)
         });
       });
+
     },
-    error: (err) => console.log('Erreur récupération groupes :', err),
+    error: (err) => console.error("Erreur récupération groupes : ", err)
   });
 }
-
 
   onViewFicheGroupe(groupe: GroupeAPI) {
     this.router.navigateByUrl(`groupe/${groupe.id}`);
@@ -127,6 +128,14 @@ onTrierParPrime() {
   console.table(this.groupeList);
 }
 
+  getPersoList(groupe: GroupeAPI) {
+    this.apiGroupeService.getPersoList(groupe).subscribe({
+      next: (persoList) => {
+        this.persoList = persoList;
+      },
+      error: (err) => console.error('Erreur récupération personnages :', err)
+    });
+  }
 
 
 }

@@ -2,15 +2,19 @@ table {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 90%;
-    background-color: #e9e2e2;
+    background-color: rgb(238, 203, 157);
 }
 
 table td,
 table th {
     border: 1px solid #ddd3d3;
     padding: 8px;
+    background-color: rgb(206, 200, 190);
 }
 
+table tr {
+    margin-left: 5px;
+}
 
 table th {
     padding-top: 12px;
@@ -30,11 +34,6 @@ table a:visited {
     display: inline-block;
 }
 
-
-form {
-    background-color: #d7cdcd;
-}
-
 form h1 {
     margin: 15px;
 }
@@ -44,12 +43,21 @@ form h1 {
     flex-wrap: wrap;
     align-items: center;
     margin: 10px;
-    border: 1px solid #d7cdcd;
+    border: 1px solid #f1e6cb;
+    border-radius: 5px;
+    background-color: #f1e6cb;
     color: #353030;
-    background-color: #dfd1d1;
     padding: 5px;
 }
 
+.flex-outer li a li {
+    background-color: rgb(236, 222, 198);
+}
+
+tr.listePerso {
+        display : flex;
+        flex-wrap: wrap;
+        }
 
 
 .flex-outer>li select {
@@ -91,12 +99,39 @@ form h1 {
     letter-spacing: .09em;
 }
 
-.flex-outer li li:hover {
-            background-color: #ecd1d1;
-            cursor: pointer;
-        
+
+.flex-outer li a li {
+    background-color: rgb(204, 236, 198);
+    text-decoration: solid;
+    border: 1px solid #015028;
+}
+
+
+.flex-outer li a li:hover {
+    background-color: #8ad9ec;
+    cursor: pointer;
 }
 
 .flex-outer li li {
     background-color: #f6f4f4;
+}
+
+.spinner {
+    border: 5px solid #ffffff00;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    margin: 1px auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

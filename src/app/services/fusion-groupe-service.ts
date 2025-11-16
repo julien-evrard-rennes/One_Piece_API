@@ -1,8 +1,12 @@
-import { map, Observable } from "rxjs";
+import { forkJoin, map, Observable } from "rxjs";
 import { ApiGroupeService } from "./api-groupes-service";
 import { MockGroupeService } from "./mock-groupe-service";
 import { Injectable } from "@angular/core";
 import { Groupe } from "../models/groupe";
+import { PersonnageShort } from "../models/PersonnageShort";
+import { Personnage } from "../models/Personnage";
+import { ApiPersoService } from "./api-persos-service";
+import { PersonnageAPI } from "../models/PersonnageApi";
 
 
 
@@ -11,7 +15,8 @@ export class GroupeFusionService {
 
   constructor(
     private apiGroupeService: ApiGroupeService,
-    private mockService: MockGroupeService
+    private mockService: MockGroupeService,
+    private apiPerso: ApiPersoService
   ) {}
 
 getGroupeList(): Observable<Groupe[]> {
@@ -33,7 +38,6 @@ getGroupeById(id: number): Observable<Groupe> {
   );
 }
 
-
 extractNombre(number: string | number): number {
   if (typeof number === "number") return number;
   if (number === '>85') return 85;
@@ -41,6 +45,7 @@ extractNombre(number: string | number): number {
   const match = number.match(/\d+/); 
   return match ? Number(match[0]) : 0;
 }
+
 
 }
 

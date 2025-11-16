@@ -6,11 +6,13 @@ import { FichePersonnageApiComponent } from './template/fiche-personnage-api/fic
 import { FicheGroupeApiComponent } from './template/fiche-groupe-api/fiche-groupe-api.component';
 import { JeuMotMelangeComponent } from './template/jeu-mot-melange/jeu-mot-melange.component';
 import { ListeGroupesComponent } from './template/list-groupes/list-groupes.component';
+import { ListGroupesApiComponent } from './template/list-groupes-api/list-groupes-api.component';
+import { FicheGroupeComponent } from './template/fiche-groupe/fiche-groupe.component';
 
 
 const routes: Routes = [
   { path: 'personnage/:id', component: FichePersonnageApiComponent },
-  { path: 'groupe/:id', component: FicheGroupeApiComponent },
+  { path: 'groupe/:id', component: FicheGroupeComponent },
   { path: '', component: LandingPageComponent },
    { path: 'jeu', component: JeuMotMelangeComponent},
    { path: 'listePersonnages', component: ListPersonnagesApiComponent },

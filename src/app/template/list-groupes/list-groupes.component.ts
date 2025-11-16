@@ -39,13 +39,14 @@ export class ListeGroupesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.isLoading = true;
     this.fusionGroupeService.getGroupeList().subscribe({
       next: (groupeList: Groupe[]) => {
         this.groupeList = groupeList;
-      }
+        this.isLoading = false;
+      },
+      error: (err: Error) => console.log(err),
+      complete: () => console.log('complete'),
     });
-    this.isLoading = false;
   }
 
 

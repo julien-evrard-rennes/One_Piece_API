@@ -34,8 +34,8 @@ export class FicheGroupeApiComponent implements OnInit {
 
     this.apiGroupeService.getGroupeById(groupeId).subscribe({
       next: (g: GroupeAPI) => {
-        console.log('Groupe récupéré :', this.groupeAPI);
         this.getPersoList(this.groupeAPI);
+        console.log('Groupe récupéré :', this.groupeAPI);
       },
       error: (err) => console.error('Erreur récupération groupe:', err)
     });
@@ -45,11 +45,10 @@ export class FicheGroupeApiComponent implements OnInit {
     this.router.navigateByUrl(`personnage/${personnage.id}`);
   }
 
-  private getPersoList(groupe: GroupeAPI) {
+  getPersoList(groupe: GroupeAPI) {
     this.apiGroupeService.getPersoList(groupe).subscribe({
       next: (persoList) => {
         this.persoList = persoList;
-        this.isLoading = false; 
       },
       error: (err) => console.error('Erreur récupération personnages :', err)
     });

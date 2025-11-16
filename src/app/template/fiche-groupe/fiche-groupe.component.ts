@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Groupe } from 'src/app/models/groupe';
-import { Personnage } from 'src/app/models/PersonnageMock';
-import { ListeGroupeService } from 'src/app/services/mock-groupe-service';
+import { GroupeAPI } from 'src/app/models/groupeApi';
+import { Personnage } from 'src/app/models/Personnage';
+import { PersonnageAPI } from 'src/app/models/PersonnageApi';
+import { PersonnageShort } from 'src/app/models/PersonnageShort';
+import { ApiGroupeService } from 'src/app/services/api-groupes-service';
+import { GroupeFusionService } from 'src/app/services/fusion-groupe-service';
 
 @Component({
   selector: 'app-fiche-groupe',
@@ -11,14 +15,16 @@ import { ListeGroupeService } from 'src/app/services/mock-groupe-service';
   templateUrl: './fiche-groupe.component.html',
   styleUrl: './fiche-groupe.component.scss'
 })
-export class FicheGroupeComponent implements OnInit{
+export class FicheGroupeComponent implements OnInit {
 
-  personnage!: Personnage;
+  personnage!: PersonnageShort;
   groupe! : Groupe;
-  
+  persoList: PersonnageShort[] =[];
+  isLoading = true;
+
   constructor(
-    private listeGroupeService : ListeGroupeService,
-    private route: ActivatedRoute,
+    private groupeService : GroupeFusionService,
+    private route : ActivatedRoute,
     private router: Router
   ) {}
 
@@ -26,13 +32,29 @@ export class FicheGroupeComponent implements OnInit{
     this.getGroupe();
   }
 
-private getGroupe(){
-  const groupeId = this.route.snapshot.params['id'];
-  this.groupe = this.listeGroupeService.getGroupeById(groupeId);
-}
+  private getGroupe() {
+    const groupeId = this.route.snapshot.params['id'];
 
-  onViewFichePerso(personnage: Personnage) {
+    this.groupeService.getGroupeById(groupeId).subscribe({
+      next: (g: Groupe) => {
+        this.groupe =g;
+        this.isLoading = false;
+      },
+      error: (err) => console.error('Erreur récupération groupe:', err)
+    });
+  }
+    
+  onViewFichePerso(personnage: PersonnageShort) {
     this.router.navigateByUrl(`personnage/${personnage.id}`);
   }
+
+ /** getPersoList(groupe: GroupeAPI) {
+    this.apiGroupeService.getPersoList(groupe).subscribe({
+      next: (persoList) => {
+        this.persoList = persoList;
+      },
+      error: (err) => console.error('Erreur récupération personnages :', err)
+    });
+  }*/ 
 
 }

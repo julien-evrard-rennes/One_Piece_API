@@ -86,7 +86,16 @@
 
     </tbody>
 </table>
+<div class="liste">
+ @for (groupe of groupeList; track groupe.id){
+   <li> new GroupeMock( {{groupe.id}},"{{groupe.name}}",  [
+    @for (personnage of persosParGroupe[groupe.id]; track personnage.id) 
+    {
+        new PersonnageShort({{personnage.id}}, "{{ personnage.name }}"),
+    }
+    ], {{nbMembres[groupe.id]}}), </li>
 
+ }
 </div>
 
 

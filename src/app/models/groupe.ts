@@ -1,6 +1,7 @@
 import { GroupeAPI } from "./groupeApi";
 import { GroupeMock } from "./groupeMock";
 import { Personnage } from "./Personnage";
+import { PersonnageShort } from "./PersonnageShort";
 
 
 export class Groupe {
@@ -16,7 +17,7 @@ export class Groupe {
         total_prime :  string;
         is_yonko : string;
         capitaine! : Personnage;
-        membresListe! : Personnage[];
+        membresListe : PersonnageShort[];
         nbMembres: number;
 
         constructor(
@@ -28,6 +29,7 @@ export class Groupe {
         roman_name : string,
         total_prime :  string,
         is_yonko : string,
+        membresListe : PersonnageShort[],
         nbMembres :number,
       ) {
             this.id = id;
@@ -38,6 +40,7 @@ export class Groupe {
             this.roman_name = roman_name;
             this.total_prime = total_prime;
             this.is_yonko = is_yonko;
+            this.membresListe =membresListe;
             this.nbMembres = nbMembres;
         }
 
@@ -51,9 +54,9 @@ export class Groupe {
       api.roman_name ?? '',
       api.total_prime ?? '',
       api.is_yonko ?? '',
-      mock.nbMembres ?? 0
+      mock.membresListe ?? [],
+      mock.nbMembres ?? 0,
     );
   }
 
-
-    }
+  }
