@@ -49,7 +49,7 @@ export class Groupe {
     static fromApiAndMock(api: GroupeAPI, mock: GroupeMock): Groupe {
     return new Groupe(
       mock.id ?? api.id ?? 0,
-      api.name ?? '',
+      mock.name ?? api.name ?? '',
       api.description ?? '',
       api.status ?? '',
       api.number ?? '',

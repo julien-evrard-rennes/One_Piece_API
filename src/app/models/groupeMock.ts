@@ -12,18 +12,18 @@ export class GroupeMock {
   }
 
   id: number;
-  nom: String;
+  name: string;
   capitaine!: PersonnageShort;
   membresListe: PersonnageShort[];
   nbMembres: number;
 
   constructor(
     id: number,
-    nom: String,
+    name: string,
     membresListe: PersonnageShort[],
     nbMembres: number) {
     this.id = id;
-    this.nom = nom;
+    this.name = name;
     //this.id = crypto.randomUUID().substring(0, 8);
     this.membresListe = membresListe;
     this.nbMembres = nbMembres;
