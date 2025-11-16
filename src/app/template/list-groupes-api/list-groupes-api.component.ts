@@ -1,12 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { forkJoin, map } from 'rxjs';
-import { Groupe } from 'src/app/models/groupe';
 import { GroupeAPI } from 'src/app/models/groupeApi';
+import { GroupeMock } from 'src/app/models/groupeMock';
 import { PersonnageAPI } from 'src/app/models/PersonnageApi';
-import { ApiGroupe } from 'src/app/services/api-groupes';
+import { ApiGroupeService } from 'src/app/services/api-groupes-service';
 import { ApiPerso } from 'src/app/services/api-persos';
-import { ListeGroupeService } from 'src/app/services/liste-groupe-service';
+import { MockGroupeService } from 'src/app/services/mock-groupe-service';
 
 @Component({
   selector: 'app-list-groupes-api',
@@ -19,8 +19,8 @@ export class ListGroupesApiComponent implements OnInit {
 
     groupe! : GroupeAPI;
     groupeList! : GroupeAPI[];
-    groupeMock! : Groupe;
-    groupeMockList! : Groupe[];
+    groupeMock! : GroupeMock;
+    groupeMockList! : GroupeMock[];
     persoList: PersonnageAPI[] =[];
     nbMembres: { [id: number]: number } = {};
     triAscendantNom = true;
@@ -32,9 +32,9 @@ export class ListGroupesApiComponent implements OnInit {
 
     
       constructor(
-        private apiGroupeService: ApiGroupe, 
+        private apiGroupeService: ApiGroupeService, 
         private router: Router,
-        private listeGroupeService: ListeGroupeService,
+        private listeGroupeService: MockGroupeService,
         private listePersoService: ApiPerso,
 
       ) {}

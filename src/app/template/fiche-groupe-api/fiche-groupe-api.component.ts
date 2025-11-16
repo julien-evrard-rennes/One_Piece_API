@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Groupe } from 'src/app/models/groupe';
 import { GroupeAPI } from 'src/app/models/groupeApi';
 import { PersonnageAPI } from 'src/app/models/PersonnageApi';
-import { ApiGroupe } from 'src/app/services/api-groupes';
+import { ApiGroupeService } from 'src/app/services/api-groupes-service';
 
 @Component({
   selector: 'app-fiche-groupe-api',
@@ -14,12 +15,12 @@ import { ApiGroupe } from 'src/app/services/api-groupes';
 export class FicheGroupeApiComponent implements OnInit {
 
   personnage!: PersonnageAPI;
-  groupeAPI! : GroupeAPI;
+  groupeAPI! : Groupe;
   persoList: PersonnageAPI[] =[];
   isLoading = true;
 
   constructor(
-    private apiGroupeService : ApiGroupe,
+    private apiGroupeService : ApiGroupeService,
     private route : ActivatedRoute,
     private router: Router
   ) {}
@@ -33,7 +34,6 @@ export class FicheGroupeApiComponent implements OnInit {
 
     this.apiGroupeService.getGroupeById(groupeId).subscribe({
       next: (g: GroupeAPI) => {
-        this.groupeAPI = g;
         console.log('Groupe récupéré :', this.groupeAPI);
         this.getPersoList(this.groupeAPI);
       },

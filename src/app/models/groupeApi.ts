@@ -1,6 +1,5 @@
 
 import { Observable } from "rxjs/internal/Observable";
-import { ApiGroupe } from "../services/api-groupes";
 import { PersonnageAPI } from "./PersonnageApi";
 
 export class GroupeAPI {

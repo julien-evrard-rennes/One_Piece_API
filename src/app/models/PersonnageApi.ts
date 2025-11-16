@@ -1,3 +1,6 @@
+import { GroupeAPI } from "./groupeApi";
+
+
 
 export class PersonnageAPI {
 id : number;
@@ -27,7 +30,8 @@ filename : string;
 roman_name : string;
 technicalFile : string;
 }
-  groupe: any;
+
+groupe : GroupeAPI;
 
 constructor(
 id : number,
@@ -56,7 +60,8 @@ type : string,
 filename : string,
 roman_name : string,
 technicalFile : string
-}
+},
+groupe :GroupeAPI
 ) {
     this.id = id;
     this.name = name;
@@ -68,6 +73,7 @@ technicalFile : string
     this.status = status;
     this.crew = crew;
     this.fruit = fruit;
+    this.groupe = groupe;
 }
 
 }

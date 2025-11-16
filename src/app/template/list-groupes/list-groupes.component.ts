@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Groupe } from 'src/app/models/groupe';
-import { ListeGroupeService } from 'src/app/services/liste-groupe-service';
+import { ListeGroupeService } from 'src/app/services/mock-groupe-service';
 
 @Component({
   selector: 'app-list-groupes',

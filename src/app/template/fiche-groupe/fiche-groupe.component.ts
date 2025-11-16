@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Groupe } from 'src/app/models/groupe';
-import { Personnage } from 'src/app/models/Personnage';
-import { ListeGroupeService } from 'src/app/services/liste-groupe-service';
+import { Personnage } from 'src/app/models/PersonnageMock';
+import { ListeGroupeService } from 'src/app/services/mock-groupe-service';
 
 @Component({
   selector: 'app-fiche-groupe',

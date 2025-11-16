@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 import { PersonnageAPI } from 'src/app/models/PersonnageApi';
 import { ApiPerso } from 'src/app/services/api-persos';
-import { ListeGroupeService } from 'src/app/services/liste-groupe-service';
+import { MockGroupeService } from 'src/app/services/mock-groupe-service';
 
 @Component({
   selector: 'app-fiche-personnage-api',
@@ -18,7 +18,7 @@ export class FichePersonnageApiComponent {
 
   constructor(
     private apiPersonnagesService: ApiPerso,
-    private listeGroupeService: ListeGroupeService,
+    private listeGroupeService: MockGroupeService,
     private route: ActivatedRoute,
     private router: Router
   ) {}

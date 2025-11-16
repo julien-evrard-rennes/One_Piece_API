@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Groupe } from 'src/app/models/groupe';
-import { Personnage } from 'src/app/models/Personnage';
-import { ListeGroupeService } from 'src/app/services/liste-groupe-service';
-import { ListePersoService } from 'src/app/services/liste-perso-service';
+import { PersonnageMock } from 'src/app/models/PersonnageMock';
+import { MockGroupeService } from 'src/app/services/mock-groupe-service';
+import { ListePersoService } from 'src/app/services/mock-perso-service';
 
 @Component({
   selector: 'app-fiche-personnage',
@@ -14,13 +14,13 @@ import { ListePersoService } from 'src/app/services/liste-perso-service';
 })
 export class FichePersonnageComponent implements OnInit {
 
-  personnage!: Personnage;
+  personnage!: PersonnageMock;
   likeButtonText!: string;
   userHasLiked!: boolean;
 
   constructor(
     private listePersonnagesService: ListePersoService,
-    private listeGroupeService: ListeGroupeService,
+    private listeGroupeService: MockGroupeService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -45,7 +45,7 @@ export class FichePersonnageComponent implements OnInit {
     this.router.navigateByUrl(`groupe/${idNum}`);
   }
 
-  onAddLike(personnage: Personnage): void {
+  onAddLike(personnage: PersonnageMock): void {
     if (!personnage) {
       console.error('personnage undefined !');
       return;
@@ -58,13 +58,13 @@ export class FichePersonnageComponent implements OnInit {
     }
   }
 
-  like(personnage: Personnage) {
+  like(personnage: PersonnageMock) {
     this.listePersonnagesService.LikeById(personnage.id, 'unlike');
     personnage.userHasLiked = true;
     personnage.likeButtonText = 'Enlever un like !';
   }
 
-  unLike(personnage: Personnage) {
+  unLike(personnage: PersonnageMock) {
     this.listePersonnagesService.LikeById(personnage.id, 'like');
     personnage.userHasLiked = false;
     personnage.likeButtonText = 'Ajouter un like !';

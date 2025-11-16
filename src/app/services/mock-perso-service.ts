@@ -1,5 +1,5 @@
 import { Component, Injectable } from '@angular/core';
-import { Personnage } from 'src/app/models/Personnage';
+import { PersonnageMock } from 'src/app/models/PersonnageMock';
 import { LikeType } from '../models/like-type.type';
 import { Groupe } from '../models/groupe';
 
@@ -10,8 +10,8 @@ export class ListePersoService {
 
   groupe! : Groupe;
 
-    persoList: Personnage[] = [
-new Personnage(1,
+    persoList: PersonnageMock[] = [
+new PersonnageMock(1,
     'Luffy','Monkey','au chapeau de paille',
     'D',
     'H',
@@ -19,7 +19,7 @@ new Personnage(1,
     3000000000,
     ['l\'équipage du chapeau de paille', 'la pire génération', 'l\'organisation des Empereurs']
     ).withImage('https://thispersondoesnotexist.com/'),
-    new Personnage(2,
+    new PersonnageMock(2,
     'Nami','','la voleuse',
     '',
     'F',
@@ -27,7 +27,7 @@ new Personnage(1,
     366000000,
     ['l\'équipage du chapeau de paille']
     ),
-    new Personnage(3,
+    new PersonnageMock(3,
     'Chopper','Toni Toni','le renne au nez bleu',
     '',
     'H',
@@ -37,11 +37,11 @@ new Personnage(1,
     )
   ];
   
-  getPersoList(): Personnage[] {
+  getPersoList(): PersonnageMock[] {
     return [...this.persoList];
   }
 
-  getPersonnageById(persoId: number): Personnage {
+  getPersonnageById(persoId: number): PersonnageMock{
     const idNum = Number(persoId);
     const foundPerso = this.persoList.find(Personnage => Personnage.id === idNum);
     if (!foundPerso) {

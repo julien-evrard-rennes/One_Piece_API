@@ -7,70 +7,93 @@ import { LikeType } from "./like-type.type";
 
         id : number;
         nom : string;
+        prenom : string;
         surnom : string;
         particule : string;
-        sexe : string;
+        sexe! : string;
         age : number;
-        prime : number;
         groupes : string[];
 
-        likes!: number;
         imageUrl?: string;
-        likeButtonText!:string;
-        userHasLiked!:boolean;
+
+        job : string;
+        size: string;
+        birthday : string;
+        bounty : string;
+        status : string;
+        crew : {
+        id : number;
+        name : string;
+        description: string;
+        status : string;
+        number: string;
+        roman_name : string;
+        total_prime :  string;
+        is_yonko : string;
+        };
+        fruit : {
+        id : number;
+        name : string;
+        description : string;
+        type : string;
+        filename : string;
+        roman_name : string;
+        technicalFile : string;
+        }
+        groupe: any;
 
         constructor(
         id : number,
-        public prenom : string,
+        prenom : string,
         nom : string,
         surnom : string,
         particule : string,
-        sexe : string,
-        age : number,
-        prime : number,
         groupes : string[],
+        job : string,
+        size: string,
+        birthday : string,
+        age : number,
+        bounty : string,
+        status : string,
+        crew : {
+        id : number,
+        name : string,
+        description: string,
+        status : string,
+        number: string,
+        roman_name : string,
+        total_prime :  string,
+        is_yonko : string,
+        },
+        fruit : {
+        id : number,
+        name : string,
+        description : string,
+        type : string,
+        filename : string,
+        roman_name : string,
+        technicalFile : string
+        }
+
       ) {
             this.id = id;
             //this.id = crypto.randomUUID().substring(0, 8);
             this.nom = nom;
+            this.prenom = prenom;
             this.surnom = surnom;
             this.particule = particule;
-            this.sexe = sexe;
             this.age = age;
-            this.prime = prime;
             this.groupes = groupes;
-            console.log(this);
+            this.job = job;
+            this.size = size;
+            this.birthday = birthday;
+            this.age = age;
+            this.bounty = bounty;
+            this.status = status;
+            this.crew = crew;
+            this.fruit = fruit;
+                console.log(this);
         }
 
-  like(likeType: LikeType) {
-    if (likeType === 'like') {
-      this.addLike();
-    } else if (likeType === 'unlike') {
-      this.removeLike();
-    }
-}
-
-  addLike(): void{
-      this.likes++;
-      }
-
-  removeLike(): void{
-      this.likes--;
-      }
-
-
-  setLike(likes: number): void {
-    this.likes = likes;
-  }
-
-  setImage(imageUrl: string): void {
-    this.imageUrl = imageUrl;
-  }
-
-    withImage(imageUrl: string): Personnage {
-    this.setImage(imageUrl);
-    return this;
-}
- 
     }
 

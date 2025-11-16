@@ -12,7 +12,10 @@ import { of } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiGroupe {
+export class ApiGroupeService {
+  subscribe(arg0: { next: (g: GroupeAPI) => void; }): GroupeAPI {
+    throw new Error("Method not implemented.");
+  }
   private readonly http: HttpClient = inject(HttpClient);
   private readonly listePersoService = inject(ApiPerso);
 
