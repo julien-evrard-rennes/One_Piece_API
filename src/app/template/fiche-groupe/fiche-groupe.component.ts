@@ -38,6 +38,7 @@ export class FicheGroupeComponent implements OnInit {
     this.groupeService.getGroupeById(groupeId).subscribe({
       next: (g: Groupe) => {
         this.groupe =g;
+        console.table(g);
         this.isLoading = false;
       },
       error: (err) => console.error('Erreur récupération groupe:', err)

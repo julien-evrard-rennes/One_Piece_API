@@ -26,11 +26,16 @@
                 <tr>{{groupe.total_prime}} </tr>
             </li>
 
+            <tr>@if (groupe.capitaine.id != 0) {
             <li>
-                <label><b>Le capitaine est-il un empereur ? </b></label>
-                <tr>@if (groupe.is_yonko) {Oui} 
-                    @else {Non} </tr>
+                <label><b>Capitaine : </b></label>
+                <tr>  <a (click)="onViewFichePerso(groupe.capitaine)">
+                      <li> {{groupe.capitaine.nom}}
+                      </li>
+                    </a> @if (groupe.is_yonko) {<b>Empereur</b>}</tr>
+                <tr> </tr>
             </li>
+        }
 
             <li>
                 <label><b>Nombre de membres (théorique) : </b></label>
