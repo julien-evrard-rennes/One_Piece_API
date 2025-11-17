@@ -15,17 +15,14 @@ export class GroupeMock {
   name: string;
   capitaine!: PersonnageShort;
   membresListe: PersonnageShort[];
-  nbMembres: number;
 
   constructor(
     id: number,
     name: string,
-    membresListe: PersonnageShort[],
-    nbMembres: number) {
+    membresListe: PersonnageShort[],) {
     this.id = id;
     this.name = name;
     //this.id = crypto.randomUUID().substring(0, 8);
     this.membresListe = membresListe;
-    this.nbMembres = nbMembres;
   }
 }

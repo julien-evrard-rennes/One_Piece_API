@@ -18,7 +18,6 @@ export class Groupe {
         is_yonko : string;
         capitaine! : PersonnageShort;
         membresListe : PersonnageShort[];
-        nbMembres: number;
 
         constructor(
         id : number,
@@ -31,7 +30,6 @@ export class Groupe {
         is_yonko : string,
         capitaine : PersonnageShort,
         membresListe : PersonnageShort[],
-        nbMembres :number,
       ) {
             this.id = id;
             this.name = name;
@@ -43,7 +41,6 @@ export class Groupe {
             this.is_yonko = is_yonko;
             this.capitaine = capitaine;
             this.membresListe =membresListe;
-            this.nbMembres = nbMembres;
         }
 
     static fromApiAndMock(api: GroupeAPI, mock: GroupeMock): Groupe {
@@ -58,7 +55,6 @@ export class Groupe {
       api.is_yonko ?? '',
       mock.capitaine ?? new PersonnageShort(0, ''),
       mock.membresListe ?? [],
-      mock.nbMembres ?? 0,
     );
   }
 
