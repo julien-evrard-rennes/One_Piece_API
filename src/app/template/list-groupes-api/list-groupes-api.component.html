@@ -71,7 +71,7 @@
                 @if (groupe.number) { {{groupe.number}} }
                 @else {inconnu }
             </td>
-            <td>{{nbMembres[groupe.id] }}</td>
+            <td>{{persosParGroupe[groupe.id].length}}</td>
             <td>@if (groupe.status =="arr�t�") 
                 { arrêté }
             @else { {{groupe.status}} }</td>
@@ -93,7 +93,7 @@
     {
         new PersonnageShort({{personnage.id}}, "{{ personnage.name }}"),
     }
-    ], {{nbMembres[groupe.id]}}), </li>
+    ], {{persosParGroupe[groupe.id].length}}), </li>
 
  }
 </div>

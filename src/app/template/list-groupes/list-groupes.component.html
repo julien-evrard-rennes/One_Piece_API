@@ -71,7 +71,7 @@
                 @if (groupe.number) { {{groupe.number}} }
                 @else {inconnu }
             </td>
-            <td>{{groupe.nbMembres }}</td>
+            <td>{{groupe.membresListe.length }}</td>
             <td>@if (groupe.status =="arr�t�") 
                 { arrêté }
             @else { {{groupe.status}} }</td>
