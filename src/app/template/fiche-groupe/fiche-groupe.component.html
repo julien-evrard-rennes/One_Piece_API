@@ -28,8 +28,8 @@
 
             <tr>@if (groupe.capitaine.id != 0) {
             <li>
-                <label><b>Capitaine : </b></label>
-                <tr>  <a (click)="onViewFichePerso(groupe.capitaine)">
+                <label><b>Capitaine ou Chef : </b></label>
+                <tr class="listePerso">  <a (click)="onViewFichePerso(groupe.capitaine)">
                       <li> {{groupe.capitaine.nom}}
                       </li>
                     </a> @if (groupe.is_yonko) {<b>Empereur</b>}</tr>

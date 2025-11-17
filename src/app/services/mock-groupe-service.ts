@@ -32,8 +32,12 @@ export class MockGroupeService {
             new PersonnageShort(93, "Hongo"),
             new PersonnageShort(94, "Howling Dab"),
             new PersonnageShort(95, "Rockstar"),], 11).withCapitaine(new PersonnageShort(85, "Shanks")),
-        new GroupeMock(3, "L’équipage d’Alvida", [], 0).withCapitaine(new PersonnageShort(33, "Alvida")),
-        new GroupeMock(4, "L’équipage du Clown", [], 1).withCapitaine(new PersonnageShort(32, "Baggy / Le Clown")),
+        new GroupeMock(3, "L’équipage d’Alvida", [
+            new PersonnageShort(33, "Alvida")
+        ], 1).withCapitaine(new PersonnageShort(33, "Alvida")),
+        new GroupeMock(4, "L’équipage du Clown", [
+            new PersonnageShort(32, "Baggy / Le Clown")
+        ], 1).withCapitaine(new PersonnageShort(32, "Baggy / Le Clown")),
         new GroupeMock(5, "L’équipage des Pirates Roger",
             [new PersonnageShort(258, "Gol D. Roger"),
             new PersonnageShort(259, "Silvers Rayleigh"),
@@ -60,9 +64,14 @@ export class MockGroupeService {
               new PersonnageShort(280, "Jacsonbaner"), 
               new PersonnageShort(281, "Yamon"),], 
               24).withCapitaine(new PersonnageShort(258, "Gol D. Roger")),
-        new GroupeMock(6, "L’équipage du Capitaine Usopp", [], 
-            1).withCapitaine(new PersonnageShort(4, "Usopp")),
-        new GroupeMock(7, "L’équipage du Chat Noir", [new PersonnageShort(37, "Kuro"), new PersonnageShort(38, "Sham"), new PersonnageShort(39, "Buchi"),], 3),
+        new GroupeMock(6, "L’équipage du Capitaine Usopp", [
+            new PersonnageShort(4, "Usopp")
+        ],  1).withCapitaine(new PersonnageShort(4, "Usopp")),
+        new GroupeMock(7, "L’équipage du Chat Noir", [
+            new PersonnageShort(37, "Kuro"), 
+            new PersonnageShort(38, "Sham"), 
+            new PersonnageShort(39, "Buchi"),
+        ], 3).withCapitaine(new PersonnageShort(37, "Kuro")),
         new GroupeMock(8, "L’armada Pirate de Don Krieg", [
             new PersonnageShort(40, "Krieg / Don Krieg"), 
             new PersonnageShort(41, "Gyn"), 
@@ -75,7 +84,11 @@ export class MockGroupeService {
             new PersonnageShort(284, "Smack"),], 
         3).withCapitaine(new PersonnageShort(282, "Arlong")),
         new GroupeMock(11, "L’équipage des Pirates Yes", [], 0),
-        new GroupeMock(12, "L’équipage du Rumbar", [new PersonnageShort(285, "Yorki"), new PersonnageShort(286, "Madaisky Mizuta"), new PersonnageShort(287, "Mawaritovsky Mizuta"),], 3),
+        new GroupeMock(12, "L’équipage du Rumbar", [
+            new PersonnageShort(285, "Yorki"), 
+            new PersonnageShort(286, "Madaisky Mizuta"), 
+            new PersonnageShort(287, "Mawaritovsky Mizuta"),
+        ], 3).withCapitaine(new PersonnageShort(285, "Yorki")),
         new GroupeMock(13, "L’équipage des Géants", [], 0),
         new GroupeMock(14, "L’équipage du Bliking", [], 0),
         new GroupeMock(15, "L’équipage des Tulipes", [], 0),
@@ -197,7 +210,9 @@ export class MockGroupeService {
             new PersonnageShort(51, "Absalom"), 
             new PersonnageShort(52, "Perona"),], 
             4).withCapitaine(new PersonnageShort(49, "Gecko Moria")),
-        new GroupeMock(29, "L’équipage du Rolling", [new PersonnageShort(53, "Laura"),], 1),
+        new GroupeMock(29, "L’équipage du Rolling", [
+            new PersonnageShort(53, "Laura"),
+        ], 1).withCapitaine(new PersonnageShort(53, "Laura")),
         new GroupeMock(30, "L’équipage des Marquereaux", [], 0),
         new GroupeMock(31, "L’équipage des Candys", [], 0),
         new GroupeMock(32, "L’équipage du Hearth", [
@@ -434,14 +449,23 @@ export class MockGroupeService {
             91).withCapitaine(new PersonnageShort(96, "Charlotte Linlin / Big Mom")),
         new GroupeMock(54, "L’équipage d’Expédition", [], 0),
         new GroupeMock(55, "L’équipage des Magnifiques Pirates", [], 0),
-        new GroupeMock(56, "L’équipage de Bartolomeo", [], 0),
-        new GroupeMock(57, "Flotte Yonta Maria", [new PersonnageShort(754, "Orlombus"),], 1),
+        new GroupeMock(56, "L’équipage de Bartolomeo", [
+            new PersonnageShort(14, "Bartolomeo")
+        ], 0).withCapitaine(new PersonnageShort(14, "Bartolomeo")),
+        new GroupeMock(57, "Flotte Yonta Maria", [
+            new PersonnageShort(754, "Orlombus"),
+        ], 1).withCapitaine(new PersonnageShort(754, "Orlombus")),
         new GroupeMock(58, "L’équipage du Croissant de Lune", [], 0),
         new GroupeMock(59, "L’équipage de Diez Barrels", [], 0),
         new GroupeMock(60, "XXX Gym Martial Arts Alliances", [], 0),
         new GroupeMock(61, "Nouvel Equipage des Géants", [], 0),
         new GroupeMock(62, "L’équipage de Rocks", [
-            new PersonnageShort(379, "Rocks D. Xebec"),], 
+            new PersonnageShort(379, "Rocks D. Xebec"),
+            new PersonnageShort(96, "Charlotte Linlin / Big Mom"),
+            new PersonnageShort(74, "Shiki"),
+            new PersonnageShort(187, "Kaido"),
+            new PersonnageShort(289, "Edward Newgate / Barbe Blanche"), 
+            ], 
             1).withCapitaine(new PersonnageShort(379, "Rocks D. Xebec")),
         new GroupeMock(63, "l’équipage de Ganzack", [], 0),
         new GroupeMock(64, "L’équipage Amigo", [], 0),
@@ -532,7 +556,10 @@ export class MockGroupeService {
         new GroupeMock(84, "Bigaro", [], 0),
         new GroupeMock(85, "L'Équipage de Mad Treasure", [], 0),
         new GroupeMock(86, "Royaume de Tontatta", [], 0),
-        new GroupeMock(87, "Armada du Chapeau de Paille", [new PersonnageShort(12, "Cavendish"), new PersonnageShort(13, "Suleiman"), new PersonnageShort(14, "Bartolomeo"), new PersonnageShort(15, "Gambia"), new PersonnageShort(16, "Sai"), new PersonnageShort(17, "Boo"), new PersonnageShort(18, "Baby 5"), new PersonnageShort(19, "Ideo"), new PersonnageShort(20, "Blue Gilly"), new PersonnageShort(21, "Abdullah"), new PersonnageShort(22, "Jeet"), new PersonnageShort(23, "Léo"), new PersonnageShort(24, "Kabu"), new PersonnageShort(25, "Bee Anne"), new PersonnageShort(26, "Hajrudin"), new PersonnageShort(27, "Stansen"), new PersonnageShort(28, "Road"), new PersonnageShort(29, "Goldberg"), new PersonnageShort(30, "Gerd"), new PersonnageShort(31, "Orlumbus"),], 20),
+        new GroupeMock(87, "Armada du Chapeau de Paille", [
+            new PersonnageShort(12, "Cavendish"), 
+            new PersonnageShort(13, "Suleiman"), 
+            new PersonnageShort(14, "Bartolomeo"), new PersonnageShort(15, "Gambia"), new PersonnageShort(16, "Sai"), new PersonnageShort(17, "Boo"), new PersonnageShort(18, "Baby 5"), new PersonnageShort(19, "Ideo"), new PersonnageShort(20, "Blue Gilly"), new PersonnageShort(21, "Abdullah"), new PersonnageShort(22, "Jeet"), new PersonnageShort(23, "Léo"), new PersonnageShort(24, "Kabu"), new PersonnageShort(25, "Bee Anne"), new PersonnageShort(26, "Hajrudin"), new PersonnageShort(27, "Stansen"), new PersonnageShort(28, "Road"), new PersonnageShort(29, "Goldberg"), new PersonnageShort(30, "Gerd"), new PersonnageShort(31, "Orlumbus"),], 20),
         new GroupeMock(88, "Baggy's Delivery", [
             new PersonnageShort(32, "Baggy / Le Clown"), 
             new PersonnageShort(33, "Alvida"), 
