@@ -32,8 +32,9 @@
                 <tr class="listePerso">  <a (click)="onViewFichePerso(groupe.capitaine)">
                       <li> {{groupe.capitaine.nom}}
                       </li>
-                    </a> @if (groupe.is_yonko) {<b>Empereur</b>}</tr>
-                <tr> </tr>
+                    </a></tr>
+                     @if (groupe.is_yonko) {<b>Empereur</b>}
+
             </li>
         }
 
