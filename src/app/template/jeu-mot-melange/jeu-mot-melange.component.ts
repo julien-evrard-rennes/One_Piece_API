@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PersonnageAPI } from 'src/app/models/PersonnageApi';
 import { ApiPersoService } from 'src/app/services/api-persos-service';
@@ -11,7 +11,7 @@ import { JeuService } from 'src/app/services/jeu-service';
   templateUrl: './jeu-mot-melange.component.html',
   styleUrl: './jeu-mot-melange.component.scss'
 })
-export class JeuMotMelangeComponent {
+export class JeuMotMelangeComponent implements OnInit {
 
   personnage!: PersonnageAPI;
 

@@ -32,6 +32,7 @@ tiragePerso() : PersonnageAPI {
       },
       error: (err) => console.error('Erreur récupération personnage:', err)
     });
+    console.table(this.personnage);
     return this.personnage;
 }
 

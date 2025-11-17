@@ -6,7 +6,7 @@ import { Personnage } from 'src/app/models/Personnage';
 import { PersonnageAPI } from 'src/app/models/PersonnageApi';
 import { PersonnageShort } from 'src/app/models/PersonnageShort';
 import { ApiGroupeService } from 'src/app/services/api-groupes-service';
-import { GroupeFusionService } from 'src/app/services/fusion-groupe-service';
+import { FusionGroupeService } from 'src/app/services/fusion-groupe-service';
 
 @Component({
   selector: 'app-fiche-groupe',
@@ -23,7 +23,7 @@ export class FicheGroupeComponent implements OnInit {
   isLoading = true;
 
   constructor(
-    private groupeService : GroupeFusionService,
+    private groupeService : FusionGroupeService,
     private route : ActivatedRoute,
     private router: Router
   ) {}

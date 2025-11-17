@@ -6,7 +6,7 @@ import { Groupe } from '../models/groupe';
 @Injectable({
   providedIn: 'root'
 })
-export class ListePersoService {
+export class MockPersoService {
 
   groupe! : Groupe;
 

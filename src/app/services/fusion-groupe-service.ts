@@ -3,16 +3,15 @@ import { ApiGroupeService } from "./api-groupes-service";
 import { MockGroupeService } from "./mock-groupe-service";
 import { Injectable } from "@angular/core";
 import { Groupe } from "../models/groupe";
-import { ApiPersoService } from "./api-persos-service";
+
 
 
 @Injectable({ providedIn: 'root' })
-export class GroupeFusionService {
+export class FusionGroupeService {
 
   constructor(
     private apiGroupeService: ApiGroupeService,
     private mockService: MockGroupeService,
-    private apiPerso: ApiPersoService
   ) {}
 
 getGroupeList(): Observable<Groupe[]> {

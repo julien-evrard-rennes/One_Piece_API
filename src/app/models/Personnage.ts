@@ -1,6 +1,8 @@
 
 import { Groupe } from "./groupe";
 import { LikeType } from "./like-type.type";
+import { PersonnageAPI } from "./PersonnageApi";
+import { PersonnageMock } from "./PersonnageMock";
 
     
     export class Personnage {
@@ -82,7 +84,6 @@ import { LikeType } from "./like-type.type";
             this.prenom = prenom;
             this.surnom = surnom;
             this.particule = particule;
-            this.age = age;
             this.groupes = groupes;
             this.job = job;
             this.size = size;
@@ -92,8 +93,28 @@ import { LikeType } from "./like-type.type";
             this.status = status;
             this.crew = crew;
             this.fruit = fruit;
-                console.log(this);
+                console.log("Personnage : " + this);
         }
+
+           static fromApiAndMock(api: PersonnageAPI, mock: PersonnageMock): Personnage {
+            return new Personnage(
+            mock.id ?? api.id ?? 0,
+            api.name ?? '',
+             '',
+             '',
+             '',
+             [],
+            api.job ?? '',
+            api.size ?? '',
+            api.birthday ?? '',
+            api.age ?? '',
+            api.bounty ?? '',
+            api.status ?? '',
+            api.crew ?? '',
+            api.fruit ?? '',
+            );
+          }
+        
 
     }
 

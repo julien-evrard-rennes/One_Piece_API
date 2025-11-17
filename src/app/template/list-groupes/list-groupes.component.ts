@@ -7,7 +7,7 @@ import { GroupeMock } from 'src/app/models/groupeMock';
 import { PersonnageAPI } from 'src/app/models/PersonnageApi';
 import { ApiGroupeService } from 'src/app/services/api-groupes-service';
 import { ApiPersoService } from 'src/app/services/api-persos-service';
-import { GroupeFusionService } from 'src/app/services/fusion-groupe-service';
+import { FusionGroupeService} from 'src/app/services/fusion-groupe-service';
 import { MockGroupeService } from 'src/app/services/mock-groupe-service';
 
 @Component({
@@ -31,7 +31,7 @@ export class ListeGroupesComponent implements OnInit {
 
   constructor(
     private apiGroupeService: ApiGroupeService,
-    private fusionGroupeService: GroupeFusionService,
+    private fusionGroupeService: FusionGroupeService,
     private router: Router,
     private listeGroupeService: MockGroupeService,
     private listePersoService: ApiPersoService,
@@ -81,8 +81,8 @@ export class ListeGroupesComponent implements OnInit {
 
   onTrierParMembresReels() {
     this.groupeList.sort((a, b) => {
-      const nbA = a.nbMembres ?? 0;
-      const nbB = b.nbMembres ?? 0;
+      const nbA = a.membresListe.length ?? 0;
+      const nbB = b.membresListe.length ?? 0;
       return this.triAscendantReel ? nbA - nbB : nbB - nbA;
     });
     this.triAscendantReel = !this.triAscendantReel;
