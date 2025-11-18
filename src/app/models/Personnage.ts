@@ -98,7 +98,7 @@ import { PersonnageMock } from "./PersonnageMock";
 
            static fromApiAndMock(api: PersonnageAPI, mock: PersonnageMock): Personnage {
             return new Personnage(
-            mock.id ?? api.id ?? 0,
+            api.id ?? mock.id ?? 0,
             api.name ?? '',
              '',
              '',

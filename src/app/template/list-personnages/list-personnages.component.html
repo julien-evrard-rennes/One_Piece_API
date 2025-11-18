@@ -1,0 +1,76 @@
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom
+                <div class="button" (click)="onTrierParNom()"> TRIER @if (triAscendantNom) {
+                    <span>⬇</span>
+                    } @else {
+                    <span>⬆</span>
+                    }
+                </div>
+            </th>
+            <th>Age
+                <div class="button" (click)="onTrierParAge()"> TRIER @if (triAscendantAge) {
+                    <span>⬇</span>
+                    } @else {
+                    <span>⬆</span>
+                    }
+                </div>
+            </th>
+            <th>Équipage
+                <div class="button" (click)="onTrierParEquipage()"> TRIER @if (triAscendantEquipage) {
+                    <span>⬇</span>
+                    } @else {
+                    <span>⬆</span>
+                    }
+                </div>
+            </th>
+            <th>Status
+                <div class="button" (click)="onTrierParStatus()"> TRIER @if (triAscendantStatus) {
+                    <span>⬇</span>
+                    } @else {
+                    <span>⬆</span>
+                    }
+                </div>
+            </th>
+            <th>Prime
+                <div class="button" (click)="onTrierParPrime()"> TRIER @if (triAscendantPrime) {
+                    <span>⬇</span>
+                    } @else {
+                    <span>⬆</span>
+                    }
+                </div>
+            </th>
+            <th>Détails</th>
+        </tr>
+    </thead>
+    @if (isLoading) {
+    <th colspan="7" class="container-spin">
+        <div class="spinner"></div>
+        <tr colspan="7">Chargement des personnages...</tr>
+    </th>
+    }
+    <tbody>
+        @for (personnage of persoList; track personnage.id){
+
+        <tr>
+            <td>{{personnage.id}} </td>
+            <td>{{personnage.nom}} </td>
+            <td>@if (personnage.age) { {{personnage.age}} } @else { age inconnu } </td>
+            <td>@if (personnage.crew) {
+                @if (personnage.crew.name == "Armarda du Chapeau de Paille") {
+                Armada du Chapeau de Paille
+                }
+                @else {
+                {{personnage.crew.name}}
+                }
+                } </td>
+            <td>@if (personnage.status) { {{personnage.status}} } @else { ---- } </td>
+            <td>@if (personnage.bounty) { {{personnage.bounty}} } @else { ---- } </td>
+            <td><button (click)="onViewFichePerso(personnage)">Détails</button></td>
+        </tr>
+        }
+    </tbody>
+</table>
+

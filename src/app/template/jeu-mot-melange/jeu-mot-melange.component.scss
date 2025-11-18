@@ -1,0 +1,70 @@
+table.tirage tr {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: space-around;
+    justify-content: space-around;
+    align-items: center;
+}
+
+table.tirage th {
+    padding: 5px;
+    margin: 15px;
+    background-color: #cae1fd;
+    color: #211111;
+    font-size: xx-large;
+    border: 2px solid #8084a1;
+    border-radius: 15%;
+    display: flex;
+    justify-content: center;
+}
+
+table.tirage tr:hover {
+    background-color: transparent;
+}
+
+table.tirage th.interclasse {
+    border: none;
+    background-color: #ffffff;
+    color: #b33939;
+}
+
+div.reponse {
+    /* background-color: #f0f8ffc2; */
+    padding: 15px;
+    margin: 10px;
+    font-size: x-large;
+    display: flex;
+    justify-content: space-around;
+}
+
+div.reponse form {
+    background-color: transparent;
+}
+
+div.reponse button {
+    margin-top: 8px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    padding: 8px 8px;
+    background: #060459;
+    border: none;
+    color: #f2f2f2;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+}
+
+div.reponse button a {
+    color: white;
+    text-decoration: none;
+}
+
+div.reponse button:hover {
+    background-color: #5d85ec;
+    cursor: pointer;
+}
+
+div.reponse div {
+    display: flex;
+    justify-content: space-around;
+}

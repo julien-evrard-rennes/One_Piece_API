@@ -8,6 +8,7 @@ import { JeuMotMelangeComponent } from './template/jeu-mot-melange/jeu-mot-melan
 import { ListeGroupesComponent } from './template/list-groupes/list-groupes.component';
 import { ListGroupesApiComponent } from './template/list-groupes-api/list-groupes-api.component';
 import { FicheGroupeComponent } from './template/fiche-groupe/fiche-groupe.component';
+import { ListPersonnagesComponent } from './template/list-personnages/list-personnages.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'groupe/:id', component: FicheGroupeComponent },
   { path: '', component: LandingPageComponent },
    { path: 'jeu', component: JeuMotMelangeComponent},
-   { path: 'listePersonnages', component: ListPersonnagesApiComponent },
+   { path: 'listePersonnages', component: ListPersonnagesComponent },
+  { path: 'listePersonnagesApi', component: ListPersonnagesApiComponent },
    { path: 'listeGroupes', component: ListeGroupesComponent },
 
 ];
