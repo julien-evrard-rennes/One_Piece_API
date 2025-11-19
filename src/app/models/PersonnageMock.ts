@@ -10,15 +10,11 @@ import { LikeType } from "./like-type.type";
         prenom : string;
         surnom : string;
         particule : string;
-        sexe : string;
-        age : number;
         prime : string;
         groupes : string[];
 
-        likes!: number;
         imageUrl?: string;
-        likeButtonText!:string;
-        userHasLiked!:boolean;
+        is_yonko?: string;
 
         constructor(
         id : number,
@@ -26,8 +22,6 @@ import { LikeType } from "./like-type.type";
         nom : string,
         surnom : string,
         particule : string,
-        sexe : string,
-        age : number,
         prime : string,
         groupes : string[],
       ) {
@@ -37,42 +31,28 @@ import { LikeType } from "./like-type.type";
             this.prenom = prenom;
             this.surnom = surnom;
             this.particule = particule;
-            this.sexe = sexe;
-            this.age = age;
             this.prime = prime;
             this.groupes = groupes;
             console.log(this);
         }
 
-  like(likeType: LikeType) {
-    if (likeType === 'like') {
-      this.addLike();
-    } else if (likeType === 'unlike') {
-      this.removeLike();
+    setYonko(is_yonko: string): void {
+      this.is_yonko = is_yonko;
     }
-}
 
-  addLike(): void{
-      this.likes++;
-      }
+    withYonko(is_yonko: string): PersonnageMock {
+        this.setYonko(is_yonko);
+        return this;
+    }
 
-  removeLike(): void{
-      this.likes--;
-      }
-
-
-  setLike(likes: number): void {
-    this.likes = likes;
-  }
-
-  setImage(imageUrl: string): void {
-    this.imageUrl = imageUrl;
-  }
+    setImage(imageUrl: string): void {
+      this.imageUrl = imageUrl;
+    }
 
     withImage(imageUrl: string): PersonnageMock {
-    this.setImage(imageUrl);
-    return this;
-}
- 
+      this.setImage(imageUrl);
+      return this;
+  }
+  
     }
 

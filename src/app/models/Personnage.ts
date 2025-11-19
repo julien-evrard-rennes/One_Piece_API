@@ -16,9 +16,7 @@ import { PersonnageMock } from "./PersonnageMock";
         sexe! : string;
         age : number;
         groupes : string[];
-
         imageUrl?: string;
-
         job : string;
         size: string;
         birthday : string;
@@ -107,7 +105,7 @@ import { PersonnageMock } from "./PersonnageMock";
             mock?.prenom ?? api.name?.split(" ")[0] ?? "",
             mock?.surnom ?? '',
             mock?.particule ?? '',
-            [],
+            mock?.groupes ?? [],
             api.job ?? '',
             api.size ?? '',
             api.birthday ?? '',

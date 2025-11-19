@@ -14,27 +14,29 @@ export class MockPersoService {
 new PersonnageMock(1,
     'Monkey','Luffy','au chapeau de paille',
     'D',
-    'H',
-    19,
     "3.000.000.000",
     ['l\'équipage du chapeau de paille', 'la pire génération', 'l\'organisation des Empereurs']
-    ).withImage('https://thispersondoesnotexist.com/'),
+    ).withImage('https://thispersondoesnotexist.com/')
+    .withYonko("true"),
     new PersonnageMock(3,
     '','Nami','la voleuse',
     '',
-    'F',
-    20,
     "66.000.000",
     ['l\'équipage du chapeau de paille']
     ),
     new PersonnageMock(6,
     'Tony-Tony','Chopper','le renne au nez bleu',
     '',
-    'H',
-    17,
     "100",
     ['l\'équipage du chapeau de paille']
-    )
+    ),
+    new PersonnageMock(32,
+    '','Baggy','Le Clown',
+    '',
+    "3.189.000.000",
+    ['Baggy\'s Delivery', 'L’équipage du Clown', 'l\'organisation des Empereurs']
+    ).withYonko("true"),
+
   ];
   
   getPersoList(): PersonnageMock[] {
