@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Groupe } from 'src/app/models/groupe';
-import { PersonnageMock } from 'src/app/models/PersonnageMock';
+import { Personnage } from 'src/app/models/Personnage';
+import { FusionPersonnageService } from 'src/app/services/fusion-personnage-service';
 import { MockGroupeService } from 'src/app/services/mock-groupe-service';
-import { ListePersoService } from 'src/app/services/mock-perso-service';
+
 
 @Component({
   selector: 'app-fiche-personnage',
@@ -14,12 +15,12 @@ import { ListePersoService } from 'src/app/services/mock-perso-service';
 })
 export class FichePersonnageComponent implements OnInit {
 
-  personnage!: PersonnageMock;
+  personnage!: Personnage;
   likeButtonText!: string;
   userHasLiked!: boolean;
 
   constructor(
-    private listePersonnagesService: ListePersoService,
+    private listePersonnagesService: FusionPersonnageService,
     private listeGroupeService: MockGroupeService,
     private route: ActivatedRoute,
     private router: Router
@@ -36,7 +37,13 @@ export class FichePersonnageComponent implements OnInit {
 
   private getPersonnage() {
     const persoId = this.route.snapshot.params['id'];
-    this.personnage = this.listePersonnagesService.getPersonnageById(persoId);
+    this.listePersonnagesService.getPersonnageById(persoId).subscribe({
+      next: (p: Personnage) => {
+        this.personnage =p;
+        console.table(p);
+      },
+      error: (err) => console.error('Erreur récupération groupe:', err)
+    });
   }
 
     onViewFicheGroupe(nom: String) {
@@ -45,30 +52,7 @@ export class FichePersonnageComponent implements OnInit {
     this.router.navigateByUrl(`groupe/${idNum}`);
   }
 
-  onAddLike(personnage: PersonnageMock): void {
-    if (!personnage) {
-      console.error('personnage undefined !');
-      return;
-    }
 
-    if (personnage.userHasLiked) {
-      this.unLike(personnage);
-    } else {
-      this.like(personnage);
-    }
-  }
-
-  like(personnage: PersonnageMock) {
-    this.listePersonnagesService.LikeById(personnage.id, 'unlike');
-    personnage.userHasLiked = true;
-    personnage.likeButtonText = 'Enlever un like !';
-  }
-
-  unLike(personnage: PersonnageMock) {
-    this.listePersonnagesService.LikeById(personnage.id, 'like');
-    personnage.userHasLiked = false;
-    personnage.likeButtonText = 'Ajouter un like !';
-  }
 
 
 }
