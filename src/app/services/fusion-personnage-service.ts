@@ -47,4 +47,6 @@ export class FusionPersonnageService {
     return bountyPropre ? Number(bountyPropre) : 0;
     }
 
+
+
 }

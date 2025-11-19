@@ -45,8 +45,8 @@ export class ListPersonnagesComponent implements OnInit {
 
 onTrierParNom() {
   const sorted = [...this.persoList].sort((a, b) => {
-    const nomA = a.nom?.toLowerCase() ?? "";
-    const nomB = b.nom?.toLowerCase() ?? "";
+    const nomA = a.nom_complet?.toLowerCase() ?? "";
+    const nomB = b.nom_complet?.toLowerCase() ?? "";
 
     return this.triAscendantNom
       ? nomA.localeCompare(nomB)

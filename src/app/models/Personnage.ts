@@ -1,14 +1,15 @@
 
+import { FusionPersonnageService } from "../services/fusion-personnage-service";
 import { Groupe } from "./groupe";
 import { LikeType } from "./like-type.type";
 import { PersonnageAPI } from "./PersonnageApi";
 import { PersonnageMock } from "./PersonnageMock";
 
+
     
     export class Personnage {
-
         id : number;
-        name : string;
+        nom_complet : string;
         nom : string;
         prenom : string;
         surnom : string;
@@ -45,9 +46,9 @@ import { PersonnageMock } from "./PersonnageMock";
 
         constructor(
         id : number,
-        name : string,
-        prenom : string,
+        nom_complet : string,
         nom : string,
+        prenom : string,
         surnom : string,
         particule : string,
         groupes : string[],
@@ -76,11 +77,10 @@ import { PersonnageMock } from "./PersonnageMock";
         roman_name : string,
         technicalFile : string
         }
-
       ) {
             this.id = id;
             //this.id = crypto.randomUUID().substring(0, 8);
-            this.name = name;
+            this.nom_complet = nom_complet;
             this.nom = nom;
             this.prenom = prenom;
             this.surnom = surnom;
@@ -101,8 +101,8 @@ import { PersonnageMock } from "./PersonnageMock";
             return new Personnage(
             api.id ??  0,
             api.name ?? '',
-            mock?.nom ?? api.name?.split(" ")[1] ?? "",
-            mock?.prenom ?? api.name?.split(" ")[0] ?? "",
+            mock?.nom ?? this.nomCompletToNom(api.name) ?? "",
+            mock?.prenom ?? this.nomCompletToPrenom(api.name) ?? "",
             mock?.surnom ?? '',
             mock?.particule ?? '',
             mock?.groupes ?? [],
@@ -116,6 +116,22 @@ import { PersonnageMock } from "./PersonnageMock";
             api.fruit ?? '',
             );
           }
+
+        static nomCompletToNom(name: string): string{
+          var nom = "-----";
+          if (name.includes(" ")) {
+          nom = name?.split(" ")[0];
+          }
+            return nom ;
+        }
+
+        static nomCompletToPrenom(name: string): string{
+          var prenom = name;
+          if (name.includes(" ")) {
+          prenom = name?.split(" ")[1];
+          }
+            return prenom ;
+        }
         
 
     }
