@@ -1,7 +1,5 @@
 import { GroupeAPI } from "./groupeApi";
 
-
-
 export class PersonnageAPI {
 id : number;
 name : string;

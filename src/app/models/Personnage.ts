@@ -8,6 +8,7 @@ import { PersonnageMock } from "./PersonnageMock";
     export class Personnage {
 
         id : number;
+        name : string;
         nom : string;
         prenom : string;
         surnom : string;
@@ -46,6 +47,7 @@ import { PersonnageMock } from "./PersonnageMock";
 
         constructor(
         id : number,
+        name : string,
         prenom : string,
         nom : string,
         surnom : string,
@@ -80,6 +82,7 @@ import { PersonnageMock } from "./PersonnageMock";
       ) {
             this.id = id;
             //this.id = crypto.randomUUID().substring(0, 8);
+            this.name = name;
             this.nom = nom;
             this.prenom = prenom;
             this.surnom = surnom;
@@ -96,14 +99,15 @@ import { PersonnageMock } from "./PersonnageMock";
                 console.log("Personnage : " + this);
         }
 
-           static fromApiAndMock(api: PersonnageAPI, mock: PersonnageMock): Personnage {
+           static fromApiAndMock(api: PersonnageAPI, mock: PersonnageMock | null): Personnage {
             return new Personnage(
-            api.id ?? mock.id ?? 0,
+            api.id ??  0,
             api.name ?? '',
-             '',
-             '',
-             '',
-             [],
+            mock?.nom ?? api.name?.split(" ")[0] ?? "",
+            mock?.prenom ?? api.name?.split(" ")[1] ?? "",
+            mock?.surnom ?? '',
+            mock?.particule ?? '',
+            [],
             api.job ?? '',
             api.size ?? '',
             api.birthday ?? '',

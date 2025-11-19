@@ -41,19 +41,17 @@ new PersonnageMock(1,
     return [...this.persoList];
   }
 
-  getPersonnageById(persoId: number): PersonnageMock{
+  getPersonnageById(persoId: number): PersonnageMock | null {
     const idNum = Number(persoId);
     const foundPerso = this.persoList.find(Personnage => Personnage.id === idNum);
     if (!foundPerso) {
-      throw new Error('Personnage non trouvé !');
+      console.warn("Personnage mock non trouvé :", persoId);
+      return null;
     }
-    return foundPerso;
+    else {
+    return foundPerso;}
   }
 
-  LikeById(persoId: number, likeType: LikeType): void {
-    const personnage = this.getPersonnageById(persoId);
-    personnage.like(likeType);
-  }
 
 
 }  
