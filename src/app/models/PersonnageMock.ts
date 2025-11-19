@@ -12,7 +12,7 @@ import { LikeType } from "./like-type.type";
         particule : string;
         sexe : string;
         age : number;
-        prime : number;
+        prime : string;
         groupes : string[];
 
         likes!: number;
@@ -28,7 +28,7 @@ import { LikeType } from "./like-type.type";
         particule : string,
         sexe : string,
         age : number,
-        prime : number,
+        prime : string,
         groupes : string[],
       ) {
             this.id = id;

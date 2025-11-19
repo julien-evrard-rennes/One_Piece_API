@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Nom
+            <th>Nom Complet
                 <div class="button" (click)="onTrierParNom()"> TRIER @if (triAscendantNom) {
                     <span>⬇</span>
                     } @else {
@@ -10,6 +10,8 @@
                     }
                 </div>
             </th>
+            <th>Nom</th>
+            <th>Prénom</th>
             <th>Age
                 <div class="button" (click)="onTrierParAge()"> TRIER @if (triAscendantAge) {
                     <span>⬇</span>
@@ -46,9 +48,9 @@
         </tr>
     </thead>
     @if (isLoading) {
-    <th colspan="7" class="container-spin">
+    <th colspan="9" class="container-spin">
         <div class="spinner"></div>
-        <tr colspan="7">Chargement des personnages...</tr>
+        <tr colspan="9">Chargement des personnages...</tr>
     </th>
     }
     <tbody>
@@ -56,7 +58,9 @@
 
         <tr>
             <td>{{personnage.id}} </td>
+            <td>{{personnage.name}} </td>
             <td>{{personnage.nom}} </td>
+            <td>{{personnage.prenom}} </td>
             <td>@if (personnage.age) { {{personnage.age}} } @else { age inconnu } </td>
             <td>@if (personnage.crew) {
                 @if (personnage.crew.name == "Armarda du Chapeau de Paille") {
