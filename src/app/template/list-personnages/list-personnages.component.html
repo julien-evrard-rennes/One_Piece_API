@@ -3,6 +3,14 @@
         <tr>
             <th>ID</th>
             <th>Nom Complet
+                <div class="button" (click)="onTrierParNomComplet()"> TRIER @if (triAscendantNom) {
+                    <span>⬇</span>
+                    } @else {
+                    <span>⬆</span>
+                    }
+                </div>
+            </th>
+            <th>Nom
                 <div class="button" (click)="onTrierParNom()"> TRIER @if (triAscendantNom) {
                     <span>⬇</span>
                     } @else {
@@ -10,9 +18,22 @@
                     }
                 </div>
             </th>
-            <th>Nom</th>
-            <th>Particule</th>
-            <th>Prénom</th>
+            <th>Particule
+                <div class="button" (click)="onTrierParParticule()"> TRIER @if (triAscendantNom) {
+                    <span>⬇</span>
+                    } @else {
+                    <span>⬆</span>
+                    }
+                </div>
+            </th>
+            <th>Prénom
+                <div class="button" (click)="onTrierParPrenom()"> TRIER @if (triAscendantNom) {
+                    <span>⬇</span>
+                    } @else {
+                    <span>⬆</span>
+                    }
+                </div>
+            </th> 
             <th>Age
                 <div class="button" (click)="onTrierParAge()"> TRIER @if (triAscendantAge) {
                     <span>⬇</span>

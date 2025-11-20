@@ -43,10 +43,52 @@ export class ListPersonnagesComponent implements OnInit {
     this.router.navigateByUrl(`personnage/${personnage.id}`);
   }
 
-onTrierParNom() {
+  onTrierParNomComplet() {
   const sorted = [...this.persoList].sort((a, b) => {
     const nomA = a.nom_complet?.toLowerCase() ?? "";
     const nomB = b.nom_complet?.toLowerCase() ?? "";
+
+    return this.triAscendantNom
+      ? nomA.localeCompare(nomB)
+      : nomB.localeCompare(nomA);
+  });
+
+  this.persoList = sorted;
+  this.triAscendantNom = !this.triAscendantNom;
+}  
+
+onTrierParNom() {
+  const sorted = [...this.persoList].sort((a, b) => {
+    const nomA = a.nom.toLowerCase() ?? "";
+    const nomB = b.nom.toLowerCase() ?? "";
+
+    return this.triAscendantNom
+      ? nomA.localeCompare(nomB)
+      : nomB.localeCompare(nomA);
+  });
+
+  this.persoList = sorted;
+  this.triAscendantNom = !this.triAscendantNom;
+}  
+
+onTrierParPrenom() {
+  const sorted = [...this.persoList].sort((a, b) => {
+    const nomA = a.prenom.toLowerCase() ?? "";
+    const nomB = b.prenom.toLowerCase() ?? "";
+
+    return this.triAscendantNom
+      ? nomA.localeCompare(nomB)
+      : nomB.localeCompare(nomA);
+  });
+
+  this.persoList = sorted;
+  this.triAscendantNom = !this.triAscendantNom;
+}  
+
+onTrierParParticule() {
+  const sorted = [...this.persoList].sort((a, b) => {
+    const nomA = a.particule.toLowerCase() ?? "";
+    const nomB = b.particule.toLowerCase() ?? "";
 
     return this.triAscendantNom
       ? nomA.localeCompare(nomB)

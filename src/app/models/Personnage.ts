@@ -136,13 +136,13 @@ const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
                 nom = name?.split(" ")[1];
             }
           }
-
             return nom ;
         }
 
         static nomCompletToPrenom(name: string): string{
           var prenom = name;
           var secondprenom = '';
+          var prenomComplet;
 
           if (name.includes(" ")) {
             prenom = name?.split(" ")[1];
@@ -150,7 +150,7 @@ const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
               prenom = name?.split(" ")[2];
               }
             if ((name?.split(" ")[2])!= null && name?.split(" ")[2] != "/"  ) {
-              secondprenom = ' ' + (name?.split(" ")[2]);
+              secondprenom = (name?.split(" ")[2]);
               if (secondprenom == "/" ){
                 secondprenom = name?.split(" ")[3];
                 }
@@ -161,17 +161,15 @@ const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
             prenom = (
               (name?.split(" ")[2])
             );
+
             if ((name?.split(" ")[3])!= null && name?.split(" ")[3] != "/"){
-              secondprenom = ' ' + (name?.split(" ")[3]);
-            }
-            else {
-              secondprenom = '';
+              secondprenom = (name?.split(" ")[3]);
             }
           }
 
           for (let i of titre){
             if (name.includes(i)){
-                prenom = " ";
+                prenom = "";
             }
           }
 
@@ -180,8 +178,14 @@ const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
                 prenom = name?.split(" ")[0];
             }
           }
+          if (secondprenom != '' && secondprenom != ' '){
+            prenomComplet = prenom + ' ' + secondprenom;
+          }
+          else {
+            prenomComplet = prenom;
+          }
 
-          return prenom + secondprenom ;
+          return prenomComplet;
         }
 
         static nomCompletToParticule(name: string): string{

@@ -33,6 +33,16 @@ new PersonnageMock(1,
     "3.189.000.000",
     ['Baggy\'s Delivery', 'L’équipage du Clown', 'l\'organisation des Empereurs']
     ).withYonko("true"),
+    new PersonnageMock(40,
+    '','Don Krieg','Le Clown',
+    "3.189.000.000",
+    ['L’armada Pirate de Don Krieg']
+    ),
+        new PersonnageMock(308,
+    'Little Oz Jr','','',
+    "",
+    []
+    ),
     new PersonnageMock(380,
     '','Im Sama','',
     "",
@@ -63,6 +73,22 @@ new PersonnageMock(1,
     "",
     ['Les Cinq Doyens']
     ),
+    new PersonnageMock(518,
+    'Cobra','Nefertari','',
+    "",
+    ['Alabasta']
+    ).withParticule("D."),
+    new PersonnageMock(519,
+    'Titi','Nefertari','',
+    "",
+    ['Alabasta']
+    ).withParticule("D."),
+    new PersonnageMock(520,
+    'Vivi','Nefertari','',
+    "",
+    ['Alabasta', 'l\'équipage du chapeau de paille']
+    ).withParticule("D."),
+
 
   ];
   
