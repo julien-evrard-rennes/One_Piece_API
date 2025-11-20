@@ -142,7 +142,7 @@ const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
         static nomCompletToPrenom(name: string): string{
           var prenom = name;
           var secondprenom = '';
-          var prenomComplet;
+          var prenomComplet = '';
 
           if (name.includes(" ")) {
             prenom = name?.split(" ")[1];
@@ -178,6 +178,7 @@ const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
                 prenom = name?.split(" ")[0];
             }
           }
+
           if (prenom == ''){
             prenomComplet = secondprenom;
           }
