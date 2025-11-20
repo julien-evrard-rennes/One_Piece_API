@@ -114,7 +114,7 @@ const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
             api.birthday ?? '',
             api.age ?? '',
             mock?.prime ?? api.bounty ?? '',
-            api.status ?? '',
+            mock?.status ?? api.status ?? '',
             api.crew ?? '',
             api.fruit ?? '',
             );

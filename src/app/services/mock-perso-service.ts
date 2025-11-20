@@ -38,10 +38,16 @@ new PersonnageMock(1,
     "3.189.000.000",
     ['L’armada Pirate de Don Krieg']
     ),
-        new PersonnageMock(308,
+    new PersonnageMock(289,
+    'Newgate','Edward','',
+    "",
+    ["L’équipage de Barbe Blanche"]
+    ).withStatus("décédé")
+    .withYonko("true"),
+    new PersonnageMock(308,
     'Little Oz Jr','','',
     "",
-    []
+    ["L’équipage de Barbe Blanche"]
     ),
     new PersonnageMock(380,
     '','Im Sama','',
@@ -72,12 +78,13 @@ new PersonnageMock(1,
     'Saturn','Saint Jaygarcia','Le 5eme Doyen',
     "",
     ['Les Cinq Doyens']
-    ),
+    ).withStatus("décédé"),
     new PersonnageMock(518,
     'Cobra','Nefertari','',
     "",
     ['Alabasta']
-    ).withParticule("D."),
+    ).withParticule("D.")
+    .withStatus("décédé"),
     new PersonnageMock(519,
     'Titi','Nefertari','',
     "",

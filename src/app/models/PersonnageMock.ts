@@ -15,6 +15,7 @@ import { LikeType } from "./like-type.type";
 
         imageUrl?: string;
         is_yonko?: string;
+        status?: string;
 
         constructor(
         id : number,
@@ -49,6 +50,15 @@ import { LikeType } from "./like-type.type";
 
     withYonko(is_yonko: string): PersonnageMock {
         this.setYonko(is_yonko);
+        return this;
+    }
+
+    setStatus(status: string): void {
+      this.status = status;
+    }
+
+    withStatus(status: string): PersonnageMock {
+        this.setStatus(status);
         return this;
     }
 
