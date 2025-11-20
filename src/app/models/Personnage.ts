@@ -127,17 +127,30 @@ import { PersonnageMock } from "./PersonnageMock";
 
         static nomCompletToPrenom(name: string): string{
           var prenom = name;
+          var secondprenom = '';
           if (name.includes(" ")) {
-          prenom = name?.split(" ")[1];
+            prenom = name?.split(" ")[1];
+            if (prenom == "/" ){
+              prenom = name?.split(" ")[2];
+              }
+            if ((name?.split(" ")[2])!= null && name?.split(" ")[2] != "/"  ) {
+              secondprenom = ' ' + (name?.split(" ")[2]);
+            }
           }
+
           if (name.includes("D.")){
             prenom = (
               (name?.split(" ")[2])
-          );
-            if ((name?.split(" ")[3])!= null && (name?.split(" ")[3])!= "/" )
-            {prenom = name?.split(" ")[2] + ' ' + (name?.split(" ")[3])}
+            );
+            if ((name?.split(" ")[3])!= null && name?.split(" ")[3] != "/"){
+              secondprenom = ' ' + (name?.split(" ")[3]);
+            }
+            else {
+              secondprenom = '';
+            }
           }
-            return prenom ;
+
+          return prenom + secondprenom ;
         }
 
         static nomCompletToParticule(name: string): string{
