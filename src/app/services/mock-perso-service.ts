@@ -33,6 +33,36 @@ new PersonnageMock(1,
     "3.189.000.000",
     ['Baggy\'s Delivery', 'L’équipage du Clown', 'l\'organisation des Empereurs']
     ).withYonko("true"),
+    new PersonnageMock(380,
+    '','Im Sama','',
+    "",
+    []
+    ),
+    new PersonnageMock(381,
+    'Mars','Saint Marcus','Le 1er Doyen',
+    "",
+    ['Les Cinq Doyens']
+    ),
+    new PersonnageMock(382,
+    'Warcury','Saint Topman','Le 2eme Doyen',
+    "",
+    ['Les Cinq Doyens']
+    ),
+    new PersonnageMock(383,
+    'Nusjuro','Saint Ethanbaron V.','Le 3eme Doyen',
+    "",
+    ['Les Cinq Doyens']
+    ),
+    new PersonnageMock(384,
+    'Ju Peter','Saint Shepherd','Le 4eme Doyen',
+    "",
+    ['Les Cinq Doyens']
+    ),
+    new PersonnageMock(385,
+    'Saturn','Saint Jaygarcia','Le 5eme Doyen',
+    "",
+    ['Les Cinq Doyens']
+    ),
 
   ];
   

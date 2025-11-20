@@ -4,10 +4,14 @@
     <ul>
         <li><a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Accueil</a></li>
         <li><a routerLink="jeu" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Jeu </a></li>
-        <li><a routerLink="listePersonnages" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Liste des personnages</a>
-        </li>
-        <li><a routerLink="listePersonnagesApi" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Liste des
-                        personnages (API)</a>
+        <li><a routerLink="listePersonnages" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            Liste des personnages</a>
+            <ul>
+            <li><a routerLink="listePersonnagesApi" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Liste des
+                personnages (API)</a>
+        
+            </li>
+            </ul>
         </li>
         <li><a routerLink="listeGroupes" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Liste des équipages</a>
         </li>
