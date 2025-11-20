@@ -102,7 +102,7 @@ const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
 
            static fromApiAndMock(api: PersonnageAPI, mock: PersonnageMock | null): Personnage {
             return new Personnage(
-            api.id ??  0,
+            api.id ?? mock?.id ??  0,
             api.name ?? '',
             mock?.nom ?? this.nomCompletToNom(api.name) ?? "",
             mock?.prenom ?? this.nomCompletToPrenom(api.name) ?? "",
@@ -121,7 +121,7 @@ const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
           }
 
         static nomCompletToNom(name: string): string{
-          var nom = "-----";
+          var nom = "";
           if (name.includes(" ")) {
             nom = name?.split(" ")[0];
             }
@@ -166,6 +166,10 @@ const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
               secondprenom = (name?.split(" ")[3]);
             }
           }
+
+           if (name.includes("Punk")){
+                 secondprenom = (name?.split(" ")[3]); 
+                };
 
           for (let i of titre){
             if (name.includes(i)){

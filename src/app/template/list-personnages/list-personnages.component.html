@@ -101,3 +101,16 @@
     </tbody>
 </table>
 
+<div class="liste">
+ @for (personnage of persoList; track personnage.id){
+   <li> new PersonnageMock( {{personnage.id}},<br/>
+    '{{personnage.prenom}}','{{personnage.nom}}','{{personnage.surnom}}',<br/>
+    "{{personnage.bounty}}",<br/>
+    ["{{personnage.crew.name}}"]<br/>
+   )@if (personnage.particule) {.withParticule("D.")},
+    </li>
+
+ }
+
+</div>
+
