@@ -5,7 +5,10 @@ import { LikeType } from "./like-type.type";
 import { PersonnageAPI } from "./PersonnageApi";
 import { PersonnageMock } from "./PersonnageMock";
 
+const titre = ["Don ", "Page", "Mister", "Doc", "Barbe", "Mr","Frères", "Mc", "Little", 
+          "Great", "Señor", "T.", "Mr", "Miss", "Ministre", "Chef", "Gan "];
 
+const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
     
     export class Personnage {
         id : number;
@@ -120,14 +123,27 @@ import { PersonnageMock } from "./PersonnageMock";
         static nomCompletToNom(name: string): string{
           var nom = "-----";
           if (name.includes(" ")) {
-          nom = name?.split(" ")[0];
+            nom = name?.split(" ")[0];
+            }
+          for (let i of titre){
+            if (name.includes(i)){
+                nom = name?.split(" ")[0] + ' ' + name?.split(" ")[1]
+            }
           }
+
+          for (let j of japonais){
+            if (name.includes(j)){
+                nom = name?.split(" ")[1];
+            }
+          }
+
             return nom ;
         }
 
         static nomCompletToPrenom(name: string): string{
           var prenom = name;
           var secondprenom = '';
+
           if (name.includes(" ")) {
             prenom = name?.split(" ")[1];
             if (prenom == "/" ){
@@ -135,6 +151,9 @@ import { PersonnageMock } from "./PersonnageMock";
               }
             if ((name?.split(" ")[2])!= null && name?.split(" ")[2] != "/"  ) {
               secondprenom = ' ' + (name?.split(" ")[2]);
+              if (secondprenom == "/" ){
+                secondprenom = name?.split(" ")[3];
+                }
             }
           }
 
@@ -147,6 +166,18 @@ import { PersonnageMock } from "./PersonnageMock";
             }
             else {
               secondprenom = '';
+            }
+          }
+
+          for (let i of titre){
+            if (name.includes(i)){
+                prenom = " ";
+            }
+          }
+
+          for (let j of japonais){
+            if (name.includes(j)){
+                prenom = name?.split(" ")[0];
             }
           }
 
