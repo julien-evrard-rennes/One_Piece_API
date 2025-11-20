@@ -6,7 +6,7 @@ import { PersonnageAPI } from "./PersonnageApi";
 import { PersonnageMock } from "./PersonnageMock";
 
 const titre = ["Don ", "Page", "Mister", "Doc", "Barbe", "Mr","Frères", "Mc", "Little", 
-          "Great", "Señor", "T.", "Mr", "Miss", "Ministre", "Chef", "Gan "];
+          "Great", "Señor", "T.", "Mr", "Miss", "Ministre", "Chef", "Gan ", "Punk "];
 
 const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
     
@@ -178,13 +178,18 @@ const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
                 prenom = name?.split(" ")[0];
             }
           }
-          if (secondprenom != '' && secondprenom != ' '){
+          if (prenom == ''){
+            prenomComplet = secondprenom;
+          }
+          else if (secondprenom == prenom ){
+            prenomComplet = prenom;
+          }
+          else if (secondprenom != '' && secondprenom != ' '){
             prenomComplet = prenom + ' ' + secondprenom;
           }
           else {
             prenomComplet = prenom;
           }
-
           return prenomComplet;
         }
 
