@@ -129,7 +129,7 @@ new PersonnageMock(1,
     'AkaInu','Sakazuki','AkaInu',
     "5.000.000.000",
     ['Les Cinq Doyens']
-    ).withStatus("décédé"),
+    ),
     new PersonnageMock(415,
     'Kizaru','Borsalino','Borsalino',
     "3.000.000.000",
