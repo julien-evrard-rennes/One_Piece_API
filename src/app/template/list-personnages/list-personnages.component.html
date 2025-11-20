@@ -11,6 +11,7 @@
                 </div>
             </th>
             <th>Nom</th>
+            <th>Particule</th>
             <th>Prénom</th>
             <th>Age
                 <div class="button" (click)="onTrierParAge()"> TRIER @if (triAscendantAge) {
@@ -60,6 +61,7 @@
             <td>{{personnage.id}} </td>
             <td>{{personnage.nom_complet}} </td>
             <td>{{personnage.nom}} </td>
+            <td>{{personnage.particule}}</td>
             <td>{{personnage.prenom}} </td>
             <td>@if (personnage.age) { {{personnage.age}} } @else { age inconnu } </td>
             <td>@if (personnage.crew) {

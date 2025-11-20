@@ -104,7 +104,7 @@ import { PersonnageMock } from "./PersonnageMock";
             mock?.nom ?? this.nomCompletToNom(api.name) ?? "",
             mock?.prenom ?? this.nomCompletToPrenom(api.name) ?? "",
             mock?.surnom ?? '',
-            mock?.particule ?? '',
+            mock?.particule ?? this.nomCompletToParticule(api.name) ?? '',
             mock?.groupes ?? [],
             api.job ?? '',
             api.size ?? '',
@@ -130,7 +130,22 @@ import { PersonnageMock } from "./PersonnageMock";
           if (name.includes(" ")) {
           prenom = name?.split(" ")[1];
           }
+          if (name.includes("D.")){
+            prenom = (
+              (name?.split(" ")[2])
+          );
+            if ((name?.split(" ")[3])!= null && (name?.split(" ")[3])!= "/" )
+            {prenom = name?.split(" ")[2] + ' ' + (name?.split(" ")[3])}
+          }
             return prenom ;
+        }
+
+        static nomCompletToParticule(name: string): string{
+          var particule ='';
+          if (name.includes("D.")){
+            particule = name?.split(" ")[1];
+          }
+          return particule;
         }
         
 

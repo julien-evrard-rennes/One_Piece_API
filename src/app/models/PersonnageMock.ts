@@ -9,7 +9,7 @@ import { LikeType } from "./like-type.type";
         nom : string;
         prenom : string;
         surnom : string;
-        particule : string;
+        particule? : string;
         prime : string;
         groupes : string[];
 
@@ -21,7 +21,6 @@ import { LikeType } from "./like-type.type";
         prenom : string,
         nom : string,
         surnom : string,
-        particule : string,
         prime : string,
         groupes : string[],
       ) {
@@ -30,11 +29,19 @@ import { LikeType } from "./like-type.type";
             this.nom = nom;
             this.prenom = prenom;
             this.surnom = surnom;
-            this.particule = particule;
             this.prime = prime;
             this.groupes = groupes;
             console.log(this);
         }
+
+    setParticule(particule: string): void {
+      this.particule = particule;
+    }
+
+    withParticule(particule: string): PersonnageMock {
+        this.setParticule(particule);
+        return this;
+    }
 
     setYonko(is_yonko: string): void {
       this.is_yonko = is_yonko;
