@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Groupe } from 'src/app/models/groupe';
 import { Personnage } from 'src/app/models/Personnage';
+import { FusionGroupeService } from 'src/app/services/fusion-groupe-service';
 import { FusionPersonnageService } from 'src/app/services/fusion-personnage-service';
-import { MockGroupeService } from 'src/app/services/mock-groupe-service';
 
 
 @Component({
@@ -15,45 +14,36 @@ import { MockGroupeService } from 'src/app/services/mock-groupe-service';
 })
 export class FichePersonnageComponent implements OnInit {
 
-  personnage!: Personnage;
-  likeButtonText!: string;
-  userHasLiked!: boolean;
+  personnage!: Personnage
 
   constructor(
-    private listePersonnagesService: FusionPersonnageService,
-    private listeGroupeService: MockGroupeService,
+    private personnagesService: FusionPersonnageService,
+    private groupeService: FusionGroupeService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.prepareInterface();
     this.getPersonnage();
   }
 
-  private prepareInterface() {
-    this.userHasLiked = false;
-  }
-
-  private getPersonnage() {
-    const persoId = this.route.snapshot.params['id'];
-    this.listePersonnagesService.getPersonnageById(persoId).subscribe({
+private getPersonnage() {
+  const persoId = this.route.snapshot.params['id'];
+  this.personnagesService.getPersonnageById(persoId)
+    .subscribe({
       next: (p: Personnage) => {
-        this.personnage =p;
-        console.table(p);
+        this.personnage = p; 
+        console.log(this.personnage);
       },
-      error: (err) => console.error('Erreur récupération groupe:', err)
+      error: (err) => console.error('Erreur récupération personnage:', err)
     });
+}
+
+  onViewFicheGroupe(idGroupe: number) {
+    this.router.navigateByUrl(`groupe/${idGroupe}`);
   }
-
-    onViewFicheGroupe(nom: String) {
-    const groupe = this.listeGroupeService.getGroupeByName(nom)
-    const idNum = Number(groupe.id);
-    this.router.navigateByUrl(`groupe/${idNum}`);
-  }
-
-
 
 
 }
+
 

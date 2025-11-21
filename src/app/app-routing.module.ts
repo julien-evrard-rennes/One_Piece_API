@@ -9,10 +9,11 @@ import { ListeGroupesComponent } from './template/list-groupes/list-groupes.comp
 import { ListGroupesApiComponent } from './template/list-groupes-api/list-groupes-api.component';
 import { FicheGroupeComponent } from './template/fiche-groupe/fiche-groupe.component';
 import { ListPersonnagesComponent } from './template/list-personnages/list-personnages.component';
+import { FichePersonnageComponent } from './template/fiche-personnage/fiche-personnage.component';
 
 
 const routes: Routes = [
-  { path: 'personnage/:id', component: FichePersonnageApiComponent },
+  { path: 'personnage/:id', component: FichePersonnageComponent },
   { path: 'groupe/:id', component: FicheGroupeComponent },
   { path: '', component: LandingPageComponent },
    { path: 'jeu', component: JeuMotMelangeComponent},

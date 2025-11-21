@@ -1,44 +1,92 @@
 <main>
-        <ul class="flex-outer">
-            <table>
+
+    <h1>Fiche de {{personnage.nom_complet}}</h1>
+    <ul class="flex-outer">
+        <table>
             <li>
-                <label><b>Nom :</b></label>
-                <tr>{{personnage.nom}} @if (personnage.particule === "D") { {{personnage.particule}} . } </tr>
+                <label><b>Nom : </b></label>
+                <tr>{{personnage.nom}} </tr>
             </li>
+@if (personnage.particule){
             <li>
-                <label><b>Prenom :</b></label>
+                <label><b>Particule : </b></label>
+                <tr>{{personnage.particule}} </tr>
+            </li>
+            }
+
+            <li>
+                <label><b>Prenom : </b></label>
                 <tr>{{personnage.prenom}} </tr>
             </li>
-            <li>
-                <label><b>Surnom :</b></label>
-                <tr>{{personnage.surnom}} </tr>
-            </li>
 
             <li>
-                <label><b>Age :</b></label>
+            <label><b>Surnom : </b></label>
+            <tr>{{personnage.surnom}} </tr>
+            </li>
+
+@if (personnage.size){
+            <li>
+                <label><b>Taille : </b></label>
+                <tr>{{personnage.size}} </tr>
+            </li>
+            }
+
+@if (personnage.age) {
+            <li>
+                <label><b>Age : </b></label>
+
                 <tr>{{personnage.age}} </tr>
+
             </li>
+        }
+
+@if (personnage.bounty) {
 
             <li>
-                <label><b>Genre :</b></label>
-                <tr>{{personnage.sexe}} </tr>
+                <label><b>Prime : </b></label>
+                <tr>{{personnage.bounty}} berrys </tr>
             </li>
+    }
 
             <li>
-                <label><b>Prime :</b></label>
-                <tr>{{personnage.bounty}} </tr>
+                <label><b>Statut : </b></label>
+                <tr>{{personnage.status}} </tr>
             </li>
+
+@if (personnage.fruit) {
             <li>
-                <label><b>Groupes :</b></label>
+                <label><b>Fruit : </b></label>
                 <ul>
-                    @for (groupe of personnage.groupes; track $index){
-                    <tr>
-                        <a (click)="onViewFicheGroupe(groupe)"><li>{{groupe}}</li></a>
-                    </tr>
-                    }
+                    <li><label>Nom :</label>{{personnage.fruit.name}} </li>
+                    <li><label>Description :</label>{{personnage.fruit.description}} </li>
+                    <li><label>Type :</label>{{personnage.fruit.type}} </li>
                 </ul>
             </li>
-    </table>
-            </ul>
+            }
+
+@if (personnage.crew) {
+
+            <li>
+                <label><b>Équipage : </b></label>
+                <ul>
+                    <a (click)="onViewFicheGroupe(personnage.crew.id)">
+                <li>
+                    {{personnage.crew.name}}
+                </li></a>
+                @if (personnage.crew.description) {
+                    <li><label>Description : </label>{{personnage.crew.description}} </li>
+                }
+                <li><label>Status : </label>{{personnage.crew.status}} </li>
+                @if (personnage.crew.total_prime) {
+                <li><label>Primes totales : </label>{{personnage.crew.total_prime}} berrys </li>
+                }
+                @if (personnage.job) {
+                <li><label>Job du personnage : </label>@if (personnage.job) { {{personnage.job}} } </li>
+                }
+                </ul>
+            </li>
+        }
+        </table>
+    </ul>
 
 </main>

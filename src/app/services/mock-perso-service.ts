@@ -301,17 +301,17 @@ new PersonnageMock(1,
     "",
     ['Alabasta', 'l\'équipage du chapeau de paille']
     ).withParticule("D."),
-    new PersonnageMock( 612,
+    new PersonnageMock(612,
     'Pedro','','',
     "382.000.000",
     ["Zo"]
     ),
-    new PersonnageMock( 658,
+    new PersonnageMock(658,
     'Octo','','',
     "8.000.000",
     ["Île des hommes-poissons"]
     ),
-    new PersonnageMock( 699,
+    new PersonnageMock(699,
     '','Queen Honey','',
     "7.800.000",
     ["L’équipage des Pirates Trump"]
