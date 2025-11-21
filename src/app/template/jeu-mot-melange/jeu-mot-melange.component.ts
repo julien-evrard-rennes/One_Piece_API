@@ -15,22 +15,24 @@ import { JeuService } from 'src/app/services/jeu-service';
 export class JeuMotMelangeComponent implements OnInit {
 
   personnage!: Personnage;
+  tableau_nom!: string[];
+  tableau_prenom!: string[];
 
-  constructor(private listePersoService: FusionPersonnageService,
-  private jeuService : JeuService, 
+  constructor(private jeuService : JeuService, 
   private router: Router) {}
 
   ngOnInit(): void {
-    this.personnage = this.tiragePerso();
+    this.tiragePerso();
+    
   }
 
-   tiragePerso(): Personnage {
+   tiragePerso()  {
     this.jeuService.tiragePerso().subscribe(p => {
       this.personnage = p;
-      console.log("Personnage tiré au sort :", p);
+      this.tableau_nom =this.jeuService.getTableauDeLettre(this.personnage.nom);
+      this.tableau_prenom =this.jeuService.getTableauDeLettre(this.personnage.prenom);
     });
     return this.personnage;
   }
-
 
 }

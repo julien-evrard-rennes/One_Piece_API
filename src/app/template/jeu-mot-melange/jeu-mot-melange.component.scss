@@ -1,4 +1,42 @@
-table.tirage tr {
+/* DIV PRESENTATION */
+
+div.presentation,
+div.presentation_op,
+data-th-block.presentation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+div.presentation_op a {
+    color: #0f0e40;
+    text-transform: uppercase;
+}
+
+div.presentation_op a:hover {
+    color: #353468;
+    cursor: pointer;
+}
+
+div.presentation div.score {
+    width: 300%;
+}
+
+div.presentation-bouton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    flex-wrap: nowrap;
+    padding: 10px;
+    justify-content: space-evenly;
+}
+
+
+table.tirage {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;

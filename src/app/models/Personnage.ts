@@ -6,7 +6,7 @@ import { PersonnageAPI } from "./PersonnageApi";
 import { PersonnageMock } from "./PersonnageMock";
 
 const titre = ["Don ", "Page", "Mister", "Doc", "Barbe", "Mr","Frères", "Mc", "Little", 
-          "Great", "Señor", "T.", "Mr", "Miss", "Ministre", "Chef", "Gan ", "Punk ", "Van ", "El "];
+          "Great", "Señor", "T.", "Mr", "Miss", "Ministre", "Chef", "Gan ", "Punk ", "Van ", "El ", "Kaiser"];
 
 const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
     
