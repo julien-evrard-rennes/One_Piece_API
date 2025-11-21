@@ -21,6 +21,9 @@ export class ListPersonnagesComponent implements OnInit {
   triAscendantEquipage = true;
   triAscendantStatus = true;
   triAscendantPrime = true; 
+  triAscendantNomComplet= true;
+  triAscendantPrenom= true;
+  triAscendantParticule = true;
 
 
   constructor(private fusionPersoService: FusionPersonnageService, 
@@ -48,13 +51,13 @@ export class ListPersonnagesComponent implements OnInit {
     const nomA = a.nom_complet?.toLowerCase() ?? "";
     const nomB = b.nom_complet?.toLowerCase() ?? "";
 
-    return this.triAscendantNom
+    return this.triAscendantNomComplet
       ? nomA.localeCompare(nomB)
       : nomB.localeCompare(nomA);
   });
 
   this.persoList = sorted;
-  this.triAscendantNom = !this.triAscendantNom;
+  this.triAscendantNomComplet = !this.triAscendantNomComplet;
 }  
 
 onTrierParNom() {
@@ -76,13 +79,13 @@ onTrierParPrenom() {
     const nomA = a.prenom.toLowerCase() ?? "";
     const nomB = b.prenom.toLowerCase() ?? "";
 
-    return this.triAscendantNom
+    return this.triAscendantPrenom
       ? nomA.localeCompare(nomB)
       : nomB.localeCompare(nomA);
   });
 
   this.persoList = sorted;
-  this.triAscendantNom = !this.triAscendantNom;
+  this.triAscendantPrenom = !this.triAscendantPrenom;
 }  
 
 onTrierParParticule() {
@@ -90,13 +93,13 @@ onTrierParParticule() {
     const nomA = a.particule.toLowerCase() ?? "";
     const nomB = b.particule.toLowerCase() ?? "";
 
-    return this.triAscendantNom
+    return this.triAscendantParticule
       ? nomA.localeCompare(nomB)
       : nomB.localeCompare(nomA);
   });
 
   this.persoList = sorted;
-  this.triAscendantNom = !this.triAscendantNom;
+  this.triAscendantParticule = !this.triAscendantParticule;
 }  
 
 onTrierParAge() {

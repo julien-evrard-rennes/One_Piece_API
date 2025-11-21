@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { PersonnageAPI } from "../models/PersonnageApi";
-import { ApiPersoService } from "./api-persos-service";
+import { FusionPersonnageService } from "./fusion-personnage-service";
+import { Personnage } from "../models/Personnage";
+import { map, Observable } from "rxjs";
 
 
 @Injectable({
@@ -8,34 +10,30 @@ import { ApiPersoService } from "./api-persos-service";
 })
 export class JeuService {
 
-constructor(private listePersoService: ApiPersoService) {
+constructor(private fusionPersoService: FusionPersonnageService) {
 
 }
 
-personnage!: PersonnageAPI;
+personnage!: Personnage;
 num! : number;
-listPerso = this.listePersoService.getPersos();
+listPerso = this.fusionPersoService.getPersoList();
 
-tiragechiffre()  {
-  Math.random() 
-}
 
-tiragePerso() : PersonnageAPI {
+tiragePerso() : Observable<Personnage> {
+    return this.fusionPersoService.getPersoList().pipe(
+      map(list => {
+        if (!list || list.length === 0) {
+          throw new Error("Aucun personnage disponible");
+        }
+        const randomIndex = Math.floor(Math.random() * list.length);
+        return list[randomIndex];
+      })
+    );
+  }
 
-  const num = 12;
-  
-  this.listePersoService.getPersonnageById(num)
-    .subscribe({
-      next: (p: PersonnageAPI) => {
-        this.personnage = p; 
-        console.log(this.personnage);
-      },
-      error: (err) => console.error('Erreur récupération personnage:', err)
-    });
-    console.table(this.personnage);
-    return this.personnage;
-}
-
+  getAll(): Observable<Personnage[]> {
+    return this.fusionPersoService.getPersoList();
+  }
 
 }
 
