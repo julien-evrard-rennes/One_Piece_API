@@ -15,9 +15,9 @@
                     <th class ="lettre"> {{lettre}}</th>
                 }
             </div>
-
-                    <th class="interclasse">@if (personnage.particule) { D}
-                    </th>
+                @if (personnage.nom) {
+                    <th class="interclasse">@if (personnage.particule) { D} </th>
+                    }
 
                 @if (personnage.prenom) {
                     <div>
