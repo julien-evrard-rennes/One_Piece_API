@@ -11,7 +11,7 @@
 
         <table class="tirage">
             <div>
-                @for (lettre of tableau_nom; track lettre){
+                @for (lettre of tableauNomMel; track lettre){
                     <th class ="lettre"> {{lettre}}</th>
                 }
             </div>
@@ -21,7 +21,7 @@
 
                 @if (personnage.prenom) {
                     <div>
-                    @for (lettre of tableau_prenom; track lettre){
+                    @for (lettre of tableauPrenomMel; track lettre){
                             <th class="lettre"> {{lettre}}</th>
                     }
                 </div>

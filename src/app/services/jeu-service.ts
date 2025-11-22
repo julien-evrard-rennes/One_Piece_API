@@ -56,9 +56,29 @@ getTableauDeLettre(mot : string) : string[] {
         for (int j = 0; j < accents[0].length; j++) {
             chaineSaisie = chaineSaisie.replace(accents[0][j], accents[1][j]);
         }
-
         return mot;
     } */
+
+/**
+ * Fonction melangeant un tableau de mot
+ * 
+ */
+
+melangerMot(tableauOriginal : string[]) : string[] {
+  // clonage du tableau
+ const tableauFinal = tableauOriginal;
+  // Echanges de position de caractères
+        for (let i = 0; i < tableauFinal.length * 4; i++) {
+            let p1 = Math.floor(Math.random() *tableauFinal.length);
+            let p2 = Math.floor(Math.random() *tableauFinal.length);
+            let tmp = tableauFinal[p1];
+            tableauFinal[p1] = tableauFinal[p2];
+            tableauFinal[p2] = tmp;
+        }
+
+  return tableauFinal ;
+}
+
 
 
  /**

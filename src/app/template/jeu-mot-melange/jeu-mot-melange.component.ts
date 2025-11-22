@@ -15,8 +15,10 @@ import { JeuService } from 'src/app/services/jeu-service';
 export class JeuMotMelangeComponent implements OnInit {
 
   personnage!: Personnage;
-  tableau_nom!: string[];
-  tableau_prenom!: string[];
+  tableauNom!: string[];
+  tableauNomMel!: string[];
+  tableauPrenom!: string[];
+  tableauPrenomMel!: string[];
 
   constructor(private jeuService : JeuService, 
   private router: Router) {}
@@ -29,8 +31,10 @@ export class JeuMotMelangeComponent implements OnInit {
    tiragePerso()  {
     this.jeuService.tiragePerso().subscribe(p => {
       this.personnage = p;
-      this.tableau_nom =this.jeuService.getTableauDeLettre(this.personnage.nom);
-      this.tableau_prenom =this.jeuService.getTableauDeLettre(this.personnage.prenom);
+      this.tableauNom =this.jeuService.getTableauDeLettre(this.personnage.nom);
+      this.tableauNomMel= this.jeuService.melangerMot(this.tableauNom);
+      this.tableauPrenom =this.jeuService.getTableauDeLettre(this.personnage.prenom);
+      this.tableauPrenomMel= this.jeuService.melangerMot(this.tableauPrenom);
     });
     return this.personnage;
   }
