@@ -15,7 +15,6 @@ import { FormsModule } from '@angular/forms';
 
 export class LandingPageComponent {
 
-  userEmail: string = "moi@adressebidon.com";
 
   constructor(private router: Router) { }
   
@@ -24,9 +23,7 @@ onContinue() {
     this.router.navigateByUrl('listePersonnages');
 }
 
-onSubmitForm(): void {
-  console.log(this.userEmail)
-}
+
 
 }
 
