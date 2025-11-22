@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { Personnage } from 'src/app/models/Personnage';
 import { JeuService } from 'src/app/services/jeu-service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-jeu-mot-melange',
@@ -22,6 +22,7 @@ export class JeuMotMelangeComponent implements OnInit {
   tableauPrenom!: string[];
   tableauPrenomMel!: string[];
   reponseNom!: string;
+  score: number = 0;
 
   constructor(private jeuService : JeuService, 
   private router: Router) {}
@@ -40,6 +41,10 @@ export class JeuMotMelangeComponent implements OnInit {
       this.tableauPrenomMel= this.jeuService.melangerMot(this.tableauPrenom);
     });
     return this.personnage;
+  }
+
+  onSubmitForm(form : NgForm): void {
+  console.log(form.value)
   }
 
 }

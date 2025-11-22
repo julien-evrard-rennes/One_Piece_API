@@ -27,11 +27,11 @@
         </table>
 
                 <div class="reponse">
-                    <form action="/jeu/premiere_reponse" method="post">
+                    <form method="post" #reponseForm="ngForm" (ngSubmit)="onSubmitForm(reponseForm)">
                         <div>
                             <input id="reponseNom" name="reponseNom" type="text" pattern="[a-zA-Z0-9_:-]{100}" [(ngModel)]="reponseNom"  required  />
-                            <input id="idPerso" name="idPerso" type=number th:value="${personnageChoisi.id}" hidden />
-                            <input id="score" name="score" type=number th:value="${score}" hidden />
+                            <input id="idPerso" name="idPerso" type=number [(ngModel)]="personnage.id" hidden />
+                            <input id="score" name="score" type=number [(ngModel)]="score" hidden />
                         </div>
                         <div>
                             <button type="submit">Répondre</button>
