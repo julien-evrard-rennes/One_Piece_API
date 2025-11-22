@@ -7,6 +7,7 @@ import { MainComponent } from './template/main/main.component';
 import { FooterComponent } from './template/footer/footer.component';
 import { AccueilComponent } from './template/accueil/accueil.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

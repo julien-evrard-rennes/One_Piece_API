@@ -9,7 +9,13 @@
                 <a routerLink="jeu">Démarrer les épreuves</a>
             </h2>
 
-
+    <form (ngSubmit)="onSubmitForm()">
+        <label for="emailInput">Inscrivez vous pour recevoir notre newsletter !</label>
+        <input type ="email" id="emailInput" [(ngModel)]="userEmail" name="userEmail">
+        <button type="submit">OK !</button>
+    </form>   
+    
+ 
     <div class="landing-links">
         <br>
         <img class="image_accueil" src="../../assets/frise_personnages.png" (click)="onContinue()" alt="One Piece Logo">
