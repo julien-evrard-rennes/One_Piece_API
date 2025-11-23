@@ -11,6 +11,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class JeuService {
 
+
 constructor(private fusionPersoService: FusionPersonnageService,
             private http: HttpClient) {}
 
@@ -45,6 +46,8 @@ tiragePerso() : Observable<Personnage> {
 
 nomenclatureur(mot:string) : string {
    mot = mot.replaceAll("\\s", "");
+   mot = mot.replace(/\s+/g, '');
+   mot = mot.replace(/\p{P}/gu, '');
    mot = mot.toLocaleLowerCase();
   return mot 
 }
@@ -101,13 +104,40 @@ melangerMot(tableauOriginal : string[]) : string[] {
  */
 
 comparerResultat(reponseNom : string, PersonnageATrouver : Personnage) : string {
-  if (this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.nom_complet)){
-    return "GAGNÉ"
+  if (this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.nom_complet) || 
+    this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.nom + PersonnageATrouver.particule + PersonnageATrouver.prenom)){
+    return "Complet"
+  }
+  if (this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.nom)){
+    return "Nom"
+  }
+  else if (this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.prenom) ||
+          this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.surnom)){
+    return "Prenom"
   }
   else{
   return "Perdu"
   }
 }
+
+/**
+ * Fonction permettant de générer un texte à afficher en fonction des différents résultats au jeu
+ */
+getTextResultat(resultat: string): string {
+  if (resultat=="Complet"){
+    return "Vous avez trouvé son nom complet."
+  }
+  else if (resultat=="Nom"){
+    return "Vous avez trouvé son nom."
+  }
+  else if (resultat=="Prenom") {
+    return "Vous avez trouvé son prénom."
+  }
+  else {
+    return "Perdu"
+  }
+}
+
 
 
 }

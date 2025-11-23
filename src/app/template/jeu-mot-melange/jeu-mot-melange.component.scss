@@ -67,7 +67,7 @@ table.tirage th.interclasse {
 }
 
 div.reponse {
-    /* background-color: #f0f8ffc2; */
+    // background-color: #f0f8ffc2;
     padding: 15px;
     margin: 10px;
     font-size: x-large;
@@ -104,4 +104,70 @@ div.reponse button:hover {
 div.reponse div {
     display: flex;
     justify-content: space-around;
+}
+
+div.score {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: x-large;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 15%;
+    padding: 5px;
+
+}
+
+div.resultat{
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: large;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius:5px;
+    margin-right: 15%;
+    padding: 5px;
+    background-color: #f7f6c06c;
+    flex-wrap: wrap;
+}
+
+div.resultat p{
+flex:inherit;
+}
+
+p.chiffre_score {
+    animation-name: fadeIn, slidein;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    opacity:0;
+}
+
+@keyframes slidein {
+    from {
+        margin-top:0%;
+    }
+
+    to {
+        margin-top:-3%;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity:1;
+    }
+    to {
+        opacity:0;
+    }
+}
+
+
+p.chiffre_score_definitif {
+    margin-left:-15px;
+}
+
+input#idName {
+    text-align: center;
+    margin: 10px;
+    width: 250px;
+    height: 30px;
 }

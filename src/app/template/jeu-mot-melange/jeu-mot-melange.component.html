@@ -5,7 +5,11 @@
 
         <h2>{{personnage.nom_complet}}</h2>
 
-        @if (resultat) {<h2 color="#006699"> {{resultat}}</h2>}
+        
+        @if (resultat) {<div class="resultat">
+        <p> {{texteResultat}}</p>
+            </div>}
+        
 
         <h2> {{tour}} : Trouvez le personnage caché </h2>
 

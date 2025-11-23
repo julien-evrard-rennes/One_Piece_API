@@ -22,6 +22,7 @@ export class JeuMotMelangeComponent implements OnInit {
   tableauPrenom!: string[];
   tableauPrenomMel!: string[];
   reponseNom!: string;
+  texteResultat!: string;
   resultat!: string;
   score: number = 0;
   tour: number =0;
@@ -49,9 +50,10 @@ export class JeuMotMelangeComponent implements OnInit {
   onSubmitForm(form : NgForm): void {
   console.log(form.value);
   this.resultat = this.jeuService.comparerResultat(this.reponseNom, this.personnage);
-  console.log(this.resultat);
+  this.texteResultat = this.jeuService.getTextResultat(this.resultat);
+  this.score =10;
   this.reponseNom = "";
-  if (this.tour<5) {
+  if (this.tour<10) {
     this.tiragePerso();
     }
   else {
