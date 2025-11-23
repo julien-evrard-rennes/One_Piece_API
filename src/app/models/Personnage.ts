@@ -100,23 +100,29 @@ const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
                 console.log("Personnage : " + this);
         }
 
-           static fromApiAndMock(api: PersonnageAPI, mock: PersonnageMock | null): Personnage {
+           static fromApiAndMock(api: PersonnageAPI | null, mock: PersonnageMock | null): Personnage {
+            const id = api?.id ?? mock?.id ?? 0;
+            const nomCompletFromMock = mock?.nom + ' ' + mock?.prenom;
+            const nomFromApi = api?.name ? Personnage.nomCompletToNom(api.name) : '';
+            const prenomFromApi = api?.name ? Personnage.nomCompletToPrenom(api.name) : '';
+            const particuleFromApi = api?.name ? Personnage.nomCompletToParticule(api.name) : '';
+            
             return new Personnage(
-            api.id ?? mock?.id ??  0,
-            api.name ?? '',
-            mock?.nom ?? this.nomCompletToNom(api.name) ?? "",
-            mock?.prenom ?? this.nomCompletToPrenom(api.name) ?? "",
+            id,
+            api?.name ?? nomCompletFromMock ?? '',
+            mock?.nom ?? nomFromApi ?? '',
+            mock?.prenom ?? prenomFromApi ?? '',
             mock?.surnom ?? '',
-            mock?.particule ?? this.nomCompletToParticule(api.name) ?? '',
+            mock?.particule ?? particuleFromApi ?? '',
             mock?.groupes ?? [],
-            api.job ?? '',
-            api.size ?? '',
-            api.birthday ?? '',
-            api.age ?? '',
-            mock?.prime ?? api.bounty ?? '',
-            mock?.status ?? api.status ?? '',
-            api.crew ?? '',
-            api.fruit ?? '',
+            api?.job ?? '',
+            api?.size ?? '',
+            api?.birthday ?? '',
+            api?.age ?? 0,
+            mock?.prime ?? api?.bounty ?? '',
+            mock?.status ?? api?.status ?? '',
+            api?.crew ?? ({} as any),
+            api?.fruit ?? ({} as any),
             );
           }
 
@@ -205,7 +211,10 @@ const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
           }
           return particule;
         }
-        
 
+        static get<T>(mockValue: T | undefined, apiValue: T | undefined, fallback: T): T {
+        return mockValue ?? apiValue ?? fallback;
+        }
+        
     }
 

@@ -779,5 +779,4 @@ export class MockGroupeService {
         return foundGroupe;
     }
 
-
 }

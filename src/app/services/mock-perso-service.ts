@@ -10,6 +10,7 @@ export class MockPersoService {
 
   groupe! : Groupe;
 
+
     persoList: PersonnageMock[] = [
 new PersonnageMock(1,
     'Luffy','Monkey','au chapeau de paille',
@@ -340,8 +341,30 @@ new PersonnageMock(1,
     return foundPerso;}
   }
 
+  addPersonnageMock(formValue: {
+  nom: string, 
+  prenom: string,
+  surnom:string,
+  particule?:string,
+  prime: string,
+  groupes: string[],
+}): void {
 
+  const newId = this.persoList[this.persoList.length -1].id + 1;
 
-}  
+  const newPerso = new PersonnageMock(
+    newId,
+    formValue.prenom,
+    formValue.nom,
+    formValue.surnom,
+    formValue.prime,
+    formValue.groupes
+  );
+
+  if (formValue.particule) newPerso.withParticule(formValue.particule);
+
+}
+}
+  
 
   

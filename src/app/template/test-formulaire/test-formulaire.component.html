@@ -35,7 +35,7 @@
         </div>
         
         <div class="action-buttons">
-            <button type="submit" (click)="onSubmitForm()">Enregistrer</button>
+            <button type="submit" (click)="onSubmitForm()" [disabled]="personnageMockForm.invalid">Enregistrer</button>
 
         </div>
 
@@ -83,7 +83,7 @@
             <tr>{{personnage.groupes}}</tr>
             </li>
         }
-        
+
         </table>
     </ul>
 </div>
