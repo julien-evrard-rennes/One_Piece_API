@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'groupe/:id', component: FicheGroupeComponent },
   { path: '', component: LandingPageComponent },
   { path: 'jeu', component: JeuMotMelangeComponent},
-  { path: 'jeuReponse1', component: JeuReponseMotMelangeComponent},
+  { path: 'jeuReponse', component: JeuReponseMotMelangeComponent},
   { path: 'listePersonnages', component: ListPersonnagesComponent },
   { path: 'listePersonnagesApi', component: ListPersonnagesApiComponent },
   { path: 'listeGroupes', component: ListeGroupesComponent },

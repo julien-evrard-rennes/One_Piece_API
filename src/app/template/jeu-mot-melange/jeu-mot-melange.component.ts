@@ -22,14 +22,16 @@ export class JeuMotMelangeComponent implements OnInit {
   tableauPrenom!: string[];
   tableauPrenomMel!: string[];
   reponseNom!: string;
+  resultat!: string;
   score: number = 0;
+  tour: number =0;
 
   constructor(private jeuService : JeuService, 
   private router: Router) {}
 
   ngOnInit(): void {
+
     this.tiragePerso();
-    
   }
 
    tiragePerso()  {
@@ -39,13 +41,23 @@ export class JeuMotMelangeComponent implements OnInit {
       this.tableauNomMel= this.jeuService.melangerMot(this.tableauNom);
       this.tableauPrenom =this.jeuService.getTableauDeLettre(this.personnage.prenom);
       this.tableauPrenomMel= this.jeuService.melangerMot(this.tableauPrenom);
+      this.tour++;
     });
     return this.personnage;
   }
 
   onSubmitForm(form : NgForm): void {
-  console.log(form.value)
-  this.router.navigateByUrl("jeuReponse1");
+  console.log(form.value);
+  this.resultat = this.jeuService.comparerResultat(this.reponseNom, this.personnage);
+  console.log(this.resultat);
+  this.reponseNom = "";
+  if (this.tour<5) {
+    this.tiragePerso();
+    }
+  else {
+    this.router.navigateByUrl('jeuReponse');
+    }
   }
+
 
 }

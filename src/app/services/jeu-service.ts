@@ -3,6 +3,7 @@ import { PersonnageAPI } from "../models/PersonnageApi";
 import { FusionPersonnageService } from "./fusion-personnage-service";
 import { Personnage } from "../models/Personnage";
 import { map, Observable, of, tap } from "rxjs";
+import { HttpClient } from "@angular/common/http";
 
 
 @Injectable({
@@ -10,14 +11,14 @@ import { map, Observable, of, tap } from "rxjs";
 })
 export class JeuService {
 
-constructor(private fusionPersoService: FusionPersonnageService) {
-
-}
+constructor(private fusionPersoService: FusionPersonnageService,
+            private http: HttpClient) {}
 
 personnage!: Personnage;
 num! : number;
 listPerso = this.fusionPersoService.getPersoList();
 private cache: Personnage[] | null = null;
+personnage$!: Observable<Personnage>;
 
 
 /** 
@@ -37,13 +38,25 @@ tiragePerso() : Observable<Personnage> {
   );
   }
 
+  /** 
+   * Fonction permettant de retourner un mot en supprimant les espaces, les signes et 
+   * en le passant en minuscule afin que la comparaison puisse être possible. 
+   */
+
+nomenclatureur(mot:string) : string {
+   mot = mot.replaceAll("\\s", "");
+   mot = mot.toLocaleLowerCase();
+  return mot 
+}
+
+
 /**
  * Fonction changeant un mot en un tableau de lettre en majuscule et sans accent
  * 
  */
 
 getTableauDeLettre(mot : string) : string[] {
-  mot = mot.replaceAll("\\s", "");
+  mot = this.nomenclatureur(mot);
   const tableau = Array.from(mot.toUpperCase());
   return tableau ;
 }
@@ -79,42 +92,23 @@ melangerMot(tableauOriginal : string[]) : string[] {
   return tableauFinal ;
 }
 
-
-
- /**
-
-    public char[] melanger(char[] mot) {
-        // clonage du tableau
-        char[] mel = new char[mot.length];
-        for (int i = 0; i < mel.length; i++) {
-            mel[i] = mot[i];
-        }
-
-        // Echanges de position de caractères
-        for (int i = 0; i < mel.length * 4; i++) {
-            int p1 = r.nextInt(mel.length);
-            int p2 = r.nextInt(mel.length);
-            char tmp = mel[p1];
-            mel[p1] = mel[p2];
-            mel[p2] = tmp;
-        }
-        return mel;
-    }
-
-  */
-
-
-
-
 /**
- * Méthode chargée de faire la liste de tous les personnages présent
- * 
- * @returns liste de personnages
+ * Fonction permettant de comparer la réponse entrée par l'utilisateur 
+ * et les noms et prénoms du personnage à deviner
+ * @param reponseNom 
+ * @param PersonnageATrouver 
+ * @returns un string avec une appréciation selon l'élément trouvé
  */
 
-getAll(): Observable<Personnage[]> {
-    return this.fusionPersoService.getPersoList();
+comparerResultat(reponseNom : string, PersonnageATrouver : Personnage) : string {
+  if (this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.nom_complet)){
+    return "GAGNÉ"
   }
+  else{
+  return "Perdu"
+  }
+}
+
 
 }
 

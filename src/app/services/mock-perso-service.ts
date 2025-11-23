@@ -321,9 +321,7 @@ new PersonnageMock(1,
     'Loki','','',
     "2.600.000.000",
     ['Elbaf']
-    ),
-
-
+    ).withStatus("vivant"),
   ];
   
   getPersoList(): PersonnageMock[] {
@@ -362,6 +360,7 @@ new PersonnageMock(1,
   );
 
   if (formValue.particule) newPerso.withParticule(formValue.particule);
+  newPerso.withStatus("vivant");
 
 }
 }

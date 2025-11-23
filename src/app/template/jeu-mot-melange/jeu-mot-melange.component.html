@@ -5,7 +5,9 @@
 
         <h2>{{personnage.nom_complet}}</h2>
 
-        <h2> Question 1 : Trouvez le personnage caché </h2>
+        @if (resultat) {<h2 color="#006699"> {{resultat}}</h2>}
+
+        <h2> {{tour}} : Trouvez le personnage caché </h2>
 
         <table class="tirage">
             <div>
@@ -29,7 +31,7 @@
                 <div class="reponse">
                     <form method="post" #reponseForm="ngForm" (ngSubmit)="onSubmitForm(reponseForm)">
                         <div>
-                            <input id="reponseNom" name="reponseNom" type="text" pattern="[a-zA-Z0-9_:-]{100}" [(ngModel)]="reponseNom"  required  />
+                            <input id="reponseNom" name="reponseNom" type="text" [(ngModel)]="reponseNom"  required  />
                             <input id="idPerso" name="idPerso" type=number [(ngModel)]="personnage.id" hidden />
                             <input id="score" name="score" type=number [(ngModel)]="score" hidden />
                         </div>
