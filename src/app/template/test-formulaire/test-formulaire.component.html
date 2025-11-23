@@ -1,1 +1,93 @@
-<p>test-formulaire works!</p>
+<div class="form-card">
+
+    <h2>NOUVEAU PERSONNAGE (MOCK)</h2>
+
+    <form [formGroup]="personnageMockForm">
+
+        <div class = "form-group">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" formControlName="nom"> 
+        </div>
+
+        <div class = "form-group">
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" formControlName="prenom"> 
+        </div>
+
+        <div class = "form-group">
+            <label for="surnom">Surnom</label>
+            <input type="text" id="surnom" formControlName="surnom"> 
+        </div>
+
+        <div class = "form-group">
+            <label for="particule">Particule</label>
+            <input type="text" id="particule" formControlName="particule"> 
+        </div>
+
+        <div class = "form-group">
+            <label for="prime">Prime</label>
+            <input type="text" id="prime" formControlName="prime"> 
+        </div>
+
+        <div class = "form-group">
+            <label for="groupes">Groupes</label>
+            <textarea type="text" id="groupes" formControlName="groupes" rows="3"></textarea>
+        </div>
+        
+        <div class="action-buttons">
+            <button type="submit" (click)="onSubmitForm()">Enregistrer</button>
+
+        </div>
+
+    </form>
+
+    <h2>Prévisualisation</h2>
+
+@if (personnagePreview) {
+    <div *ngIf="personnagePreview | async as personnage" >
+    <ul class="flex-outer">
+        <table>
+@if (personnage.nom){
+            <li>
+                <label><b>Nom : </b></label>
+                <tr>{{personnage.nom}} </tr>
+            </li>
+        }
+@if (personnage.particule){
+            <li>
+                <label><b>Particule : </b></label>
+                <tr>{{personnage.particule}} </tr>
+            </li>
+            }
+
+            <li>
+                <label><b>Prenom : </b></label>
+                <tr>{{personnage.prenom}} </tr>
+            </li>
+@if (personnage.surnom){
+            <li>
+            <label><b>Surnom : </b></label>
+            <tr>{{personnage.surnom}} </tr>
+            </li>
+        }
+@if (personnage.prime){
+            <li>
+            <label><b>Prime : </b></label>
+            <tr>{{personnage.prime}} berrys</tr>
+            </li>
+        }
+
+@if (personnage.groupes){
+            <li>
+            <label><b>Groupes : </b></label>
+            <tr>{{personnage.groupes}}</tr>
+            </li>
+        }
+        
+        </table>
+    </ul>
+</div>
+}
+
+
+</div>

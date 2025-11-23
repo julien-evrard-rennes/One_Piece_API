@@ -45,6 +45,7 @@ export class JeuMotMelangeComponent implements OnInit {
 
   onSubmitForm(form : NgForm): void {
   console.log(form.value)
+  this.router.navigateByUrl("jeuReponse1");
   }
 
 }

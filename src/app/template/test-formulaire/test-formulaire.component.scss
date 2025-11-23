@@ -1,0 +1,131 @@
+.form-card, .face-snap-card {
+  box-sizing: border-box;
+  width: 50%;
+  margin: 20px auto;
+  padding: 10px 30px;
+  box-shadow: lightgray 4px 4px 20px;
+}
+
+.face-snap-card {
+  img {
+    width: 100%;
+  }
+  h2 {
+    margin-bottom: 0;
+  }
+  p {
+    font-weight: 300;
+    font-size: 16px;
+  }
+}
+//...
+
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+    background-color: rgb(238, 203, 157);
+}
+
+table td,
+table th {
+    border: 1px solid #ddd3d3;
+    padding: 8px;
+    background-color: rgb(206, 200, 190);
+}
+
+table tr {
+    margin-left: 5px;
+}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #000000;
+    color: white;
+}
+
+table a:link,
+table a:visited {
+    background-color: #008080;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+form h1 {
+    margin: 15px;
+}
+
+.flex-outer li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 10px;
+    border: 1px solid #b1ab9b;
+    border-radius: 5px;
+    color: #353030;
+    background-color: #f1e6cb;
+    padding: 5px;
+}
+
+.flex-outer li a li {
+    display: inline-block;
+    background-color: rgb(204, 236, 198);
+    text-decoration: solid;
+    border: 1px solid #015028;
+}
+
+.flex-outer>li select {
+    flex: 1 0 220px;
+}
+
+.flex-outer>li>label {
+    flex: 1 0 120px;
+    max-width: 350px;
+}
+
+.flex-outer>li>label+* {
+    flex: 1 0 220px;
+}
+
+.flex-outer>li>label+a.bouton {
+    flex: none;
+}
+
+.flex-outer>li>label+input#idParticule {
+    flex: none;
+}
+
+.flex-outer>li>label+input#genreCheck1,
+#genreCheck2,
+#genreCheck3 {
+    flex: none;
+    margin-right: 5px;
+}
+
+.flex-outer li button {
+    margin-left: auto;
+    margin-bottom: 5px;
+    padding: 8px 16px;
+    border: none;
+    background: #333;
+    color: #f2f2f2;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+}
+
+
+.flex-outer li a li:hover {
+    background-color: #8ad9ec;
+    cursor: pointer;
+
+}
+
+.flex-outer li li {
+    background-color: #f6f4f4;
+}

@@ -11,6 +11,7 @@ import { FicheGroupeComponent } from './template/fiche-groupe/fiche-groupe.compo
 import { ListPersonnagesComponent } from './template/list-personnages/list-personnages.component';
 import { FichePersonnageComponent } from './template/fiche-personnage/fiche-personnage.component';
 import { TestFormulaireComponent } from './template/test-formulaire/test-formulaire.component';
+import { JeuReponseMotMelangeComponent } from './template/jeu-reponse-mot-melange/jeu-reponse-mot-melange.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'groupe/:id', component: FicheGroupeComponent },
   { path: '', component: LandingPageComponent },
   { path: 'jeu', component: JeuMotMelangeComponent},
+  { path: 'jeuReponse1', component: JeuReponseMotMelangeComponent},
   { path: 'listePersonnages', component: ListPersonnagesComponent },
   { path: 'listePersonnagesApi', component: ListPersonnagesApiComponent },
   { path: 'listeGroupes', component: ListeGroupesComponent },

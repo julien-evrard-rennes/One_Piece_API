@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit{
   }
 
   onCreation() : void {
-    this.router.navigateByUrl("/creation");
+    this.router.navigateByUrl("/creer");
   }
 
 }
