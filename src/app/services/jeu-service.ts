@@ -130,10 +130,10 @@ getTextResultat(resultat: string): string {
     return "Vous avez trouvé son nom complet."
   }
   else if (resultat=="Nom"){
-    return "Vous avez trouvé son nom."
+    return "Vous avez juste trouvé son nom."
   }
   else if (resultat=="Prenom") {
-    return "Vous avez trouvé son prénom."
+    return "Vous avez juste trouvé son prénom."
   }
   else {
     return "Perdu"

@@ -24,6 +24,7 @@ export class JeuMotMelangeComponent implements OnInit {
   reponseNom!: string;
   texteResultat!: string;
   resultat!: string;
+  reponse!: string;
   score: number = 0;
   tour: number =0;
 
@@ -51,6 +52,7 @@ export class JeuMotMelangeComponent implements OnInit {
   console.log(form.value);
   this.resultat = this.jeuService.comparerResultat(this.reponseNom, this.personnage);
   this.texteResultat = this.jeuService.getTextResultat(this.resultat);
+  this.reponse = this.personnage.nom_complet;
   this.score =10;
   this.reponseNom = "";
   if (this.tour<10) {
