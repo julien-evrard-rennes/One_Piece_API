@@ -25,7 +25,6 @@ getGroupeList(): Observable<Groupe[]> {
   );
 }  
 
-
 getGroupeById(id: number): Observable<Groupe> {
   const mock = this.mockService.getGroupeById(id);
   return this.apiGroupeService.getGroupeById(id).pipe(

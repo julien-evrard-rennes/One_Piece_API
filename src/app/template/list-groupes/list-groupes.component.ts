@@ -54,7 +54,7 @@ export class ListeGroupesComponent implements OnInit {
     this.router.navigateByUrl(`groupe/${groupe.id}`);
   }
 
-  //
+  //- Fonctions de triage 
 
   onTrierParNom() {
     const sorted = [...this.groupeList].sort((a, b) => {
@@ -109,7 +109,7 @@ export class ListeGroupesComponent implements OnInit {
       return this.triAscendantPrime ? nbC - nbD : nbD - nbC;
     });
     this.triAscendantPrime = !this.triAscendantPrime;
-    console.table(this.groupeList);
+
   }
 
 

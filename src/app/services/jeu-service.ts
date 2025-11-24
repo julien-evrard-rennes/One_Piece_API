@@ -44,14 +44,16 @@ tiragePerso() : Observable<Personnage> {
    * en le passant en minuscule afin que la comparaison puisse être possible. 
    */
 
-nomenclatureur(mot:string) : string {
-   mot = mot.replaceAll("\\s", "");
-   mot = mot.replace(/\s+/g, '');
-   mot = mot.replace(/\p{P}/gu, '');
-   mot = mot.toLocaleLowerCase();
-  return mot 
+nomenclatureur(mot: string): string {
+  mot = mot
+    .normalize("NFD")               // sépare les accents
+    .replace(/[\u0300-\u036f]/g, "")// supprime les accents
+    .replace(/\s+/g, "")            // supprime espaces
+    .replace(/\p{P}/gu, "")         // supprime ponctuation
+    .toLowerCase();
+    console.log(mot);
+    return mot;
 }
-
 
 /**
  * Fonction changeant un mot en un tableau de lettre en majuscule et sans accent

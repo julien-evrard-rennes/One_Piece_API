@@ -22,7 +22,7 @@ div.presentation_op a:hover {
 }
 
 div.presentation div.score {
-    width: 300%;
+    width: 85%;
 }
 
 div.presentation-bouton {
@@ -125,9 +125,12 @@ div.resultat{
     justify-content: space-evenly;
     border-radius:5px;
     margin-right: 15%;
+    margin-left:15%;
     padding: 5px;
-    background-color: #f7f6c06c;
+    background-color: #f7f6c086;
     flex-wrap: wrap;
+    width : 60%;
+    flex-direction: column;
 }
 
 div.resultat p{

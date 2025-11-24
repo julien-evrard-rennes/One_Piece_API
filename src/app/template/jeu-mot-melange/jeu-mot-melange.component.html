@@ -5,10 +5,13 @@
 
         <h2>{{personnage.nom_complet}}</h2>
 
-        
-        @if (resultat) {<div class="resultat">
-        <p> {{texteResultat}}</p>
-            </div>}
+@if (resultat) {<div class="resultat">
+                    <div class="score">SCORE :
+                        <p data-th-text="${score}"></p>
+                    </div>
+                <tr>La réponse était : </tr>
+                <tr> {{texteResultat}}</tr>
+                </div>}
         
 
         <h2> {{tour}} : Trouvez le personnage caché </h2>
