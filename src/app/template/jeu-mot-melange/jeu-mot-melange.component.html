@@ -6,9 +6,7 @@
         <h2>{{personnage.nom_complet}}</h2>
 
 @if (resultat) {<div class="resultat">
-                    <div class="score">SCORE :
-                        <p data-th-text="${score}"></p>
-                    </div>
+                    <div class="score">SCORE : <p>{{scoreTotal}}</p></div>
                 <p>La réponse était : {{reponse}} </p>
                 <p> {{texteResultat}}</p>
                 </div>}

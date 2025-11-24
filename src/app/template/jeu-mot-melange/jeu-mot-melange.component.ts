@@ -26,6 +26,7 @@ export class JeuMotMelangeComponent implements OnInit {
   resultat!: string;
   reponse!: string;
   score: number = 0;
+  scoreTotal: number = 0;
   tour: number =0;
 
   constructor(private jeuService : JeuService, 
@@ -53,7 +54,8 @@ export class JeuMotMelangeComponent implements OnInit {
   this.resultat = this.jeuService.comparerResultat(this.reponseNom, this.personnage);
   this.texteResultat = this.jeuService.getTextResultat(this.resultat);
   this.reponse = this.personnage.nom_complet;
-  this.score =10;
+  this.score = this.jeuService.getScore(this.resultat);
+  this.scoreTotal = this.score + this.scoreTotal;
   this.reponseNom = "";
   if (this.tour<10) {
     this.tiragePerso();

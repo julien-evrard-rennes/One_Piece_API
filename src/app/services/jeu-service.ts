@@ -86,7 +86,7 @@ melangerMot(tableauOriginal : string[]) : string[] {
   // clonage du tableau
  const tableauFinal = tableauOriginal;
   // Echanges de position de caractères
-   //while (tableauFinal == tableauOriginal) {
+  // while (tableauFinal == tableauOriginal) {
         for (let i = 0; i < tableauFinal.length * 4; i++) {
             let p1 = Math.floor(Math.random() *tableauFinal.length);
             let p2 = Math.floor(Math.random() *tableauFinal.length);
@@ -142,6 +142,17 @@ getTextResultat(resultat: string): string {
   }
 }
 
+getScore(resultat:string): number {
+    if (resultat=="Complet"){
+    return 10
+  }
+  else if (resultat=="Nom" || resultat=="Prenom"){
+    return 5
+  }
+  else {
+    return 0
+  }
+}
 
 
 }
