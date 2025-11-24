@@ -86,7 +86,7 @@ melangerMot(tableauOriginal : string[]) : string[] {
   // clonage du tableau
  const tableauFinal = tableauOriginal;
   // Echanges de position de caractères
-    while (tableauFinal != tableauOriginal) {
+   //while (tableauFinal == tableauOriginal) {
         for (let i = 0; i < tableauFinal.length * 4; i++) {
             let p1 = Math.floor(Math.random() *tableauFinal.length);
             let p2 = Math.floor(Math.random() *tableauFinal.length);
@@ -94,7 +94,7 @@ melangerMot(tableauOriginal : string[]) : string[] {
             tableauFinal[p1] = tableauFinal[p2];
             tableauFinal[p2] = tmp;
         }
-      }
+    //}
 
   return tableauFinal ;
 }
