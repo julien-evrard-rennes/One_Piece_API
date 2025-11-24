@@ -1,20 +1,23 @@
 
 <main>
     <div class="presentation">
-        <h1> Le Jeu de One Piece</h1>
+        <h1> Trouvez le nom du personnage caché</h1>
 
-        <h2>{{personnage.nom_complet}}</h2>
+@if (isLoading) {
+    <div class="spinner"></div>
+    <p colspan="6">Chargement du jeu...</p>
+}
 
 @if (resultat) {<div class="resultat">
-                    <div class="score">SCORE :
-                        <p data-th-text="${score}"></p>
-                    </div>
+                <div class="score">SCORE : <p>{{scoreTotal}}</p></div>
                 <p>La réponse était : {{reponse}} </p>
                 <p> {{texteResultat}}</p>
                 </div>}
-        
 
-        <h2> {{tour}} : Trouvez le personnage caché </h2>
+        <h2> Question {{tour}} /10 </h2>
+                        
+        <h2>{{personnage.nom_complet}}</h2>
+    
 
         <table class="tirage">
             <div>
