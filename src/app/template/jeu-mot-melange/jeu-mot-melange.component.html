@@ -9,9 +9,14 @@
 }
 
 @if (resultat) {<div class="resultat">
-                <div class="score">SCORE : <p>{{scoreTotal}}</p></div>
-                <p>La réponse était : {{reponse}} </p>
-                <p> {{texteResultat}}</p>
+
+                <div class="score">SCORE :
+                    <p class="chiffre_score">+{{score}}</p>
+                    <p class="chiffre_score_definitif">{{scoreTotal}}</p>
+                </div> 
+
+                <p>Le personnage à trouver était : <i>{{reponse}}</i> </p>
+                <p> {{texteResultat}}</p> <p class="font-smaller"> (+ {{score}} points)</p>
                 </div>}
 
         <h2> Question {{tour}} /10 </h2>

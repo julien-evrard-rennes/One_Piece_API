@@ -1,0 +1,70 @@
+div.resultat{
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: large;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius:5px;
+    margin-right: 15%;
+    margin-left:15%;
+    padding: 5px;
+    background-color: #f7f6c086;
+    flex-wrap: wrap;
+    width : 45%;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.resultat p{
+flex:inherit;
+margin: 0px;
+}
+
+div.score {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: x-large;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 15%;
+    padding: 5px;
+
+}
+
+p.chiffre_score {
+    animation-name: fadeIn, slidein;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    opacity:0;
+}
+
+.font-smaller {
+    font-size: smaller;
+}
+
+@keyframes slidein {
+    from {
+        margin-top:0%;
+    }
+
+    to {
+        margin-top:-3%;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity:1;
+    }
+    to {
+        opacity:0;
+    }
+}
+
+p.chiffre_score_definitif {
+    margin-left:-15px;
+}
+
+p.chiffre_score_definitif2 {
+    margin-left:15px;
+}

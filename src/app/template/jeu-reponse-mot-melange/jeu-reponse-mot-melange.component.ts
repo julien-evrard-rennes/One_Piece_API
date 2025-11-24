@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-jeu-reponse-mot-melange',
@@ -8,5 +9,17 @@ import { Component } from '@angular/core';
   styleUrl: './jeu-reponse-mot-melange.component.scss'
 })
 export class JeuReponseMotMelangeComponent {
+  score!: number;
+  scoreTotal: number;
+  texteResultat:string;
+  reponse: string;
+
+    constructor(private router: Router) {
+    const nav = this.router.getCurrentNavigation();
+    this.score = nav?.extras.state?.['score'] ?? 0;
+    this.scoreTotal = nav?.extras.state?.['scoreTotal'] ?? 0;
+    this.reponse = nav?.extras.state?.['reponse'] ?? ''; 
+    this.texteResultat = nav?.extras.state?.['texteResultat'] ?? ''; 
+  }
 
 }
