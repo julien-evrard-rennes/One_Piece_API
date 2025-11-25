@@ -67,7 +67,8 @@ export class JeuMotMelangeComponent implements OnInit {
   state: { score: this.score,
         texteResultat: this.texteResultat,
         reponse : this.reponse,
-        scoreTotal: this.scoreTotal
+        scoreTotal: this.scoreTotal,
+        tour:this.tour,
    }
       });
     }
