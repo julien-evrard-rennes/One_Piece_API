@@ -38,7 +38,7 @@ export class JeuMotMelangeComponent implements OnInit {
     this.tiragePerso();
   }
 
-   tiragePerso()  {
+   tiragePerso() {
     this.jeuService.tiragePerso().subscribe(p => {
       this.personnage = p;
       this.tableauNom =this.jeuService.getTableauDeLettre(this.personnage.nom);

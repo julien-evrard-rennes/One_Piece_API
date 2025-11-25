@@ -141,6 +141,8 @@ div.resultat p {
     margin: 0px;
 }
 
+
+
 div.score {
     font-family: sans-serif;
     font-weight: bold;
@@ -190,6 +192,39 @@ p.chiffre_score_definitif {
 p.chiffre_score_definitif2 {
     margin-left: 15px;
 }
+
+
+// DIFFERENTS RESULTATS FINAUX :
+
+div.resultatfinal {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: large;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    margin-right: 15%;
+    margin-left: 15%;
+    background-color: #f7f6c000;
+    flex-wrap: wrap;
+    width: 45%;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.resultat p {
+    flex: inherit;
+    margin: 0px;
+}
+
+div.resultatParfait{
+    background-color: #f7c65cbd;
+}
+
+div.resultatMoyen{
+    background-color: #f7c8c0bd;
+}
+
 
 
 
