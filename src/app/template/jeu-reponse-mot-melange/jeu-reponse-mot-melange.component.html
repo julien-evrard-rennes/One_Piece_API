@@ -1,12 +1,25 @@
-<p>FIN DE LA PARTIE</p>
+<main>
+    <div class="presentation">
+        <h1>Fin de partie :</h1>
 
-<div class="resultat">
 
-                <div class="score">SCORE :
-                    <p class="chiffre_score">+{{score}}</p>
-                    <p class="chiffre_score_definitif">{{scoreTotal}}</p>
-                </div> 
+    <div class="resultat">
 
-                <p>Le personnage à trouver était : <i>{{reponse}}</i> </p>
-                <p> {{texteResultat}}</p> <p class="font-smaller"> (+ {{score}} points)</p>
-                </div>
+            <p>Le personnage à trouver était : <i>{{reponse}}</i> </p>
+            <td> {{texteResultat}}<p class="font-smaller"> (+ {{score}} points)</p>
+            </td>
+
+            <div class="score">SCORE TOTAL :
+                <p class="chiffre_score">+{{score}}</p>
+                <p class="chiffre_score_definitif">{{scoreTotal}}</p>
+            </div>
+
+
+        </div>
+
+        <!-- <h2> Question {{tour}} /10 </h2> -->
+
+
+    </div>
+</main>
+
