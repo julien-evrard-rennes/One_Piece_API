@@ -46,6 +46,69 @@ div.presentation-bouton {
     justify-content: space-evenly;
 }
 
+div.choix {
+    font-family: sans-serif;
+    font-size: large;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+// DIV CHOIX
+
+div.choix button {
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    padding: 6px 6px;
+    background: #0f0e40;
+    border: none;
+    color: #f2f2f2;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+div.choix button a {
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+div.choix button:hover {
+    background-color: #ec3232;
+    cursor: pointer;
+}
+
+ li.bouton a {
+     margin-left: auto;
+     margin-bottom: 5px;
+     padding: 8px 16px;
+     border: none;
+     background: #333;
+     color: #f2f2f2;
+     text-transform: uppercase;
+     letter-spacing: .09em;
+ }
+
+ a.bouton {
+     margin-left: 10px;
+     margin-bottom: 5px;
+     padding: 8px 8px;
+     background: #333;
+     border: none;
+     color: #f2f2f2;
+     text-transform: uppercase;
+     letter-spacing: .09em;
+ }
+
+ a.bouton:hover {
+     background-color: #c58282;
+     cursor: pointer;
+ }
 
 table.tirage {
     display: flex;
@@ -213,7 +276,10 @@ div.resultatfinal {
 
 div.resultatfinal p {
     flex: inherit;
-    margin: 0px;
+    display: flex;
+    margin: 15px;
+    align-items: center;
+    justify-content: space-around;
 }
 
 div.resultatParfait {
@@ -224,23 +290,29 @@ div.resultatParfait {
 
 div.resultatCool {
     width: 100%;
-    background-color: #f7d17f7f;
+    background-color: #f7d17f93;
     border-radius: 5px;
 }
 
 div.resultatMoyen {
     width: 100%;
-    background-color: #f7c8c0bd;
+    background-color: #f7d5b5b9;
     border-radius: 5px;
 }
 
 div.resultatBof {
     width: 100%;
-    background-color: #f3826ebd;
+    background-color: #f3aa6ebd;
     border-radius: 5px;
 }
 
 div.resultatPourri {
+    width: 100%;
+    background-color: #f3986ed2;
+    border-radius: 5px;
+}
+
+div.resultatNul {
     width: 100%;
     background-color: #f2492cbd;
     border-radius: 5px;
