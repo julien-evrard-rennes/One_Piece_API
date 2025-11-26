@@ -78,7 +78,6 @@ table.tirage th.interclasse {
 }
 
 div.reponse {
-    // background-color: #f0f8ffc2;
     padding: 15px;
     margin: 10px;
     font-size: x-large;
@@ -212,7 +211,7 @@ div.resultatfinal {
     align-items: center;
 }
 
-div.resultat p {
+div.resultatfinal p {
     flex: inherit;
     margin: 0px;
 }
@@ -232,7 +231,6 @@ div.resultatCool {
 div.resultatMoyen {
     width: 100%;
     background-color: #f7c8c0bd;
-    border-radius: 5px;
     border-radius: 5px;
 }
 
