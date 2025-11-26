@@ -110,13 +110,18 @@ comparerResultat(reponseNom : string, PersonnageATrouver : Personnage) : string 
     this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.nom + PersonnageATrouver.particule + PersonnageATrouver.prenom)){
     return "Complet"
   }
-  if (this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.nom)){
+  if (this.nomenclatureur(reponseNom) != ''){
+    if (this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.nom)){
     return "Nom"
   }
-  else if (this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.prenom) ||
+    else if ((this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.prenom)) && reponseNom != '' ||
           this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.surnom)){
     return "Prenom"
   }
+  else {
+    return "Perdu"
+  }
+}
   else{
   return "Perdu"
   }
