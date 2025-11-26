@@ -217,21 +217,38 @@ div.resultat p {
     margin: 0px;
 }
 
-div.resultatParfait{
-    width : 100%;
+div.resultatParfait {
+    width: 100%;
     background-color: #f7c65cbd;
+    border-radius: 5px;
 }
 
-div.resultatMoyen{
+div.resultatCool {
     width: 100%;
-    background-color: #f5e0c4a6;
+    background-color: #f7d17f7f;
+    border-radius: 5px;
+}
+
+div.resultatMoyen {
+    width: 100%;
+    background-color: #f7c8c0bd;
+    border-radius: 5px;
 }
 
 div.resultatBof {
     width: 100%;
     background-color: #f3826ebd;
+    border-radius: 5px;
 }
 
+div.resultatPourri {
+    width: 100%;
+    background-color: #f2492cbd;
+    border-radius: 5px;
+}
 
-
-
+div.resultatNormal {
+    width: 100%;
+    background-color: #f7f6c086;
+    border-radius: 5px;
+}
