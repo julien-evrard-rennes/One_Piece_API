@@ -70,14 +70,14 @@ export class JeuReponseMotMelangeComponent implements OnInit  {
       return "Bravo ! Tu connais visiblement à la perfection les personnages de One Piece ! \n" +
       "Ou alors, c'est un énorme coup de pot !"}
       else if (resultatCadre=="resultatCool"){
-      return "Ok, tu as retrouvé la grande majorité des personnages \n" +
-      "Mais ne te la pète pas trop, c'est peut-être juste la chance !"}
+      return "Ok, tu as retrouvé une grande majorité des personnages \n" +
+      "Mais ne te la pète pas trop : l'idéal c'est le 100%"}
       else if (resultatCadre=="resultatMoyen"){
-      return "Tu as retrouvé un peu plus de la moitié des personnages. \n" +
-      "Y a vraiment pas de quoi se vanter !"}
+      return "C'est franchement moyen tout ça.  \n" +
+      "Bon, au moins t'as retrouvé la moitié des personnages.."}
       else if (resultatCadre=="resultatBof"){
       return "Tu as retrouvé un peu moins de la moitié des personnages. \n" +
-      "J'espère pour toi que tu fera mieux la prochaine fois !"}
+      "Y a vraiment pas de quoi se vanter !"}
       else if (resultatCadre=="resultatPourri"){
       return "Et bah dis donc, c'est quoi ce score ? \n" +
       "Tu connais le manga au moins ?"}

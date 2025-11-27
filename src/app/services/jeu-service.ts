@@ -55,13 +55,24 @@ nomenclatureur(mot: string): string {
     return mot;
 }
 
+  /** 
+   * nomenclatureur simplifié pour le tirage
+   */
+
+nomenclatureurTirage(mot: string): string {
+    mot = mot.normalize("NFD")               // sépare les accents
+    .replace(/[\u0300-\u036f]/g, "")// supprime les accents
+    console.log(mot);
+    return mot;
+}
+
 /**
  * Fonction changeant un mot en un tableau de lettre en majuscule et sans accent
  * 
  */
 
 getTableauDeLettre(mot : string) : string[] {
-  mot = this.nomenclatureur(mot);
+  mot = this.nomenclatureurTirage(mot);
   const tableau = Array.from(mot.toUpperCase());
   return tableau ;
 }
@@ -106,20 +117,30 @@ melangerMot(tableauOriginal : string[]) : string[] {
  */
 
 comparerResultat(reponseNom : string, PersonnageATrouver : Personnage) : string {
+  let nom = '';
+  let prenom = '';
   if (this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.nom_complet) || 
     this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.nom + PersonnageATrouver.particule + PersonnageATrouver.prenom)){
     return "Complet"
   }
-  if (this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.nom)){
+  else {
+  if (reponseNom.includes(" ")) {
+      nom = reponseNom.split(" ")[0];
+      prenom = reponseNom.split(" ")[1];
+  }
+  if (this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.nom) ||
+      this.nomenclatureur(nom).includes(this.nomenclatureur(PersonnageATrouver.nom))){
     return "Nom"
   }
   else if (this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.prenom) ||
+          this.nomenclatureur(prenom) == this.nomenclatureur(PersonnageATrouver.prenom) ||
           this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.surnom)){
     return "Prenom"
   }
   else{
   return "Perdu"
   }
+}
 }
 
 /**
