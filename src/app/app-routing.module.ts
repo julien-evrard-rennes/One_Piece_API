@@ -12,13 +12,14 @@ import { ListPersonnagesComponent } from './template/list-personnages/list-perso
 import { FichePersonnageComponent } from './template/fiche-personnage/fiche-personnage.component';
 import { TestFormulaireComponent } from './template/test-formulaire/test-formulaire.component';
 import { JeuReponseMotMelangeComponent } from './template/fichiers-jeu/jeu-reponse-mot-melange/jeu-reponse-mot-melange.component';
+import { JeuEquipageComponent } from './template/fichiers-jeu/jeu-equipage/jeu-equipage.component';
 
 
 const routes: Routes = [
   { path: 'personnage/:id', component: FichePersonnageComponent },
   { path: 'groupe/:id', component: FicheGroupeComponent },
   { path: '', component: LandingPageComponent },
-  { path: 'jeu', component: JeuMotMelangeComponent},
+  { path: 'jeu', component: JeuEquipageComponent},
   { path: 'jeuReponse', component: JeuReponseMotMelangeComponent},
   { path: 'listePersonnages', component: ListPersonnagesComponent },
   { path: 'listePersonnagesApi', component: ListPersonnagesApiComponent },

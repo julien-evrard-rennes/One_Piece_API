@@ -1,11 +1,24 @@
 
 <main>
-    <h1> Jeu des Équipages</h1>
+    <h1> Qui appartient à quel équipage ?</h1>
 
-    <div class="score">SCORE :
-        <p class="chiffre_score"></p>
-        <p class="chiffre_score_definitif2" data-th-text="${score}"></p>
+    @if (isLoading) {
+    <div class="spinner"></div>
+    <p colspan="6">Chargement du jeu...</p>
+    }
+
+    @if (resultat) {<div class="resultat">
+    
+        <div class="score">SCORE :
+            <p class="chiffre_score">+{{score}}</p>
+            <p class="chiffre_score_definitif">{{scoreTotal}}</p>
+        </div>
+    
+        <p>Le personnage à trouver était : <i>{{reponse}}</i> </p>
+        <td> {{texteResultat}}<p class="font-smaller"> (+ {{score}} points)</p>
+        </td>
     </div>
+    }
 
     <h2 data-th-text="${'Question ' + numeroDeQuestion  + ' : '
     + nomComplet + ' appartient-'+ pronom + ' ou a t-' + pronom +' appartenu a ' + groupeChoisi.nom + ' ?'}"> </h2>

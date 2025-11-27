@@ -23,6 +23,7 @@ export class JeuMotMelangeComponent implements OnInit {
   tableauPrenom!: string[];
   tableauPrenomMel!: string[];
   reponseNom!: string;
+
   texteResultat!: string;
   resultat!: string;
   reponse!: string;
