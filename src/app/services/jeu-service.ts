@@ -128,7 +128,8 @@ comparerResultat(reponseNom : string, PersonnageATrouver : Personnage) : string 
       nom = reponseNom.split(" ")[0];
       prenom = reponseNom.split(" ")[1];
   }
-  if (this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.nom) ||
+
+  if (this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.nom) && reponseNom != '' ||
       this.nomenclatureur(nom).includes(this.nomenclatureur(PersonnageATrouver.nom))){
     return "Nom"
   }
@@ -141,11 +142,8 @@ comparerResultat(reponseNom : string, PersonnageATrouver : Personnage) : string 
     return "Perdu"
   }
 }
-  else{
-  return "Perdu"
-  }
 }
-}
+
 
 /**
  * Fonction permettant de générer un texte à afficher en fonction des différents résultats au jeu
