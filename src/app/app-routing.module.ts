@@ -4,14 +4,14 @@ import { LandingPageComponent } from './template/landing-page/landing-page.compo
 import { ListPersonnagesApiComponent } from './template/list-personnages-api/list-personnages-api.component';
 import { FichePersonnageApiComponent } from './template/fiche-personnage-api/fiche-personnage-api.component';
 import { FicheGroupeApiComponent } from './template/fiche-groupe-api/fiche-groupe-api.component';
-import { JeuMotMelangeComponent } from './template/jeu-mot-melange/jeu-mot-melange.component';
+import { JeuMotMelangeComponent } from './template/fichiers-jeu/jeu-mot-melange/jeu-mot-melange.component';
 import { ListeGroupesComponent } from './template/list-groupes/list-groupes.component';
 import { ListGroupesApiComponent } from './template/list-groupes-api/list-groupes-api.component';
 import { FicheGroupeComponent } from './template/fiche-groupe/fiche-groupe.component';
 import { ListPersonnagesComponent } from './template/list-personnages/list-personnages.component';
 import { FichePersonnageComponent } from './template/fiche-personnage/fiche-personnage.component';
 import { TestFormulaireComponent } from './template/test-formulaire/test-formulaire.component';
-import { JeuReponseMotMelangeComponent } from './template/jeu-reponse-mot-melange/jeu-reponse-mot-melange.component';
+import { JeuReponseMotMelangeComponent } from './template/fichiers-jeu/jeu-reponse-mot-melange/jeu-reponse-mot-melange.component';
 
 
 const routes: Routes = [
