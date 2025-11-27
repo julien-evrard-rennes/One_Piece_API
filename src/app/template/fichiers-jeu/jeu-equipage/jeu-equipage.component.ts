@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Personnage } from 'src/app/models/Personnage';
+import { JeuService } from 'src/app/services/jeu-service';
 
 @Component({
   selector: 'app-jeu-equipage',
@@ -10,6 +13,7 @@ import { Component, OnInit } from '@angular/core';
 export class JeuEquipageComponent implements OnInit {
 
   isLoading = true;
+  personnage!: Personnage;
 
   resultat!: string;
   reponse!: string;
@@ -18,8 +22,23 @@ export class JeuEquipageComponent implements OnInit {
   scoreTotal: number = 0;
   tour: number =0;
 
+    constructor(private jeuService : JeuService, 
+    private router: Router) {}
+
 
     ngOnInit(): void {
+      this.tiragePerso();
   }
+
+tiragePerso() {
+    this.jeuService.tiragePerso().subscribe(p => {
+      this.personnage = p;
+      this.tour++;
+      this.isLoading=false;
+    });
+    return this.personnage;
+  }
+
+  
 
 }

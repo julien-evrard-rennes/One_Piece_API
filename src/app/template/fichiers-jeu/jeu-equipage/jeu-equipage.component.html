@@ -1,6 +1,7 @@
 
 <main>
-    <h1> Qui appartient à quel équipage ?</h1>
+    <div class="presentation">
+    <h1>Question sur les équipages</h1>
 
     @if (isLoading) {
     <div class="spinner"></div>
@@ -21,7 +22,7 @@
     }
 
     <h2 data-th-text="${'Question ' + numeroDeQuestion  + ' : '
-    + nomComplet + ' appartient-'+ pronom + ' ou a t-' + pronom +' appartenu a ' + groupeChoisi.nom + ' ?'}"> </h2>
+    + nomComplet + ' appartient-'+ pronom + ' ou a t-' + pronom +' appartenu a ' + groupeChoisi.nom + ' ?'}"> {{personnage.nom_complet}} fait partie de l'équipage  </h2>
 
     <div class="reponse">
         <form action="/jeu/jeu_groupe_reponse" method="post">
@@ -39,6 +40,6 @@
             </div>
         </form>
     </div>
-
+</div>
 
 </main>
