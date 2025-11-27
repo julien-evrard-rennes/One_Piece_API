@@ -132,11 +132,15 @@ comparerResultat(reponseNom : string, PersonnageATrouver : Personnage) : string 
       this.nomenclatureur(nom).includes(this.nomenclatureur(PersonnageATrouver.nom))){
     return "Nom"
   }
-  else if (this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.prenom) ||
+    else if ((this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.prenom)) && reponseNom != '' ||
           this.nomenclatureur(prenom) == this.nomenclatureur(PersonnageATrouver.prenom) ||
           this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.surnom)){
     return "Prenom"
   }
+  else {
+    return "Perdu"
+  }
+}
   else{
   return "Perdu"
   }
