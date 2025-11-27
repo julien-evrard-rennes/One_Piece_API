@@ -129,13 +129,13 @@ comparerResultat(reponseNom : string, PersonnageATrouver : Personnage) : string 
       prenom = reponseNom.split(" ")[1];
   }
 
-  if (this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.nom) && reponseNom != '' ||
-      this.nomenclatureur(nom).includes(this.nomenclatureur(PersonnageATrouver.nom))){
+  if (this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.nom) ||
+      this.nomenclatureur(nom).includes(this.nomenclatureur(PersonnageATrouver.nom)) && PersonnageATrouver.nom != ''){
     return "Nom"
   }
-    else if ((this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.prenom)) && reponseNom != '' ||
+    else if ((this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.prenom)) ||
           this.nomenclatureur(prenom) == this.nomenclatureur(PersonnageATrouver.prenom) ||
-          this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.surnom)){
+          this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.surnom) && PersonnageATrouver.prenom != '' ){
     return "Prenom"
   }
   else {
