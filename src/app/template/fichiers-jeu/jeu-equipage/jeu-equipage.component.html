@@ -1,7 +1,7 @@
 
 <main>
     <div class="presentation">
-    <h1>Question sur les équipages et les peuples</h1>
+    <h1>Questions sur les équipages et les peuples</h1>
 
     @if (isLoading) {
     <div class="spinner"></div>
@@ -15,28 +15,21 @@
             <p class="chiffre_score_definitif">{{scoreTotal}}</p>
         </div>
     
-        <p>Le personnage à trouver était : <i>{{reponse}}</i> </p>
         <td> {{texteResultat}}<p class="font-smaller"> (+ {{score}} points)</p>
         </td>
     </div>
     }
 
+    <h2> Question {{tour}} /10 </h2>
+
     <h2>VRAI OU FAUX ? </h2>
-    <h2> @if (personnage){ {{personnage.nom_complet}} } fait partie de {{nomDuGroupe}}  </h2>
+    <h2> @if (personnage){ <p class ="personnage"> {{personnage.nom_complet + "  "}} </p> } fait partie de <p class="groupe"> {{" " + nomDuGroupe}} </p>  </h2>
 
     <div class="reponse">
-        <form action="/jeu/jeu_groupe_reponse" method="post">
-
             <div>
-                <input id="idPerso" name="idPerso" type=number th:value="${personnageChoisi.id}" hidden />
-                <input id="groupeChoisi" name="idGroupe" th:value="${groupeChoisi.id}" hidden />
-                <input id="score" name="score" type=number th:value="${score}" hidden />
+                <button (click)="onClickButton('oui')">OUI</button>
+                <button (click)="onClickButton('non')">NON</button>
             </div>
-            <div>
-                <button id="oui" name="reponse" value="oui" type="submit">OUI</button>
-                <button id="non" name="reponse" value="non" type="submit">NON</button>
-            </div>
-        </form>
     </div>
 </div>
 

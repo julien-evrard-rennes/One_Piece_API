@@ -25,31 +25,49 @@ export class JeuEquipageComponent implements OnInit {
   scoreTotal: number = 0;
   tour: number =0;
 
-    constructor(private jeuService : JeuService, 
-    private router: Router) {}
+    constructor(private  jeuService : JeuService, 
+    private readonly router: Router) {}
 
 
-    ngOnInit(): void {
-      this.tiragePerso();
-      this.tirageGroupe();
+  ngOnInit(): void {
+      this.tirage();
     }
 
-tiragePerso() {
+  tirage() {
     this.jeuService.tiragePerso().subscribe(p => {
       this.personnage = p;
-    })
-  }
-
-  tirageGroupe(){
-    this.jeuService.tirageGroupe().subscribe(g => {
-      this.groupe = g;
-      console.log(this.groupe);
       this.tour++;
       this.isLoading=false;
+    });
+      this.jeuService.tirageGroupe().subscribe(g => {
+      this.groupe = g;
+      console.log(this.groupe);
       this.nomDuGroupe=this.jeuService.lowercaseFirstLetter(this.groupe.name);
     });
   }
 
-  
 
+  onClickButton(reponse: string): void {
+    this.resultat = this.jeuService.comparerResultatEquipage(reponse, this.personnage, this.groupe);
+    console.log (reponse + ' ' + this.resultat)
+    this.texteResultat = this.jeuService.getTextResultatEquipage(this.resultat, reponse, this.personnage, this.groupe);
+    console.log (this.texteResultat);
+    this.score = this.jeuService.getScore2(this.resultat);
+    this.scoreTotal = this.score + this.scoreTotal;
+    if (this.tour<10) {
+    this.tirage();
+    }
+    else {
+      this.router.navigateByUrl('jeuReponse', {
+        state: { 
+        score: this.score,
+        texteResultat: this.texteResultat,
+        reponse : this.reponse,
+        scoreTotal: this.scoreTotal,
+        tour:this.tour,
+   }
+    });
+  }
+
+  }
 }

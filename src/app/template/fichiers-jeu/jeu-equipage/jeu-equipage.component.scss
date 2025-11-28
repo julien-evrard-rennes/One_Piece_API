@@ -18,6 +18,11 @@
     }
 }
 
+h2 {
+    display:ruby;
+    align-items:center;
+}
+
 
 /* DIV PRESENTATION */
 
@@ -207,4 +212,14 @@ input#idName {
     margin: 10px;
     width: 250px;
     height: 30px;
+}
+
+// coloration des mots 
+
+.personnage {
+    color:#2c2ab1;
+}
+
+.groupe {
+    color: #1c743d;
 }

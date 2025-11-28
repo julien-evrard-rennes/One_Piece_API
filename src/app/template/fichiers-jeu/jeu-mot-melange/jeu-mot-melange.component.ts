@@ -64,8 +64,9 @@ export class JeuMotMelangeComponent implements OnInit {
     this.tiragePerso();
     }
   else {
-    this.router.navigateByUrl('jeuReponse', {
-  state: { score: this.score,
+    this.router.navigateByUrl('jeuReponseMelange', {
+  state: { 
+        score: this.score,
         texteResultat: this.texteResultat,
         reponse : this.reponse,
         scoreTotal: this.scoreTotal,

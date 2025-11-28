@@ -1,5 +1,3 @@
-
-
 /* DIV PRESENTATION */
 
 div.presentation,
@@ -74,32 +72,32 @@ div.choix button:hover {
     cursor: pointer;
 }
 
- li.bouton a {
-     margin-left: auto;
-     margin-bottom: 5px;
-     padding: 8px 16px;
-     border: none;
-     background: #333;
-     color: #f2f2f2;
-     text-transform: uppercase;
-     letter-spacing: .09em;
- }
+li.bouton a {
+    margin-left: auto;
+    margin-bottom: 5px;
+    padding: 8px 16px;
+    border: none;
+    background: #333;
+    color: #f2f2f2;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+}
 
- a.bouton {
-     margin-left: 10px;
-     margin-bottom: 5px;
-     padding: 8px 8px;
-     background: #333;
-     border: none;
-     color: #f2f2f2;
-     text-transform: uppercase;
-     letter-spacing: .09em;
- }
+a.bouton {
+    margin-left: 10px;
+    margin-bottom: 5px;
+    padding: 8px 8px;
+    background: #333;
+    border: none;
+    color: #f2f2f2;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+}
 
- a.bouton:hover {
-     background-color: #c58282;
-     cursor: pointer;
- }
+a.bouton:hover {
+    background-color: #c58282;
+    cursor: pointer;
+}
 
 table.tirage {
     display: flex;

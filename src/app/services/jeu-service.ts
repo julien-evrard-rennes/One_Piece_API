@@ -26,7 +26,7 @@ private cacheG: Groupe[] | null = null;
 personnage$!: Observable<Personnage>;
 
 /**
- * Methode chargée de mettre juste la première lettre en minuscule
+ * Fonction chargée de mettre juste la première lettre en minuscule
  * @param phrase
  * @returns phrase
  */
@@ -37,7 +37,7 @@ lowercaseFirstLetter(phrase: string) {
 
 
 /** 
- * Methode chargée de tirer un personnage au hasard dans la liste des personnages
+ * Fonction chargée de tirer un personnage au hasard dans la liste des personnages
  * 
  * @returns un observable "Personnage"
  */
@@ -54,7 +54,7 @@ tiragePerso() : Observable<Personnage> {
   }
 
   /** 
- * Methode chargée de tirer un groupe au hasard dans la liste des groupes
+ * Fonction chargée de tirer un groupe au hasard dans la liste des groupes
  * 
  * @returns un observable "Groupe"
  */
@@ -98,6 +98,8 @@ nomenclatureurTirage(mot: string): string {
     return mot;
 }
 
+// FONCTIONS AYANT TRAIT AU JEU DES NOMS MÉLANGÉS 
+
 /**
  * Fonction changeant un mot en un tableau de lettre en majuscule et sans accent
  * 
@@ -139,6 +141,8 @@ melangerMot(tableauOriginal : string[]) : string[] {
 
   return tableauFinal ;
 }
+
+
 
 /**
  * Fonction permettant de comparer la réponse entrée par l'utilisateur 
@@ -208,6 +212,65 @@ getScore(resultat:string): number {
   }
 }
 
+// FONCTIONS AYANT TRAIT AU JEU DES ÉQUIPAGES
+
+/**
+ * Fonction qui permet de comparer si la réponse donné au jeu est bonne ou pas. 
+ * @param reponse 
+ * @param personnage 
+ * @param groupe 
+ */
+
+comparerResultatEquipage(reponse: string, personnage: Personnage, groupe: Groupe): string {
+  if (personnage.crew.id == groupe.id){
+    if (reponse == "oui") {
+      return "gagné"
+    }
+    else {
+      return "perdu"
+    }
+  }
+  else {
+    if (reponse == "non"){
+      return "gagné"
+    }
+    else if (reponse == "oui") {
+      return "perdu"
+    }
+    else {
+      return "Erreur 404"
+    }
+  }
+}
+
+getTextResultatEquipage(resultat: string, reponse: string, personnage: Personnage, groupe: Groupe, ): string {
+  if (resultat=="gagné" && reponse=="oui"){
+    return personnage.nom_complet + " fait effectivement partie de " + this.lowercaseFirstLetter(groupe.name);
+  }
+  else if (resultat=="gagné" && reponse=="non" ){
+    return "Bravo, " + personnage.nom_complet + " n'a jamais fait partie de " + this.lowercaseFirstLetter(groupe.name);
+  }
+  else if (resultat=="perdu" && reponse=="oui" ) {
+    return "Dommage, " + personnage.nom_complet + " n'a jamais fait partie de " + this.lowercaseFirstLetter(groupe.name);
+  }
+  else if (resultat=="perdu" && reponse=="non" ) {
+    return "Hélas" + personnage.nom_complet + " a bien fait partie de " + this.lowercaseFirstLetter(groupe.name); 
+  }
+  else {
+    return "Erreur 404"
+  }
+}
+
+getScore2(resultat: string): number {
+    if (resultat=="gagné"){
+    return 10
+  }
+  else {
+    return 0
+  }
+}
+
 
 }
+
 
