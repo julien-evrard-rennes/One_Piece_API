@@ -32,7 +32,6 @@ import { LikeType } from "./like-type.type";
             this.surnom = surnom;
             this.prime = prime;
             this.groupes = groupes;
-            console.log(this);
         }
 
     setParticule(particule: string): void {

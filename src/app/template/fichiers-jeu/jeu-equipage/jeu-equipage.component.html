@@ -1,7 +1,7 @@
 
 <main>
     <div class="presentation">
-    <h1>Question sur les équipages</h1>
+    <h1>Question sur les équipages et les peuples</h1>
 
     @if (isLoading) {
     <div class="spinner"></div>
@@ -21,15 +21,13 @@
     </div>
     }
 
-    <h2 data-th-text="${'Question ' + numeroDeQuestion  + ' : '
-    + nomComplet + ' appartient-'+ pronom + ' ou a t-' + pronom +' appartenu a ' + groupeChoisi.nom + ' ?'}"> {{personnage.nom_complet}} fait partie de l'équipage  </h2>
+    <h2>VRAI OU FAUX ? </h2>
+    <h2> @if (personnage){ {{personnage.nom_complet}} } fait partie de {{nomDuGroupe}}  </h2>
 
     <div class="reponse">
         <form action="/jeu/jeu_groupe_reponse" method="post">
 
             <div>
-                <input id="numerodequestion" name="numerodequestion" type="number" th:value="${numeroDeQuestion + 1}"
-                    hidden />
                 <input id="idPerso" name="idPerso" type=number th:value="${personnageChoisi.id}" hidden />
                 <input id="groupeChoisi" name="idGroupe" th:value="${groupeChoisi.id}" hidden />
                 <input id="score" name="score" type=number th:value="${score}" hidden />

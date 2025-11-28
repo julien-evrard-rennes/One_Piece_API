@@ -4,6 +4,8 @@ import { FusionPersonnageService } from "./fusion-personnage-service";
 import { Personnage } from "../models/Personnage";
 import { map, Observable, of, tap } from "rxjs";
 import { HttpClient } from "@angular/common/http";
+import { FusionGroupeService } from "./fusion-groupe-service";
+import { Groupe } from "../models/groupe";
 
 
 @Injectable({
@@ -13,13 +15,25 @@ export class JeuService {
 
 
 constructor(private fusionPersoService: FusionPersonnageService,
+            private fusionGroupeService : FusionGroupeService,
             private http: HttpClient) {}
 
 personnage!: Personnage;
 num! : number;
 listPerso = this.fusionPersoService.getPersoList();
 private cache: Personnage[] | null = null;
+private cacheG: Groupe[] | null = null;
 personnage$!: Observable<Personnage>;
+
+/**
+ * Methode chargée de mettre juste la première lettre en minuscule
+ * @param phrase
+ * @returns phrase
+ */
+
+lowercaseFirstLetter(phrase: string) {
+  return phrase.charAt(0).toLowerCase() + phrase.slice(1);
+}
 
 
 /** 
@@ -40,6 +54,23 @@ tiragePerso() : Observable<Personnage> {
   }
 
   /** 
+ * Methode chargée de tirer un groupe au hasard dans la liste des groupes
+ * 
+ * @returns un observable "Groupe"
+ */
+
+tirageGroupe() : Observable<Groupe> {
+  if (this.cacheG) {
+    return of(this.cacheG[Math.floor(Math.random() * this.cacheG.length)]);
+  }
+
+  return this.fusionGroupeService.getGroupeList().pipe(
+    tap(list => this.cacheG = list),
+    map(list => list[Math.floor(Math.random() * list.length)])
+  );
+  }
+
+  /** 
    * Fonction permettant de retourner un mot en supprimant les espaces, les signes et 
    * en le passant en minuscule afin que la comparaison puisse être possible. 
    */
@@ -50,6 +81,7 @@ nomenclatureur(mot: string): string {
     .replace(/[\u0300-\u036f]/g, "")// supprime les accents
     .replace(/\s+/g, "")            // supprime espaces
     .replace(/\p{P}/gu, "")         // supprime ponctuation
+    .trim()
     .toLowerCase();
     console.log(mot);
     return mot;
@@ -62,7 +94,7 @@ nomenclatureur(mot: string): string {
 nomenclatureurTirage(mot: string): string {
     mot = mot.normalize("NFD")               // sépare les accents
     .replace(/[\u0300-\u036f]/g, "")// supprime les accents
-    console.log(mot);
+        .trim()
     return mot;
 }
 
