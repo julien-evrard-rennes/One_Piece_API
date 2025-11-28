@@ -66,26 +66,26 @@ export class JeuReponseComponent implements OnInit {
         console.log(resultatCadre);
         if (this.resultatCadre=="resultat"){
           return "Bizarre"}
-        if (resultatCadre=="resultatParfait"){
-        return "Bravo ! Tu connais visiblement à la perfection les personnages de One Piece ! \n" +
-        "Ou alors, c'est un énorme coup de pot !"}
-        else if (resultatCadre=="resultatCool"){
-        return "Ok, tu as retrouvé une grande majorité des personnages. \n" +
-        "Mais ne te la pète pas trop : l'idéal c'est le 100%"}
-        else if (resultatCadre=="resultatMoyen"){
-        return "C'est franchement moyen tout ça.  \n" +
-        "Bon, au moins t'as retrouvé la moitié des personnages.."}
-        else if (resultatCadre=="resultatBof"){
-        return "Tu as retrouvé un peu moins de la moitié des personnages. \n" +
-        "Y a vraiment pas de quoi se vanter !"}
-        else if (resultatCadre=="resultatPourri"){
-        return "Et bah dis donc, c'est quoi ce score ? \n" +
-        "Tu connais le manga au moins ?"}
-        else if (resultatCadre=="resultatNul"){
-        return "AUCUNE BONNE RÉPONSE ?\n" + 
-        "Rassure moi, tu en a fait exprès, c'est ça ?  "}
-        else {
-        return "Ce message ne devrait pas s'afficher. Le programme doit avoir un bug."
+      if (resultatCadre=="resultatParfait"){
+      return "Bravo ! Soit tu t'y connais vraiment bien en One Piece ! \n" +
+      "Soit t'as découvert qu'il fallait répondre NON à la plupart des questions !"}
+      else if (resultatCadre=="resultatCool"){
+      return "Pas mal, mais vu que le jeu est méga-fastoche, \n" +
+      "t'avais largement les moyens de faire 100% ."}
+      else if (resultatCadre=="resultatMoyen"){
+      return "Franchement, dis le moi...  \n" +
+      "T'as appuyé sur les boutons au pif, c'est ça ?"}
+      else if (resultatCadre=="resultatBof"){
+      return "C'est dingue, le jeu est ultra-facile \n" +
+      "... mais t'as quand même réussi à te vautrer."}
+      else if (resultatCadre=="resultatPourri"){
+      return "Bah alors, c'est quoi ce score ? \n" +
+      "T'as pas compris le truc ?"}
+      else if (resultatCadre=="resultatNul"){
+      return "AUCUNE BONNE RÉPONSE ?\n" + 
+      "Un conseil : Arrête d'appuyer sur 'OUI'. "}
+      else {
+      return "Ce message ne devrait pas s'afficher. Le programme doit avoir un bug."
       }
 
   }

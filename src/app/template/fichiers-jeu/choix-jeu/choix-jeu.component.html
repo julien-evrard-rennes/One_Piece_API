@@ -5,20 +5,25 @@
         <h1> Choix du mode de jeu </h1>
 
         <div class="choix">
-            <div class="choix_mystere"><a href="/jeu/etape_melange">
+            <a routerLink="jeu" routerLinkActive="active">Jeu </a>
+            <div class="choix_mystere">
+                <a routerLink="jeuMelange" routerLinkActive="active">
                     <b>LE PERSONNAGE MYSTÈRE :</b>
-                    Trouvez le personnage mystère et répondez aux questions sur lui</a>
+                    Trouvez le personnage mystère
+                </a>
             </div>
 
-            <div class="choix_prime"><a href="/jeu/jeu_prime">
-                    <b>BATAILLE DE PRIMES :</b>
-                    Trouvez qui a la plus grosse prime</a>
+            <div class="choix_prime">
+                <a routerLink="jeuEquipage" routerLinkActive="active">
+                    <b>QUEL ÉQUIPAGE ?</b>
+                    Retrouvez le Pirate et son équipage
+                </a>
             </div>
 
-            <div class="choix_age"><a href="jeu/jeu_age">
+        <!--    <div class="choix_age"><a href="jeu/jeu_age">
                     <b>VIEILLESSE OBLIGE :</b>
                     Trouvez qui est le plus âgé</a>
-            </div>
+            </div>-->
         </div>
 
     </div>
