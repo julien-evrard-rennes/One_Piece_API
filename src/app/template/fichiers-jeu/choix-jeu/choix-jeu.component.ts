@@ -1,26 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 
 @Component({
   selector: 'app-choix-jeu',
   standalone: true,
-  imports: [],
+  imports: [
+    RouterLink,
+    ],
   templateUrl: './choix-jeu.component.html',
   styleUrl: './choix-jeu.component.scss'
 })
-export class ChoixJeuComponent implements OnInit{
+export class ChoixJeuComponent{
 
+  constructor(private router: Router) { }
 
-  constructor(
-    private router : Router
-  ){ }
+  onChoixMystere() {
+    this.router.navigateByUrl('jeuMelange');
+}
 
-  ngOnInit(): void { 
-  }
+  onChoixPrime() {
+    this.router.navigateByUrl('jeuEquipage');
+}
 
-  onCreation() : void {
-    this.router.navigateByUrl("/creer");
-  }
 
 }
 

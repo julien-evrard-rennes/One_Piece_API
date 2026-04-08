@@ -21,6 +21,8 @@ const routes: Routes = [
   { path: 'personnage/:id', component: FichePersonnageComponent },
   { path: 'groupe/:id', component: FicheGroupeComponent },
   { path: '', component: LandingPageComponent },
+  { path: 'creer', component:TestFormulaireComponent},
+  { path: 'choixJeu', component:ChoixJeuComponent},
   { path: 'jeu', component: ChoixJeuComponent},
   { path: 'jeuMelange', component: JeuMotMelangeComponent},
   { path: 'jeuEquipage', component: JeuEquipageComponent},
@@ -29,7 +31,7 @@ const routes: Routes = [
   { path: 'listePersonnages', component: ListPersonnagesComponent },
   { path: 'listePersonnagesApi', component: ListPersonnagesApiComponent },
   { path: 'listeGroupes', component: ListeGroupesComponent },
-  { path: 'creer', component:TestFormulaireComponent}
+
 
 ];
 

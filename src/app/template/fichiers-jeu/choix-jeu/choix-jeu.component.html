@@ -1,20 +1,24 @@
 
 
 <main>
+
+
     <div class="presentation">
         <h1> Choix du mode de jeu </h1>
 
         <div class="choix">
-            <a routerLink="jeu" routerLinkActive="active">Jeu </a>
+
+
+
             <div class="choix_mystere">
-                <a routerLink="jeuMelange" routerLinkActive="active">
+                <a routerLink="jeuMelange" (click)="onChoixMystere()">
                     <b>LE PERSONNAGE MYSTÈRE :</b>
                     Trouvez le personnage mystère
                 </a>
             </div>
 
             <div class="choix_prime">
-                <a routerLink="jeuEquipage" routerLinkActive="active">
+                <a routerLink="jeuEquipage" (click)="onChoixPrime()">
                     <b>QUEL ÉQUIPAGE ?</b>
                     Retrouvez le Pirate et son équipage
                 </a>

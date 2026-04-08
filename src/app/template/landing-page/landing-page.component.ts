@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
     imports: [
     RouterLink,
     FormsModule,
-  ],
+    ],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss'
 })
@@ -20,9 +20,8 @@ export class LandingPageComponent {
   
 
 onContinue() {
-    this.router.navigateByUrl('listePersonnages');
+    this.router.navigateByUrl('choixJeu');
 }
-
 
 
 }
