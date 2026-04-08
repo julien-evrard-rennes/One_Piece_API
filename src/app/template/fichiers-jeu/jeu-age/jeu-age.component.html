@@ -1,0 +1,38 @@
+<main>
+    <div class="presentation">
+    <h1>Estimez l'âge des personnages</h1>
+
+    @if (isLoading) {
+    <div class="spinner"></div>
+    <p colspan="6">Chargement du jeu...</p>
+    }
+
+    @if (resultat) {<div class="resultat">
+    
+        <div class="score">SCORE :
+            <p class="chiffre_score">+{{score}}</p>
+            <p class="chiffre_score_definitif">{{scoreTotal}}</p>
+        </div>
+
+        <p><i>{{reponse}}</i></p>
+        <td> {{texteResultat}}<p class="font-smaller"> (+ {{score}} points)</p>
+        </td>
+    </div>
+    }
+
+    <h2> Question {{tour}} /10 </h2>
+
+    <h2> @if (personnage){ <p class ="personnage"> {{personnage.nom_complet + "  "}} </p> } {{question}}  
+         @if (personnage2){ <p class ="personnage"> {{personnage2.nom_complet + "  "}} </p>}
+    </h2>
+
+    <div class="reponse">
+            <div>
+                <button (click)="onClickButton('plusJeune')">PLUS JEUNE</button>
+                <button (click)="onClickButton('memeAge')">MÊME AGE</button>
+                <button (click)="onClickButton('plusVieux')">PLUS VIEUX</button>
+            </div>
+    </div>
+</div>
+
+</main>

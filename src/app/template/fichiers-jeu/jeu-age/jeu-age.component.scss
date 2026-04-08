@@ -1,0 +1,225 @@
+.spinner {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+h2 {
+    display:ruby;
+    align-items:center;
+}
+
+
+/* DIV PRESENTATION */
+
+div.presentation,
+div.presentation_op,
+data-th-block.presentation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+div.presentation_op a {
+    color: #0f0e40;
+    text-transform: uppercase;
+}
+
+div.presentation_op a:hover {
+    color: #353468;
+    cursor: pointer;
+}
+
+div.presentation div.score {
+    width: 85%;
+}
+
+div.presentation-bouton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    flex-wrap: nowrap;
+    padding: 10px;
+    justify-content: space-evenly;
+}
+
+
+table.tirage {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: space-around;
+    justify-content: space-around;
+    align-items: center;
+}
+
+table.tirage th {
+    padding: 5px;
+    margin: 15px;
+    background-color: #cae1fd;
+    color: #211111;
+    font-size: xx-large;
+    border: 2px solid #8084a1;
+    border-radius: 15%;
+    justify-content: center;
+}
+
+table.tirage tr:hover {
+    background-color: transparent;
+}
+
+table.tirage th.interclasse {
+    border: none;
+    background-color: #ffffff;
+    color: #b33939;
+}
+
+div.reponse {
+    // background-color: #f0f8ffc2;
+    padding: 15px;
+    margin: 10px;
+    font-size: x-large;
+    display: flex;
+    justify-content: space-around;
+}
+
+div.reponse form {
+    background-color: transparent;
+}
+
+div.reponse button {
+    margin-top: 8px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    padding: 8px 8px;
+    background: #060459;
+    border: none;
+    color: #f2f2f2;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+}
+
+div.reponse button a {
+    color: white;
+    text-decoration: none;
+}
+
+div.reponse button:hover {
+    background-color: #5d85ec;
+    cursor: pointer;
+}
+
+div.reponse div {
+    display: flex;
+    justify-content: space-around;
+}
+
+// Chiffre des scores et des résultats
+
+div.resultat {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: large;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    margin-right: 15%;
+    margin-left: 15%;
+    padding: 5px;
+    background-color: #f7f6c086;
+    flex-wrap: wrap;
+    width: 45%;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.resultat p {
+    flex: inherit;
+    margin: 0px;
+}
+
+div.score {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: x-large;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 15%;
+    padding: 5px;
+
+}
+
+p.chiffre_score {
+    animation-name: fadeIn, slidein;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    opacity: 0;
+}
+
+.font-smaller {
+    font-size: smaller;
+}
+
+@keyframes slidein {
+    from {
+        margin-top: 0%;
+    }
+
+    to {
+        margin-top: -3%;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+p.chiffre_score_definitif {
+    margin-left: -15px;
+}
+
+p.chiffre_score_definitif2 {
+    margin-left: 15px;
+}
+
+
+input#idName {
+    text-align: center;
+    margin: 10px;
+    width: 250px;
+    height: 30px;
+}
+
+// coloration des mots 
+
+.personnage {
+    color:#2c2ab1;
+}
+
+.groupe {
+    color: #1c743d;
+}

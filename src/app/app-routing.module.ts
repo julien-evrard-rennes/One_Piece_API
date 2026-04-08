@@ -14,6 +14,7 @@ import { TestFormulaireComponent } from './template/test-formulaire/test-formula
 import { JeuReponseMotMelangeComponent } from './template/fichiers-jeu/jeu-reponse-mot-melange/jeu-reponse-mot-melange.component';
 import { JeuEquipageComponent } from './template/fichiers-jeu/jeu-equipage/jeu-equipage.component';
 import { JeuReponseComponent } from './template/fichiers-jeu/jeu-reponse/jeu-reponse.component';
+import { JeuAgeComponent } from './template/fichiers-jeu/jeu-age/jeu-age.component';
 import { ChoixJeuComponent } from './template/fichiers-jeu/choix-jeu/choix-jeu.component';
 
 
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'creer', component:TestFormulaireComponent},
   { path: 'choixJeu', component:ChoixJeuComponent},
   { path: 'jeu', component: ChoixJeuComponent},
+  { path: 'jeuAge', component: JeuAgeComponent},
   { path: 'jeuMelange', component: JeuMotMelangeComponent},
   { path: 'jeuEquipage', component: JeuEquipageComponent},
   { path: 'jeuReponse', component: JeuReponseComponent},

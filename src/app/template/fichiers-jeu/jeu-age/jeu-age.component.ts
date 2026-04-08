@@ -1,25 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Groupe } from 'src/app/models/groupe';
 import { Personnage } from 'src/app/models/Personnage';
 import { JeuService } from 'src/app/services/jeu-service';
 
+
 @Component({
-  selector: 'app-jeu-equipage',
+  selector: 'app-jeu-age',
   standalone: true,
   imports: [],
-  templateUrl: './jeu-equipage.component.html',
-  styleUrl: './jeu-equipage.component.scss'
+  templateUrl: './jeu-age.component.html',
+  styleUrl: './jeu-age.component.scss'
 })
-export class JeuEquipageComponent implements OnInit {
+export class JeuAgeComponent  implements OnInit {
 
   isLoading = true;
   personnage!: Personnage;
-  groupe!: Groupe;
+  personnage2!: Personnage;
 
-  nomDuGroupe!:string;
   resultat!: string;
   reponse!: string;
+  question!: string;
   texteResultat!: string;
   score: number = 0;
   scoreTotal: number = 0;
@@ -38,18 +38,31 @@ export class JeuEquipageComponent implements OnInit {
       this.personnage = p;
       this.tour++;
       this.isLoading=false;
+      this.question = this.formulationQuestion(p);
     });
-      this.jeuService.tirageGroupe().subscribe(g => {
-      this.groupe = g;
-      this.nomDuGroupe=this.jeuService.lowercaseFirstLetter(this.groupe.name);
+      this.jeuService.tiragePerso().subscribe(p2 => {
+      this.personnage2 = p2;
     });
   }
+  
+  formulationQuestion(personnage: Personnage): string {
+    let phrase = '';
+    if (personnage.sexe == 'f'){
+      if (personnage.id % 2 == 0){ 
+        phrase = " est-elle plus agée que "}
+        else phrase = " est-elle plus jeune que "
+    }
+    else if(personnage.id % 2 == 0){
+      phrase = " est-il plus âgé que "
+    }
+    else phrase = " est-il plus jeune que "
+    return phrase 
+  }
 
-
-  onClickButton(reponse: string): void {
-    this.resultat = this.jeuService.comparerResultatEquipage(reponse, this.personnage, this.groupe);
+   onClickButton(reponse: string): void {
+    this.resultat = this.jeuService.comparerResultatAge(reponse, this.personnage, this.personnage2);
     console.log (reponse + ' ' + this.resultat)
-    this.texteResultat = this.jeuService.getTextResultatEquipage(this.resultat, reponse, this.personnage, this.groupe);
+    this.texteResultat = this.jeuService.getTextResultatAge(this.resultat, this.personnage, this.personnage2);
     console.log (this.texteResultat);
     this.score = this.jeuService.getScore2(this.resultat);
     this.scoreTotal = this.score + this.scoreTotal;
@@ -68,5 +81,5 @@ export class JeuEquipageComponent implements OnInit {
     });
   }
 
-  }
+}
 }

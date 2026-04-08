@@ -13,7 +13,6 @@ import { Groupe } from "../models/groupe";
 })
 export class JeuService {
 
-
 constructor(private fusionPersoService: FusionPersonnageService,
             private fusionGroupeService : FusionGroupeService,
             private http: HttpClient) {}
@@ -226,9 +225,7 @@ comparerResultatEquipage(reponse: string, personnage: Personnage, groupe: Groupe
     if (reponse == "oui") {
       return "gagné"
     }
-    else {
-      return "perdu"
-    }
+    else return "perdu"
   }
   else {
     if (reponse == "non"){
@@ -243,6 +240,15 @@ comparerResultatEquipage(reponse: string, personnage: Personnage, groupe: Groupe
   }
 }
 
+/**
+ * Fonction qui permet de générer une phrase de réponse
+ * @param resultat 
+ * @param reponse 
+ * @param personnage 
+ * @param groupe 
+ * @returns 
+ */
+
 getTextResultatEquipage(resultat: string, reponse: string, personnage: Personnage, groupe: Groupe, ): string {
   if (resultat=="gagné" && reponse=="oui"){
     return personnage.nom_complet + " fait effectivement partie de " + this.lowercaseFirstLetter(groupe.name);
@@ -256,10 +262,79 @@ getTextResultatEquipage(resultat: string, reponse: string, personnage: Personnag
   else if (resultat=="perdu" && reponse=="non" ) {
     return "Hélas" + personnage.nom_complet + " a bien fait partie de " + this.lowercaseFirstLetter(groupe.name); 
   }
-  else {
-    return "Erreur 404"
-  }
+  else return "Erreur 404"
 }
+
+
+
+// FONCTIONS AYANT TRAIT AU JEU DES AGES
+
+
+/**
+ * 
+ * @param reponse 
+ * @param personnage 
+ * @param personnage1 
+ * @param personnage2 
+ */
+
+comparerResultatAge(reponse: string, personnage: Personnage, personnage2: Personnage): string {
+  if (personnage.age == personnage2.age) {
+    if (reponse = "memeAge") {
+      return "gagné"
+    }
+    else return "perdu"
+  }
+  else if (personnage.age > personnage2.age){
+    if (reponse == "plusVieux"){
+      return "gagné"
+    }
+    else return "perdu"
+  }
+  else if (personnage.age < personnage2.age){
+    if (reponse == "plusJeune"){
+      return "gagné"
+    }
+    else return "perdu"
+  }
+  else return "Erreur 404" 
+}
+
+/**
+ * 
+ * @param resultat 
+ * @param reponse 
+ * @param personnage 
+ * @param personnage2 
+ */
+
+getTextResultatAge(resultat: string, personnage: Personnage, personnage2: Personnage): string {
+  let debutPhrase =''
+  if (resultat=="gagné"){
+    debutPhrase = "Oui, effectivement " + personnage.nom_complet + " " 
+  }
+  else if (resultat = "perdu"){
+    debutPhrase = "Hélas, " + personnage.nom_complet + " "
+  }
+
+  if (personnage.age == personnage2.age) {
+    return debutPhrase + "a le même âge que " + personnage2.nom_complet + " (" + personnage.age + " ans)"
+  }
+  else if (personnage.age > personnage2.age) {
+    return debutPhrase + "(" + personnage.age + ")" + " est plus âgé que " + personnage2.nom_complet + " (" + personnage2.age + ")"
+  }
+  else if (personnage.age < personnage2.age) {
+    return debutPhrase + "(" + personnage.age + ")" + " est plus jeune que " + personnage2.nom_complet + " (" + personnage2.age + ")"
+  }
+  else return "Erreur 404"
+  
+}
+
+/**
+ * Fonction pour générer le score 
+ * @param resultat 
+ * @returns 
+ */
 
 getScore2(resultat: string): number {
     if (resultat=="gagné"){

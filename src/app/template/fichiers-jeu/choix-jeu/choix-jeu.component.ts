@@ -22,6 +22,10 @@ export class ChoixJeuComponent{
     this.router.navigateByUrl('jeuEquipage');
 }
 
+  onChoixAge() {
+    this.router.navigateByUrl('jeuAge');
+}
+
 
 }
 
