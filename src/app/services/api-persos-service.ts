@@ -11,6 +11,7 @@ import { Personnage } from '../models/Personnage';
   providedIn: 'root'
 })
 export class ApiPersoService {
+
   private readonly http: HttpClient = inject(HttpClient);
   
   getPersos() {

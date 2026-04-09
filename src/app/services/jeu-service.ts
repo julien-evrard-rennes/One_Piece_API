@@ -348,10 +348,10 @@ getTextResultatAge(resultat: string, personnage: Personnage, personnage2: Person
     return debutPhrase + "a le même âge que " + personnage2.nom_complet + " (" + personnage.age + " ans)"
   }
   else if (personnage.age > personnage2.age) {
-    return debutPhrase + "(" + personnage.age + ")" + " est plus âgé que " + personnage2.nom_complet + " (" + personnage2.age + ")"
+    return debutPhrase + "(" + personnage.age + " ans)" + " est plus âgé que " + personnage2.nom_complet + " (" + personnage2.age + " ans)"
   }
   else if (personnage.age < personnage2.age) {
-    return debutPhrase + "(" + personnage.age + ")" + " est plus jeune que " + personnage2.nom_complet + " (" + personnage2.age + ")"
+    return debutPhrase + "(" + personnage.age + " ans)" + " est plus jeune que " + personnage2.nom_complet + " (" + personnage2.age + " ans)"
   }
   else return "Erreur 404"
   

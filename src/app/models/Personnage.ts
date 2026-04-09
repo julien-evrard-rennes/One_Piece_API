@@ -1,4 +1,5 @@
 
+import { ApiPersoService } from "../services/api-persos-service";
 import { FusionPersonnageService } from "../services/fusion-personnage-service";
 import { Groupe } from "./groupe";
 import { LikeType } from "./like-type.type";
@@ -118,7 +119,7 @@ const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
             api?.job ?? '',
             api?.size ?? '',
             api?.birthday ?? '',
-            api?.age ?? 0,
+            Personnage.extractAge(api?.age ?? 0),
             mock?.prime ?? api?.bounty ?? '',
             mock?.status ?? api?.status ?? '',
             api?.crew ?? ({} as any),
@@ -216,5 +217,13 @@ const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
         return mockValue ?? apiValue ?? fallback;
         }
         
+        static extractAge(age: string | number | null | undefined): number {
+          if (!age && age !== 0) return 0;
+          if (typeof age === 'number') return age;
+          if (age.trim() === '') return 0;
+          if (age === '1 000 ans') return 1000;
+          const match = age.match(/\d+/);
+          return match ? Number(match[0]) : 0;
+        }
     }
 

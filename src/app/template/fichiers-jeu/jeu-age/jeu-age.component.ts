@@ -36,12 +36,14 @@ export class JeuAgeComponent  implements OnInit {
   tirage() {
     this.jeuService.tiragePersoAge().subscribe(p => {
       this.personnage = p;
+      console.log (this.personnage.age)
       this.tour++;
       this.isLoading=false;
       this.question = this.formulationQuestion(p);
     });
       this.jeuService.tiragePersoAge().subscribe(p2 => {
       this.personnage2 = p2;
+      console.log (this.personnage2.age)
     });
   }
   
@@ -61,9 +63,7 @@ export class JeuAgeComponent  implements OnInit {
 
    onClickButton(reponse: string): void {
     this.resultat = this.jeuService.comparerResultatAge(reponse, this.personnage, this.personnage2);
-    console.log (reponse + ' ' + this.resultat)
     this.texteResultat = this.jeuService.getTextResultatAge(this.resultat, this.personnage, this.personnage2);
-    console.log (this.texteResultat);
     this.score = this.jeuService.getScore2(this.resultat);
     this.scoreTotal = this.score + this.scoreTotal;
     if (this.tour<10) {
