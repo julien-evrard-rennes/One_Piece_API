@@ -64,6 +64,7 @@ export class JeuEquipageComponent implements OnInit {
         reponse : this.reponse,
         scoreTotal: this.scoreTotal,
         tour:this.tour,
+        jeu:"equipage"
    }
     });
   }

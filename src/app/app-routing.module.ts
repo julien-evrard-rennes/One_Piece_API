@@ -11,7 +11,6 @@ import { FicheGroupeComponent } from './template/fiche-groupe/fiche-groupe.compo
 import { ListPersonnagesComponent } from './template/list-personnages/list-personnages.component';
 import { FichePersonnageComponent } from './template/fiche-personnage/fiche-personnage.component';
 import { TestFormulaireComponent } from './template/test-formulaire/test-formulaire.component';
-import { JeuReponseMotMelangeComponent } from './template/fichiers-jeu/jeu-reponse-mot-melange/jeu-reponse-mot-melange.component';
 import { JeuEquipageComponent } from './template/fichiers-jeu/jeu-equipage/jeu-equipage.component';
 import { JeuReponseComponent } from './template/fichiers-jeu/jeu-reponse/jeu-reponse.component';
 import { JeuAgeComponent } from './template/fichiers-jeu/jeu-age/jeu-age.component';
@@ -29,7 +28,6 @@ const routes: Routes = [
   { path: 'jeuMelange', component: JeuMotMelangeComponent},
   { path: 'jeuEquipage', component: JeuEquipageComponent},
   { path: 'jeuReponse', component: JeuReponseComponent},
-  { path: 'jeuReponseMelange', component: JeuReponseMotMelangeComponent},
   { path: 'listePersonnages', component: ListPersonnagesComponent },
   { path: 'listePersonnagesApi', component: ListPersonnagesApiComponent },
   { path: 'listeGroupes', component: ListeGroupesComponent },

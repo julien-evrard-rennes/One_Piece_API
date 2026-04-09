@@ -77,6 +77,7 @@ export class JeuAgeComponent  implements OnInit {
         reponse : this.reponse,
         scoreTotal: this.scoreTotal,
         tour:this.tour,
+        jeu:"age"
    }
     });
   }
