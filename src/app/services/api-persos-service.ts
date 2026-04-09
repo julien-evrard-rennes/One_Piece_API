@@ -3,6 +3,9 @@ import { inject, Injectable } from '@angular/core';
 import { environment } from '../environments/environment.development';
 import { PersonnageAPI } from '../models/PersonnageApi';
 import { map } from 'rxjs/internal/operators/map';
+import { Observable } from 'rxjs';
+import { Personnage } from '../models/Personnage';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +16,15 @@ export class ApiPersoService {
   getPersos() {
     return this.http.get<PersonnageAPI[]>(environment.API_PERSO_OP);
   }
+
+getPersoList(): Observable<Personnage[]> {
+  return this.getPersos().pipe(
+    map((apiList: PersonnageAPI[]) =>
+      apiList.map(api => Personnage.fromApiAndMock(api, null))
+    )
+  );
+}
+
 
 getPersonnageById(persoId: number) {
   return this.getPersos().pipe(

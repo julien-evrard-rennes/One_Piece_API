@@ -70,6 +70,29 @@ tirageGroupe() : Observable<Groupe> {
   }
 
   /** 
+ * Fonction chargée de tirer un personnage au hasard dans la liste des personnages
+ * 
+ * @returns un observable "Personnage" dont l'age n'est pas 0 ou null
+ */
+
+tiragePersoAge(): Observable<Personnage> {
+  const listSource$ = this.cache ? of(this.cache)
+    : this.fusionPersoService.getPersoList().pipe(
+        tap(list => this.cache = list)
+      );
+
+  return listSource$.pipe(
+    map(list => list.filter(p => p.age != null && p.age !== 0 )),
+    map(list => {
+      if (list.length === 0) {
+        throw new Error('Aucun personnage avec un âge valide trouvé.');
+      }
+      return list[Math.floor(Math.random() * list.length)];
+    })
+  );
+}
+
+  /** 
    * Fonction permettant de retourner un mot en supprimant les espaces, les signes et 
    * en le passant en minuscule afin que la comparaison puisse être possible. 
    */
@@ -128,7 +151,7 @@ getTableauDeLettre(mot : string) : string[] {
 
 melangerMot(tableauOriginal : string[]) : string[] {
   // clonage du tableau
- const tableauFinal = tableauOriginal;
+ const tableauFinal = [...tableauOriginal];
   // Echanges de position de caractères
         for (let i = 0; i < tableauFinal.length * 4; i++) {
             let p1 = Math.floor(Math.random() *tableauFinal.length);
@@ -151,33 +174,37 @@ melangerMot(tableauOriginal : string[]) : string[] {
  * @returns un string avec une appréciation selon l'élément trouvé
  */
 
-comparerResultat(reponseNom : string, PersonnageATrouver : Personnage) : string {
+comparerResultat(reponseNom: string, PersonnageATrouver: Personnage): string {
   let nom = '';
   let prenom = '';
-  if (this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.nom_complet) || 
-    this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.nom + PersonnageATrouver.particule + PersonnageATrouver.prenom)){
-    return "Complet"
-  }
-  else {
-  if (reponseNom.includes(" ")) {
-      nom = reponseNom.split(" ")[0];
-      prenom = reponseNom.split(" ")[1];
+
+  if (
+    this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.nom_complet) ||
+    this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.nom + PersonnageATrouver.particule + PersonnageATrouver.prenom)
+  ) {
+    return "Complet";
   }
 
-  if (this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.nom) ||
-      this.nomenclatureur(nom).includes(this.nomenclatureur(PersonnageATrouver.nom)) 
-      && PersonnageATrouver.nom != ''){
-    return "Nom"
+  if (reponseNom.includes(" ")) {
+    nom    = reponseNom.split(" ")[0];
+    prenom = reponseNom.split(" ")[1];
   }
-    else if ((this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.prenom)) ||
-              this.nomenclatureur(prenom).includes(this.nomenclatureur(PersonnageATrouver.prenom)) 
-              && PersonnageATrouver.prenom != ''){
-    return "Prenom"
+
+  if (
+    (this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.nom)) ||
+    (this.nomenclatureur(nom).includes(this.nomenclatureur(PersonnageATrouver.nom)) && PersonnageATrouver.nom != '')
+  ) {
+    return "Nom";
   }
-  else {
-    return "Perdu"
+
+  if (
+    (this.nomenclatureur(reponseNom) == this.nomenclatureur(PersonnageATrouver.prenom)) ||
+    (this.nomenclatureur(prenom).includes(this.nomenclatureur(PersonnageATrouver.prenom)) && PersonnageATrouver.prenom != '')
+  ) {
+    return "Prenom";
   }
-}
+
+  return "Perdu";
 }
 
 
@@ -280,7 +307,7 @@ getTextResultatEquipage(resultat: string, reponse: string, personnage: Personnag
 
 comparerResultatAge(reponse: string, personnage: Personnage, personnage2: Personnage): string {
   if (personnage.age == personnage2.age) {
-    if (reponse = "memeAge") {
+    if (reponse == "memeAge") {
       return "gagné"
     }
     else return "perdu"
@@ -313,7 +340,7 @@ getTextResultatAge(resultat: string, personnage: Personnage, personnage2: Person
   if (resultat=="gagné"){
     debutPhrase = "Oui, effectivement " + personnage.nom_complet + " " 
   }
-  else if (resultat = "perdu"){
+  else if (resultat == "perdu"){
     debutPhrase = "Hélas, " + personnage.nom_complet + " "
   }
 

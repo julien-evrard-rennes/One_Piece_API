@@ -34,13 +34,13 @@ export class JeuAgeComponent  implements OnInit {
     }
 
   tirage() {
-    this.jeuService.tiragePerso().subscribe(p => {
+    this.jeuService.tiragePersoAge().subscribe(p => {
       this.personnage = p;
       this.tour++;
       this.isLoading=false;
       this.question = this.formulationQuestion(p);
     });
-      this.jeuService.tiragePerso().subscribe(p2 => {
+      this.jeuService.tiragePersoAge().subscribe(p2 => {
       this.personnage2 = p2;
     });
   }
