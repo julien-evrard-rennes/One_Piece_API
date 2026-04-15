@@ -4,6 +4,7 @@ import { FusionPersonnageService } from "../services/fusion-personnage-service";
 import { Groupe } from "./groupe";
 import { LikeType } from "./like-type.type";
 import { PersonnageAPI } from "./PersonnageApi";
+import { PersonnageDb } from "./PersonnageDb";
 import { PersonnageMock } from "./PersonnageMock";
 
 const titre = ["Don ", "Page", "Mister", "Doc", "Barbe", "Mr","Frères", "Mc", "Little", 
@@ -122,6 +123,32 @@ const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
             Personnage.extractAge(api?.age ?? 0),
             mock?.prime ?? api?.bounty ?? '',
             mock?.status ?? api?.status ?? '',
+            api?.crew ?? ({} as any),
+            api?.fruit ?? ({} as any),
+            );
+          }
+
+           static fromApiAndDb(api: PersonnageAPI | null, db: PersonnageDb | null): Personnage {
+            const id = api?.id ?? db?.id ?? 0;
+            const nomCompletFromDb = db?.nom + ' ' + db?.prenom;
+            const nomFromApi = api?.name ? Personnage.nomCompletToNom(api.name) : '';
+            const prenomFromApi = api?.name ? Personnage.nomCompletToPrenom(api.name) : '';
+            const particuleFromApi = api?.name ? Personnage.nomCompletToParticule(api.name) : '';
+            
+            return new Personnage(
+            id,
+            api?.name ?? nomCompletFromDb ?? '',
+            db?.nom ?? nomFromApi ?? '',
+            db?.prenom ?? prenomFromApi ?? '',
+            db?.surnom ?? '',
+            db?.particule ?? particuleFromApi ?? '',
+            db?.groupes ?? [],
+            api?.job ?? '',
+            api?.size ?? '',
+            api?.birthday ?? '',
+            Personnage.extractAge(api?.age ?? 0),
+            db?.prime ?? api?.bounty ?? '',
+            db?.status ?? api?.status ?? '',
             api?.crew ?? ({} as any),
             api?.fruit ?? ({} as any),
             );

@@ -1,4 +1,6 @@
+import { Observable } from "rxjs";
 import { GroupeAPI } from "./groupeApi";
+import { GroupeDb } from "./groupeDb";
 import { GroupeMock } from "./groupeMock";
 import { Personnage } from "./Personnage";
 import { PersonnageShort } from "./PersonnageShort";
@@ -58,4 +60,19 @@ export class Groupe {
     );
   }
 
-  }
+static fromApiAndDb(api: GroupeAPI | null, db: GroupeDb | null): Groupe {
+  return new Groupe(
+    db?.id ?? api?.id ?? 0,
+    db?.name ?? api?.name ?? '',
+    api?.description ?? '',
+    api?.status ?? '',
+    api?.number ?? '',
+    api?.roman_name ?? '',
+    api?.total_prime ?? '',
+    api?.is_yonko ?? '',
+    db?.capitaine ?? new PersonnageShort(0, ''),
+    db?.membresListe ?? [],
+  );
+}
+
+}

@@ -1,10 +1,12 @@
 import { Injectable } from "@angular/core";
 import { ApiPersoService } from "./api-persos-service";
-import { MockPersoService } from "./mock-perso-service";
-import { map, Observable } from "rxjs";
+import { forkJoin, Observable } from "rxjs";
 import { Personnage } from "../models/Personnage";
 import { PersonnageAPI } from "../models/PersonnageApi";
 import { PersonnageMock } from "../models/PersonnageMock";
+import { DBPersoService } from "./db-perso-service";
+import { PersonnageDb } from "../models/PersonnageDb";
+import { switchMap, map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class FusionPersonnageService {
@@ -12,45 +14,45 @@ export class FusionPersonnageService {
 
     constructor(
         private apiPersoService : ApiPersoService,
-        private mockPersoService : MockPersoService,
+        private dbPersoService : DBPersoService,
     ) {}
 
-    getPersoList(): Observable<Personnage[]> {
-        return this.apiPersoService.getPersos().pipe(
-            map((apiList: PersonnageAPI[]) => {
-                const mockList: PersonnageMock[] = this.mockPersoService.getPersoList();
-                
-                // construire des maps id -> item pour accès O(1)
-                const apiMap = new Map<number, PersonnageAPI>();
-                apiList.forEach(a => apiMap.set(a.id, a));
 
-                const mockMap = new Map<number, PersonnageMock>();
-                mockList.forEach(m => mockMap.set(m.id, m));
+getPersoList(): Observable<Personnage[]> {
+  return this.dbPersoService.getPersos().pipe(
+    switchMap((dbList: PersonnageDb[]) => {
+      const dbMap = new Map<number, PersonnageDb>();
+      dbList.forEach(d => dbMap.set(Number(d.id), d));
 
-                // union des IDs (set)
-                const idSet = new Set<number>();
-                apiList.forEach(a => idSet.add(a.id));
-                mockList.forEach(m => idSet.add(m.id));
+      return this.apiPersoService.getPersos().pipe(
+        map((apiList: PersonnageAPI[]) => {
 
-                // pour chaque id de l'union, fusionner (api peut être undefined/null)
-                const result: Personnage[] = Array.from(idSet).map(id => {
-                const api = apiMap.get(id) ?? null;
-                const mock = mockMap.get(id) ?? null;
-                return Personnage.fromApiAndMock(api, mock);
-                });
+          // 1. Pour chaque personnage API, on applique le patch DB s'il existe
+          const result: Personnage[] = apiList.map(api => {
+            const db = dbMap.get(Number(api.id)) ?? null;
+            return Personnage.fromApiAndDb(api, db);
+          });
 
-                // optionnel : trier par id ou nom
-                result.sort((a, b) => a.id - b.id);
+           // 2. Personnages uniquement en DB (absents de l'API)
+          const apiIds = new Set(apiList.map(a => a.id));
+          dbList
+            .filter(d => !apiIds.has(Number(d.id)))
+            .forEach(d => result.push(Personnage.fromApiAndDb(null, d)));
 
-                return result;
-            })
-            );
-        }
-
+            // optionnel : trier par id ou nom
+          result.sort((a, b) => a.id - b.id);
+          return result;
+        })
+      );
+    })
+  );
+}
     getPersonnageById(id: number): Observable<Personnage> {
-      const mock = this.mockPersoService.getPersonnageById(id);
-      return this.apiPersoService.getPersonnageById(id).pipe(
-        map(api => Personnage.fromApiAndMock(api ?? null, mock ?? null))
+        return forkJoin ({ 
+            api: this.apiPersoService.getPersonnageById(id),
+            db : this.dbPersoService.getPersonnageById(id)
+        }).pipe(
+        map(({ api, db }) =>  Personnage.fromApiAndDb(api ?? null, db ?? null))
       );
     }
 
