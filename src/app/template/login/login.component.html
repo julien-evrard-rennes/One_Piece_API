@@ -1,25 +1,32 @@
 <div class="form-card">
+  <h2>Connectez-vous</h2>
 
-    <h2>CONNECTEZ VOUS</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmitForm()">
 
-    <form [formGroup]="loginForm">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" formControlName="email">
+      <span class="error-msg" *ngIf="emailInvalid">
+        Email invalide.
+      </span>
+    </div>
 
-        <div class = "form-group">
-            <label for="email">mail</label>
-            <input type="text" id="email" formControlName="email"> 
-        </div>
+    <div class="form-group">
+      <label for="password">Mot de passe</label>
+      <input type="password" id="password" formControlName="password">
+      <span class="error-msg" *ngIf="passwordInvalid">
+        Mot de passe requis (6 caractères minimum).
+      </span>
+    </div>
 
-        <div class = "form-group">
-            <label for="password">Mot de passe</label>
-            <input type="text" id="password" formControlName="password"> 
-        </div>
-        
-        <div class="action-buttons">
-            <button type="submit" (click)="onSubmitForm()" [disabled]="loginForm.invalid">Enregistrer</button>
+    <span class="error-msg" *ngIf="error">{{ error }}</span>
 
-        </div>
+    <div class="action-buttons">
+      <button type="submit" [disabled]="loginForm.invalid || loading">
+        {{ loading ? 'Connexion...' : 'Se connecter' }}
+      </button>
+    </div>
 
-    </form>
-
+  </form>
 </div>
 

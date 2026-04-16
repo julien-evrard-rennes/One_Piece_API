@@ -18,6 +18,7 @@
         </li>
         <li><a routerLink="login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Login</a>
         </li>
+        <li><button *ngIf="authService.isAuthenticated() | async" (click)="logout()">Se déconnecter</button></li>
     </ul>
 </nav>
 
