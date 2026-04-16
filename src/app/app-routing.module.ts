@@ -13,7 +13,7 @@ import { JeuReponseComponent } from './template/fichiers-jeu/jeu-reponse/jeu-rep
 import { JeuAgeComponent } from './template/fichiers-jeu/jeu-age/jeu-age.component';
 import { ChoixJeuComponent } from './template/fichiers-jeu/choix-jeu/choix-jeu.component';
 import { AuthGuard } from 'src/auth.guard';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './template/login/login.component';
 
 
 const routes: Routes = [

@@ -2,7 +2,7 @@
 
     <h2>NOUVEAU PERSONNAGE</h2>
 
-    <form [formGroup]="personnageMockForm">
+    <form [formGroup]="personnageDBForm">
 
         <div class = "form-group">
             <label for="nom">Nom</label>
@@ -35,7 +35,7 @@
         </div>
         
         <div class="action-buttons">
-            <button type="submit" (click)="onSubmitForm()" [disabled]="personnageMockForm.invalid">Enregistrer</button>
+            <button type="submit" (click)="onSubmitForm()" [disabled]="personnageDBForm.invalid">Enregistrer</button>
 
         </div>
 
