@@ -19,7 +19,7 @@ export class GroupeDb {
     id: number,
     name: string,
     membresListe: PersonnageShort[],) {
-    this.id = id;
+    this.id = (Number(id));
     this.name = name;
     //this.id = crypto.randomUUID().substring(0, 8);
     this.membresListe = membresListe;

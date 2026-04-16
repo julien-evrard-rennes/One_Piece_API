@@ -7,6 +7,7 @@ import { PersonnageShort } from "./PersonnageShort";
 
 
 export class Groupe {
+membres: any;
         getGroupeList(): Groupe[] {
           throw new Error('Method not implemented.');
         }

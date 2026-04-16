@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GroupeAPI } from 'src/app/models/groupeApi';
-import { GroupeMock } from 'src/app/models/groupeMock';
+import { GroupeDb } from 'src/app/models/groupeDb';
 import { PersonnageAPI } from 'src/app/models/PersonnageApi';
 import { ApiGroupeService } from 'src/app/services/api-groupes-service';
 import { ApiPersoService } from 'src/app/services/api-persos-service';
@@ -18,8 +18,8 @@ export class ListGroupesApiComponent implements OnInit {
 
     groupe! : GroupeAPI;
     groupeList! : GroupeAPI[];
-    groupeMock! : GroupeMock;
-    groupeMockList! : GroupeMock[];
+    groupeDb! : GroupeDb;
+    groupeDBList! : GroupeDb[];
     persosParGroupe: { [id: number]: PersonnageAPI[] } = {};
     persoList: PersonnageAPI[] =[];
     nbMembres: { [id: number]: number } = {};
@@ -41,7 +41,7 @@ export class ListGroupesApiComponent implements OnInit {
     
 ngOnInit(): void {
   this.isLoading = true;
-  this.groupeMockList = this.listeGroupeService.getGroupeList();
+  this.groupeDBList = this.listeGroupeService.getGroupeList();
   this.apiGroupeService.getGroupesAPI().subscribe({
     next: (groupeList: GroupeAPI[]) => {
       this.groupeList = groupeList;

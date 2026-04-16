@@ -137,8 +137,8 @@ export class JeuReponseComponent implements OnInit {
         return "Pas mal du tout, tu arrive bien à juger l'âge des différents personnages. \n" +
         "Mais le mieux ça serait de faire 100%"}
         else if (resultatCadre=="resultatMoyen"){
-        return "C'est un peu plus de l'âge des personnages.  \n" +
-        "T'arrive à différencier un personnage jeune d'un personnage vieux."}
+        return "Tu a différencié la moitié des personnages. \n" +
+        "C'est bien, tu arrive à différencier un personnage jeune d'un personnage vieux."}
         else if (resultatCadre=="resultatBof"){
         return "C'est pas fifou tout ça. \n" +
         "Visiblement va falloir que tu révise les personnages !"}

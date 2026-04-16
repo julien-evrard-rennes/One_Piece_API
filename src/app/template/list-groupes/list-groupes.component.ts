@@ -1,14 +1,10 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { forkJoin, map } from 'rxjs';
 import { Groupe } from 'src/app/models/groupe';
-import { GroupeAPI } from 'src/app/models/groupeApi';
-import { GroupeMock } from 'src/app/models/groupeMock';
 import { PersonnageAPI } from 'src/app/models/PersonnageApi';
 import { ApiGroupeService } from 'src/app/services/api-groupes-service';
 import { ApiPersoService } from 'src/app/services/api-persos-service';
 import { FusionGroupeService} from 'src/app/services/fusion-groupe-service';
-import { MockGroupeService } from 'src/app/services/mock-groupe-service';
 
 @Component({
   selector: 'app-list-groupes',
@@ -33,7 +29,6 @@ export class ListeGroupesComponent implements OnInit {
     private apiGroupeService: ApiGroupeService,
     private fusionGroupeService: FusionGroupeService,
     private router: Router,
-    private listeGroupeService: MockGroupeService,
     private listePersoService: ApiPersoService,
 
   ) { }
