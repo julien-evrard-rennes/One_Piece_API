@@ -34,7 +34,6 @@ export class ListPersonnagesComponent implements OnInit {
 
       next: (persoList: Personnage[]) => {
         this.persoList = persoList
-        console.table(this.persoList)
         this.isLoading = false;
       },
       error: (err: Error) => console.log(err),

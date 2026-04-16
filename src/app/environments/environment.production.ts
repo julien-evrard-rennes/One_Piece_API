@@ -1,11 +1,8 @@
 export const environment = {
-    production: false,
+    production: true,
     API_PERSO_OP: 'https://api.api-onepiece.com/v2/characters/fr',
     API_GROUPE_OP: 'https://api.api-onepiece.com/v2/crews/fr',
     DB_PERSO_OP: 'http://localhost:3000/personnages',
-    DB_GROUPE_OP: 'http://localhost:3000/groupes',
-    ADMIN_EMAIL: 'julien.dominique.evrard@gmail.com',
-    ADMIN_PASSWORD: 'adminDada',
-
+    DB_GROUPE_OP: 'http://localhost:3000/groupes'
 };
 

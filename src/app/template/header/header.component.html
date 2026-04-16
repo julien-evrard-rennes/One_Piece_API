@@ -7,11 +7,9 @@
         <li><a routerLink="listePersonnages" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
             Liste des personnages</a>
             <ul>
-            <li><a routerLink="listePersonnagesApi" routerLinkActive="active">Liste des personnages (API)</a>
+            <li *ngIf="authService.isAuthenticated() | async" ><a routerLink="listePersonnagesApi" routerLinkActive="active">Liste des personnages (API)</a>
             </li>
-            </ul>
-            <ul>
-            <li><button (click)="onCreation()">Ajouter Perso</button></li>
+            <li><button *ngIf="authService.isAuthenticated() | async"  (click)="onCreation()">Ajouter Perso</button></li>
             </ul>
         </li>
         <li><a routerLink="listeGroupes" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Liste des équipages</a>

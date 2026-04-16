@@ -46,16 +46,21 @@ export class FicheGroupeComponent implements OnInit {
   }
     
   onViewFichePerso(personnage: PersonnageShort) {
-    this.router.navigateByUrl(`personnage/${personnage.id}`);
+    this.router.navigateByUrl(`personnage/${(Number(personnage.id))}`);
   }
 
- /** getPersoList(groupe: GroupeAPI) {
-    this.apiGroupeService.getPersoList(groupe).subscribe({
+    onViewFicheGroupe(idGroupe: number) {
+    this.router.navigateByUrl(`groupe/${idGroupe}`);
+  }
+
+ /** 
+ getPersoList(groupe: Groupe) {
+    this.groupeService.getPersoList(groupe).subscribe({
       next: (persoList) => {
         this.persoList = persoList;
       },
       error: (err) => console.error('Erreur récupération personnages :', err)
     });
-  }*/ 
+  } */ 
 
 }

@@ -9,6 +9,9 @@ import { GroupeDb } from "../models/groupeDb";
 
 @Injectable({ providedIn: 'root' })
 export class FusionGroupeService {
+  getPersoList(groupe: Groupe) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(
     private apiGroupeService: ApiGroupeService,
