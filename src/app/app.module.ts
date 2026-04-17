@@ -6,26 +6,19 @@ import { HeaderComponent } from './template/header/header.component';
 import { MainComponent } from './template/main/main.component';
 import { FooterComponent } from './template/footer/footer.component';
 import { AccueilComponent } from './template/accueil/accueil.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-@NgModule({
-  declarations: [
-    HeaderComponent,
-    MainComponent,
-    FooterComponent,
-    AccueilComponent,
-    AppComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        HeaderComponent,
+        MainComponent,
+        FooterComponent,
+        AccueilComponent,
+        AppComponent,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
