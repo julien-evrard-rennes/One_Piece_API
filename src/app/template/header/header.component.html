@@ -14,9 +14,9 @@
         </li>
         <li><a routerLink="listeGroupes" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Liste des équipages</a>
         </li>
-        <li><a routerLink="login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Login</a>
+        <li><a routerLink="login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Log In</a>
         </li>
-        <li><button *ngIf="authService.isAuthenticated() | async" (click)="logout()">Se déconnecter</button></li>
+        <li *ngIf="authService.isAuthenticated() | async" (click)="logout()"><a routerLinkActive="active">Log Out</a></li>
     </ul>
 </nav>
 
