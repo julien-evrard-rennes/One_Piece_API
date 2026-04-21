@@ -3,7 +3,7 @@ import { LikeType } from '../models/like-type.type';
 import { Groupe } from '../models/groupe';
 import { PersonnageDb } from '../models/PersonnageDb';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../environments/environment.development';
+import { environment } from '../environments/environment';
 import { map, Observable } from 'rxjs';
 import { Personnage } from '../models/Personnage';
 

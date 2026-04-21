@@ -3,7 +3,7 @@ import { inject, Injectable } from "@angular/core";
 import { GroupeDb } from "../models/groupeDb";
 import { HttpClient } from "@angular/common/http";
 import { ApiPersoService } from "./api-persos-service";
-import { environment } from "../environments/environment.development";
+import { environment } from "../environments/environment";
 import { map } from "rxjs";
 
 @Injectable({ providedIn: 'root' })

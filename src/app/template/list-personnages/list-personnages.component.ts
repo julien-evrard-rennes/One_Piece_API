@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { environment } from 'src/app/environments/environment.development';
+import { environment } from 'src/app/environments/environment';
 import { Personnage } from 'src/app/models/Personnage';
 import { FusionPersonnageService } from 'src/app/services/fusion-personnage-service';
 

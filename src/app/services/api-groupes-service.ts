@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { environment } from '../environments/environment.development';
+import { environment } from '../environments/environment';
 import { map } from 'rxjs/internal/operators/map';
 import { GroupeAPI } from '../models/groupeApi';
 import { PersonnageAPI } from '../models/PersonnageApi';
