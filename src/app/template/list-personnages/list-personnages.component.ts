@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/app/environments/environment.development';
 import { Personnage } from 'src/app/models/Personnage';
 import { FusionPersonnageService } from 'src/app/services/fusion-personnage-service';
 
@@ -30,6 +31,9 @@ export class ListPersonnagesComponent implements OnInit {
     private router: Router,) {}
 
   ngOnInit(): void {
+    console.log("Liste des persos");
+    console.log('Production ?', environment.production);
+    console.log('API URL :', environment.API_PERSO_OP);
     this.fusionPersoService.getPersoList().subscribe({
 
       next: (persoList: Personnage[]) => {
