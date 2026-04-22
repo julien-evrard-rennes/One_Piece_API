@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { take } from 'rxjs';
+import { environment } from 'src/app/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -41,10 +42,28 @@ export class LoginComponent implements OnInit{
   async onSubmitForm(): Promise<void>{
     if (this.loginForm.invalid) return;
 
+    /** Test du formulaire de login */
+  console.log('Formulaire soumis');
+  console.log('Formulaire valide ?', this.loginForm.valid);
+  console.log('Valeurs :', this.loginForm.value);
+
+      /** Fin du test */
+
+
+  if (this.loginForm.invalid) {
+    console.log('Formulaire invalide — abandon');
+    return;
+  }
+
     this.loading = true;
     this.error = '';
 
     const { email, password } = this.loginForm.value;
+    console.log('Email saisi :', email);
+    console.log('Email attendu :', environment.ADMIN_EMAIL);
+
+    const success = this.authService.login(email, password);
+    console.log('Login réussi ?', success);
 
     try {
       await this.authService.login(email, password);
