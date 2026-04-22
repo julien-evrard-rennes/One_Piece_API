@@ -99,7 +99,6 @@ const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
             this.status = status;
             this.crew = crew;
             this.fruit = fruit;
-            console.log("Personnage : " + this);
         }
 
            static fromApiAndMock(api: PersonnageAPI | null, mock: PersonnageMock | null): Personnage {
