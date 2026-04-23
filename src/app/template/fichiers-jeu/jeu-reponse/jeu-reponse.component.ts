@@ -32,7 +32,6 @@ export class JeuReponseComponent implements OnInit {
   ngOnInit(): void {
     this.getPourcentage();
     this.resultatCadre=this.getResultatCadre();
-    console.log(this.resultatCadre);
     if (this.jeu=="equipage") {
     this.avisFinal=this.getAvisFinalEquipage(this.resultatCadre);
     }
@@ -73,7 +72,6 @@ export class JeuReponseComponent implements OnInit {
     }
 
       getAvisFinal(resultatCadre: string): string {
-        console.log(resultatCadre);
         if (this.resultatCadre=="resultat"){
           return "Bizarre"}
         if (resultatCadre=="resultatParfait"){
@@ -100,7 +98,6 @@ export class JeuReponseComponent implements OnInit {
     }
 
       getAvisFinalEquipage(resultatCadre: string): string {
-        console.log(resultatCadre);
         if (this.resultatCadre=="resultat"){
           return "Bizarre"}
       if (resultatCadre=="resultatParfait"){
@@ -127,7 +124,6 @@ export class JeuReponseComponent implements OnInit {
   }
 
         getAvisFinalAge(resultatCadre: string): string {
-        console.log(resultatCadre);
           if (this.resultatCadre=="resultat"){
             return "Bizarre"}
         if (resultatCadre=="resultatParfait"){
