@@ -9,7 +9,9 @@ import { environment } from '../../environments/environment';
 export class AccueilComponent implements OnInit{
 
 ngOnInit(): void {
-
+  console.log("Page d'accueil");
+  console.log('Production ?', environment.production);
+  console.log('API URL :', environment.API_PERSO_OP);
 }
 
 

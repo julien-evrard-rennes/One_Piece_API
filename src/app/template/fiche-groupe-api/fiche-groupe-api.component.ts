@@ -35,6 +35,7 @@ export class FicheGroupeApiComponent implements OnInit {
     this.apiGroupeService.getGroupeById(groupeId).subscribe({
       next: (g: GroupeAPI) => {
         this.getPersoList(this.groupeAPI);
+        console.log('Groupe récupéré :', this.groupeAPI);
       },
       error: (err) => console.error('Erreur récupération groupe:', err)
     });

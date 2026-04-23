@@ -31,6 +31,9 @@ export class ListPersonnagesComponent implements OnInit {
     private router: Router,) {}
 
   ngOnInit(): void {
+    console.log("Liste des persos");
+    console.log('Production ?', environment.production);
+    console.log('API URL :', environment.API_PERSO_OP);
     this.fusionPersoService.getPersoList().subscribe({
 
       next: (persoList: Personnage[]) => {
