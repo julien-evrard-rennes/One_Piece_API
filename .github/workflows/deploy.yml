@@ -16,14 +16,6 @@ jobs:
         run: docker build -t one-piece-app .
 
       - name: Deploy
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          script: |
-            docker pull ${{ secrets.DOCKER_USERNAME }}/one-piece-app:latest
-            docker stop one-piece-app || true
-            docker run -d --rm -p 80:80 --name one-piece-app \
-              ${{ secrets.DOCKER_USERNAME }}/one-piece-app:latest
+        run: |
+          curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
 

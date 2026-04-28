@@ -11,20 +11,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Installation Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-
       - name: Installation des dépendances
         run: npm ci
 
-      - name: Audit sécurité npm
-        run: npm audit --audit-level=high
-
       - name: Tests unitaires
         run: npx ng test --watch=false --browsers=ChromeHeadless
+
+      - name: Tests Cypress
+        run: npx cypress run --headless
+
+      - name: Audit sécurité npm
+        run: npm audit --audit-level=high
 
       - name: Initialisation CodeQL
         uses: github/codeql-action/init@v3
@@ -37,6 +34,8 @@ jobs:
       - name: Analyse CodeQL
         uses: github/codeql-action/analyze@v3  
 
+      - name: Lint
+        run: npx ng lint
       
 
               
