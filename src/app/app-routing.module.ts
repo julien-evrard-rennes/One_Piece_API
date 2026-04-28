@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { LandingPageComponent } from './template/landing-page/landing-page.component';
 import { ListPersonnagesApiComponent } from './template/list-personnages-api/list-personnages-api.component';
 import { JeuMotMelangeComponent } from './template/fichiers-jeu/jeu-mot-melange/jeu-mot-melange.component';
@@ -16,7 +16,7 @@ import { LoginComponent } from './template/login/login.component';
 import { AuthGuard } from '../auth.guard';
 
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: 'personnage/:id', component: FichePersonnageComponent },
   { path: 'groupe/:id', component: FicheGroupeComponent },
   { path: '', component: LandingPageComponent },
@@ -40,9 +40,4 @@ const routes: Routes = [
 
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
 
