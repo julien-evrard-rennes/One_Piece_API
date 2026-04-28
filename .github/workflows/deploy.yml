@@ -6,22 +6,16 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: alpine-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build Docker image
+      - name: Build docker
         run: docker build -t one-piece-app .
 
-      - name: Push sur Docker Hub
-        run: |
-          echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-          docker tag one-piece-app ${{ secrets.DOCKER_USERNAME }}/one-piece-app:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/one-piece-app:latest
-
-      - name: Déployer sur le VPS
+      - name: Deploy
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.VPS_HOST }}
@@ -32,3 +26,4 @@ jobs:
             docker stop one-piece-app || true
             docker run -d --rm -p 80:80 --name one-piece-app \
               ${{ secrets.DOCKER_USERNAME }}/one-piece-app:latest
+

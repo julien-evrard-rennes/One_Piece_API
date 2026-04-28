@@ -1,0 +1,42 @@
+name: Test Integration
+
+on:
+  push:
+    branches: [dev]
+
+jobs:
+  test:
+    runs-on : alpine-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Installation Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Installation des dépendances
+        run: npm ci
+
+      - name: Audit sécurité npm
+        run: npm audit --audit-level=high
+
+      - name: Tests unitaires
+        run: npx ng test --watch=false --browsers=ChromeHeadless
+
+      - name: Initialisation CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript-typescript
+
+      - name: Build pour CodeQL
+        run: npm run build -- --configuration production
+
+      - name: Analyse CodeQL
+        uses: github/codeql-action/analyze@v3  
+
+      
+
+              
