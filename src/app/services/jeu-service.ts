@@ -3,7 +3,6 @@ import { PersonnageAPI } from "../models/PersonnageApi";
 import { FusionPersonnageService } from "./fusion-personnage-service";
 import { Personnage } from "../models/Personnage";
 import { map, Observable, of, tap } from "rxjs";
-import { HttpClient } from "@angular/common/http";
 import { FusionGroupeService } from "./fusion-groupe-service";
 import { Groupe } from "../models/groupe";
 
@@ -14,8 +13,7 @@ import { Groupe } from "../models/groupe";
 export class JeuService {
 
 constructor(private fusionPersoService: FusionPersonnageService,
-            private fusionGroupeService : FusionGroupeService,
-            private http: HttpClient) {}
+            private fusionGroupeService : FusionGroupeService) {}
 
 personnage!: Personnage;
 num! : number;

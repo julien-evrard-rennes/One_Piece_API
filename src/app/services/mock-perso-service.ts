@@ -1,7 +1,8 @@
 import { Component, Injectable } from '@angular/core';
-import { PersonnageMock } from 'src/app/models/PersonnageMock';
+
 import { LikeType } from '../models/like-type.type';
 import { Groupe } from '../models/groupe';
+import { PersonnageMock } from '../models/PersonnageMock';
 
 @Injectable({
   providedIn: 'root'

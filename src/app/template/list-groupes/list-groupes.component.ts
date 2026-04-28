@@ -1,10 +1,10 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Groupe } from 'src/app/models/groupe';
-import { PersonnageAPI } from 'src/app/models/PersonnageApi';
-import { ApiGroupeService } from 'src/app/services/api-groupes-service';
-import { ApiPersoService } from 'src/app/services/api-persos-service';
-import { FusionGroupeService} from 'src/app/services/fusion-groupe-service';
+import { Groupe } from '../../models/groupe';
+import { PersonnageAPI } from '../../models/PersonnageApi';
+import { ApiGroupeService } from '../../services/api-groupes-service';
+import { ApiPersoService } from '../../services/api-persos-service';
+import { FusionGroupeService} from '../../services/fusion-groupe-service';
 
 @Component({
   selector: 'app-list-groupes',

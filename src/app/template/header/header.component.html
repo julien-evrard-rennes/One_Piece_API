@@ -7,16 +7,16 @@
         <li><a routerLink="listePersonnages" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
             Liste des personnages</a>
             <ul>
-            <li *ngIf="authService.isAuthenticated() | async" ><a routerLink="listePersonnagesApi" routerLinkActive="active">Liste des personnages (API)</a>
-            </li>
-            <li><button *ngIf="authService.isAuthenticated() | async"  (click)="onCreation()">Ajouter Perso</button></li>
+            @if (authService.isAuthenticated() | async) {<li ><a routerLink="listePersonnagesApi" routerLinkActive="active">Liste des personnages (API)</a>
+            </li>}
+            @if (authService.isAuthenticated() | async) {<li><button (click)="onCreation()">Ajouter Perso</button></li>}
             </ul>
         </li>
         <li><a routerLink="listeGroupes" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Liste des équipages</a>
         </li>
         <li><a routerLink="login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Log In</a>
         </li>
-        <li *ngIf="authService.isAuthenticated() | async" (click)="logout()"><a routerLinkActive="active">Log Out</a></li>
+        @if (authService.isAuthenticated() | async) {<li (click)="logout()"><a routerLinkActive="active">Log Out</a></li>}
     </ul>
 </nav>
 

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { take } from 'rxjs';
-import { environment } from 'src/app/environments/environment';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-login',

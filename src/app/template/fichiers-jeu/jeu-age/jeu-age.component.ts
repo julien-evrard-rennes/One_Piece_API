@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Personnage } from 'src/app/models/Personnage';
-import { JeuService } from 'src/app/services/jeu-service';
+import { Personnage } from '../../../models/Personnage';
+import { JeuService } from '../../../services/jeu-service';
 
 
 @Component({

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Groupe } from 'src/app/models/groupe';
-import { GroupeAPI } from 'src/app/models/groupeApi';
-import { Personnage } from 'src/app/models/Personnage';
-import { PersonnageAPI } from 'src/app/models/PersonnageApi';
-import { PersonnageShort } from 'src/app/models/PersonnageShort';
-import { ApiGroupeService } from 'src/app/services/api-groupes-service';
-import { FusionGroupeService } from 'src/app/services/fusion-groupe-service';
+import { Groupe } from '../../models/groupe';
+import { GroupeAPI } from '../../models/groupeApi';
+import { Personnage } from '../../models/Personnage';
+import { PersonnageAPI } from '../../models/PersonnageApi';
+import { PersonnageShort } from '../../models/PersonnageShort';
+import { ApiGroupeService } from '../../services/api-groupes-service';
+import { FusionGroupeService } from '../../services/fusion-groupe-service';
 
 @Component({
   selector: 'app-fiche-groupe',

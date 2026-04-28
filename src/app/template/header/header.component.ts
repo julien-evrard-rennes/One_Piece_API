@@ -1,12 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { RouterModule } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
+import { Router, RouterModule } from '@angular/router';
+import { CommonModule, AsyncPipe } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
+  standalone: true,
+  imports: [
+    RouterModule,   // ← règle routerLink, routerLinkActive, routerLinkActiveOptions
+    CommonModule,   // ← règle *ngIf
+    AsyncPipe,      // ← règle le pipe | async
+  ],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit{
 

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { map, Observable } from 'rxjs';
-import { PersonnageMock } from 'src/app/models/PersonnageMock';
+import { PersonnageMock } from '../../models/PersonnageMock';
 import { CommonModule } from '@angular/common';
-import { MockPersoService } from 'src/app/services/mock-perso-service';
+import { MockPersoService } from '../../services/mock-perso-service';
 import { Router } from '@angular/router';
 
 @Component({

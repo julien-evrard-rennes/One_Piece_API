@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-landing-page',
   standalone: true,
     imports: [
-    RouterLink,
     FormsModule,
     ],
   templateUrl: './landing-page.component.html',

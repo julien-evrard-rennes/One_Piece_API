@@ -1,8 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PersonnageAPI } from 'src/app/models/PersonnageApi';
+import { PersonnageAPI } from '../../models/PersonnageApi';
 import { ChangeDetectorRef } from '@angular/core';
-import { ApiPersoService } from 'src/app/services/api-persos-service';
+import { ApiPersoService } from '../../services/api-persos-service';
 
 @Component({
   selector: 'app-liste-personnages',

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Groupe } from 'src/app/models/groupe';
-import { Personnage } from 'src/app/models/Personnage';
-import { JeuService } from 'src/app/services/jeu-service';
+import { Personnage } from '../../../models/Personnage';
+import { JeuService } from '../../../services/jeu-service';
+import { Groupe } from '../../../models/groupe';
 
 @Component({
   selector: 'app-jeu-equipage',

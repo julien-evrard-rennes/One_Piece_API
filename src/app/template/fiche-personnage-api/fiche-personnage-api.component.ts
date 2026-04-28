@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
-import { PersonnageAPI } from 'src/app/models/PersonnageApi';
-import { ApiPersoService } from 'src/app/services/api-persos-service';
-import { MockGroupeService } from 'src/app/services/mock-groupe-service';
+import { PersonnageAPI } from '../../models/PersonnageApi';
+import { ApiPersoService } from '../../services/api-persos-service';
+import { MockGroupeService } from '../../services/mock-groupe-service';
 
 @Component({
   selector: 'app-fiche-personnage-api',

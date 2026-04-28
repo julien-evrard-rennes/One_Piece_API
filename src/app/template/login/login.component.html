@@ -6,20 +6,22 @@
     <div class="form-group">
       <label for="email">Email</label>
       <input type="email" id="email" formControlName="email">
-      <span class="error-msg" *ngIf="emailInvalid">
-        Email invalide.
-      </span>
+      @if (emailInvalid) {
+        <span class="error-msg">Email invalide.</span>
+      }
     </div>
 
     <div class="form-group">
       <label for="password">Mot de passe</label>
       <input type="password" id="password" formControlName="password">
-      <span class="error-msg" *ngIf="passwordInvalid">
-        Mot de passe requis (6 caractères minimum).
-      </span>
+      @if (passwordInvalid) {
+        <span class="error-msg">Mot de passe requis (6 caractères minimum).</span>
+      }
     </div>
 
-    <span class="error-msg" *ngIf="error">{{ error }}</span>
+    @if (error) {
+      <span class="error-msg">{{ error }}</span>
+    }
 
     <div class="action-buttons">
       <button type="submit" [disabled]="loginForm.invalid || loading">
@@ -29,4 +31,3 @@
 
   </form>
 </div>
-

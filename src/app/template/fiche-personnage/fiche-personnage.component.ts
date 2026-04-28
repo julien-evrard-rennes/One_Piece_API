@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Personnage } from 'src/app/models/Personnage';
-import { FusionGroupeService } from 'src/app/services/fusion-groupe-service';
-import { FusionPersonnageService } from 'src/app/services/fusion-personnage-service';
+import { Personnage } from '../../models/Personnage';
+import { FusionGroupeService } from '../../services/fusion-groupe-service';
+import { FusionPersonnageService } from '../../services/fusion-personnage-service';
 
 
 @Component({

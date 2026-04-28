@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { environment } from 'src/app/environments/environment';
-import { Personnage } from 'src/app/models/Personnage';
-import { FusionPersonnageService } from 'src/app/services/fusion-personnage-service';
+import { environment } from '../../environments/environment';
+import { Personnage } from '../../models/Personnage';
+import { FusionPersonnageService } from '../../services/fusion-personnage-service';
 
 @Component({
   selector: 'app-list-personnages',

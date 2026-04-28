@@ -41,53 +41,51 @@
 
     </form>
 
-    <h2>Prévisualisation</h2>
+  <h2>Prévisualisation</h2>
 
-@if (personnagePreview) {
-    <div *ngIf="personnagePreview | async as personnage" >
-    <ul class="flex-outer">
-        <table>
-@if (personnage.nom){
-            <li>
+  @if (personnagePreview) {
+    @if (personnagePreview | async; as personnage) {
+      <div>
+        <ul class="flex-outer">
+          <table>
+            @if (personnage.nom) {
+              <li>
                 <label><b>Nom : </b></label>
-                <tr>{{personnage.nom}} </tr>
-            </li>
-        }
-@if (personnage.particule){
-            <li>
-                <label><b>Particule : </b></label>
-                <tr>{{personnage.particule}} </tr>
-            </li>
+                <tr>{{ personnage.nom }}</tr>
+              </li>
             }
-
+            @if (personnage.particule) {
+              <li>
+                <label><b>Particule : </b></label>
+                <tr>{{ personnage.particule }}</tr>
+              </li>
+            }
             <li>
-                <label><b>Prenom : </b></label>
-                <tr>{{personnage.prenom}} </tr>
+              <label><b>Prénom : </b></label>
+              <tr>{{ personnage.prenom }}</tr>
             </li>
-@if (personnage.surnom){
-            <li>
-            <label><b>Surnom : </b></label>
-            <tr>{{personnage.surnom}} </tr>
-            </li>
-        }
-@if (personnage.prime){
-            <li>
-            <label><b>Prime : </b></label>
-            <tr>{{personnage.prime}} berrys</tr>
-            </li>
-        }
-
-@if (personnage.groupes){
-            <li>
-            <label><b>Groupes : </b></label>
-            <tr>{{personnage.groupes}}</tr>
-            </li>
-        }
-
-        </table>
-    </ul>
-</div>
-}
-
+            @if (personnage.surnom) {
+              <li>
+                <label><b>Surnom : </b></label>
+                <tr>{{ personnage.surnom }}</tr>
+              </li>
+            }
+            @if (personnage.prime) {
+              <li>
+                <label><b>Prime : </b></label>
+                <tr>{{ personnage.prime }} berrys</tr>
+              </li>
+            }
+            @if (personnage.groupes) {
+              <li>
+                <label><b>Groupes : </b></label>
+                <tr>{{ personnage.groupes }}</tr>
+              </li>
+            }
+          </table>
+        </ul>
+      </div>
+    }
+  }
 
 </div>

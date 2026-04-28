@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Groupe } from 'src/app/models/groupe';
-import { GroupeAPI } from 'src/app/models/groupeApi';
-import { PersonnageAPI } from 'src/app/models/PersonnageApi';
-import { ApiGroupeService } from 'src/app/services/api-groupes-service';
+import { Groupe } from '../../models/groupe';
+import { GroupeAPI } from '../../models/groupeApi';
+import { PersonnageAPI } from '../../models/PersonnageApi';
+import { ApiGroupeService } from '../../services/api-groupes-service';
 
 @Component({
   selector: 'app-fiche-groupe-api',

@@ -12,8 +12,8 @@ import { JeuEquipageComponent } from './template/fichiers-jeu/jeu-equipage/jeu-e
 import { JeuReponseComponent } from './template/fichiers-jeu/jeu-reponse/jeu-reponse.component';
 import { JeuAgeComponent } from './template/fichiers-jeu/jeu-age/jeu-age.component';
 import { ChoixJeuComponent } from './template/fichiers-jeu/choix-jeu/choix-jeu.component';
-import { AuthGuard } from 'src/auth.guard';
 import { LoginComponent } from './template/login/login.component';
+import { AuthGuard } from '../auth.guard';
 
 
 const routes: Routes = [

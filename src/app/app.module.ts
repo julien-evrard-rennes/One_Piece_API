@@ -9,14 +9,15 @@ import { AccueilComponent } from './template/accueil/accueil.component';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-@NgModule({ declarations: [
-        HeaderComponent,
+@NgModule({ declarations: [],
+    bootstrap: [], imports: [
+        AppComponent,
         MainComponent,
         FooterComponent,
         AccueilComponent,
         AppComponent,
-    ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
+        HeaderComponent,
+        BrowserModule,
         AppRoutingModule,
         FormsModule,
         ReactiveFormsModule], providers: [provideHttpClient(withInterceptorsFromDi())] })

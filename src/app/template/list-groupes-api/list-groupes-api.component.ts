@@ -1,11 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { GroupeAPI } from 'src/app/models/groupeApi';
-import { GroupeDb } from 'src/app/models/groupeDb';
-import { PersonnageAPI } from 'src/app/models/PersonnageApi';
-import { ApiGroupeService } from 'src/app/services/api-groupes-service';
-import { ApiPersoService } from 'src/app/services/api-persos-service';
-import { MockGroupeService } from 'src/app/services/mock-groupe-service';
+import { GroupeAPI } from '../../models/groupeApi';
+import { GroupeDb } from '../../models/groupeDb';
+import { PersonnageAPI } from '../../models/PersonnageApi';
+import { ApiGroupeService } from '../../services/api-groupes-service';
+import { ApiPersoService } from '../../services/api-persos-service';
+import { MockGroupeService } from '../../services/mock-groupe-service';
 
 @Component({
   selector: 'app-list-groupes-api',
