@@ -6,8 +6,12 @@ describe('JeuService', () => {
   let service: JeuService;
 
   beforeEach(() => {
+<<<<<<< HEAD
     TestBed.configureTestingModule({
     });
+=======
+    TestBed.configureTestingModule({});
+>>>>>>> 002c1c599ad6cd5c9e94c3b0996db4a71100500a
     service = TestBed.inject(JeuService);
   });
 

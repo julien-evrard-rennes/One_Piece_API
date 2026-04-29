@@ -1,15 +1,12 @@
 // auth.service.spec.ts
 import { TestBed } from '@angular/core/testing';
 import { AuthService } from './auth.service';
-import { AppComponent } from '../app.component';
 
 describe('AuthService', () => {
   let service: AuthService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [AppComponent]
-    });
+    TestBed.configureTestingModule({});
     service = TestBed.inject(AuthService);
     localStorage.clear(); // nettoyer entre chaque test
   });

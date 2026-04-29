@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 /// <reference types="cypress" />
 
 import cy from "@angular/common/locales/extra/cy";
 
+=======
+import cy from "@angular/common/locales/extra/cy";
+
+
+>>>>>>> 002c1c599ad6cd5c9e94c3b0996db4a71100500a
 describe('Liste des personnages', () => {
 
   beforeEach(() => {
