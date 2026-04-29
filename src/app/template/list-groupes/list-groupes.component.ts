@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { Groupe } from '../../models/groupe';
 import { PersonnageAPI } from '../../models/PersonnageApi';
@@ -30,7 +30,7 @@ export class ListeGroupesComponent implements OnInit {
     private fusionGroupeService: FusionGroupeService,
     private router: Router,
     private listePersoService: ApiPersoService,
-
+    private cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
@@ -38,6 +38,7 @@ export class ListeGroupesComponent implements OnInit {
       next: (groupeList: Groupe[]) => {
         this.groupeList = groupeList;
         this.isLoading = false;
+        this.cdr.detectChanges();
       },
       error: (err: Error) => console.log(err),
       complete: () => console.log('complete'),

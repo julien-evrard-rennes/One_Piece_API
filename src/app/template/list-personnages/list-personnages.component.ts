@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { Personnage } from '../../models/Personnage';
@@ -27,8 +27,11 @@ export class ListPersonnagesComponent implements OnInit {
   triAscendantParticule = true;
 
 
-  constructor(private fusionPersoService: FusionPersonnageService, 
-    private router: Router,) {}
+  constructor(
+    private fusionPersoService: FusionPersonnageService, 
+    private router: Router, 
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     this.fusionPersoService.getPersoList().subscribe({
@@ -36,6 +39,7 @@ export class ListPersonnagesComponent implements OnInit {
       next: (persoList: Personnage[]) => {
         this.persoList = persoList
         this.isLoading = false;
+        this.cdr.detectChanges();
       },
       error: (err: Error) => console.log(err),
       complete: () => console.log('complete'),

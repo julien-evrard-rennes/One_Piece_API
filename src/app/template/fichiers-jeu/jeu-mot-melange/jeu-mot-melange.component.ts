@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterLink, Router } from '@angular/router';
+import { Component, OnInit, ChangeDetectorRef  } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Personnage } from '../../../models/Personnage';
 import { JeuService } from '../../../services/jeu-service';
@@ -30,8 +30,10 @@ export class JeuMotMelangeComponent implements OnInit {
   scoreTotal: number = 0;
   tour: number =0;
 
-  constructor(private jeuService : JeuService, 
-  private router: Router) {}
+  constructor(private  jeuService : JeuService, 
+    private readonly router: Router,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
 
@@ -47,6 +49,7 @@ export class JeuMotMelangeComponent implements OnInit {
       this.tableauPrenomMel= this.jeuService.melangerMot(this.tableauPrenom);
       this.tour++;
       this.isLoading=false;
+      this.cdr.detectChanges();
     });
     return this.personnage;
   }

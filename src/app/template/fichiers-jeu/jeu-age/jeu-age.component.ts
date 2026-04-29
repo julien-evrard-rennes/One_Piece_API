@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef  } from '@angular/core';
 import { Router } from '@angular/router';
 import { Personnage } from '../../../models/Personnage';
 import { JeuService } from '../../../services/jeu-service';
@@ -25,8 +25,10 @@ export class JeuAgeComponent  implements OnInit {
   scoreTotal: number = 0;
   tour: number =0;
 
-    constructor(private  jeuService : JeuService, 
-    private readonly router: Router) {}
+  constructor(private  jeuService : JeuService, 
+    private readonly router: Router,
+    private cdr: ChangeDetectorRef
+  ) {}
 
 
   ngOnInit(): void {
@@ -42,7 +44,9 @@ export class JeuAgeComponent  implements OnInit {
     });
       this.jeuService.tiragePersoAge().subscribe(p2 => {
       this.personnage2 = p2;
+      this.cdr.detectChanges();
     });
+
   }
   
   formulationQuestion(personnage: Personnage): string {

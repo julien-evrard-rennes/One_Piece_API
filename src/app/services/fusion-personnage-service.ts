@@ -6,11 +6,11 @@ import { PersonnageAPI } from "../models/PersonnageApi";
 import { PersonnageMock } from "../models/PersonnageMock";
 import { DBPersoService } from "./db-perso-service";
 import { PersonnageDb } from "../models/PersonnageDb";
-import { switchMap, map } from 'rxjs/operators';
+import { switchMap, map, catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class FusionPersonnageService {
-
 
     constructor(
         private apiPersoService : ApiPersoService,
@@ -20,6 +20,10 @@ export class FusionPersonnageService {
 
 getPersoList(): Observable<Personnage[]> {
   return this.dbPersoService.getPersos().pipe(
+    catchError(() => {
+      console.warn('DB inaccessible — utilisation des données API seules');
+      return of([]);
+    }),
     switchMap((dbList: PersonnageDb[]) => {
       const dbMap = new Map<number, PersonnageDb>();
       dbList.forEach(d => dbMap.set(Number(d.id), d));
