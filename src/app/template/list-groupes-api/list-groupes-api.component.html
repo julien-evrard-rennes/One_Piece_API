@@ -5,7 +5,7 @@
     <thead>
         <tr>
             <th>Nom
-            <div class="button" (click)="onTrierParNom()"> TRIER @if (triAscendantNom) {
+            <div class="button" (click)="onTrierParNom()" (keydown.n)="onTrierParNom()" tabindex="0"> TRIER @if (triAscendantNom) {
                 <span>⬇</span>
                 } @else {
                 <span>⬆</span>
@@ -14,7 +14,7 @@
             </th>
 
             <th>Nombre de Membres (théorique)
-            <div class="button" (click)="onTrierParNumber()"> TRIER @if (triAscendantNumber) {
+            <div class="button" (click)="onTrierParNumber()" (keydown.e)="onTrierParNumber()" tabindex="1"> TRIER @if (triAscendantNumber) {
             <span>⬇</span>
             } @else {
             <span>⬆</span>
@@ -22,7 +22,7 @@
             </th>
 
             <th>Nombre de Fiches Persos liées 
-                <div class="button" (click)="onTrierParMembresReels()"> TRIER @if (triAscendantReel) {
+                <div class="button" (click)="onTrierParMembresReels()" (keydown.m)="onTrierParMembresReels()" tabindex="2"> TRIER @if (triAscendantReel) {
                 <span>⬇</span>
                 } @else {
                 <span>⬆</span>
@@ -31,7 +31,7 @@
             </th>
 
             <th>Status
-            <div class="button" (click)="onTrierParStatus()"> TRIER @if (triAscendantStatus) {
+            <div class="button" (click)="onTrierParStatus()" (keydown.s)="onTrierParStatus()" tabindex="3"> TRIER @if (triAscendantStatus) {
                 <span>⬇</span>
                 } @else {
                 <span>⬆</span>
@@ -39,7 +39,7 @@
             </div>
             </th>
             <th>Prime Totale
-                <div class="button" (click)="onTrierParPrime()"> TRIER @if (triAscendantPrime) {
+                <div class="button" (click)="onTrierParPrime()" (keydown.$)="onTrierParPrime()" tabindex="4"> TRIER @if (triAscendantPrime) {
                     <span>⬇</span>
                        } @else {
                     <span>⬆</span>
@@ -79,7 +79,7 @@
                 @if (groupe.total_prime) { {{groupe.total_prime}} }
                 @else {inconnu}
             </td>
-            <td><button (click)="onViewFicheGroupe(groupe)">Détails</button></td>
+            <td><button (click)="onViewFicheGroupe(groupe)" tabindex="5">Détails</button></td>
         </tr>
         }
     

@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule, AsyncPipe } from '@angular/common';
 import { AuthService } from '../../services/auth.service';

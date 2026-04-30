@@ -3,7 +3,7 @@
         <tr>
             <th>ID</th>
             <th>Nom
-                <div class="button" (click)="onTrierParNom()"> TRIER @if (triAscendantNom) {
+                <div class="button" (click)="onTrierParNom()" (keydown.c)="onTrierParNom()" tabindex="0"> TRIER @if (triAscendantNom) {
                     <span>⬇</span>
                     } @else {
                     <span>⬆</span>
@@ -11,14 +11,14 @@
                 </div>
             </th>
             <th>Age
-                <div class="button" (click)="onTrierParAge()"> TRIER @if (triAscendantAge) {
+                <div class="button" (click)="onTrierParAge()" (keydown.a)="onTrierParAge()" tabindex="1"> TRIER @if (triAscendantAge) {
                 <span>⬇</span>
                 } @else {
                 <span>⬆</span>
                 }</div>
             </th>
             <th>Équipage
-                <div class="button" (click)="onTrierParEquipage()"> TRIER @if (triAscendantEquipage) {
+                <div class="button" (click)="onTrierParEquipage()" (keydown.e)="onTrierParEquipage()" tabindex="2"> TRIER @if (triAscendantEquipage) {
                     <span>⬇</span>
                     } @else {
                     <span>⬆</span>
@@ -26,7 +26,7 @@
                 </div>
                 </th>
             <th>Status
-                <div class="button" (click)="onTrierParStatus()"> TRIER @if (triAscendantStatus) {
+                <div class="button" (click)="onTrierParStatus()" (keydown.s)="onTrierParStatus()" tabindex="4"> TRIER @if (triAscendantStatus) {
                     <span>⬇</span>
                      } @else {
                      <span>⬆</span>
@@ -34,7 +34,7 @@
                 </div>
             </th>
             <th>Prime
-                <div class="button" (click)="onTrierParPrime()"> TRIER @if (triAscendantPrime) {
+                <div class="button" (click)="onTrierParPrime()" (keydown.$)="onTrierParPrime()" tabindex="5"> TRIER @if (triAscendantPrime) {
                     <span>⬇</span>
                         } @else {
                     <span>⬆</span>
@@ -67,7 +67,7 @@
         } </td>
             <td>@if (personnage.status) { {{personnage.status}} } @else { ---- } </td>
             <td>@if (personnage.bounty) { {{personnage.bounty}} } @else { ---- } </td>
-            <td><button (click)="onViewFichePerso(personnage)">Détails</button></td>
+            <td><button (click)="onViewFichePerso(personnage)" tabindex="6">Détails</button></td>
         </tr>
         }
     </tbody>

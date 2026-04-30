@@ -55,7 +55,7 @@
             <li>
                 <b>Équipage :</b>
                 <ul>
-                    <a (click)="onViewFicheGroupe(personnage.crew.id)">
+                    <a (click)="onViewFicheGroupe(personnage.crew.id)" (keydown.v)="onViewFicheGroupe(personnage.crew.id)" tabindex="0">
                 <li>
                     {{personnage.crew.name}}
                 </li></a>

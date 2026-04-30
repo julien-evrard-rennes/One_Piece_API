@@ -26,10 +26,10 @@
                 <tr>{{groupe.total_prime}} </tr>
             </li>
 
-            <tr>@if (groupe.capitaine.id != 0) {
+            <tr>@if (groupe.capitaine.id !== 0) {
             <li>
                 <b>Capitaine ou Chef : </b>
-                <tr class="listePerso">  <a (click)="onViewFichePerso(groupe.capitaine)">
+                <tr class="listePerso">  <a (click)="onViewFichePerso(groupe.capitaine)" (keydown.c)="onViewFichePerso(groupe.capitaine)" tabindex="0">
                       <li> {{groupe.capitaine.nom}}
                       </li>
                     </a></tr>
@@ -58,7 +58,7 @@
 
                 <tr class="listePerso">
                     @for (personnage of groupe.membresListe; track personnage.id) {
-                    <a (click)="onViewFichePerso(personnage)">
+                    <a (click)="onViewFichePerso(personnage)" (keydown.v)="onViewFichePerso(personnage)" tabindex="0">
                       <li>@if (personnage.nom) { {{personnage.nom}} }
                       </li>
                     </a>

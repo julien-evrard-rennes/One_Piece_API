@@ -16,7 +16,7 @@
         </li>
         <li><a routerLink="login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Log In</a>
         </li>
-        @if (authService.isAuthenticated() | async) {<li (click)="logout()"><a routerLinkActive="active">Log Out</a></li>}
+        @if (authService.isAuthenticated() | async) {<li (click)="logout()" (keydown.l)="logout()" tabindex="0" ><a routerLinkActive="active">Log Out</a></li>}
     </ul>
 </nav>
 

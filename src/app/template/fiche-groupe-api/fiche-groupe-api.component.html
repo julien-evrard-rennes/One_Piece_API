@@ -52,7 +52,7 @@
 
                 <tr class="listePerso">
                     @for (personnage of persoList; track personnage.id) {
-                    <a (click)="onViewFichePerso(personnage)">
+                    <a (click)="onViewFichePerso(personnage)" (keydown.v)="onViewFichePerso(personnage)" tabindex="0">
                       <li>@if (personnage.name) { {{personnage.name}} }
                       </li>
                     </a>
