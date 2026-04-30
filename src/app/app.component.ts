@@ -14,6 +14,6 @@ import { FooterComponent } from "./template/footer/footer.component";
 
 
 export class AppComponent {
-  title="";
+  title="One_Piece";
 
 }

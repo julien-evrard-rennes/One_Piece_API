@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { FicheGroupeComponent } from './fiche-groupe.component';
 
 describe('FicheGroupeComponent', () => {
@@ -8,7 +10,12 @@ describe('FicheGroupeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FicheGroupeComponent]
+      imports: [FicheGroupeComponent],
+      providers: [
+        provideRouter([]),            
+        provideHttpClient(),          
+        provideHttpClientTesting(),   
+      ]
     })
     .compileComponents();
     
