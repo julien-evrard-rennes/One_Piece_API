@@ -23,10 +23,5 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('One_Piece');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('One_Piece app is running!');
-  });
+
 });

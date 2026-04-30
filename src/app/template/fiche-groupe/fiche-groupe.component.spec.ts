@@ -21,7 +21,15 @@ describe('FicheGroupeComponent', () => {
     
     fixture = TestBed.createComponent(FicheGroupeComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    component.groupe = {
+    id: 1, name: "L'équipage du Chapeau de Paille",
+    description: '', status: 'actif', number: '10',
+    roman_name: '', total_prime: '', is_yonko: 'true',
+    capitaine: { id: 1, name: 'Monkey D Luffy' },
+    membresListe: [],
+  } as any;
+
+  fixture.detectChanges();
   });
 
   it('should create', () => {

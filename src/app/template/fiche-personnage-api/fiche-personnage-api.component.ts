@@ -15,6 +15,7 @@ import { MockGroupeService } from '../../services/mock-groupe-service';
 export class FichePersonnageApiComponent {
 
   personnage!: PersonnageAPI
+  personnageAPI: any;
 
   constructor(
     private apiPersonnagesService: ApiPersoService,
