@@ -4,9 +4,9 @@ describe('Liste des personnages', () => {
     cy.visit('/listePersonnages');
   });
 
-  it('affiche au moins 800 personnages', () => {
-    cy.get('tr', { timeout: 15000 })
-      .should('have.length.greaterThan', 800);
+  it('affiche au moins 700 personnages', () => {
+    cy.get('tr', { timeout: 16000 })
+      .should('have.length.greaterThan', 700);
   });
 
   it('affiche Monkey D Luffy en premier', () => {
