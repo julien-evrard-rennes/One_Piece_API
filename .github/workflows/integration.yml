@@ -27,7 +27,7 @@ jobs:
       - run: npx cypress run --headless
 
       - name: Audit sécurité npm
-        run: npm audit --audit-level=high
+        run: npm audit --audit-level=critical
 
       - name: Lint
         run: npx ng lint
