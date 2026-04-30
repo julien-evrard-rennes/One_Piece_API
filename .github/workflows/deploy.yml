@@ -5,12 +5,27 @@ on:
     branches: [master]
 
 jobs:
+
+  tests: 
+   runs-on: ubuntu-latest
+   steps:
+    - uses: actions/checkout@v4
+
+    - uses: github/codeql-action/init@v3
+      with:
+        languages: javascript-typescript
+
+    - run: npm run build -- --configuration production
+
+    - uses: github/codeql-action/analyze@v3  
+
+    - run: npx cypress run --headless
+
+    
   deploy:
     runs-on: alpine-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
 
       - name: Build docker
         run: docker build -t one-piece-app .

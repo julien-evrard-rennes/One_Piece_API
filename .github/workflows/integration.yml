@@ -23,17 +23,6 @@ jobs:
       - name: Audit sécurité npm
         run: npm audit --audit-level=high
 
-      - name: Initialisation CodeQL
-        uses: github/codeql-action/init@v3
-        with:
-          languages: javascript-typescript
-
-      - name: Build pour CodeQL
-        run: npm run build -- --configuration production
-
-      - name: Analyse CodeQL
-        uses: github/codeql-action/analyze@v3  
-
       - name: Lint
         run: npx ng lint
       

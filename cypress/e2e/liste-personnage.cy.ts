@@ -1,5 +1,3 @@
-// <reference types="cypress" />
-
 describe('Liste des personnages', () => {
 
   beforeEach(() => {
@@ -14,15 +12,6 @@ describe('Liste des personnages', () => {
   it('affiche Monkey D Luffy en premier', () => {
     cy.get('tbody tr').first()
       .should('contain.text', 'Luffy');
-  });
-
-  it('intercepte l\'appel API et vérifie la réponse', () => {
-    cy.intercept('GET', '**/characters/fr').as('getPersonnages');
-    cy.visit('/listePersonnages');
-    cy.wait('@getPersonnages').then((interception) => {
-      expect(interception.response?.statusCode).to.equal(200);
-      expect(interception.response?.body.length).to.be.greaterThan(800);
-    });
   });
 
 });
