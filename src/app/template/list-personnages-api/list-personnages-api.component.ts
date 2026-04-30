@@ -12,6 +12,7 @@ import { ApiPersoService } from '../../services/api-persos-service';
 export class ListPersonnagesApiComponent implements OnInit {
   private listePersoService = inject(ApiPersoService);
   private router = inject(Router);
+  private cdr = inject(ChangeDetectorRef);
 
 
   personnage!: PersonnageAPI;
@@ -31,6 +32,7 @@ export class ListPersonnagesApiComponent implements OnInit {
         this.persoList = persoList
         console.table(this.persoList)
         this.isLoading = false;
+        this.cdr.detectChanges();
       },
       error: (err: Error) => console.log(err),
       complete: () => console.log('complete'),

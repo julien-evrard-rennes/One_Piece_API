@@ -4,36 +4,36 @@
     <ul class="flex-outer">
         <table>
             <li>
-                <label><b>Nom : </b></label>
+                <b>Nom : </b>
                 <tr>{{personnage.nom}} </tr>
             </li>
 @if (personnage.particule){
             <li>
-                <label><b>Particule : </b></label>
+                <b>Particule : </b>
                 <tr>{{personnage.particule}} </tr>
             </li>
             }
 
             <li>
-                <label><b>Prenom : </b></label>
+                <b>Prenom : </b>
                 <tr>{{personnage.prenom}} </tr>
             </li>
 
             <li>
-            <label><b>Surnom : </b></label>
+            <b>Surnom : </b>
             <tr>{{personnage.surnom}} </tr>
             </li>
 
 @if (personnage.size){
             <li>
-                <label><b>Taille : </b></label>
+                <b>Taille : </b>
                 <tr>{{personnage.size}} </tr>
             </li>
             }
 
 @if (personnage.age) {
             <li>
-                <label><b>Age : </b></label>
+                <b>Age : </b>
 
                 <tr>{{personnage.age}} </tr>
 
@@ -43,23 +43,23 @@
 @if (personnage.bounty) {
 
             <li>
-                <label><b>Prime : </b></label>
+                <b>Prime : </b>
                 <tr>{{personnage.bounty}} berrys </tr>
             </li>
     }
 
             <li>
-                <label><b>Statut : </b></label>
+                <b>Statut : </b>
                 <tr>{{personnage.status}} </tr>
             </li>
 
 @if (personnage.fruit) {
             <li>
-                <label><b>Fruit : </b></label>
+                <b>Fruit : </b>
                 <ul>
-                    <li><label>Nom :</label>{{personnage.fruit.name}} </li>
-                    <li><label>Description :</label>{{personnage.fruit.description}} </li>
-                    <li><label>Type :</label>{{personnage.fruit.type}} </li>
+                    <li><b>Nom :</b>{{personnage.fruit.name}} </li>
+                    <li><b>Description</b> :{{personnage.fruit.description}} </li>
+                    <li><b>Type :</b>{{personnage.fruit.type}} </li>
                 </ul>
             </li>
             }
@@ -67,21 +67,21 @@
 @if (personnage.crew) {
 
             <li>
-                <label><b>Équipage : </b></label>
+                <b>Équipage : </b>
                 <ul>
                     <a (click)="onViewFicheGroupe(personnage.crew.id)">
                 <li>
                     {{personnage.crew.name}}
                 </li></a>
                 @if (personnage.crew.description) {
-                    <li><label>Description : </label>{{personnage.crew.description}} </li>
+                    <li><b>Description :</b> {{personnage.crew.description}} </li>
                 }
-                <li><label>Status : </label>{{personnage.crew.status}} </li>
+                <li><b>Status : </b>{{personnage.crew.status}} </li>
                 @if (personnage.crew.total_prime) {
-                <li><label>Primes totales : </label>{{personnage.crew.total_prime}} berrys </li>
+                <li><b>Primes totales : </b>{{personnage.crew.total_prime}} berrys </li>
                 }
                 @if (personnage.job) {
-                <li><label>Job du personnage : </label>@if (personnage.job) { {{personnage.job}} } </li>
+                <li><b>Job du personnage : </b>@if (personnage.job) { {{personnage.job}} } </li>
                 }
                 </ul>
             </li>

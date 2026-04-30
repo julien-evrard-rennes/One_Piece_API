@@ -31,7 +31,7 @@ export class FicheGroupeApiComponent implements OnInit {
     const groupeId = this.route.snapshot.params['id'];
 
     this.apiGroupeService.getGroupeById(groupeId).subscribe({
-      next: (g: GroupeAPI) => {
+      next: () => {
         this.getPersoList(this.groupeAPI);
       },
       error: (err) => console.error('Erreur récupération groupe:', err)

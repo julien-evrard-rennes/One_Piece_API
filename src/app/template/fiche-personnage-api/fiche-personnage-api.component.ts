@@ -1,9 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs/internal/Observable';
 import { PersonnageAPI } from '../../models/PersonnageApi';
 import { ApiPersoService } from '../../services/api-persos-service';
-import { MockGroupeService } from '../../services/mock-groupe-service';
 
 @Component({
   selector: 'app-fiche-personnage-api',
@@ -14,7 +12,6 @@ import { MockGroupeService } from '../../services/mock-groupe-service';
 })
 export class FichePersonnageApiComponent implements OnInit {
   private apiPersonnagesService = inject(ApiPersoService);
-  private listeGroupeService = inject(MockGroupeService);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
 

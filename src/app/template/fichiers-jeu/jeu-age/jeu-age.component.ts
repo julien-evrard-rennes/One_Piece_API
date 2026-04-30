@@ -50,7 +50,7 @@ export class JeuAgeComponent  implements OnInit {
   }
   
   formulationQuestion(personnage: Personnage): string {
-    let phrase = '';
+    let phrase;
     if (personnage.sexe == 'f'){
       if (personnage.id % 2 == 0){ 
         phrase = " est-elle plus agée que "}

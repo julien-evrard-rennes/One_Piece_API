@@ -1,9 +1,9 @@
-import { Component, inject, Injectable } from '@angular/core';
 import { Groupe } from '../models/groupe';
 import { PersonnageDb } from '../models/PersonnageDb';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
+import { inject, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'

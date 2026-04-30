@@ -67,7 +67,7 @@ export class LoginComponent implements OnInit{
     try {
       await this.authService.login(email, password);
       this.router.navigate(['/admin']);
-    } catch (e) {
+    } catch {
       this.error = 'Identifiants incorrects. Vérifiez votre email et mot de passe.';
     } finally {
       this.loading = false;

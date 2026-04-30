@@ -1,11 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Groupe } from '../../models/groupe';
-import { GroupeAPI } from '../../models/groupeApi';
-import { Personnage } from '../../models/Personnage';
-import { PersonnageAPI } from '../../models/PersonnageApi';
 import { PersonnageShort } from '../../models/PersonnageShort';
-import { ApiGroupeService } from '../../services/api-groupes-service';
 import { FusionGroupeService } from '../../services/fusion-groupe-service';
 
 @Component({

@@ -14,13 +14,10 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent {
   private router = inject(Router);
   authService = inject(AuthService);
 
-
-  ngOnInit(): void { 
-  }
 
   onCreation() : void {
     this.router.navigateByUrl("/creer");

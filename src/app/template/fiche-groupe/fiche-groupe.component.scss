@@ -64,24 +64,24 @@ tr.listePerso {
     flex: 1 0 220px;
 }
 
-.flex-outer>li>label {
+.flex-outer>li>b {
     flex: 1 0 120px;
     max-width: 350px;
 }
 
-.flex-outer>li>label+* {
+.flex-outer>li>b+* {
     flex: 1 0 220px;
 }
 
-.flex-outer>li>label+a.bouton {
+.flex-outer>li>b+a.bouton {
     flex: none;
 }
 
-.flex-outer>li>label+input#idParticule {
+.flex-outer>li>b+input#idParticule {
     flex: none;
 }
 
-.flex-outer>li>label+input#genreCheck1,
+.flex-outer>li>b+input#genreCheck1,
 #genreCheck2,
 #genreCheck3 {
     flex: none;
