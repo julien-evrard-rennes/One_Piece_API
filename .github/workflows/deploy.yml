@@ -1,36 +1,44 @@
-name: Build & Deploy
+name: Build, Test & Deploy
 
 on:
   push:
     branches: [master]
 
+permissions:
+  security-events: write
+  contents: read
+
 jobs:
 
-  tests: 
+  tests-deploiements: 
    runs-on: ubuntu-latest
    steps:
     - uses: actions/checkout@v4
 
-    - uses: github/codeql-action/init@v3
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
       with:
-        languages: javascript-typescript
+          node-version: '20'
+          cache: 'npm'        
+    - run: npm ci
+
+    - name: CodeQL
+      uses: github/codeql-action/init@v4
+      with:
+          languages: javascript-typescript
 
     - run: npm run build -- --configuration production
 
-    - uses: github/codeql-action/analyze@v3  
+    - uses: github/codeql-action/analyze@v4  
 
     - run: npx cypress run --headless
 
     
-  deploy:
+  deploiement:
     runs-on: alpine-latest
 
     steps:
-
-      - name: Build docker
-        run: docker build -t one-piece-app .
-
-      - name: Deploy
-        run: |
+      - run: docker build -t one-piece-app .
+      - run: |
           curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
 
