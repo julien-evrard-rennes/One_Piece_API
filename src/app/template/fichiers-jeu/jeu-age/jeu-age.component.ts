@@ -41,6 +41,7 @@ export class JeuAgeComponent  implements OnInit {
       this.tour++;
       this.isLoading=false;
       this.question = this.formulationQuestion(p);
+      this.cdr.detectChanges();
     });
       this.jeuService.tiragePersoAge().subscribe(p2 => {
       this.personnage2 = p2;

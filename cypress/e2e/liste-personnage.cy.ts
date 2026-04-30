@@ -1,5 +1,3 @@
-import cy from "@angular/common/locales/extra/cy";
-
 // <reference types="cypress" />
 
 describe('Liste des personnages', () => {
@@ -9,12 +7,12 @@ describe('Liste des personnages', () => {
   });
 
   it('affiche au moins 800 personnages', () => {
-    cy.get('.personnage-card', { timeout: 15000 })
+    cy.get('tr', { timeout: 15000 })
       .should('have.length.greaterThan', 800);
   });
 
   it('affiche Monkey D Luffy en premier', () => {
-    cy.get('.personnage-card').first()
+    cy.get('tbody tr').first()
       .should('contain.text', 'Luffy');
   });
 
