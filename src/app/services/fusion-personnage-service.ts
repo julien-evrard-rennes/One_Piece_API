@@ -1,9 +1,8 @@
-import { Injectable } from "@angular/core";
+import { Injectable, inject } from "@angular/core";
 import { ApiPersoService } from "./api-persos-service";
 import { forkJoin, Observable } from "rxjs";
 import { Personnage } from "../models/Personnage";
 import { PersonnageAPI } from "../models/PersonnageApi";
-import { PersonnageMock } from "../models/PersonnageMock";
 import { DBPersoService } from "./db-perso-service";
 import { PersonnageDb } from "../models/PersonnageDb";
 import { switchMap, map, catchError } from 'rxjs/operators';
@@ -11,11 +10,9 @@ import { of } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class FusionPersonnageService {
+    private apiPersoService = inject(ApiPersoService);
+    private dbPersoService = inject(DBPersoService);
 
-    constructor(
-        private apiPersoService : ApiPersoService,
-        private dbPersoService : DBPersoService,
-    ) {}
 
 
 getPersoList(): Observable<Personnage[]> {

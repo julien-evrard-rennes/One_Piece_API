@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 
 @Component({
@@ -9,7 +9,5 @@ import { Component } from '@angular/core';
 export class MainComponent {
 
   title = 'One_Piece';
-
-  ngOnInit(): void{}
 
 }

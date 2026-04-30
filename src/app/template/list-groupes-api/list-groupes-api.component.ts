@@ -15,29 +15,25 @@ import { MockGroupeService } from '../../services/mock-groupe-service';
   styleUrl: './list-groupes-api.component.scss'
 })
 export class ListGroupesApiComponent implements OnInit {
+    private apiGroupeService = inject(ApiGroupeService);
+    private router = inject(Router);
+    private listeGroupeService = inject(MockGroupeService);
+    private listePersoService = inject(ApiPersoService);
+
 
     groupe! : GroupeAPI;
     groupeList! : GroupeAPI[];
     groupeDb! : GroupeDb;
     groupeDBList! : GroupeDb[];
-    persosParGroupe: { [id: number]: PersonnageAPI[] } = {};
+    persosParGroupe: Record<number, PersonnageAPI[]> = {};
     persoList: PersonnageAPI[] =[];
-    nbMembres: { [id: number]: number } = {};
+    nbMembres: Record<number, number> = {};
     triAscendantNom = true;
     triAscendantReel = true; 
     triAscendantNumber = true;
     triAscendantStatus = true;
     triAscendantPrime = true;
-    isLoading = true; 
-
-    
-      constructor(
-        private apiGroupeService: ApiGroupeService, 
-        private router: Router,
-        private listeGroupeService: MockGroupeService,
-        private listePersoService: ApiPersoService,
-
-      ) {}
+    isLoading = true;
     
 ngOnInit(): void {
   this.isLoading = true;

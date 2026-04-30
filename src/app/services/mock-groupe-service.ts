@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { Personnage } from "../models/Personnage";
 import { GroupeMock } from "../models/groupeMock";
 import { PersonnageShort } from "../models/PersonnageShort";
 
@@ -771,7 +770,7 @@ export class MockGroupeService {
         return foundGroupe;
     }
 
-    getGroupeByName(nom: String): GroupeMock {
+    getGroupeByName(nom: string): GroupeMock {
         const foundGroupe = this.groupeList.find(Groupe => Groupe.name === nom);
         if (!foundGroupe) {
             throw new Error('Groupe non trouvé !');

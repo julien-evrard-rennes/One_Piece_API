@@ -1,8 +1,6 @@
-import { Observable } from "rxjs";
 import { GroupeAPI } from "./groupeApi";
 import { GroupeDb } from "./groupeDb";
 import { GroupeMock } from "./groupeMock";
-import { Personnage } from "./Personnage";
 import { PersonnageShort } from "./PersonnageShort";
 
 

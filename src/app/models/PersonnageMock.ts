@@ -1,8 +1,4 @@
-
-import { Groupe } from "./groupe";
-import { LikeType } from "./like-type.type";
-
-    
+ 
     export class PersonnageMock {
 
         id : number;

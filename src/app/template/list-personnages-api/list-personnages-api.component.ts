@@ -10,6 +10,9 @@ import { ApiPersoService } from '../../services/api-persos-service';
   styleUrls: ['./list-personnages-api.component.scss']
 })
 export class ListPersonnagesApiComponent implements OnInit {
+  private listePersoService = inject(ApiPersoService);
+  private router = inject(Router);
+
 
   personnage!: PersonnageAPI;
   persoList!: PersonnageAPI[];
@@ -19,11 +22,7 @@ export class ListPersonnagesApiComponent implements OnInit {
   triAscendantAge = true; 
   triAscendantEquipage = true;
   triAscendantStatus = true;
-  triAscendantPrime = true; 
-
-
-  constructor(private listePersoService: ApiPersoService, 
-    private router: Router,) {}
+  triAscendantPrime = true;
 
   ngOnInit(): void {
     this.listePersoService.getPersos().subscribe({

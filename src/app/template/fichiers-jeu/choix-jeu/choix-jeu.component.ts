@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 
 @Component({
@@ -11,8 +11,8 @@ import { RouterLink, Router } from '@angular/router';
   styleUrl: './choix-jeu.component.scss'
 })
 export class ChoixJeuComponent{
+  private router = inject(Router);
 
-  constructor(private router: Router) { }
 
   onChoixMystere() {
     this.router.navigateByUrl('jeuMelange');

@@ -1,12 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './template/header/header.component';
-import { MainComponent } from './template/main/main.component';
-import { FooterComponent } from './template/footer/footer.component';
-import { AccueilComponent } from './template/accueil/accueil.component';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({ declarations: [],
     bootstrap: [], 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,17 +9,19 @@ import { Router } from '@angular/router';
   styleUrl: './jeu-reponse.component.scss'
 })
 export class JeuReponseComponent implements OnInit {
+  private readonly router = inject(Router);
+
   score!: number;
   scoreTotal: number;
   texteResultat:string;
   reponse: string;
   tour:number;
-  resultatCadre:string="resultat";
+  resultatCadre="resultat";
   pourcentage!:number;
   avisFinal!:string;
   jeu!:string;
 
-    constructor(private readonly router: Router) {
+    constructor() {
     const nav = this.router.getCurrentNavigation();
     this.score = nav?.extras.state?.['score'] ?? 0;
     this.tour = nav?.extras.state?.['tour'] ?? 0;

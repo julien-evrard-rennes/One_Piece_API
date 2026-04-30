@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -15,17 +15,16 @@ import { environment } from '../../environments/environment';
 })
 
 export class LoginComponent implements OnInit{
+  private authService = inject(AuthService);
+  private router = inject(Router);
+  private formBuilder = inject(FormBuilder);
+
 
   loginForm!: FormGroup;
   email = '';
   password = '';
   error = '';
   loading= false;
-
-  constructor(
-    private authService: AuthService, 
-    private router: Router,
-    private formBuilder : FormBuilder) {}
 
 
   ngOnInit(): void {

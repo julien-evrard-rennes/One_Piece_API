@@ -1,5 +1,4 @@
-import { Injectable } from "@angular/core";
-import { PersonnageAPI } from "../models/PersonnageApi";
+import { Injectable, inject } from "@angular/core";
 import { FusionPersonnageService } from "./fusion-personnage-service";
 import { Personnage } from "../models/Personnage";
 import { map, Observable, of, tap } from "rxjs";
@@ -11,9 +10,9 @@ import { Groupe } from "../models/groupe";
   providedIn: 'root'
 })
 export class JeuService {
+private fusionPersoService = inject(FusionPersonnageService);
+private fusionGroupeService = inject(FusionGroupeService);
 
-constructor(private fusionPersoService: FusionPersonnageService,
-            private fusionGroupeService : FusionGroupeService) {}
 
 personnage!: Personnage;
 num! : number;
@@ -152,9 +151,9 @@ melangerMot(tableauOriginal : string[]) : string[] {
  const tableauFinal = [...tableauOriginal];
   // Echanges de position de caractères
         for (let i = 0; i < tableauFinal.length * 4; i++) {
-            let p1 = Math.floor(Math.random() *tableauFinal.length);
-            let p2 = Math.floor(Math.random() *tableauFinal.length);
-            let tmp = tableauFinal[p1];
+            const p1 = Math.floor(Math.random() *tableauFinal.length);
+            const p2 = Math.floor(Math.random() *tableauFinal.length);
+            const tmp = tableauFinal[p1];
             tableauFinal[p1] = tableauFinal[p2];
             tableauFinal[p2] = tmp;
         }

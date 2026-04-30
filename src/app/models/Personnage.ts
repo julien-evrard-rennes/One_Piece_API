@@ -1,8 +1,4 @@
 
-import { ApiPersoService } from "../services/api-persos-service";
-import { FusionPersonnageService } from "../services/fusion-personnage-service";
-import { Groupe } from "./groupe";
-import { LikeType } from "./like-type.type";
 import { PersonnageAPI } from "./PersonnageApi";
 import { PersonnageDb } from "./PersonnageDb";
 import { PersonnageMock } from "./PersonnageMock";
@@ -154,17 +150,17 @@ const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
           }
 
         static nomCompletToNom(name: string): string{
-          var nom = "";
+          let nom = "";
           if (name.includes(" ")) {
             nom = name?.split(" ")[0];
             }
-          for (let i of titre){
+          for (const i of titre){
             if (name.includes(i)){
                 nom = name?.split(" ")[0] + ' ' + name?.split(" ")[1]
             }
           }
 
-          for (let j of japonais){
+          for (const j of japonais){
             if (name.includes(j)){
                 nom = name?.split(" ")[1];
             }
@@ -173,9 +169,9 @@ const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
         }
 
         static nomCompletToPrenom(name: string): string{
-          var prenom = name;
-          var secondprenom = '';
-          var prenomComplet = '';
+          let prenom = name;
+          let secondprenom = '';
+          let prenomComplet;
 
           if (name.includes(" ")) {
             prenom = name?.split(" ")[1];
@@ -204,13 +200,13 @@ const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
                  secondprenom = (name?.split(" ")[3]); 
                 };
 
-          for (let i of titre){
+          for (const i of titre){
             if (name.includes(i)){
                 prenom = "";
             }
           }
 
-          for (let j of japonais){
+          for (const j of japonais){
             if (name.includes(j)){
                 prenom = name?.split(" ")[0];
             }
@@ -232,7 +228,7 @@ const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
         }
 
         static nomCompletToParticule(name: string): string{
-          var particule ='';
+          let particule ='';
           if (name.includes("D.")){
             particule = name?.split(" ")[1];
           }

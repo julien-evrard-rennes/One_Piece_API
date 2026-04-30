@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { map, Observable } from 'rxjs';
 import { PersonnageMock } from '../../models/PersonnageMock';
@@ -14,16 +14,15 @@ import { Router } from '@angular/router';
   styleUrl: './test-formulaire.component.scss'
 })
 export class TestFormulaireComponent implements OnInit{
+  private formbuilder = inject(FormBuilder);
+  private mockPersoService = inject(MockPersoService);
+  private router = inject(Router);
+
 
   personnageMockForm!: FormGroup;
   personnagePreview!: Observable<PersonnageMock>;
   personnageRegex!: RegExp;
   primeRegex!: RegExp;
-
-  constructor(private formbuilder: FormBuilder,
-              private mockPersoService : MockPersoService,
-              private router : Router
-  ) { }
 
 ngOnInit(): void {
   this.personnageRegex = /[a-zA-Z0-9_:-]{100}/;

@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef  } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Personnage } from '../../../models/Personnage';
@@ -14,6 +14,10 @@ import { JeuService } from '../../../services/jeu-service';
   styleUrl: './jeu-mot-melange.component.scss'
 })
 export class JeuMotMelangeComponent implements OnInit {
+  private jeuService = inject(JeuService);
+  private readonly router = inject(Router);
+  private cdr = inject(ChangeDetectorRef);
+
 
   isLoading = true;
   personnage!: Personnage;
@@ -26,14 +30,9 @@ export class JeuMotMelangeComponent implements OnInit {
   texteResultat!: string;
   resultat!: string;
   reponse!: string;
-  score: number = 0;
-  scoreTotal: number = 0;
-  tour: number =0;
-
-  constructor(private  jeuService : JeuService, 
-    private readonly router: Router,
-    private cdr: ChangeDetectorRef
-  ) {}
+  score = 0;
+  scoreTotal = 0;
+  tour =0;
 
   ngOnInit(): void {
 

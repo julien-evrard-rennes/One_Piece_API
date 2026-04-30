@@ -2,7 +2,6 @@
 import { inject, Injectable } from "@angular/core";
 import { GroupeDb } from "../models/groupeDb";
 import { HttpClient } from "@angular/common/http";
-import { ApiPersoService } from "./api-persos-service";
 import { environment } from "../environments/environment";
 import { map } from "rxjs";
 
@@ -25,7 +24,7 @@ export class DBGroupeService {
     );
     }
 
-    getGroupeByName(nom: String) {
+    getGroupeByName(nom: string) {
     return this.getGroupesDb().pipe(
         map(groupeList => {
         const found = groupeList.find(p => p.name === nom);

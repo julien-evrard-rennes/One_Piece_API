@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef  } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Personnage } from '../../../models/Personnage';
 import { JeuService } from '../../../services/jeu-service';
@@ -12,6 +12,10 @@ import { JeuService } from '../../../services/jeu-service';
   styleUrl: './jeu-age.component.scss'
 })
 export class JeuAgeComponent  implements OnInit {
+  private jeuService = inject(JeuService);
+  private readonly router = inject(Router);
+  private cdr = inject(ChangeDetectorRef);
+
 
   isLoading = true;
   personnage!: Personnage;
@@ -21,14 +25,9 @@ export class JeuAgeComponent  implements OnInit {
   reponse!: string;
   question!: string;
   texteResultat!: string;
-  score: number = 0;
-  scoreTotal: number = 0;
-  tour: number =0;
-
-  constructor(private  jeuService : JeuService, 
-    private readonly router: Router,
-    private cdr: ChangeDetectorRef
-  ) {}
+  score = 0;
+  scoreTotal = 0;
+  tour =0;
 
 
   ngOnInit(): void {

@@ -58,7 +58,7 @@
             <td>{{personnage.name}} </td>
             <td>@if (personnage.age) { {{personnage.age}} } @else { age inconnu } </td>
             <td>@if (personnage.crew) { 
-                @if (personnage.crew.name == "Armarda du Chapeau de Paille") {
+                @if (personnage.crew.name === "Armarda du Chapeau de Paille") {
                     Armada du Chapeau de Paille
                 }
                 @else {

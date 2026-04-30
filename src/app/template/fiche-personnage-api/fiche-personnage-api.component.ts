@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 import { PersonnageAPI } from '../../models/PersonnageApi';
@@ -12,17 +12,15 @@ import { MockGroupeService } from '../../services/mock-groupe-service';
   templateUrl: './fiche-personnage-api.component.html',
   styleUrl: './fiche-personnage-api.component.scss'
 })
-export class FichePersonnageApiComponent {
+export class FichePersonnageApiComponent implements OnInit {
+  private apiPersonnagesService = inject(ApiPersoService);
+  private listeGroupeService = inject(MockGroupeService);
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+
 
   personnage!: PersonnageAPI
   personnageAPI: any;
-
-  constructor(
-    private apiPersonnagesService: ApiPersoService,
-    private listeGroupeService: MockGroupeService,
-    private route: ActivatedRoute,
-    private router: Router
-  ) {}
 
   ngOnInit(): void {
     this.getPersonnage();

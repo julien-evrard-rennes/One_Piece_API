@@ -1,6 +1,6 @@
 import { catchError, forkJoin, map, Observable, of } from "rxjs";
 import { ApiGroupeService } from "./api-groupes-service";
-import { Injectable } from "@angular/core";
+import { Injectable, inject } from "@angular/core";
 import { Groupe } from "../models/groupe";
 import { DBGroupeService } from "./db-groupe-service";
 import { GroupeDb } from "../models/groupeDb";
@@ -9,14 +9,12 @@ import { GroupeDb } from "../models/groupeDb";
 
 @Injectable({ providedIn: 'root' })
 export class FusionGroupeService {
-  getPersoList(groupe: Groupe) {
+  private apiGroupeService = inject(ApiGroupeService);
+  private dbService = inject(DBGroupeService);
+
+  getPersoList() {
     throw new Error('Method not implemented.');
   }
-
-  constructor(
-    private apiGroupeService: ApiGroupeService,
-    private dbService: DBGroupeService,
-  ) {}
 
   getGroupeList(): Observable<Groupe[]> {
   return forkJoin ({

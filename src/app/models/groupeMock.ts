@@ -1,4 +1,3 @@
-import { Personnage } from "./Personnage";
 import { PersonnageShort } from "./PersonnageShort";
 
 

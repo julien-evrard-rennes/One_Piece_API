@@ -1,6 +1,4 @@
-import { Component, Injectable } from '@angular/core';
-
-import { LikeType } from '../models/like-type.type';
+import { Injectable } from '@angular/core';
 import { Groupe } from '../models/groupe';
 import { PersonnageMock } from '../models/PersonnageMock';
 

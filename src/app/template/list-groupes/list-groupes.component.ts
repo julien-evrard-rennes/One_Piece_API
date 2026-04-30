@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Groupe } from '../../models/groupe';
 import { PersonnageAPI } from '../../models/PersonnageApi';
@@ -14,6 +14,12 @@ import { FusionGroupeService} from '../../services/fusion-groupe-service';
   styleUrl: './list-groupes.component.scss'
 })
 export class ListeGroupesComponent implements OnInit {
+  private apiGroupeService = inject(ApiGroupeService);
+  private fusionGroupeService = inject(FusionGroupeService);
+  private router = inject(Router);
+  private listePersoService = inject(ApiPersoService);
+  private cdr = inject(ChangeDetectorRef);
+
 
   groupe!: Groupe;
   groupeList!: Groupe[];
@@ -24,14 +30,6 @@ export class ListeGroupesComponent implements OnInit {
   triAscendantStatus = true;
   triAscendantPrime = true;
   isLoading = true;
-
-  constructor(
-    private apiGroupeService: ApiGroupeService,
-    private fusionGroupeService: FusionGroupeService,
-    private router: Router,
-    private listePersoService: ApiPersoService,
-    private cdr: ChangeDetectorRef
-  ) { }
 
   ngOnInit(): void {
     this.fusionGroupeService.getGroupeList().subscribe({

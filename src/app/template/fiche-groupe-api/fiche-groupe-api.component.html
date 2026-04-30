@@ -2,47 +2,47 @@
     <ul class="flex-outer">
         <table>
             <li>
-                <label><b>Nom :</b></label>
+                <b>Nom :</b>
                 <tr>{{groupeAPI.name}} </tr>
             </li>
 
              <li>
-                <label><b>Nom japonais :</b></label>
+                <b>Nom japonais :</b>
                 <tr>{{groupeAPI.roman_name}} </tr>
              </li>
 
             <li>
-                <label><b>Description :</b></label>
+                <b>Description :</b>
                 <tr>{{groupeAPI.description}} </tr>
             </li>
             <li>
-                <label><b>Status :</b></label>
-                <tr>@if (groupeAPI.status =="arr�t�") { arrêté }
+                <b>Status :</b>
+                <tr>@if (groupeAPI.status ==="arr�t�") { arrêté }
                 @else { {{groupeAPI.status}} } </tr>
             </li>
 
              <li>
-                <label><b>Total Prime :</b></label>
+                <b>Total Prime :</b>
                 <tr>{{groupeAPI.total_prime}} </tr>
             </li>
 
             <li>
-                <label><b>Le capitaine est-il un empereur ? </b></label>
+                <b>Le capitaine est-il un empereur ? </b>
                 <tr>@if (groupeAPI.is_yonko) {Oui} 
                     @else {Non} </tr>
             </li>
 
             <li>
-                <label><b>Nombre de membres (théorique) : </b></label>
+                <b>Nombre de membres (théorique) : </b>
                 <tr>{{ groupeAPI.number }} </tr>
             </li>
 
             <li>
-                <label><b> @if (!isLoading) { {{persoList.length}} }
+                <b> @if (!isLoading) { {{persoList.length}} }
                 @else {
                     ...
                 }  
-                membres connus :</b></label>
+                membres connus :</b>
                 <tr></tr>
 
                 @if (isLoading) { 

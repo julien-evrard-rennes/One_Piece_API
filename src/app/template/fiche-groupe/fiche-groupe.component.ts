@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Groupe } from '../../models/groupe';
 import { GroupeAPI } from '../../models/groupeApi';
@@ -16,17 +16,15 @@ import { FusionGroupeService } from '../../services/fusion-groupe-service';
   styleUrl: './fiche-groupe.component.scss'
 })
 export class FicheGroupeComponent implements OnInit {
+  private groupeService = inject(FusionGroupeService);
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+
 
   personnage!: PersonnageShort;
   groupe! : Groupe;
   persoList: PersonnageShort[] =[];
   isLoading = true;
-
-  constructor(
-    private groupeService : FusionGroupeService,
-    private route : ActivatedRoute,
-    private router: Router
-  ) {}
 
   ngOnInit(): void {
     this.getGroupe();

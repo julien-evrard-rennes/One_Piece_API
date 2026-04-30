@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule, AsyncPipe } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
@@ -15,11 +15,9 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit{
+  private router = inject(Router);
+  authService = inject(AuthService);
 
-  constructor(
-    private router : Router,
-    public authService: AuthService
-  ){ }
 
   ngOnInit(): void { 
   }

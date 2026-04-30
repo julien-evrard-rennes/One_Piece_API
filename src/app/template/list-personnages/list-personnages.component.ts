@@ -1,6 +1,5 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { environment } from '../../environments/environment';
 import { Personnage } from '../../models/Personnage';
 import { FusionPersonnageService } from '../../services/fusion-personnage-service';
 
@@ -12,6 +11,10 @@ import { FusionPersonnageService } from '../../services/fusion-personnage-servic
   styleUrl: './list-personnages.component.scss'
 })
 export class ListPersonnagesComponent implements OnInit {
+  private fusionPersoService = inject(FusionPersonnageService);
+  private router = inject(Router);
+  private cdr = inject(ChangeDetectorRef);
+
 
   personnage!: Personnage;
   persoList!: Personnage[];
@@ -25,13 +28,6 @@ export class ListPersonnagesComponent implements OnInit {
   triAscendantNomComplet= true;
   triAscendantPrenom= true;
   triAscendantParticule = true;
-
-
-  constructor(
-    private fusionPersoService: FusionPersonnageService, 
-    private router: Router, 
-    private cdr: ChangeDetectorRef
-  ) {}
 
   ngOnInit(): void {
     this.fusionPersoService.getPersoList().subscribe({

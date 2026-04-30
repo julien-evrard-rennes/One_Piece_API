@@ -61,7 +61,7 @@
         @for (groupe of groupeList; track groupe.id){
         <tr>
             <td>
-            @if (groupe.name == "Armarda du Chapeau de Paille") {
+            @if (groupe.name === "Armarda du Chapeau de Paille") {
             Armada du Chapeau de Paille
                 }
             @else { {{groupe.name}}
@@ -72,7 +72,7 @@
                 @else {inconnu }
             </td>
             <td>{{groupe.membresListe.length }}</td>
-            <td>@if (groupe.status =="arr�t�") 
+            <td>@if (groupe.status ==="arr�t�") 
                 { arrêté }
             @else { {{groupe.status}} }</td>
             <td>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
@@ -13,9 +13,8 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class LandingPageComponent {
+  private router = inject(Router);
 
-
-  constructor(private router: Router) { }
   
 
 onContinue() {

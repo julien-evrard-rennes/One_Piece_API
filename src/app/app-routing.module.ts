@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { Routes } from '@angular/router';
 import { LandingPageComponent } from './template/landing-page/landing-page.component';
 import { ListPersonnagesApiComponent } from './template/list-personnages-api/list-personnages-api.component';
