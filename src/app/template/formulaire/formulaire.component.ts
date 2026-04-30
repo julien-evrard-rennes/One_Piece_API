@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
   styleUrl: './formulaire.component.scss'
 })
 
-export class TestFormulaireComponent implements OnInit{
+export class FormulaireComponent implements OnInit{
 
   personnageDBForm!: FormGroup;
   personnagePreview!: Observable<PersonnageMock>;
