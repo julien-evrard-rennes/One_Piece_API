@@ -26,7 +26,6 @@ jobs:
       uses: github/codeql-action/init@v4
       with:
           languages: javascript-typescript
-
     - run: npm run build -- --configuration production
     - uses: github/codeql-action/analyze@v4 
     - run: npx ng serve --configuration production &
@@ -35,7 +34,7 @@ jobs:
 
     
   deploiement:
-    runs-on: alpine-latest
+    runs-on: ubuntu-latest
 
     steps:
       - run: docker build -t one-piece-app .
