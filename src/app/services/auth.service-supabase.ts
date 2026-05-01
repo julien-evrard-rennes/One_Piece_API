@@ -1,11 +1,12 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
+import { SupabaseClient } from '@supabase/supabase-js';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
   private isLoggedIn$ = new BehaviorSubject<boolean>(false);
-    supabase: any;
+  private supabase!: SupabaseClient;
 
   // Supabase
   async login(email: string, password: string) {

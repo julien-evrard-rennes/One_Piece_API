@@ -1,4 +1,5 @@
 
+import { GroupeAPI } from "./groupeApi";
 import { PersonnageAPI } from "./PersonnageApi";
 import { PersonnageDb } from "./PersonnageDb";
 import { PersonnageMock } from "./PersonnageMock";
@@ -43,7 +44,7 @@ const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
         roman_name : string;
         technicalFile : string;
         }
-        groupe: any;
+        groupe: GroupeAPI | null | undefined;
 
         constructor(
         id : number,
@@ -118,8 +119,8 @@ const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
             Personnage.extractAge(api?.age ?? 0),
             mock?.prime ?? api?.bounty ?? '',
             mock?.status ?? api?.status ?? '',
-            api?.crew ?? ({} as any),
-            api?.fruit ?? ({} as any),
+            api?.crew ?? ({} as PersonnageAPI['crew']),
+            api?.fruit ?? ({} as PersonnageAPI['fruit']),
             );
           }
 
@@ -144,8 +145,8 @@ const japonais = ["Kozuki", "Kurozumi", "Funk", "Vinsmoke", "	Shimotsuki"]
             Personnage.extractAge(api?.age ?? 0),
             db?.prime ?? api?.bounty ?? '',
             db?.status ?? api?.status ?? '',
-            api?.crew ?? ({} as any),
-            api?.fruit ?? ({} as any),
+            api?.crew ?? ({} as PersonnageAPI['crew']),
+            api?.fruit ?? ({} as PersonnageAPI['fruit']),
             );
           }
 

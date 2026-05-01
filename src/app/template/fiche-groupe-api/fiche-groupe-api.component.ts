@@ -22,6 +22,8 @@ export class FicheGroupeApiComponent implements OnInit {
   groupeAPI! : Groupe;
   persoList: PersonnageAPI[] =[];
   isLoading = true;
+  component: GroupeAPI | undefined;
+
 
   ngOnInit(): void {
     this.getGroupe();
