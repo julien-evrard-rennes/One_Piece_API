@@ -1,4 +1,3 @@
-// auth.service.spec.ts
 import { TestBed } from '@angular/core/testing';
 import { AuthService } from './auth.service';
 
@@ -8,7 +7,7 @@ describe('AuthService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(AuthService);
-    localStorage.clear(); // nettoyer entre chaque test
+    localStorage.clear(); 
   });
 
   it('retourne false si email et mdp incorrect', () => {

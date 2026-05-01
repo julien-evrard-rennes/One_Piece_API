@@ -12,6 +12,7 @@ jobs:
 
   tests-deploiements: 
    runs-on: ubuntu-latest
+
    steps:
     - uses: actions/checkout@v4
 
@@ -37,6 +38,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v4 
+
       - run: docker build -t one-piece-app .
       - run: |
           curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
