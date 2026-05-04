@@ -77,23 +77,23 @@ export class JeuReponseComponent implements OnInit {
         if (this.resultatCadre=="resultat"){
           return "Bizarre"}
         if (resultatCadre=="resultatParfait"){
-        return "Bravo !  \n" +
-        "Tu connais visiblement à la perfection les personnages de One Piece !!"}
+        return "Bravo ! Tu connais visiblement à la perfection les personnages de One Piece ! \n" +
+        "Ou alors, c'est un énorme coup de pot !"}
         else if (resultatCadre=="resultatCool"){
-        return "Tu as retrouvé une grande majorité des personnages. \n"
-        }
+        return "Ok, tu as retrouvé une grande majorité des personnages. \n" +
+        "Mais ne te la pète pas trop : l'idéal c'est le 100%"}
         else if (resultatCadre=="resultatMoyen"){
-        return "Tu as retrouvé un peu plus de la moitié des personnages.  \n" +
-        "Bien joué"}
+        return "C'est franchement moyen tout ça.  \n" +
+        "Bon, au moins t'as retrouvé la moitié des personnages.."}
         else if (resultatCadre=="resultatBof"){
-        return "Tu as retrouvé la moitié des personnages ou un peu moins \n" +
-        "Peut-être fera-tu mieux au prochain essai !"}
+        return "Tu as retrouvé un peu moins de la moitié des personnages. \n" +
+        "Y a vraiment pas de quoi se vanter !"}
         else if (resultatCadre=="resultatPourri"){
-        return "Hélas, tu n'a retrouvé que peu de personnages \n" +
-        "Peut-être a tu manqué de chance "}
+        return "Et bah dis donc, c'est quoi ce score ? \n" +
+        "Tu connais le manga au moins ?"}
         else if (resultatCadre=="resultatNul"){
-        return "AÏE AÏE AÏE - Aucune bonne réponse" + 
-        "La prochaine partie sera sans doute meilleure"}
+        return "AUCUNE BONNE RÉPONSE ?\n" + 
+        "Rassure moi, tu en a fait exprès, c'est ça ?  "}
         else {
         return "Ce message ne devrait pas s'afficher. Le programme doit avoir un bug."
       }
@@ -103,17 +103,23 @@ export class JeuReponseComponent implements OnInit {
         if (this.resultatCadre=="resultat"){
           return "Bizarre"}
       if (resultatCadre=="resultatParfait"){
-      return "Bravo ! Tu connais parfaitement les équipages de l'univers de One Piece ! \n"}
+      return "Bravo ! Soit tu t'y connais vraiment bien en One Piece ! \n" +
+      "Soit t'as découvert qu'il fallait répondre NON à la plupart des questions !"}
       else if (resultatCadre=="resultatCool"){
-      return "Joli score"}
+      return "Pas mal, mais vu que le jeu est méga-fastoche, \n" +
+      "t'avais largement les moyens de faire 100% ."}
       else if (resultatCadre=="resultatMoyen"){
-      return "Bien tenté "}
+      return "Franchement, dis le moi...  \n" +
+      "T'as appuyé sur les boutons au pif, c'est ça ?"}
       else if (resultatCadre=="resultatBof"){
-      return "Hélas, tu as fait moins de la moitié"}
+      return "C'est dingue, le jeu est ultra-facile \n" +
+      "... mais t'as quand même réussi à te vautrer."}
       else if (resultatCadre=="resultatPourri"){
-      return "Retente ta chance."}
+      return "Bah alors, c'est quoi ce score ? \n" +
+      "T'as pas compris le truc ?"}
       else if (resultatCadre=="resultatNul"){
-      return "Aucune bonne réponse. N'hésite pas à recommencer"}
+      return "AUCUNE BONNE RÉPONSE ?\n" + 
+      "Un conseil : Arrête d'appuyer sur 'OUI'. "}
       else {
       return "Ce message ne devrait pas s'afficher. Le programme doit avoir un bug."
       }
@@ -123,20 +129,26 @@ export class JeuReponseComponent implements OnInit {
           if (this.resultatCadre=="resultat"){
             return "Bizarre"}
         if (resultatCadre=="resultatParfait"){
-        return "Bravo ! Tu connais visiblement à la perfection l'âge des personnages de One Piece ! \n"}
+        return "Bravo ! Tu connais visiblement à la perfection l'âge des personnages de One Piece ! \n" +
+        "T'as fait le jeu avec le wiki d'ouvert dans l'onglet d'à côté, c'est ça ?"}
         else if (resultatCadre=="resultatCool"){
-        return "Joli score"}
+        return "Pas mal du tout, tu arrive bien à juger l'âge des différents personnages. \n" +
+        "Mais le mieux ça serait de faire 100%"}
         else if (resultatCadre=="resultatMoyen"){
-        return "Bien tenté "}
+        return "Tu a différencié la moitié des personnages. \n" +
+        "C'est bien, tu arrive à différencier un personnage jeune d'un personnage vieux."}
         else if (resultatCadre=="resultatBof"){
-        return "Hélas, tu as fait moins de la moitié"}
+        return "C'est pas fifou tout ça. \n" +
+        "Visiblement va falloir que tu révise les personnages !"}
         else if (resultatCadre=="resultatPourri"){
-        return "Retente ta chance."}
+        return "Houlalalalalala... \n" +
+        "C'est franchement la catastrophe"}
         else if (resultatCadre=="resultatNul"){
-        return "Aucune bonne réponse. N'hésite pas à recommencer"}
+        return "AUCUNE BONNE RÉPONSE ?\n" + 
+        "Franchement, même en appuyant sur les touches au hasard t'aurai pu trouver  "}
         else {
         return "Ce message ne devrait pas s'afficher. Le programme doit avoir un bug."
-        }
+      }
   }
 
 
