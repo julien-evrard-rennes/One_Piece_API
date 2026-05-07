@@ -2,7 +2,7 @@ name: Tests Integration
 
 on:
   push:
-    branches: [dev]
+    branches: [staging]
 
 jobs:
   tests-integration:
@@ -18,13 +18,30 @@ jobs:
           cache: 'npm' 
       - run: npm ci
 
-      - name: Tests unitaires
+      - name: Tests unitaires 
         run: npx ng test --watch=false --browsers=ChromeHeadless
 
-      - name: Tests Cypress
-        run: npx ng serve --configuration production &
+      - name: Build image Docker version staging
+        run: docker build -t one-piece-staging
+
+      - name: Démarrer le conteneur staging
+        run: |
+          docker run -d \
+            --name staging-app \
+            -p 4200:80 \
+            one-piece-staging
       - run: npx wait-on http://localhost:4200 --timeout 60000
-      - run: npx cypress run --headless
+
+      - name: Tests Cypress
+        run: npx cypress run --headless
+        env:
+          CYPRESS_BASE_URL: http://localhost:4200
+
+      - name: Arrêter le conteneur staging
+        if: always() 
+        run: |
+          docker stop staging-app
+          docker rm staging-app
 
       - name: Audit sécurité npm
         run: npm audit --audit-level=critical

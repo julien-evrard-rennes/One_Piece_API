@@ -7,17 +7,24 @@ export class AuthService {
 
   private isLoggedIn$ = new BehaviorSubject<boolean>(false);
 
-  login(email: string, password: string): boolean {
-    // Les vrais identifiants sont dans environment, jamais dans le code
-    const validEmail    = environment.ADMIN_EMAIL;
-    const validPassword = environment.ADMIN_PASSWORD;
-
-    if (email === validEmail && password === validPassword) {
+  async login(email: string, password: string): Promise<boolean> {
+    const hashedInput = await this.hash(password);
+    
+    if (email === environment.ADMIN_EMAIL && 
+        hashedInput === environment.ADMIN_PASSWORD_HASH) {
       localStorage.setItem('admin_token', btoa(email + Date.now()));
       this.isLoggedIn$.next(true);
       return true;
     }
     return false;
+  }
+
+  private async hash(value: string): Promise<string> {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(value);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
   }
 
   logout(): void {

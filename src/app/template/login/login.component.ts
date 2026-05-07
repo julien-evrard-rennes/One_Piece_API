@@ -38,42 +38,16 @@ export class LoginComponent implements OnInit{
   });
   }
 
-  async onSubmitForm(): Promise<void>{
-    if (this.loginForm.invalid) return;
-
-    /** Test du formulaire de login */
-  console.log('Formulaire soumis');
-  console.log('Formulaire valide ?', this.loginForm.valid);
-  console.log('Valeurs :', this.loginForm.value);
-
-      /** Fin du test */
-
-
-  if (this.loginForm.invalid) {
-    console.log('Formulaire invalide — abandon');
-    return;
+async onSubmitForm(): Promise<void> {
+  if (this.loginForm.invalid) return;
+  const { email, password } = this.loginForm.value;
+  const success = await this.authService.login(email, password); // ← await
+  if (success) {
+    this.router.navigate(['/admin']);
+  } else {
+    this.error = 'Identifiants incorrects.';
   }
-
-    this.loading = true;
-    this.error = '';
-
-    const { email, password } = this.loginForm.value;
-    console.log('Email saisi :', email);
-    console.log('Email attendu :', environment.ADMIN_EMAIL);
-
-    const success = this.authService.login(email, password);
-    console.log('Login réussi ?', success);
-
-    try {
-      await this.authService.login(email, password);
-      this.router.navigate(['/admin']);
-    } catch {
-      this.error = 'Identifiants incorrects. Vérifiez votre email et mot de passe.';
-    } finally {
-      this.loading = false;
-    }
-  }
-
+}
     get emailInvalid(): boolean {
     const ctrl = this.loginForm.get('email');
     return !!(ctrl?.invalid && ctrl?.touched);

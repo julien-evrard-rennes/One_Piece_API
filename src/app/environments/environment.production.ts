@@ -5,6 +5,6 @@ export const environment = {
     DB_PERSO_OP: 'https://one-piece-api-w2x9.onrender.com/personnages',
     DB_GROUPE_OP: 'https://one-piece-api-w2x9.onrender.com/groupes',
     ADMIN_EMAIL: 'julien.dominique.evrard@gmail.com',
-    ADMIN_PASSWORD: 'adminDada',
+    ADMIN_PASSWORD_HASH: '5752c2343e6a0dbbbfc2199be2461bee78567860c2bc7580226ae1897bc46e37',
 };
 
