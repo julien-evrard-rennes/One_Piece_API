@@ -10,8 +10,9 @@ describe('AuthService', () => {
     localStorage.clear(); 
   });
 
-  it('retourne false si email et mdp incorrect', () => {
-    expect(service.login('mauvais@email.com', 'mdpfaux')).toBe(false);
+  it('retourne false si email et mdp incorrect', async () => {
+    const result = await service.login('mauvais@email.com', 'mdpfaux');
+    expect(result).toBe(false);
   });
 
-    });
+});
