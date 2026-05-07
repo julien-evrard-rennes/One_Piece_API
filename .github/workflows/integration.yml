@@ -22,7 +22,7 @@ jobs:
         run: npx ng test --watch=false --browsers=ChromeHeadless
 
       - name: Build image Docker version staging
-        run: docker build -t one-piece-staging
+        run: docker build -t one-piece-staging .
 
       - name: Démarrer le conteneur staging
         run: |
