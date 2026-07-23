@@ -2,7 +2,6 @@
 
 header {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
     background-color: rgba(252, 228, 197);
     padding: 20px 50px;
@@ -45,5 +44,6 @@ nav ul {
 
  a:hover {
     color: rgb(192, 0, 80);
+    font-weight:bolder;
 }
 

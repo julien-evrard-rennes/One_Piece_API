@@ -53,7 +53,10 @@ getPersoList(): Observable<Personnage[]> {
             api: this.apiPersoService.getPersonnageById(id),
             db : this.dbPersoService.getPersonnageById(id)
         }).pipe(
-        map(({ api, db }) =>  Personnage.fromApiAndDb(api ?? null, db ?? null))
+        map(({ api, db }) => {
+        console.log('api:', api, 'db:', db);
+        return Personnage.fromApiAndDb(api ?? null, db ?? null);
+        })
       );
     }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Groupe } from '../../models/groupe';
 import { PersonnageShort } from '../../models/PersonnageShort';
@@ -15,7 +15,7 @@ export class FicheGroupeComponent implements OnInit {
   private groupeService = inject(FusionGroupeService);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
-
+  private cdr = inject(ChangeDetectorRef);
 
   personnage!: PersonnageShort;
   groupe! : Groupe;
@@ -32,8 +32,8 @@ export class FicheGroupeComponent implements OnInit {
     this.groupeService.getGroupeById(groupeId).subscribe({
       next: (g: Groupe) => {
         this.groupe =g;
-        console.table(g);
         this.isLoading = false;
+        this.cdr.detectChanges(); 
       },
       error: (err) => console.error('Erreur récupération groupe:', err)
     });

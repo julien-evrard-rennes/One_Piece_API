@@ -1,6 +1,9 @@
 <main>
 
+@if (personnage) {
+
     <h1>Fiche de {{personnage.nom_complet}}</h1>
+
     <ul class="flex-outer">
         <table>
             <li>
@@ -88,5 +91,8 @@
         }
         </table>
     </ul>
-
+} @else {
+    <p>Chargement...</p>
+}
 </main>
+

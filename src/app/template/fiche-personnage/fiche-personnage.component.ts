@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Personnage } from '../../models/Personnage';
 import { FusionGroupeService } from '../../services/fusion-groupe-service';
@@ -17,12 +17,15 @@ export class FichePersonnageComponent implements OnInit {
   private groupeService = inject(FusionGroupeService);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
+  private cdr = inject(ChangeDetectorRef);
 
 
   personnage!: Personnage
 
+
   ngOnInit(): void {
     this.getPersonnage();
+
   }
 
 private getPersonnage() {
@@ -31,7 +34,8 @@ private getPersonnage() {
     .subscribe({
       next: (p: Personnage) => {
         this.personnage = p; 
-        console.log(this.personnage);
+        console.log('Type:', typeof p, '| Valeur:', JSON.stringify(p));
+        this.cdr.detectChanges(); 
       },
       error: (err) => console.error('Erreur récupération personnage:', err)
     });
