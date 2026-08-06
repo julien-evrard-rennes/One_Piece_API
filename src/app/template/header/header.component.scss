@@ -3,12 +3,12 @@
 header {
     display: flex;
     align-items: center;
-    background-color: rgba(252, 228, 197);
-    padding: 20px 50px;
+    background-color: rgb(236, 243, 250);
+    padding: 0 0 0.5rem 1.75rem;
 }
 
 nav li {
-    font-size: 1.5em;
+    font-size: 1em;
 }
 
 nav ul {
@@ -34,16 +34,24 @@ nav ul {
 
  a {
     text-decoration: none;
-    color: #555;
+    color: #59595f;
     transition: all 0.3s ease 0s;
+    padding:5px 5px;
 }
 
 .active {
-    color: #9c2222;
+    color: #140136;
 }
 
  a:hover {
-    color: rgb(192, 0, 80);
-    font-weight:bolder;
+    color: rgb(20, 1, 65);
+    background-color: rgb(209, 216, 226);
+    border-radius: 10%;
+}
+
+@media (min-width: 576px) {
+  .header-ft {
+    padding: 0 0 0 1.78rem;
+  }
 }
 
