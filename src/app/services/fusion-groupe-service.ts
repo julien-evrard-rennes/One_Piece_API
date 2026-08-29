@@ -1,9 +1,11 @@
-import { catchError, forkJoin, map, Observable, of } from "rxjs";
+import { forkJoin, Observable, of } from "rxjs";
 import { ApiGroupeService } from "./api-groupes-service";
 import { Injectable, inject } from "@angular/core";
 import { Groupe } from "../models/groupe";
 import { DBGroupeService } from "./db-groupe-service";
 import { GroupeDb } from "../models/groupeDb";
+import { switchMap, map, catchError } from 'rxjs/operators';
+
 
 
 

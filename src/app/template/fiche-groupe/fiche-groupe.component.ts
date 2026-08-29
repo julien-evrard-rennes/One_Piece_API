@@ -32,6 +32,7 @@ export class FicheGroupeComponent implements OnInit {
     this.groupeService.getGroupeById(groupeId).subscribe({
       next: (g: Groupe) => {
         this.groupe =g;
+        console.log('Type:', typeof g, '| Valeur:', JSON.stringify(g));
         this.isLoading = false;
         this.cdr.detectChanges(); 
       },

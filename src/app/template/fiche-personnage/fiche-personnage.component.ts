@@ -14,7 +14,6 @@ import { FusionPersonnageService } from '../../services/fusion-personnage-servic
 })
 export class FichePersonnageComponent implements OnInit {
   private personnagesService = inject(FusionPersonnageService);
-  private groupeService = inject(FusionGroupeService);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private cdr = inject(ChangeDetectorRef);
