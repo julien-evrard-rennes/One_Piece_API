@@ -370,6 +370,17 @@
       "status": "vivant"
     },
     {
+      "id": 260,
+      "nom": "Scopper",
+      "prenom": "Gaban",
+      "surnom": "Le bras gauche de Gol D. Roger",
+      "particule": "",
+      "groupes": [
+        "l'équipage des Pirates Roger"
+      ],
+      "status": "vivant"
+    },
+    {
       "id": 289,
       "nom": "Edward",
       "prenom": "Newgate",

@@ -1,7 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Personnage } from '../../models/Personnage';
-import { FusionGroupeService } from '../../services/fusion-groupe-service';
 import { FusionPersonnageService } from '../../services/fusion-personnage-service';
 
 

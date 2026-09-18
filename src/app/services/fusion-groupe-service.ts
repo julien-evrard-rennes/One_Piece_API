@@ -4,7 +4,7 @@ import { Injectable, inject } from "@angular/core";
 import { Groupe } from "../models/groupe";
 import { DBGroupeService } from "./db-groupe-service";
 import { GroupeDb } from "../models/groupeDb";
-import { switchMap, map, catchError } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 
 
 @Injectable({ providedIn: 'root' })

@@ -61,10 +61,10 @@ export class Groupe {
 
 static fromApiAndDb(api: GroupeAPI | null, db: GroupeDb | null): Groupe {
     const membresListe = (db?.membresListe ?? []).map(
-    (m: any) => new PersonnageShort(m.id, m.name ?? m.nom ?? '')
+    (m) => new PersonnageShort(m.id, m.nom ?? '')
   );
   const capitaine = db?.capitaine
-    ? new PersonnageShort((db.capitaine as any).id, (db.capitaine as any).name ?? db.capitaine.nom ?? '')
+    ? new PersonnageShort((db.capitaine).id, (db.capitaine).nom ?? '')
     : new PersonnageShort(0, '');
 
   console.log('db reçu:', db);
