@@ -50,8 +50,8 @@ getPersoList(): Observable<Personnage[]> {
 }
     getPersonnageById(id: number): Observable<Personnage> {
         return forkJoin ({ 
-            api: this.apiPersoService.getPersonnageById(id),
-            db : this.dbPersoService.getPersonnageById(id)
+            api: this.apiPersoService.getPersonnageById(id).pipe(catchError(() => of(null))),
+            db : this.dbPersoService.getPersonnageById(id).pipe(catchError(() => of(null)))
         }).pipe(
         map(({ api, db }) => {
         console.log('api:', api, 'db:', db);

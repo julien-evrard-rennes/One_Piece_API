@@ -7,16 +7,10 @@ import { GroupeDb } from "../models/groupeDb";
 import { switchMap, map, catchError } from 'rxjs/operators';
 
 
-
-
 @Injectable({ providedIn: 'root' })
 export class FusionGroupeService {
   private apiGroupeService = inject(ApiGroupeService);
   private dbService = inject(DBGroupeService);
-
-  getPersoList() {
-    throw new Error('Method not implemented.');
-  }
 
   getGroupeList(): Observable<Groupe[]> {
   return forkJoin ({

@@ -31,10 +31,10 @@ export class FicheGroupeComponent implements OnInit {
 
     this.groupeService.getGroupeById(groupeId).subscribe({
       next: (g: Groupe) => {
-        this.groupe =g;
-        console.log('Type:', typeof g, '| Valeur:', JSON.stringify(g));
+        this.groupe=g;
         this.isLoading = false;
-        this.cdr.detectChanges(); 
+        this.cdr.detectChanges();
+        console.log(this.groupe.membresListe); 
       },
       error: (err) => console.error('Erreur récupération groupe:', err)
     });
@@ -48,14 +48,5 @@ export class FicheGroupeComponent implements OnInit {
     this.router.navigateByUrl(`groupe/${idGroupe}`);
   }
 
- /** 
- getPersoList(groupe: Groupe) {
-    this.groupeService.getPersoList(groupe).subscribe({
-      next: (persoList) => {
-        this.persoList = persoList;
-      },
-      error: (err) => console.error('Erreur récupération personnages :', err)
-    });
-  } */ 
 
 }

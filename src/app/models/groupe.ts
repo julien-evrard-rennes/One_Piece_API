@@ -60,6 +60,15 @@ export class Groupe {
   }
 
 static fromApiAndDb(api: GroupeAPI | null, db: GroupeDb | null): Groupe {
+    const membresListe = (db?.membresListe ?? []).map(
+    (m: any) => new PersonnageShort(m.id, m.name ?? m.nom ?? '')
+  );
+  const capitaine = db?.capitaine
+    ? new PersonnageShort((db.capitaine as any).id, (db.capitaine as any).name ?? db.capitaine.nom ?? '')
+    : new PersonnageShort(0, '');
+
+  console.log('db reçu:', db);
+
   return new Groupe(
     db?.id ?? api?.id ?? 0,
     db?.name ?? api?.name ?? '',
@@ -69,8 +78,8 @@ static fromApiAndDb(api: GroupeAPI | null, db: GroupeDb | null): Groupe {
     api?.roman_name ?? '',
     api?.total_prime ?? '',
     api?.is_yonko ?? '',
-    db?.capitaine ?? new PersonnageShort(0, ''),
-    db?.membresListe ?? [],
+    capitaine,
+    membresListe,
   );
 }
 
