@@ -11,16 +11,16 @@ export class GroupeDb {
   }
 
   id: number;
-  name: string;
+  nom: string;
   capitaine!: PersonnageShort;
   membresListe: PersonnageShort[];
 
   constructor(
     id: number,
-    name: string,
+    nom: string,
     membresListe: PersonnageShort[],) {
     this.id = (Number(id));
-    this.name = name;
+    this.nom = nom;
     //this.id = crypto.randomUUID().substring(0, 8);
     this.membresListe = membresListe;
   }

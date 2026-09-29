@@ -5,6 +5,7 @@ import { JeuService } from '../../../services/jeu-service';
 import { Groupe } from '../../../models/groupe';
 import { PersonnageShort } from '../../../models/PersonnageShort';
 import { FusionPersonnageService } from '../../../services/fusion-personnage-service';
+import { FusionGroupeService } from '../../../services/fusion-groupe-service';
 
 @Component({
   selector: 'app-jeu-equipage',
@@ -16,6 +17,7 @@ import { FusionPersonnageService } from '../../../services/fusion-personnage-ser
 export class JeuEquipageComponent implements OnInit {
   private jeuService = inject(JeuService);
   private fusionPersoService = inject(FusionPersonnageService)
+  private fusionGroupeService = inject(FusionGroupeService)
   private readonly router = inject(Router);
   private cdr = inject(ChangeDetectorRef);
 
@@ -34,7 +36,6 @@ export class JeuEquipageComponent implements OnInit {
   score = 0;
   scoreTotal = 0;
   tour=0;
-
 
   ngOnInit(): void {
       this.nouveauTirage();
@@ -75,7 +76,12 @@ export class JeuEquipageComponent implements OnInit {
       })
     }
      else {
-      this.groupe = this.tableauGroupes[this.tour];
+      //this.groupe = this.tableauGroupes[this.tour];
+      this.fusionGroupeService.getGroupeById(134).subscribe({
+        next: (g: Groupe) => {
+          this.groupe = g;
+        }
+      })
       this.personnageShort = this.tableauPersos[this.tour];
           this.fusionPersoService.getPersonnageById(this.personnageShort.id).subscribe({
               next: (p: Personnage) => {

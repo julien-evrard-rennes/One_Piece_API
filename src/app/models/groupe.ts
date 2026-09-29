@@ -69,7 +69,7 @@ static fromApiAndDb(api: GroupeAPI | null, db: GroupeDb | null): Groupe {
 
   return new Groupe(
     db?.id ?? api?.id ?? 0,
-    db?.name ?? api?.name ?? '',
+    db?.nom ?? api?.name ?? '',
     api?.description ?? '',
     api?.status ?? '',
     api?.number ?? '',

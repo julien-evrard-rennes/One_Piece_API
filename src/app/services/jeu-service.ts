@@ -306,7 +306,6 @@ tirageTableauPersosJDE(tableauDesEquipages : Groupe[]): PersonnageShort[] {
                 groupe = tableauDesEquipages[g];
             } else {
                 groupe = tableauDesEquipages[i]
-                console.log ("BON :" + groupe.name)
             }
             const groupePersos = groupe.membresListe;
             const p = Math.floor(Math.random() * groupe.membresListe.length);

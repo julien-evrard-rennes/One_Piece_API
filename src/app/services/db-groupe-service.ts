@@ -28,7 +28,7 @@ export class DBGroupeService {
     getGroupeByName(nom: string) {
     return this.getGroupesDb().pipe(
         map(groupeList => {
-        const found = groupeList.find(p => p.name === nom);
+        const found = groupeList.find(p => p.nom === nom);
         if (!found) throw new Error('Groupe non trouvé !');
         return found;
         })
