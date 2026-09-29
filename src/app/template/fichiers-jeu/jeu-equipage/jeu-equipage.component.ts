@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Personnage } from '../../../models/Personnage';
 import { JeuService } from '../../../services/jeu-service';
 import { Groupe } from '../../../models/groupe';
+import { PersonnageShort } from '../../../models/PersonnageShort';
+import { FusionPersonnageService } from '../../../services/fusion-personnage-service';
 
 @Component({
   selector: 'app-jeu-equipage',
@@ -13,13 +15,17 @@ import { Groupe } from '../../../models/groupe';
 })
 export class JeuEquipageComponent implements OnInit {
   private jeuService = inject(JeuService);
+  private fusionPersoService = inject(FusionPersonnageService)
   private readonly router = inject(Router);
   private cdr = inject(ChangeDetectorRef);
 
 
   isLoading = true;
   personnage!: Personnage;
+  personnageShort!: PersonnageShort;
   groupe!: Groupe;
+  tableauGroupes!: Groupe[];
+  tableauPersos!: PersonnageShort[];
 
   nomDuGroupe!:string;
   resultat!: string;
@@ -27,11 +33,11 @@ export class JeuEquipageComponent implements OnInit {
   texteResultat!: string;
   score = 0;
   scoreTotal = 0;
-  tour =0;
+  tour=0;
 
 
   ngOnInit(): void {
-      this.tirage();
+      this.nouveauTirage();
     }
 
   tirage() {
@@ -47,16 +53,51 @@ export class JeuEquipageComponent implements OnInit {
     });
   }
 
+  nouveauTirage() {
+  if (this.tour == 0) {
+    this.jeuService.tirageTableauEquipage().subscribe(tg => {
+      this.tableauGroupes = tg;
+      console.log(tg);
+      this.groupe = this.tableauGroupes[0];
+
+      this.tableauPersos = this.jeuService.tirageTableauPersosJDE(tg)
+            this.personnageShort = this.tableauPersos[0];
+            this.fusionPersoService.getPersonnageById(this.personnageShort.id).subscribe({
+                next: (p: Personnage) => {
+                  this.personnage = p; 
+                  this.tour++;
+                  this.isLoading=false;
+                  this.nomDuGroupe=this.jeuService.lowercaseFirstLetter(this.groupe.name);
+                  this.cdr.detectChanges();
+                },
+                error: (err) => console.error('Erreur récupération', err)
+        })
+      })
+    }
+     else {
+      this.groupe = this.tableauGroupes[this.tour];
+      this.personnageShort = this.tableauPersos[this.tour];
+          this.fusionPersoService.getPersonnageById(this.personnageShort.id).subscribe({
+              next: (p: Personnage) => {
+                this.personnage = p; 
+                this.tour++;
+                this.isLoading=false;
+                this.nomDuGroupe=this.jeuService.lowercaseFirstLetter(this.groupe.name);
+                this.cdr.detectChanges();
+              },
+              error: (err) => console.error('Erreur récupération personnage:', err)
+            });
+     }
+  }  
+
 
   onClickButton(reponse: string): void {
     this.resultat = this.jeuService.comparerResultatEquipage(reponse, this.personnage, this.groupe);
-    console.log (reponse + ' ' + this.resultat)
     this.texteResultat = this.jeuService.getTextResultatEquipage(this.resultat, reponse, this.personnage, this.groupe);
-    console.log (this.texteResultat);
     this.score = this.jeuService.getScore2(this.resultat);
     this.scoreTotal = this.score + this.scoreTotal;
     if (this.tour<10) {
-    this.tirage();
+    this.nouveauTirage();
     }
     else {
       this.router.navigateByUrl('jeuReponse', {

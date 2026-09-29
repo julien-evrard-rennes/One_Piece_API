@@ -67,8 +67,6 @@ static fromApiAndDb(api: GroupeAPI | null, db: GroupeDb | null): Groupe {
     ? new PersonnageShort((db.capitaine).id, (db.capitaine).nom ?? '')
     : new PersonnageShort(0, '');
 
-  console.log('db reçu:', db);
-
   return new Groupe(
     db?.id ?? api?.id ?? 0,
     db?.name ?? api?.name ?? '',

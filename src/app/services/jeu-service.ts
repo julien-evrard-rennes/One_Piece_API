@@ -1,9 +1,10 @@
 import { Injectable, inject } from "@angular/core";
 import { FusionPersonnageService } from "./fusion-personnage-service";
 import { Personnage } from "../models/Personnage";
-import { map, Observable, of, tap } from "rxjs";
+import { forkJoin, map, Observable, of, tap } from "rxjs";
 import { FusionGroupeService } from "./fusion-groupe-service";
 import { Groupe } from "../models/groupe";
+import { PersonnageShort } from "../models/PersonnageShort";
 
 
 @Injectable({
@@ -20,6 +21,9 @@ listPerso = this.fusionPersoService.getPersoList();
 private cache: Personnage[] | null = null;
 private cacheG: Groupe[] | null = null;
 personnage$!: Observable<Personnage>;
+groupeService: any;
+cdr: any;
+groupe!: Groupe;
 
 /**
  * Fonction chargée de mettre juste la première lettre en minuscule
@@ -65,6 +69,28 @@ tirageGroupe() : Observable<Groupe> {
     map(list => list[Math.floor(Math.random() * list.length)])
   );
   }
+/**
+ * Fonction chargée de tirer un groupe au hasard dans la liste des groupes 
+ * dont la liste des membres contiennent au moins un membre d'équipage
+ * @returns 
+ */
+tirageGroupeEquipage() : Observable<Groupe> {
+    const listSource$ = this.cacheG ? of(this.cacheG)
+    : this.fusionGroupeService.getGroupeList().pipe(
+        tap(list => this.cacheG = list)
+      );
+
+  return listSource$.pipe(
+    map(list => list.filter(g => g.membresListe !== null && g.membresListe && g.membresListe.length > 0  )),
+    map(list => {
+      if (list.length === 0) {
+        throw new Error('Aucun groupe avec un équipage trouvé.');
+      }
+      return list[Math.floor(Math.random() * list.length)];
+    })
+  );
+}
+
 
   /** 
  * Fonction chargée de tirer un personnage au hasard dans la liste des personnages
@@ -238,6 +264,63 @@ getScore(resultat:string): number {
 // FONCTIONS AYANT TRAIT AU JEU DES ÉQUIPAGES
 
 /**
+ * Fonction qui permet de créer un tableau avec 10 équipages
+ * @param tableauDesEquipages 
+ */
+
+tirageTableauEquipage(): Observable<Groupe[]>  {
+  const tableauDesEquipages: Observable<Groupe>[] = [];
+  
+  for (let i = 0; i < 10; i++) {
+            tableauDesEquipages[i] = this.tirageGroupeEquipage();
+  }
+  return forkJoin (tableauDesEquipages);
+}
+
+/**
+ * Retourne les données d'un observable Groupe
+ * @param groupe 
+ * @returns id, membresListe
+
+  extraireDonneesGroupe(groupe: Groupe): { id: number; name: string; membres: PersonnageShort[] } {
+  return {
+    id: groupe.id,
+    name : groupe.name,
+    membres: groupe.membresListe
+  };
+} 
+*/
+
+/**
+ * Va chercher dans le tableau des équipages un équipage, puis tire un personnage.
+ * Le personnage ainsi créé va dans un tableau de 10 personnages. 
+ * @returns tableauDesPersonnages
+ */
+tirageTableauPersosJDE(tableauDesEquipages : Groupe[]): PersonnageShort[] {
+
+    const tableauDesPersonnages: PersonnageShort[] = [];
+    
+    for (let i = 0; i < 10; i++) {
+            let groupe = tableauDesEquipages[0];
+            const piece = Math.floor(Math.random() * 2);
+            if (piece == 0){
+                const g = Math.floor(Math.random() * 10);
+                groupe = tableauDesEquipages[g];
+            } else {
+                groupe = tableauDesEquipages[i]
+                console.log ("BON :" + groupe.name)
+            }
+            const groupePersos = groupe.membresListe;
+            const p = Math.floor(Math.random() * groupe.membresListe.length);
+            const persoTire = groupePersos[p];
+
+            tableauDesPersonnages[i] = persoTire;
+
+  }
+    return tableauDesPersonnages
+}
+
+/**
  * Fonction qui permet de comparer si la réponse donné au jeu est bonne ou pas. 
  * @param reponse 
  * @param personnage 
@@ -284,7 +367,7 @@ getTextResultatEquipage(resultat: string, reponse: string, personnage: Personnag
     return "Dommage, " + personnage.nom_complet + " n'a jamais fait partie de " + this.lowercaseFirstLetter(groupe.name);
   }
   else if (resultat=="perdu" && reponse=="non" ) {
-    return "Hélas" + personnage.nom_complet + " a bien fait partie de " + this.lowercaseFirstLetter(groupe.name); 
+    return "Hélas " + personnage.nom_complet + " a bien fait partie de " + this.lowercaseFirstLetter(groupe.name); 
   }
   else return "Erreur 404"
 }
