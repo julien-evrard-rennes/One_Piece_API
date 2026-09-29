@@ -21,8 +21,6 @@ listPerso = this.fusionPersoService.getPersoList();
 private cache: Personnage[] | null = null;
 private cacheG: Groupe[] | null = null;
 personnage$!: Observable<Personnage>;
-groupeService: any;
-cdr: any;
 groupe!: Groupe;
 
 /**
@@ -301,7 +299,7 @@ tirageTableauPersosJDE(tableauDesEquipages : Groupe[]): PersonnageShort[] {
     const tableauDesPersonnages: PersonnageShort[] = [];
     
     for (let i = 0; i < 10; i++) {
-            let groupe = tableauDesEquipages[0];
+            let groupe;
             const piece = Math.floor(Math.random() * 2);
             if (piece == 0){
                 const g = Math.floor(Math.random() * 10);
