@@ -111,6 +111,7 @@ export class JeuEquipageComponent implements OnInit {
     this.texteResultat = this.jeuService.getTextResultatEquipage(this.resultat, reponse, this.personnage, this.groupe);
     this.score = this.jeuService.getScore2(this.resultat);
     this.scoreTotal = this.score + this.scoreTotal;
+    this.isLoading=true;
     if (this.tour<10) {
     this.nouveauTirage();
     }

@@ -4915,9 +4915,18 @@
         {
           "id": 288,
           "nom": "Sarquiss"
+        },
+        {
+          "id": 689,
+          "nom": "Bellamy"
         }
+
       ],
-      "capitaine": null
+      "capitaine": 
+      {
+          "id": 689,
+          "nom": "Bellamy"
+        }
     },
     {
       "id": 148,

@@ -3,10 +3,10 @@
     <div class="presentation">
     <h1>Questions sur les équipages et les peuples</h1>
 
-    @if (isLoading) {
-    <div class="spinner"></div>
-    <p colspan="6">Chargement du jeu...</p>
-    }
+    @if (tour==0 && isLoading) {
+        <div class="spinner"></div>
+        <p colspan="6">Chargement du jeu...</p>
+        }
 
     @if (resultat) {<div class="resultat">
     
@@ -17,23 +17,26 @@
     
         <td> {{texteResultat}}<p class="font-smaller"> (+ {{score}} points)</p>
         </td>
-    </div>
+        </div>
+        <h2> Question {{tour}} /10 </h2>
+        <h2>VRAI OU FAUX ? </h2>
     }
+    @if (tour>0 && isLoading) {
+        <div class="spinner"></div>
+        }
     @if (!isLoading) {
-    <h2> Question {{tour}} /10 </h2>
 
-    <h2>VRAI OU FAUX ? </h2>
-    <h2> @if (personnage){ <p class ="personnage"> {{personnage.nom_complet + "  "}} </p> } 
-        fait partie {{" " + preposition}}
-        <p class="groupe"> {{" " + nomDuGroupe}} </p>  </h2>
+        <h2> @if (personnage){ <p class ="personnage"> {{personnage.nom_complet + "  "}} </p> } 
+            fait partie {{" " + preposition}}
+            <p class="groupe"> {{" " + nomDuGroupe}} </p>  </h2>
 
-    <div class="reponse">
-            <div>
-                <button (click)="onClickButton('oui')">OUI</button>
-                <button (click)="onClickButton('non')">NON</button>
-            </div>
-    </div>
+        <div class="reponse">
+                <div>
+                    <button (click)="onClickButton('oui')">OUI</button>
+                    <button (click)="onClickButton('non')">NON</button>
+                </div>
+        </div>
     }
-</div>
+    </div>
 
 </main>

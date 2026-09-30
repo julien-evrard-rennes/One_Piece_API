@@ -325,7 +325,15 @@ tirageTableauPersosJDE(tableauDesEquipages : Groupe[]): PersonnageShort[] {
  */
 
 comparerResultatEquipage(reponse: string, personnage: Personnage, groupe: Groupe): string {
-  if (personnage.crew.id == groupe.id){
+  console.log("Personnage à trouver à la base " + personnage.id + " " + personnage.nom_complet)
+  let match=false
+  for (let i=0; i<groupe.membresListe.length; i++){
+    console.log("Personnages checkés " + groupe.membresListe[i].id + " " + groupe.membresListe[i].nom)
+    if (personnage.id == groupe.membresListe[i].id){
+      match=true
+    }
+  }
+  if (match==true){
     if (reponse == "oui") {
       return "gagné"
     }
