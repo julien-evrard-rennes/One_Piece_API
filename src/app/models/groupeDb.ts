@@ -12,6 +12,7 @@ export class GroupeDb {
 
   id: number;
   nom: string;
+  preposition!: string;
   capitaine!: PersonnageShort;
   membresListe: PersonnageShort[];
 
@@ -21,7 +22,6 @@ export class GroupeDb {
     membresListe: PersonnageShort[],) {
     this.id = (Number(id));
     this.nom = nom;
-    //this.id = crypto.randomUUID().substring(0, 8);
     this.membresListe = membresListe;
   }
 }

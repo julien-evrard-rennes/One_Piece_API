@@ -1396,7 +1396,7 @@
     },
     {
       "id": 17,
-      "nom": "Ligue des Primates",
+      "nom": "La Ligue des Primates",
       "membresListe": [
         {
           "id": 43,
@@ -1424,7 +1424,7 @@
     },
     {
       "id": 19,
-      "nom": "l'équipage du New Age",
+      "nom": "L'équipage du New Age",
       "membresListe": [],
       "capitaine": null
     },
@@ -1620,7 +1620,8 @@
     },
     {
       "id": 27,
-      "nom": "Pirate de l'Espace",
+      "nom": "Pirates de l'Espace",
+      "preposition": "des",
       "membresListe": [],
       "capitaine": null
     },
@@ -2163,6 +2164,7 @@
     {
       "id": 48,
       "nom": "Faux Equipage du Chapeau de Paille",
+      "preposition": "du",
       "membresListe": [
         {
           "id": 350,
@@ -2676,7 +2678,7 @@
     },
     {
       "id": 57,
-      "nom": "Flotte Yonta Maria",
+      "nom": "La Flotte Yonta Maria",
       "membresListe": [
         {
           "id": 754,
@@ -2709,6 +2711,7 @@
     {
       "id": 61,
       "nom": "Nouvel Equipage des Géants",
+      "preposition": "du",
       "membresListe": [],
       "capitaine": null
     },
@@ -2744,7 +2747,7 @@
     },
     {
       "id": 63,
-      "nom": "l'équipage de Ganzack",
+      "nom": "L'équipage de Ganzack",
       "membresListe": [],
       "capitaine": null
     },
@@ -2792,7 +2795,8 @@
     },
     {
       "id": 69,
-      "nom": "Les Pirates à la citrouille",
+      "nom": "Pirates à la citrouille",
+      "preposition": "des",
       "membresListe": [],
       "capitaine": null
     },
@@ -2900,7 +2904,7 @@
     },
     {
       "id": 79,
-      "nom": "Royaume de Luvneel",
+      "nom": "---------",
       "membresListe": [],
       "capitaine": null
     },
@@ -2924,6 +2928,7 @@
     {
       "id": 82,
       "nom": "Marine",
+      "preposition": "de la",
       "membresListe": [
         {
           "id": 414,
@@ -3133,7 +3138,8 @@
     },
     {
       "id": 83,
-      "nom": "Dragon Célestes",
+      "nom": "Dragons Célestes",
+      "preposition": "des",
       "membresListe": [
         {
           "id": 386,
@@ -3177,12 +3183,13 @@
     {
       "id": 86,
       "nom": "Royaume de Tontatta",
+      "preposition": "du",
       "membresListe": [],
       "capitaine": null
     },
     {
       "id": 87,
-      "nom": "Armada du Chapeau de Paille",
+      "nom": "L'armada du Chapeau de Paille",
       "membresListe": [
         {
           "id": 12,
@@ -3300,6 +3307,7 @@
     {
       "id": 89,
       "nom": "Conseil des doyens",
+      "preposition": "du",
       "membresListe": [
         {
           "id": 380,
@@ -3307,23 +3315,23 @@
         },
         {
           "id": 381,
-          "nom": "1er Doyen"
+          "nom": "Saint Figarland"
         },
         {
           "id": 382,
-          "nom": "2e Doyen"
+          "nom": "Saint Marcus"
         },
         {
           "id": 383,
-          "nom": "3e Doyen"
+          "nom": "Saint Topman"
         },
         {
           "id": 384,
-          "nom": "4e Doyen"
+          "nom": "Saint Ethanbaron V."
         },
         {
           "id": 385,
-          "nom": "5e Doyen"
+          "nom": "Saint Shepherd"
         }
       ],
       "capitaine": null
@@ -3331,6 +3339,7 @@
     {
       "id": 90,
       "nom": "Cipher Pol",
+      "preposition": "du",
       "membresListe": [
         {
           "id": 391,
@@ -3377,7 +3386,7 @@
     },
     {
       "id": 91,
-      "nom": "Enies Lobby",
+      "nom": "Cour suprême d'Enies Lobby",
       "membresListe": [
         {
           "id": 401,
@@ -3396,7 +3405,8 @@
     },
     {
       "id": 92,
-      "nom": "Impel Down",
+      "nom": "Gardes d'Impel Down",
+      "preposition": "des",
       "membresListe": [
         {
           "id": 404,
@@ -3444,6 +3454,7 @@
     {
       "id": 93,
       "nom": "Royaume de Goa",
+      "preposition": "du",
       "membresListe": [
         {
           "id": 463,
@@ -3509,7 +3520,7 @@
     },
     {
       "id": 95,
-      "nom": "Archipel des Argao",
+      "nom": "L'archipel des Argao",
       "membresListe": [
         {
           "id": 476,
@@ -3524,7 +3535,7 @@
     },
     {
       "id": 96,
-      "nom": "Île des animaux étranges",
+      "nom": "L'Île des animaux étranges",
       "membresListe": [
         {
           "id": 478,
@@ -3539,7 +3550,7 @@
     },
     {
       "id": 97,
-      "nom": "Archipel des Gecko",
+      "nom": "L'Archipel des Gecko",
       "membresListe": [
         {
           "id": 480,
@@ -3571,6 +3582,7 @@
     {
       "id": 98,
       "nom": "Baratie",
+      "preposition": "du",
       "membresListe": [
         {
           "id": 486,
@@ -3589,7 +3601,7 @@
     },
     {
       "id": 99,
-      "nom": "Archipel Conomi",
+      "nom": "L'archipel Conomi",
       "membresListe": [
         {
           "id": 489,
@@ -3635,7 +3647,8 @@
     },
     {
       "id": 101,
-      "nom": "Royaume de Lvneel",
+      "nom": "Royaume de Luvneel",
+      "preposition": "du",
       "membresListe": [
         {
           "id": 497,
@@ -3658,6 +3671,7 @@
     {
       "id": 103,
       "nom": "Royaume maléfique de Black Drum",
+      "preposition": "du",
       "membresListe": [
         {
           "id": 500,
@@ -3680,6 +3694,7 @@
     {
       "id": 104,
       "nom": "Ohara",
+      "preposition": "d'",
       "membresListe": [
         {
           "id": 502,
@@ -3706,6 +3721,7 @@
     {
       "id": 105,
       "nom": "Pays des fleurs",
+      "preposition": "du",
       "membresListe": [
         {
           "id": 505,
@@ -3726,7 +3742,7 @@
     },
     {
       "id": 107,
-      "nom": "Île aux cactus",
+      "nom": "L'Île aux cactus",
       "membresListe": [
         {
           "id": 509,
@@ -3756,7 +3772,7 @@
     },
     {
       "id": 109,
-      "nom": "Île de Drum",
+      "nom": "L'Île de Drum",
       "membresListe": [
         {
           "id": 513,
@@ -3784,6 +3800,7 @@
     {
       "id": 110,
       "nom": "Alabasta",
+      "preposition": "d'",
       "membresListe": [
         {
           "id": 518,
@@ -3872,7 +3889,7 @@
     },
     {
       "id": 112,
-      "nom": "Source de l'insouciance",
+      "nom": "La Source de l'insouciance",
       "membresListe": [
         {
           "id": 536,
@@ -3941,7 +3958,7 @@
     },
     {
       "id": 114,
-      "nom": "Archipel des Sabaody",
+      "nom": "L'Archipel des Sabaody",
       "membresListe": [
         {
           "id": 549,
@@ -3964,7 +3981,7 @@
     },
     {
       "id": 115,
-      "nom": "Archipel de Boing",
+      "nom": "L'Archipel de Boing",
       "membresListe": [
         {
           "id": 553,
@@ -3976,6 +3993,7 @@
     {
       "id": 116,
       "nom": "Erbaf",
+      "preposition": "d'",
       "membresListe": [
         {
           "id": 554,
@@ -4003,6 +4021,7 @@
     {
       "id": 117,
       "nom": "Pays des Wa",
+      "preposition": "du",
       "membresListe": [
         {
           "id": 559,
@@ -4268,6 +4287,7 @@
     {
       "id": 122,
       "nom": "Royaume de Prodence",
+      "preposition": "du",
       "membresListe": [
         {
           "id": 613,
@@ -4283,6 +4303,7 @@
     {
       "id": 123,
       "nom": "Royaume de Mogalo",
+      "preposition": "du",
       "membresListe": [
         {
           "id": 615,
@@ -4298,6 +4319,7 @@
     {
       "id": 124,
       "nom": "Royaume de Germa",
+      "preposition": "du",
       "membresListe": [
         {
           "id": 617,
@@ -4437,7 +4459,7 @@
     },
     {
       "id": 128,
-      "nom": "Île des hommes-poissons",
+      "nom": "L'Île des hommes-poissons",
       "membresListe": [
         {
           "id": 645,
@@ -4515,7 +4537,7 @@
     },
     {
       "id": 130,
-      "nom": "Armée Révolutionnaire",
+      "nom": "L'Armée Révolutionnaire",
       "membresListe": [
         {
           "id": 661,
@@ -4574,6 +4596,7 @@
     {
       "id": 131,
       "nom": "Anciens membres du Baroque Works",
+      "preposition": "des",
       "membresListe": [
         {
           "id": 672,
@@ -4613,6 +4636,7 @@
     {
       "id": 132,
       "nom": "Anciens membres du Cipher Pol",
+      "preposition": "des",
       "membresListe": [
         {
           "id": 680,
@@ -4648,6 +4672,7 @@
     {
       "id": 133,
       "nom": "Anciens membres de la Marine",
+      "preposition": "des",
       "membresListe": [
         {
           "id": 687,
@@ -4663,6 +4688,7 @@
     {
       "id": 134,
       "nom": "Buccaneers",
+      "preposition": "des",
       "membresListe": [
         {
           "id": 690,
@@ -4674,6 +4700,7 @@
     {
       "id": 135,
       "nom": "Frères Voleurs",
+      "preposition": "des",
       "membresListe": [
         {
           "id": 703,
@@ -4688,13 +4715,13 @@
     },
     {
       "id": 136,
-      "nom": "IÎle de la couronne",
+      "nom": "L'Île de la couronne",
       "membresListe": [],
       "capitaine": null
     },
     {
       "id": 137,
-      "nom": "Île d'Asuka",
+      "nom": "L'Île d'Asuka",
       "membresListe": [
         {
           "id": 714,
@@ -4730,6 +4757,7 @@
     {
       "id": 138,
       "nom": "Pirate des flèches rouges",
+      "preposition": "des",
       "membresListe": [
         {
           "id": 721,
@@ -4744,7 +4772,8 @@
     },
     {
       "id": 139,
-      "nom": "Pirate au foyer",
+      "nom": "Pirates au foyer",
+      "preposition": "des",
       "membresListe": [
         {
           "id": 723,
@@ -4755,7 +4784,8 @@
     },
     {
       "id": 140,
-      "nom": "Pirate Moustachus",
+      "nom": "Pirates Moustachus",
+      "preposition": "des",
       "membresListe": [
         {
           "id": 724,
@@ -4766,7 +4796,7 @@
     },
     {
       "id": 141,
-      "nom": "Île de Mecha",
+      "nom": "L'Île de Mecha",
       "membresListe": [
         {
           "id": 725,
@@ -4790,6 +4820,7 @@
     {
       "id": 142,
       "nom": "Néo Marine",
+      "preposition": "de la",
       "membresListe": [
         {
           "id": 735,
@@ -4836,6 +4867,7 @@
     {
       "id": 144,
       "nom": "Elegia",
+      "preposition": "d'",
       "membresListe": [
         {
           "id": 747,
@@ -4851,6 +4883,7 @@
     {
       "id": 145,
       "nom": "World Economic Journal",
+      "preposition": "du",
       "membresListe": [
         {
           "id": 692,
@@ -4862,6 +4895,7 @@
     {
       "id": 146,
       "nom": "Cap des Jumeaux",
+      "preposition": "du",
       "membresListe": [
         {
           "id": 507,
@@ -4876,7 +4910,7 @@
     },
     {
       "id": 147,
-      "nom": "Equipage de Bellamy",
+      "nom": "L'Equipage de Bellamy",
       "membresListe": [
         {
           "id": 288,
@@ -4887,9 +4921,18 @@
     },
     {
       "id": 148,
-      "nom": "Equipage de Pandaman",
-      "membresListe": [],
-      "capitaine": null
+      "nom": "L'Equipage de Pandaman",
+            "membresListe": [
+        {
+          "id": 757,
+          "nom": "Pandaman"
+        }     
+      ],
+      "capitaine": 
+        {
+          "id": 742,
+          "nom": "Pandaman"
+        }
     },
     {
       "id": 149,
@@ -4900,7 +4943,11 @@
           "nom": "Bigalo"
         }
       ],
-      "capitaine": null
+      "capitaine": 
+              {
+          "id": 760,
+          "nom": "Bigalo"
+        }
     }
   ]
 

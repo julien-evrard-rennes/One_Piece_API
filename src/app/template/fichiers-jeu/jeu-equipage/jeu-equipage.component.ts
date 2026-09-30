@@ -30,6 +30,7 @@ export class JeuEquipageComponent implements OnInit {
   tableauPersos!: PersonnageShort[];
 
   nomDuGroupe!:string;
+  preposition!: string;
   resultat!: string;
   reponse!: string;
   texteResultat!: string;
@@ -67,8 +68,14 @@ export class JeuEquipageComponent implements OnInit {
                 next: (p: Personnage) => {
                   this.personnage = p; 
                   this.tour++;
-                  this.isLoading=false;
+                  if (this.groupe.preposition !== null && this.groupe.preposition !== ""){
+                    this.preposition = this.groupe.preposition
+                    } else
+                    {
+                      this.preposition = "de"
+                    };
                   this.nomDuGroupe=this.jeuService.lowercaseFirstLetter(this.groupe.name);
+                  this.isLoading=false;
                   this.cdr.detectChanges();
                 },
                 error: (err) => console.error('Erreur récupération', err)
@@ -76,17 +83,19 @@ export class JeuEquipageComponent implements OnInit {
       })
     }
      else {
-      //this.groupe = this.tableauGroupes[this.tour];
-      this.fusionGroupeService.getGroupeById(134).subscribe({
-        next: (g: Groupe) => {
-          this.groupe = g;
-        }
-      })
+      this.groupe = this.tableauGroupes[this.tour];
       this.personnageShort = this.tableauPersos[this.tour];
           this.fusionPersoService.getPersonnageById(this.personnageShort.id).subscribe({
               next: (p: Personnage) => {
                 this.personnage = p; 
                 this.tour++;
+                if (this.groupe.preposition !== null && this.groupe.preposition !== ""){
+                    this.preposition = this.groupe.preposition
+                    } else
+                    {
+                      this.preposition = "de"
+                    };
+                  this.nomDuGroupe=this.jeuService.lowercaseFirstLetter(this.groupe.name);
                 this.isLoading=false;
                 this.nomDuGroupe=this.jeuService.lowercaseFirstLetter(this.groupe.name);
                 this.cdr.detectChanges();

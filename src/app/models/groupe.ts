@@ -11,6 +11,7 @@ export class Groupe {
         }
         id : number;
         name : string;
+        preposition!: string;
         description: string;
         status : string;
         number: string;
@@ -23,6 +24,7 @@ export class Groupe {
         constructor(
         id : number,
         name : string,
+        preposition: string,
         description: string,
         status : string,
         number: string,
@@ -34,6 +36,7 @@ export class Groupe {
       ) {
             this.id = id;
             this.name = name;
+            this.preposition = preposition;
             this.description = description;
             this.status = status;
             this.number = number;
@@ -48,6 +51,7 @@ export class Groupe {
     return new Groupe(
       mock.id ?? api.id ?? 0,
       mock.name ?? api.name ?? '',
+      '',
       api.description ?? '',
       api.status ?? '',
       api.number ?? '',
@@ -70,6 +74,7 @@ static fromApiAndDb(api: GroupeAPI | null, db: GroupeDb | null): Groupe {
   return new Groupe(
     db?.id ?? api?.id ?? 0,
     db?.nom ?? api?.name ?? '',
+    db?.preposition ?? '',
     api?.description ?? '',
     api?.status ?? '',
     api?.number ?? '',

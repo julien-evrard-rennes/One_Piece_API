@@ -354,17 +354,21 @@ comparerResultatEquipage(reponse: string, personnage: Personnage, groupe: Groupe
  */
 
 getTextResultatEquipage(resultat: string, reponse: string, personnage: Personnage, groupe: Groupe, ): string {
+  let preposition = "de"
+  if (groupe.preposition !== null && groupe.preposition !== ""){
+    preposition = groupe.preposition
+  }
   if (resultat=="gagné" && reponse=="oui"){
-    return personnage.nom_complet + " fait effectivement partie de " + this.lowercaseFirstLetter(groupe.name);
+    return personnage.nom_complet + " fait effectivement partie " + preposition + " " + this.lowercaseFirstLetter(groupe.name);
   }
   else if (resultat=="gagné" && reponse=="non" ){
-    return "Bravo, " + personnage.nom_complet + " n'a jamais fait partie de " + this.lowercaseFirstLetter(groupe.name);
+    return "Bravo, " + personnage.nom_complet + " n'a jamais fait partie " + preposition + " " + this.lowercaseFirstLetter(groupe.name);
   }
   else if (resultat=="perdu" && reponse=="oui" ) {
-    return "Dommage, " + personnage.nom_complet + " n'a jamais fait partie de " + this.lowercaseFirstLetter(groupe.name);
+    return "Dommage, " + personnage.nom_complet + " n'a jamais fait partie " + preposition + " " + this.lowercaseFirstLetter(groupe.name);
   }
   else if (resultat=="perdu" && reponse=="non" ) {
-    return "Hélas " + personnage.nom_complet + " a bien fait partie de " + this.lowercaseFirstLetter(groupe.name); 
+    return "Hélas " + personnage.nom_complet + " a bien fait partie " + preposition + " " + this.lowercaseFirstLetter(groupe.name); 
   }
   else return "Erreur 404"
 }

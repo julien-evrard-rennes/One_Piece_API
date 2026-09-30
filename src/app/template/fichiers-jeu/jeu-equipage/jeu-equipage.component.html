@@ -19,11 +19,13 @@
         </td>
     </div>
     }
-
+    @if (!isLoading) {
     <h2> Question {{tour}} /10 </h2>
 
     <h2>VRAI OU FAUX ? </h2>
-    <h2> @if (personnage){ <p class ="personnage"> {{personnage.nom_complet + "  "}} </p> } fait partie de <p class="groupe"> {{" " + nomDuGroupe}} </p>  </h2>
+    <h2> @if (personnage){ <p class ="personnage"> {{personnage.nom_complet + "  "}} </p> } 
+        fait partie {{" " + preposition}}
+        <p class="groupe"> {{" " + nomDuGroupe}} </p>  </h2>
 
     <div class="reponse">
             <div>
@@ -31,6 +33,7 @@
                 <button (click)="onClickButton('non')">NON</button>
             </div>
     </div>
+    }
 </div>
 
 </main>
