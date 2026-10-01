@@ -17,7 +17,6 @@ import { FusionGroupeService } from '../../../services/fusion-groupe-service';
 export class JeuEquipageComponent implements OnInit {
   private jeuService = inject(JeuService);
   private fusionPersoService = inject(FusionPersonnageService)
-  private fusionGroupeService = inject(FusionGroupeService)
   private readonly router = inject(Router);
   private cdr = inject(ChangeDetectorRef);
 
@@ -30,6 +29,7 @@ export class JeuEquipageComponent implements OnInit {
   tableauPersos!: PersonnageShort[];
 
   nomDuGroupe!:string;
+  annonce!:string;
   preposition!: string;
   resultat!: string;
   reponse!: string;
@@ -66,7 +66,8 @@ export class JeuEquipageComponent implements OnInit {
             this.personnageShort = this.tableauPersos[0];
             this.fusionPersoService.getPersonnageById(this.personnageShort.id).subscribe({
                 next: (p: Personnage) => {
-                  this.personnage = p; 
+                  this.personnage = p;
+                  this.annonce = this.jeuService.generateurPhraseAnnonce(this.groupe);
                   this.tour++;
                   if (this.groupe.preposition !== null && this.groupe.preposition !== ""){
                     this.preposition = this.groupe.preposition
@@ -87,7 +88,8 @@ export class JeuEquipageComponent implements OnInit {
       this.personnageShort = this.tableauPersos[this.tour];
           this.fusionPersoService.getPersonnageById(this.personnageShort.id).subscribe({
               next: (p: Personnage) => {
-                this.personnage = p; 
+                this.personnage = p;
+                this.annonce = this.jeuService.generateurPhraseAnnonce(this.groupe); 
                 this.tour++;
                 if (this.groupe.preposition !== null && this.groupe.preposition !== ""){
                     this.preposition = this.groupe.preposition

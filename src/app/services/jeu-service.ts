@@ -318,6 +318,36 @@ tirageTableauPersosJDE(tableauDesEquipages : Groupe[]): PersonnageShort[] {
 }
 
 /**
+ * Fonction qui permet de créer une phrase de question et de la faire varier 
+ */
+
+generateurPhraseAnnonce(groupe: Groupe): string{
+  let annonce ="";
+  let D3 = Math.floor(Math.random() * 3);
+    console.log(D3)
+    if (D3 == 0){
+      annonce = "fait partie"
+    } 
+    else if (D3 == 1){
+      annonce = "est membre"
+    }
+    else {
+      annonce = "a vécu au sein"
+    }
+
+    if (groupe.preposition == ""){
+      groupe.preposition = "de"
+    }
+
+  let espacefinal = " ";
+   if (groupe.preposition == "d'" ){
+    espacefinal =""
+   };
+  return annonce + ' ' + groupe.preposition + espacefinal
+
+}
+
+/**
  * Fonction qui permet de comparer si la réponse donné au jeu est bonne ou pas. 
  * @param reponse 
  * @param personnage 
@@ -363,20 +393,24 @@ comparerResultatEquipage(reponse: string, personnage: Personnage, groupe: Groupe
 
 getTextResultatEquipage(resultat: string, reponse: string, personnage: Personnage, groupe: Groupe, ): string {
   let preposition = "de"
+  let espacefinal = " ";
+   if (groupe.preposition == "d'" ){
+    espacefinal =""
+   };
   if (groupe.preposition !== null && groupe.preposition !== ""){
     preposition = groupe.preposition
   }
   if (resultat=="gagné" && reponse=="oui"){
-    return personnage.nom_complet + " fait effectivement partie " + preposition + " " + this.lowercaseFirstLetter(groupe.name);
+    return personnage.nom_complet + " fait effectivement partie " + preposition + espacefinal + this.lowercaseFirstLetter(groupe.name);
   }
   else if (resultat=="gagné" && reponse=="non" ){
-    return "Bravo, " + personnage.nom_complet + " n'a jamais fait partie " + preposition + " " + this.lowercaseFirstLetter(groupe.name);
+    return "Bravo, " + personnage.nom_complet + " n'a jamais fait partie " + preposition + espacefinal + this.lowercaseFirstLetter(groupe.name);
   }
   else if (resultat=="perdu" && reponse=="oui" ) {
-    return "Dommage, " + personnage.nom_complet + " n'a jamais fait partie " + preposition + " " + this.lowercaseFirstLetter(groupe.name);
+    return "Dommage, " + personnage.nom_complet + " n'a jamais fait partie " + preposition + espacefinal + this.lowercaseFirstLetter(groupe.name);
   }
   else if (resultat=="perdu" && reponse=="non" ) {
-    return "Hélas " + personnage.nom_complet + " a bien fait partie " + preposition + " " + this.lowercaseFirstLetter(groupe.name); 
+    return "Hélas " + personnage.nom_complet + " a bien fait partie " + preposition + espacefinal + this.lowercaseFirstLetter(groupe.name); 
   }
   else return "Erreur 404"
 }
