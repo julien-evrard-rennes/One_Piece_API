@@ -44,7 +44,7 @@ jobs:
           docker rm staging-app
 
       - name: Audit sécurité npm
-        run: npm audit --audit-level=critical
+        run: npm audit --omit=dev
 
       - name: Lint
         run: npx ng lint
