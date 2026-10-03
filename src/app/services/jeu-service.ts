@@ -322,8 +322,8 @@ tirageTableauPersosJDE(tableauDesEquipages : Groupe[]): PersonnageShort[] {
  */
 
 generateurPhraseAnnonce(groupe: Groupe): string{
-  let annonce ="";
-  let D3 = Math.floor(Math.random() * 3);
+  let annonce;
+  const D3 = Math.floor(Math.random() * 3);
     console.log(D3)
     if (D3 == 0){
       annonce = "fait partie"
@@ -357,9 +357,8 @@ generateurPhraseAnnonce(groupe: Groupe): string{
 comparerResultatEquipage(reponse: string, personnage: Personnage, groupe: Groupe): string {
   console.log("Personnage à trouver à la base " + personnage.id + " " + personnage.nom_complet)
   let match=false
-  for (let i=0; i<groupe.membresListe.length; i++){
-    console.log("Personnages checkés " + groupe.membresListe[i].id + " " + groupe.membresListe[i].nom)
-    if (personnage.id == groupe.membresListe[i].id){
+  for (const membre of groupe.membresListe){
+    if (personnage.id == membre.id){
       match=true
     }
   }

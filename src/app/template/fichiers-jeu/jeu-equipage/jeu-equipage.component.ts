@@ -5,7 +5,6 @@ import { JeuService } from '../../../services/jeu-service';
 import { Groupe } from '../../../models/groupe';
 import { PersonnageShort } from '../../../models/PersonnageShort';
 import { FusionPersonnageService } from '../../../services/fusion-personnage-service';
-import { FusionGroupeService } from '../../../services/fusion-groupe-service';
 
 @Component({
   selector: 'app-jeu-equipage',
