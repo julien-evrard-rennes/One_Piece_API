@@ -12,15 +12,18 @@ export class GroupeMock {
 
   id: number;
   name: string;
+  preposition:string;
   capitaine!: PersonnageShort;
   membresListe: PersonnageShort[];
 
   constructor(
     id: number,
     name: string,
+    preposition:string,
     membresListe: PersonnageShort[],) {
     this.id = id;
     this.name = name;
+    this.preposition = preposition;
     //this.id = crypto.randomUUID().substring(0, 8);
     this.membresListe = membresListe;
   }
