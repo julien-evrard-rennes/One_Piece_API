@@ -39,10 +39,12 @@ export class JeuEquipageComponent implements OnInit {
   tour=0;
 
   ngOnInit(): void {
-      this.nouveauTirage();
+      this.tirageInitial();
     }
 
-  tirage() {
+ /** Première formule du tirage : a garder pour comprendre la logique de base
+  * 
+  *  tirage() {
     this.jeuService.tiragePerso().subscribe(p => {
       this.personnage = p;
       this.tour++;
@@ -53,37 +55,18 @@ export class JeuEquipageComponent implements OnInit {
       this.nomDuGroupe=this.jeuService.lowercaseFirstLetter(this.groupe.name);
       this.cdr.detectChanges();
     });
-  }
+  }*/ 
 
-  nouveauTirage() {
-  if (this.tour == 0) {
+  tirageInitial() {
     this.jeuService.tirageTableauEquipage().subscribe(tg => {
       this.tableauGroupes = tg;
-      console.log(tg);
-      this.groupe = this.tableauGroupes[0];
-
       this.tableauPersos = this.jeuService.tirageTableauPersosJDE(tg)
-            this.personnageShort = this.tableauPersos[0];
-            this.fusionPersoService.getPersonnageById(this.personnageShort.id).subscribe({
-                next: (p: Personnage) => {
-                  this.personnage = p;
-                  this.annonce = this.jeuService.generateurPhraseAnnonce(this.groupe);
-                  this.tour++;
-                  if (this.groupe.preposition !== null && this.groupe.preposition !== ""){
-                    this.preposition = this.groupe.preposition
-                    } else
-                    {
-                      this.preposition = "de"
-                    };
-                  this.nomDuGroupe=this.jeuService.lowercaseFirstLetter(this.groupe.name);
-                  this.isLoading=false;
-                  this.cdr.detectChanges();
-                },
-                error: (err) => console.error('Erreur récupération', err)
-        })
+      this.tirage();
       })
     }
-     else {
+
+
+   tirage() {
       this.groupe = this.tableauGroupes[this.tour];
       this.personnageShort = this.tableauPersos[this.tour];
           this.fusionPersoService.getPersonnageById(this.personnageShort.id).subscribe({
@@ -104,8 +87,7 @@ export class JeuEquipageComponent implements OnInit {
               },
               error: (err) => console.error('Erreur récupération personnage:', err)
             });
-     }
-  }  
+     } 
 
 
   onClickButton(reponse: string): void {
@@ -115,7 +97,7 @@ export class JeuEquipageComponent implements OnInit {
     this.scoreTotal = this.score + this.scoreTotal;
     this.isLoading=true;
     if (this.tour<10) {
-    this.nouveauTirage();
+    this.tirage();
     }
     else {
       this.router.navigateByUrl('jeuReponse', {

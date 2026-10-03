@@ -1,0 +1,14 @@
+{
+  "/api-op/characters": {
+    "target": "https://api.api-onepiece.com",
+    "pathRewrite": { "^/api-op": "/v2" },
+    "changeOrigin": true,
+    "secure": true
+  },
+  "/api-op/crews": {
+    "target": "https://api.api-onepiece.com",
+    "pathRewrite": { "^/api-op": "/v2" },
+    "changeOrigin": true,
+    "secure": true
+  }
+}
