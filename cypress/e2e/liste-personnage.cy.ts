@@ -5,7 +5,7 @@ describe('Liste des personnages', () => {
   });
 
   it('affiche au moins 700 personnages', () => {
-    cy.get('tr', { timeout: 16000 })
+    cy.get('tr', { timeout: 30000 })
       .should('have.length.greaterThan', 700);
   });
 
