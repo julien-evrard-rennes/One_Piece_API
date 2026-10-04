@@ -3693,7 +3693,7 @@
     },
     {
       "id": 104,
-      "nom": "Ohara",
+      "nom": "L'île d'Ohara",
       "preposition": "d'",
       "membresListe": [
         {
@@ -3799,8 +3799,7 @@
     },
     {
       "id": 110,
-      "nom": "Alabasta",
-      "preposition": "d'",
+      "nom": "Royaume d'Alabasta",
       "membresListe": [
         {
           "id": 518,
@@ -3992,8 +3991,7 @@
     },
     {
       "id": 116,
-      "nom": "Erbaf",
-      "preposition": "d'",
+      "nom": "L'île d'Erbaf",
       "membresListe": [
         {
           "id": 554,
@@ -4163,7 +4161,7 @@
     },
     {
       "id": 118,
-      "nom": "Punk Hazard",
+      "nom": "L'île de Punk Hazard",
       "membresListe": [
         {
           "id": 591,
@@ -4186,7 +4184,8 @@
     },
     {
       "id": 119,
-      "nom": "Dressrosa",
+      "nom": "Royaume de Dressrosa",
+      "preposition": "du",
       "membresListe": [
         {
           "id": 594,
@@ -4224,7 +4223,7 @@
     },
     {
       "id": 120,
-      "nom": "Green Bit",
+      "nom": "L'île de Green Bit",
       "membresListe": [
         {
           "id": 601,
@@ -4239,7 +4238,7 @@
     },
     {
       "id": 121,
-      "nom": "Zo",
+      "nom": "L'île de Zo",
       "membresListe": [
         {
           "id": 603,
@@ -4350,7 +4349,7 @@
     },
     {
       "id": 125,
-      "nom": "Sphinx",
+      "nom": "L'île de Sphinx",
       "membresListe": [
         {
           "id": 623,
@@ -4839,7 +4838,7 @@
     },
     {
       "id": 143,
-      "nom": "Gran Tesero",
+      "nom": "Gran Tesoro",
       "membresListe": [
         {
           "id": 738,
@@ -4866,8 +4865,7 @@
     },
     {
       "id": 144,
-      "nom": "Elegia",
-      "preposition": "d'",
+      "nom": "L'île d'Elegia",
       "membresListe": [
         {
           "id": 747,
@@ -4945,7 +4943,7 @@
     },
     {
       "id": 149,
-      "nom": "Equipage de Bigalo",
+      "nom": "L'Equipage de Bigalo",
       "membresListe": [
         {
           "id": 760,

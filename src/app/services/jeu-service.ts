@@ -321,21 +321,32 @@ tirageTableauPersosJDE(tableauDesEquipages : Groupe[]): PersonnageShort[] {
  * Fonction qui permet de créer une phrase de question et de la faire varier 
  */
 
-generateurPhraseAnnonce(groupe: Groupe): string{
+generateurPhraseAnnonce(groupe: Groupe, typequestion: string): string{
   let annonce;
-  const D3 = Math.floor(Math.random() * 3);
-    console.log(D3)
-    if (D3 == 0){
-      annonce = "fait partie"
-    } 
-    else if (D3 == 1){
-      annonce = "est membre"
-    }
-    else {
-      annonce = "a vécu au sein"
-    }
+    if (typequestion=="membre"){
+      const D3 = Math.floor(Math.random() * 3);
+        if (D3 == 0){
+          annonce = "fait partie"
+        } 
+        else if (D3 == 1){
+          annonce = "est membre"
+        }
+        else {
+          annonce = "a vécu au sein"
+        }
+      }
 
-    if (groupe.preposition == ""){
+    if (typequestion=="capitaine"){
+      const D2 = Math.floor(Math.random() * 2);
+        if (D2 == 0){
+          annonce = "est capitaine"
+        } 
+        else {
+          annonce = "a été à la tête"
+        }
+      }
+
+    if (groupe.preposition == null || groupe.preposition == ""){
       groupe.preposition = "de"
     }
 
@@ -354,14 +365,22 @@ generateurPhraseAnnonce(groupe: Groupe): string{
  * @param groupe 
  */
 
-comparerResultatEquipage(reponse: string, personnage: Personnage, groupe: Groupe): string {
+comparerResultatEquipage(reponse: string, personnage: Personnage, groupe: Groupe, typequestion: string): string {
   console.log("Personnage à trouver à la base " + personnage.id + " " + personnage.nom_complet)
   let match=false
+  if (typequestion=="membre"){
   for (const membre of groupe.membresListe){
     if (personnage.id == membre.id){
       match=true
     }
   }
+  }else if (typequestion == "capitaine"){
+    if (personnage.id == groupe.capitaine.id){
+      match=true
+    }
+  }
+
+
   if (match==true){
     if (reponse == "oui") {
       return "gagné"
@@ -390,7 +409,7 @@ comparerResultatEquipage(reponse: string, personnage: Personnage, groupe: Groupe
  * @returns 
  */
 
-getTextResultatEquipage(resultat: string, reponse: string, personnage: Personnage, groupe: Groupe, ): string {
+getTextResultatEquipage(resultat: string, reponse: string, personnage: Personnage, groupe: Groupe, typequestion: string): string {
   let preposition = "de"
   let espacefinal = " ";
    if (groupe.preposition == "d'" ){
@@ -399,19 +418,38 @@ getTextResultatEquipage(resultat: string, reponse: string, personnage: Personnag
   if (groupe.preposition !== null && groupe.preposition !== ""){
     preposition = groupe.preposition
   }
-  if (resultat=="gagné" && reponse=="oui"){
-    return personnage.nom_complet + " fait effectivement partie " + preposition + espacefinal + this.lowercaseFirstLetter(groupe.name);
-  }
-  else if (resultat=="gagné" && reponse=="non" ){
-    return "Bravo, " + personnage.nom_complet + " n'a jamais fait partie " + preposition + espacefinal + this.lowercaseFirstLetter(groupe.name);
-  }
-  else if (resultat=="perdu" && reponse=="oui" ) {
-    return "Dommage, " + personnage.nom_complet + " n'a jamais fait partie " + preposition + espacefinal + this.lowercaseFirstLetter(groupe.name);
-  }
-  else if (resultat=="perdu" && reponse=="non" ) {
-    return "Hélas " + personnage.nom_complet + " a bien fait partie " + preposition + espacefinal + this.lowercaseFirstLetter(groupe.name); 
-  }
-  else return "Erreur 404"
+  if (typequestion=="membre") {
+    if (resultat=="gagné" && reponse=="oui"){
+      return personnage.nom_complet + " fait effectivement partie " + preposition + espacefinal + this.lowercaseFirstLetter(groupe.name);
+    }
+    else if (resultat=="gagné" && reponse=="non" ){
+      return "Bravo, " + personnage.nom_complet + " n'a jamais fait partie " + preposition + espacefinal + this.lowercaseFirstLetter(groupe.name);
+    }
+    else if (resultat=="perdu" && reponse=="oui" ) {
+      return "Dommage, " + personnage.nom_complet + " n'a jamais fait partie " + preposition + espacefinal + this.lowercaseFirstLetter(groupe.name);
+    }
+    else if (resultat=="perdu" && reponse=="non" ) {
+      return "Hélas " + personnage.nom_complet + " a bien fait partie " + preposition + espacefinal + this.lowercaseFirstLetter(groupe.name); 
+    }
+    else return "Erreur 404"
+  } else if (typequestion == "capitaine"){
+    if (resultat=="gagné" && reponse=="oui"){
+      return personnage.nom_complet + " est à la tête " + preposition + espacefinal + this.lowercaseFirstLetter(groupe.name);
+    }
+    else if (resultat=="gagné" && reponse=="non" ){
+      return "Bravo, " + personnage.nom_complet + " n'a jamais dirigé" + espacefinal + this.lowercaseFirstLetter(groupe.name);
+    }
+    else if (resultat=="perdu" && reponse=="oui" ) {
+      return "Dommage, " + personnage.nom_complet + " n'a pas dirigé" + espacefinal + this.lowercaseFirstLetter(groupe.name);
+    }
+    else if (resultat=="perdu" && reponse=="non" ) {
+      return "Hélas " + personnage.nom_complet + " est bien la tête pensante " + preposition + espacefinal + this.lowercaseFirstLetter(groupe.name); 
+    }
+    else return "Erreur 404"
+
+  } else
+    return "Erreur 404"
+
 }
 
 
