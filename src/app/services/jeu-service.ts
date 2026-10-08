@@ -323,27 +323,38 @@ tirageTableauPersosJDE(tableauDesEquipages : Groupe[]): PersonnageShort[] {
 
 generateurPhraseAnnonce(groupe: Groupe, typequestion: string): string{
   let annonce;
+  const D2 = Math.floor(Math.random() * 2);
     if (typequestion=="membre"){
-      const D3 = Math.floor(Math.random() * 3);
-        if (D3 == 0){
+      if (groupe.type=="equipage" || groupe.type=="organisation"){
+        if (D2 == 0){
           annonce = "fait partie"
         } 
-        else if (D3 == 1){
+        else if (D2 == 1){
           annonce = "est membre"
         }
-        else {
-          annonce = "a vécu au sein"
+      }
+      else {
+        if (D2 == 0){
+        annonce = "fait partie des habitants"
+        }
+        else if (D2 == 1){
+        annonce = "est un des habitants"
         }
       }
+    }
 
     if (typequestion=="capitaine"){
-      const D2 = Math.floor(Math.random() * 2);
-        if (D2 == 0){
-          annonce = "est capitaine"
-        } 
-        else {
-          annonce = "a été à la tête"
+      const tableauGroupe = ["equipage", "royaume", "organisation", "lieu", "ville"];
+      const tableauChef = ["capitaine", "roi", "chef", "gouvernant", "maire"];
+      let chef
+
+      for (let i=0; i<tableauGroupe.length;i++){
+        if (groupe.type == tableauGroupe[i]){
+            chef = tableauChef[i]
+          }  
         }
+
+        annonce = "a été " + chef
       }
 
     if (groupe.preposition == null || groupe.preposition == ""){
@@ -437,10 +448,10 @@ getTextResultatEquipage(resultat: string, reponse: string, personnage: Personnag
       return personnage.nom_complet + " est à la tête " + preposition + espacefinal + this.lowercaseFirstLetter(groupe.name);
     }
     else if (resultat=="gagné" && reponse=="non" ){
-      return "Bravo, " + personnage.nom_complet + " n'a jamais dirigé" + espacefinal + this.lowercaseFirstLetter(groupe.name);
+      return "Bravo, " + personnage.nom_complet + " n'a jamais été chef " + preposition +  espacefinal + this.lowercaseFirstLetter(groupe.name);
     }
     else if (resultat=="perdu" && reponse=="oui" ) {
-      return "Dommage, " + personnage.nom_complet + " n'a pas dirigé" + espacefinal + this.lowercaseFirstLetter(groupe.name);
+      return "Dommage, " + personnage.nom_complet + " n'est pas à la tête " + preposition +  espacefinal + this.lowercaseFirstLetter(groupe.name);
     }
     else if (resultat=="perdu" && reponse=="non" ) {
       return "Hélas " + personnage.nom_complet + " est bien la tête pensante " + preposition + espacefinal + this.lowercaseFirstLetter(groupe.name); 

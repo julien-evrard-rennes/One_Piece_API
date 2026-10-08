@@ -68,7 +68,7 @@ export class JeuEquipageComponent implements OnInit {
     this.groupe = this.tableauGroupes[this.tour];
     console.log(this.groupe.id)
     const D3 = Math.floor(Math.random() * 3);
-    if (this.groupe.capitaine.id !== null && this.groupe.capitaine.nom !=="" && D3 >1){
+    if (this.groupe.capitaine.id !== null && this.groupe.capitaine.nom !=="" && D3 < 4){
        this.typequestion="capitaine";
        this.tirageCapitaine()
     }

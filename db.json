@@ -1627,7 +1627,7 @@
     },
     {
       "id": 28,
-      "nom": "Thriller Bark",
+      "nom": "L'équipage de Thriller Bark",
       "membresListe": [
         {
           "id": 49,
@@ -2704,7 +2704,7 @@
     },
     {
       "id": 60,
-      "nom": "XXX Gym Martial Arts Alliances",
+      "nom": "L`Alliance XXX Gym Martial Art",
       "membresListe": [],
       "capitaine": null
     },
@@ -2899,7 +2899,41 @@
     {
       "id": 78,
       "nom": "Baroque Works",
-      "membresListe": [],
+      "type":"organisation",
+      "membresListe": [
+        {
+          "id": 672,
+          "nom": "Zala"
+        },
+        {
+          "id": 673,
+          "nom": "Bentham"
+        },
+        {
+          "id": 674,
+          "nom": "Marianne"
+        },
+        {
+          "id": 675,
+          "nom": "Babe"
+        },
+        {
+          "id": 676,
+          "nom": "Lassou"
+        },
+        {
+          "id": 677,
+          "nom": "Drophy"
+        },
+        {
+          "id": 678,
+          "nom": "Gemme"
+        },
+        {
+          "id": 679,
+          "nom": "Mikita"
+        }
+      ],
       "capitaine": null
     },
     {
@@ -3140,6 +3174,7 @@
       "id": 83,
       "nom": "Dragons Célestes",
       "preposition": "des",
+      "type":  "organisation",
       "membresListe": [
         {
           "id": 386,
@@ -3166,12 +3201,6 @@
           "nom": "Don Quijote Homing"
         }
       ],
-      "capitaine": null
-    },
-    {
-      "id": 84,
-      "nom": "Bigaro",
-      "membresListe": [],
       "capitaine": null
     },
     {
@@ -3307,11 +3336,12 @@
     {
       "id": 89,
       "nom": "Conseil des doyens",
+      "type": "organisation",
       "preposition": "du",
       "membresListe": [
         {
           "id": 380,
-          "nom": "Im Sama"
+          "nom": "Saint Nerona Imu"
         },
         {
           "id": 381,
@@ -3334,12 +3364,16 @@
           "nom": "Saint Shepherd"
         }
       ],
-      "capitaine": null
+      "capitaine": {
+          "id": 380,
+          "nom": "Saint Nerona Imu"
+        }
     },
     {
       "id": 90,
       "nom": "Cipher Pol",
       "preposition": "du",
+      "type": "organisation",
       "membresListe": [
         {
           "id": 391,
@@ -3387,6 +3421,7 @@
     {
       "id": 91,
       "nom": "Cour suprême d'Enies Lobby",
+      "type":"organisation",
       "membresListe": [
         {
           "id": 401,
@@ -3406,6 +3441,7 @@
     {
       "id": 92,
       "nom": "Gardes d'Impel Down",
+      "type": "organisation",
       "preposition": "des",
       "membresListe": [
         {
@@ -3455,6 +3491,7 @@
       "id": 93,
       "nom": "Royaume de Goa",
       "preposition": "du",
+      "type": "royaume",
       "membresListe": [
         {
           "id": 463,
@@ -3502,6 +3539,7 @@
     {
       "id": 94,
       "nom": "Village de Shimotsuki",
+      "type": "ville",
       "membresListe": [
         {
           "id": 473,
@@ -3521,6 +3559,7 @@
     {
       "id": 95,
       "nom": "L'archipel des Argao",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 476,
@@ -3536,6 +3575,7 @@
     {
       "id": 96,
       "nom": "L'Île des animaux étranges",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 478,
@@ -3551,6 +3591,7 @@
     {
       "id": 97,
       "nom": "L'Archipel des Gecko",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 480,
@@ -3602,6 +3643,7 @@
     {
       "id": 99,
       "nom": "L'archipel Conomi",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 489,
@@ -3637,6 +3679,7 @@
     {
       "id": 100,
       "nom": "Loguetown",
+      "type": "ville",
       "membresListe": [
         {
           "id": 496,
@@ -3649,6 +3692,7 @@
       "id": 101,
       "nom": "Royaume de Luvneel",
       "preposition": "du",
+      "type": "ville",
       "membresListe": [
         {
           "id": 497,
@@ -3659,7 +3703,8 @@
     },
     {
       "id": 102,
-      "nom": "Baterilla",
+      "nom": "L'île de Baterilla",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 499,
@@ -3672,6 +3717,7 @@
       "id": 103,
       "nom": "Royaume maléfique de Black Drum",
       "preposition": "du",
+      "type": "royaume",
       "membresListe": [
         {
           "id": 500,
@@ -3694,6 +3740,7 @@
     {
       "id": 104,
       "nom": "L'île d'Ohara",
+      "type": "lieu",
       "preposition": "d'",
       "membresListe": [
         {
@@ -3722,6 +3769,7 @@
       "id": 105,
       "nom": "Pays des fleurs",
       "preposition": "du",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 505,
@@ -3737,12 +3785,14 @@
     {
       "id": 106,
       "nom": "Reverse Mountain",
+      "type": "lieu",
       "membresListe": [],
       "capitaine": null
     },
     {
       "id": 107,
       "nom": "L'Île aux cactus",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 509,
@@ -3758,6 +3808,7 @@
     {
       "id": 108,
       "nom": "Little Garden",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 511,
@@ -3773,6 +3824,7 @@
     {
       "id": 109,
       "nom": "L'Île de Drum",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 513,
@@ -3800,6 +3852,8 @@
     {
       "id": 110,
       "nom": "Royaume d'Alabasta",
+      "preposition": "du",
+      "type": "royaume",
       "membresListe": [
         {
           "id": 518,
@@ -3874,6 +3928,7 @@
     {
       "id": 111,
       "nom": "Long Ring Long Land",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 534,
@@ -3889,6 +3944,7 @@
     {
       "id": 112,
       "nom": "La Source de l'insouciance",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 536,
@@ -3900,6 +3956,7 @@
     {
       "id": 113,
       "nom": "Water Seven",
+      "type": "ville",
       "membresListe": [
         {
           "id": 537,
@@ -3958,6 +4015,7 @@
     {
       "id": 114,
       "nom": "L'Archipel des Sabaody",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 549,
@@ -3981,6 +4039,7 @@
     {
       "id": 115,
       "nom": "L'Archipel de Boing",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 553,
@@ -3992,6 +4051,7 @@
     {
       "id": 116,
       "nom": "L'île d'Erbaf",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 554,
@@ -4019,6 +4079,7 @@
     {
       "id": 117,
       "nom": "Pays des Wa",
+      "type": "lieu",
       "preposition": "du",
       "membresListe": [
         {
@@ -4162,6 +4223,7 @@
     {
       "id": 118,
       "nom": "L'île de Punk Hazard",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 591,
@@ -4186,6 +4248,7 @@
       "id": 119,
       "nom": "Royaume de Dressrosa",
       "preposition": "du",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 594,
@@ -4224,6 +4287,7 @@
     {
       "id": 120,
       "nom": "L'île de Green Bit",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 601,
@@ -4239,6 +4303,7 @@
     {
       "id": 121,
       "nom": "L'île de Zo",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 603,
@@ -4287,6 +4352,7 @@
       "id": 122,
       "nom": "Royaume de Prodence",
       "preposition": "du",
+      "type": "royaume",
       "membresListe": [
         {
           "id": 613,
@@ -4303,6 +4369,7 @@
       "id": 123,
       "nom": "Royaume de Mogalo",
       "preposition": "du",
+      "type": "royaume",
       "membresListe": [
         {
           "id": 615,
@@ -4319,6 +4386,7 @@
       "id": 124,
       "nom": "Royaume de Germa",
       "preposition": "du",
+      "type": "royaume",
       "membresListe": [
         {
           "id": 617,
@@ -4350,6 +4418,7 @@
     {
       "id": 125,
       "nom": "L'île de Sphinx",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 623,
@@ -4361,6 +4430,7 @@
     {
       "id": 126,
       "nom": "Skypiea",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 624,
@@ -4443,11 +4513,15 @@
           "nom": "Kotori"
         }
       ],
-      "capitaine": null
+      "capitaine":         {
+          "id": 660,
+          "nom": "Ener"
+        }
     },
     {
       "id": 127,
       "nom": "Weatheria",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 644,
@@ -4459,6 +4533,7 @@
     {
       "id": 128,
       "nom": "L'Île des hommes-poissons",
+      "type": "royaume",
       "membresListe": [
         {
           "id": 645,
@@ -4526,6 +4601,7 @@
     {
       "id": 129,
       "nom": "La lune",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 660,
@@ -4537,6 +4613,7 @@
     {
       "id": 130,
       "nom": "L'Armée Révolutionnaire",
+      "type":  "organisation",
       "membresListe": [
         {
           "id": 661,
@@ -4596,6 +4673,7 @@
       "id": 131,
       "nom": "Anciens membres du Baroque Works",
       "preposition": "des",
+      "type":  "organisation",
       "membresListe": [
         {
           "id": 672,
@@ -4636,6 +4714,7 @@
       "id": 132,
       "nom": "Anciens membres du Cipher Pol",
       "preposition": "des",
+      "type": "organisation",
       "membresListe": [
         {
           "id": 680,
@@ -4672,6 +4751,7 @@
       "id": 133,
       "nom": "Anciens membres de la Marine",
       "preposition": "des",
+      "type": "organisation",
       "membresListe": [
         {
           "id": 687,
@@ -4688,6 +4768,7 @@
       "id": 134,
       "nom": "Buccaneers",
       "preposition": "des",
+      "type": "peuple",
       "membresListe": [
         {
           "id": 690,
@@ -4700,6 +4781,7 @@
       "id": 135,
       "nom": "Frères Voleurs",
       "preposition": "des",
+      "type": "organisation",
       "membresListe": [
         {
           "id": 703,
@@ -4715,12 +4797,14 @@
     {
       "id": 136,
       "nom": "L'Île de la couronne",
+      "type": "lieu",
       "membresListe": [],
       "capitaine": null
     },
     {
       "id": 137,
       "nom": "L'Île d'Asuka",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 714,
@@ -4796,6 +4880,7 @@
     {
       "id": 141,
       "nom": "L'Île de Mecha",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 725,
@@ -4820,6 +4905,7 @@
       "id": 142,
       "nom": "Néo Marine",
       "preposition": "de la",
+      "type": "organisation",
       "membresListe": [
         {
           "id": 735,
@@ -4839,6 +4925,7 @@
     {
       "id": 143,
       "nom": "Gran Tesoro",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 738,
@@ -4866,6 +4953,7 @@
     {
       "id": 144,
       "nom": "L'île d'Elegia",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 747,
@@ -4881,6 +4969,7 @@
     {
       "id": 145,
       "nom": "World Economic Journal",
+      "type": "lieu",
       "preposition": "du",
       "membresListe": [
         {
@@ -4894,6 +4983,7 @@
       "id": 146,
       "nom": "Cap des Jumeaux",
       "preposition": "du",
+      "type": "lieu",
       "membresListe": [
         {
           "id": 507,

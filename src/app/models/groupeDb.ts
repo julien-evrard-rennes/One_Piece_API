@@ -12,16 +12,19 @@ export class GroupeDb {
 
   id: number;
   nom: string;
-  preposition!: string;
+  preposition: string;
+  type!: string;
   capitaine!: PersonnageShort;
   membresListe: PersonnageShort[];
 
   constructor(
     id: number,
     nom: string,
+    preposition:string,
     membresListe: PersonnageShort[],) {
     this.id = (Number(id));
     this.nom = nom;
+    this.preposition =preposition;
     this.membresListe = membresListe;
   }
 }
