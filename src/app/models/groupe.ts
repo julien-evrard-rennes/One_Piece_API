@@ -13,6 +13,7 @@ export class Groupe {
         name : string;
         preposition!: string;
         type!: string;
+        notoriete!: number;
         description: string;
         status : string;
         number: string;
@@ -27,6 +28,7 @@ export class Groupe {
         name : string,
         preposition: string,
         type: string,
+        notoriete: number,
         description: string,
         status : string,
         number: string,
@@ -40,6 +42,7 @@ export class Groupe {
             this.name = name;
             this.preposition = preposition;
             this.type = type;
+            this.notoriete= notoriete;
             this.description = description;
             this.status = status;
             this.number = number;
@@ -56,6 +59,7 @@ export class Groupe {
       mock.name ?? api.name ?? '',
       mock.preposition ?? '',
       '',
+      0,
       api.description ?? '',
       api.status ?? '',
       api.number ?? '',
@@ -80,6 +84,7 @@ static fromApiAndDb(api: GroupeAPI | null, db: GroupeDb | null): Groupe {
     db?.nom ?? api?.name ?? '',
     db?.preposition ?? 'de',
     db?.type ?? 'equipage',
+    db?.notoriete ?? 3,
     api?.description ?? '',
     api?.status ?? '',
     api?.number ?? '',

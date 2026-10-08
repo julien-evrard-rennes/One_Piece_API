@@ -14,6 +14,7 @@ export class GroupeDb {
   nom: string;
   preposition: string;
   type!: string;
+  notoriete: number;
   capitaine!: PersonnageShort;
   membresListe: PersonnageShort[];
 
@@ -21,10 +22,12 @@ export class GroupeDb {
     id: number,
     nom: string,
     preposition:string,
+    notoriete:number,
     membresListe: PersonnageShort[],) {
     this.id = (Number(id));
     this.nom = nom;
-    this.preposition =preposition;
+    this.preposition = preposition;
+    this.notoriete = notoriete;
     this.membresListe = membresListe;
   }
 }

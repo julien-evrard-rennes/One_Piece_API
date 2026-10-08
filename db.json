@@ -769,6 +769,7 @@
     {
       "id": 1,
       "nom": "L'équipage du Chapeau de Paille",
+      "notoriete":1,
       "membresListe": [
         {
           "id": 1,
@@ -827,6 +828,7 @@
     {
       "id": 2,
       "nom": "L'équipage du Roux",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 85,
@@ -895,6 +897,7 @@
     {
       "id": 4,
       "nom": "L'équipage du Clown",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 32,
@@ -909,6 +912,7 @@
     {
       "id": 5,
       "nom": "L'équipage des Pirates Roger",
+      "notoriete":1,
       "membresListe": [
         {
           "id": 258,
@@ -1023,6 +1027,7 @@
     {
       "id": 6,
       "nom": "L'équipage du Capitaine Usopp",
+      "notoriete":1,
       "membresListe": [
         {
           "id": 4,
@@ -1059,6 +1064,7 @@
     {
       "id": 8,
       "nom": "L'armada Pirate de Don Krieg",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 40,
@@ -1087,6 +1093,7 @@
     {
       "id": 10,
       "nom": "L'équipage d'Arlong",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 282,
@@ -1155,6 +1162,7 @@
     {
       "id": 16,
       "nom": "L'équipage de Barbe Blanche",
+      "notoriete":1,
       "membresListe": [
         {
           "id": 289,
@@ -1397,6 +1405,7 @@
     {
       "id": 17,
       "nom": "La Ligue des Primates",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 43,
@@ -1437,6 +1446,7 @@
     {
       "id": 21,
       "nom": "L'équipage de Don Quichotte",
+      "notoriete":1,
       "membresListe": [
         {
           "id": 365,
@@ -1507,6 +1517,7 @@
     {
       "id": 22,
       "nom": "L'équipage de Barbe Noire",
+      "notoriete":1,
       "membresListe": [
         {
           "id": 247,
@@ -1571,6 +1582,7 @@
     {
       "id": 24,
       "nom": "L'équipage de Foxy",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 46,
@@ -1599,6 +1611,7 @@
     {
       "id": 26,
       "nom": "L'équipage des Pirates du Soleil",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 78,
@@ -1628,6 +1641,7 @@
     {
       "id": 28,
       "nom": "L'équipage de Thriller Bark",
+      "notoriete":1,
       "membresListe": [
         {
           "id": 49,
@@ -1680,6 +1694,7 @@
     {
       "id": 32,
       "nom": "L'équipage du Hearth",
+      "notoriete":1,
       "membresListe": [
         {
           "id": 54,
@@ -1710,6 +1725,7 @@
     {
       "id": 33,
       "nom": "L'équipage de Kid",
+      "notoriete":1,
       "membresListe": [
         {
           "id": 59,
@@ -1760,6 +1776,7 @@
     {
       "id": 38,
       "nom": "L'équipage du Fire Tank",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 63,
@@ -1794,6 +1811,7 @@
     {
       "id": 39,
       "nom": "L'équipage des Moines Dépravés",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 69,
@@ -1814,6 +1832,7 @@
     {
       "id": 41,
       "nom": "L'équipage des Pirates Kuja",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 70,
@@ -1846,6 +1865,7 @@
     {
       "id": 43,
       "nom": "L'équipage de Barbe Brune",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 347,
@@ -1860,6 +1880,7 @@
     {
       "id": 44,
       "nom": "L'équipage aux Cent Bêtes",
+      "notoriete":1,
       "membresListe": [
         {
           "id": 187,
@@ -2110,6 +2131,7 @@
     {
       "id": 45,
       "nom": "L'équipage du Lion d'Or",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 74,
@@ -2164,6 +2186,7 @@
     {
       "id": 48,
       "nom": "Faux Equipage du Chapeau de Paille",
+      "notoriete":2,
       "preposition": "du",
       "membresListe": [
         {
@@ -2207,6 +2230,7 @@
     {
       "id": 49,
       "nom": "L'équipage de Caribou",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 76,
@@ -2225,6 +2249,7 @@
     {
       "id": 50,
       "nom": "L'équipage des Nouveaux Hommes-Poissons",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 358,
@@ -2259,6 +2284,7 @@
     {
       "id": 51,
       "nom": "L'équipage des Pirates Volants",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 364,
@@ -2279,6 +2305,7 @@
     {
       "id": 53,
       "nom": "L'équipage de Big Mom",
+      "notoriete":1,
       "membresListe": [
         {
           "id": 96,
@@ -2665,6 +2692,7 @@
     {
       "id": 56,
       "nom": "L'équipage de Bartolomeo",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 14,
@@ -2718,6 +2746,7 @@
     {
       "id": 62,
       "nom": "L'équipage de Rocks",
+      "notoriete":1,
       "membresListe": [
         {
           "id": 379,
@@ -2815,6 +2844,7 @@
     {
       "id": 72,
       "nom": "L'équipage des Pirates Trump",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 698,
@@ -2845,6 +2875,7 @@
     {
       "id": 73,
       "nom": "L'équipage de Gasparde",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 709,
@@ -2899,6 +2930,7 @@
     {
       "id": 78,
       "nom": "Baroque Works",
+      "notoriete":1,
       "type":"organisation",
       "membresListe": [
         {
@@ -2963,6 +2995,7 @@
       "id": 82,
       "nom": "Marine",
       "preposition": "de la",
+      "notoriete":1,
       "membresListe": [
         {
           "id": 414,
@@ -3175,6 +3208,7 @@
       "nom": "Dragons Célestes",
       "preposition": "des",
       "type":  "organisation",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 386,
@@ -3219,6 +3253,7 @@
     {
       "id": 87,
       "nom": "L'armada du Chapeau de Paille",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 12,
@@ -3306,6 +3341,7 @@
     {
       "id": 88,
       "nom": "Baggy's Delivery",
+      "notoriete":1,
       "membresListe": [
         {
           "id": 32,
@@ -3338,6 +3374,7 @@
       "nom": "Conseil des doyens",
       "type": "organisation",
       "preposition": "du",
+      "notoriete":1,
       "membresListe": [
         {
           "id": 380,
@@ -3374,6 +3411,7 @@
       "nom": "Cipher Pol",
       "preposition": "du",
       "type": "organisation",
+      "notoriete":1,
       "membresListe": [
         {
           "id": 391,
@@ -3441,8 +3479,9 @@
     {
       "id": 92,
       "nom": "Gardes d'Impel Down",
-      "type": "organisation",
       "preposition": "des",
+      "type": "organisation",
+      "notoriete":1,
       "membresListe": [
         {
           "id": 404,
@@ -3492,6 +3531,7 @@
       "nom": "Royaume de Goa",
       "preposition": "du",
       "type": "royaume",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 463,
@@ -3624,6 +3664,7 @@
       "id": 98,
       "nom": "Baratie",
       "preposition": "du",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 486,
@@ -3693,6 +3734,7 @@
       "nom": "Royaume de Luvneel",
       "preposition": "du",
       "type": "ville",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 497,
@@ -3718,6 +3760,7 @@
       "nom": "Royaume maléfique de Black Drum",
       "preposition": "du",
       "type": "royaume",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 500,
@@ -3742,6 +3785,7 @@
       "nom": "L'île d'Ohara",
       "type": "lieu",
       "preposition": "d'",
+      "notoriete":1,
       "membresListe": [
         {
           "id": 502,
@@ -3770,6 +3814,7 @@
       "nom": "Pays des fleurs",
       "preposition": "du",
       "type": "lieu",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 505,
@@ -3809,6 +3854,7 @@
       "id": 108,
       "nom": "Little Garden",
       "type": "lieu",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 511,
@@ -3825,6 +3871,7 @@
       "id": 109,
       "nom": "L'Île de Drum",
       "type": "lieu",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 513,
@@ -3854,6 +3901,7 @@
       "nom": "Royaume d'Alabasta",
       "preposition": "du",
       "type": "royaume",
+      "notoriete":1,
       "membresListe": [
         {
           "id": 518,
@@ -3929,6 +3977,7 @@
       "id": 111,
       "nom": "Long Ring Long Land",
       "type": "lieu",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 534,
@@ -3957,6 +4006,7 @@
       "id": 113,
       "nom": "Water Seven",
       "type": "ville",
+      "notoriete":1,
       "membresListe": [
         {
           "id": 537,
@@ -4016,6 +4066,7 @@
       "id": 114,
       "nom": "L'Archipel des Sabaody",
       "type": "lieu",
+      "notoriete":1,
       "membresListe": [
         {
           "id": 549,
@@ -4052,6 +4103,7 @@
       "id": 116,
       "nom": "L'île d'Erbaf",
       "type": "lieu",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 554,
@@ -4059,7 +4111,7 @@
         },
         {
           "id": 555,
-          "nom": "Jorl"
+          "nom": "Yorle"
         },
         {
           "id": 556,
@@ -4081,6 +4133,7 @@
       "nom": "Pays des Wa",
       "type": "lieu",
       "preposition": "du",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 559,
@@ -4224,6 +4277,7 @@
       "id": 118,
       "nom": "L'île de Punk Hazard",
       "type": "lieu",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 591,
@@ -4249,6 +4303,7 @@
       "nom": "Royaume de Dressrosa",
       "preposition": "du",
       "type": "lieu",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 594,
@@ -4304,6 +4359,7 @@
       "id": 121,
       "nom": "L'île de Zo",
       "type": "lieu",
+      "notoriete":1,
       "membresListe": [
         {
           "id": 603,
@@ -4387,6 +4443,7 @@
       "nom": "Royaume de Germa",
       "preposition": "du",
       "type": "royaume",
+      "notoriete":1,
       "membresListe": [
         {
           "id": 617,
@@ -4431,6 +4488,7 @@
       "id": 126,
       "nom": "Skypiea",
       "type": "lieu",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 624,
@@ -4534,6 +4592,7 @@
       "id": 128,
       "nom": "L'Île des hommes-poissons",
       "type": "royaume",
+      "notoriete":1,
       "membresListe": [
         {
           "id": 645,
@@ -4614,6 +4673,7 @@
       "id": 130,
       "nom": "L'Armée Révolutionnaire",
       "type":  "organisation",
+      "notoriete":1,
       "membresListe": [
         {
           "id": 661,
@@ -4674,6 +4734,7 @@
       "nom": "Anciens membres du Baroque Works",
       "preposition": "des",
       "type":  "organisation",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 672,
@@ -4715,6 +4776,7 @@
       "nom": "Anciens membres du Cipher Pol",
       "preposition": "des",
       "type": "organisation",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 680,
@@ -4752,6 +4814,7 @@
       "nom": "Anciens membres de la Marine",
       "preposition": "des",
       "type": "organisation",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 687,
@@ -4971,6 +5034,7 @@
       "nom": "World Economic Journal",
       "type": "lieu",
       "preposition": "du",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 692,
@@ -4984,6 +5048,7 @@
       "nom": "Cap des Jumeaux",
       "preposition": "du",
       "type": "lieu",
+      "notoriete":2,
       "membresListe": [
         {
           "id": 507,
@@ -5019,7 +5084,8 @@
     {
       "id": 148,
       "nom": "L'Equipage de Pandaman",
-            "membresListe": [
+      "notoriete":2,
+      "membresListe": [
         {
           "id": 757,
           "nom": "Pandaman"
