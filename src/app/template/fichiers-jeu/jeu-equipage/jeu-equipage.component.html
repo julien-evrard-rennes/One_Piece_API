@@ -1,9 +1,25 @@
 
 <main>
-    <div class="presentation">
+
+   <div class="presentation">
     <h1>Questions sur les équipages et les peuples</h1>
 
-    @if (tour===0 && isLoading) {
+    @if (questionDifficulte) {
+    <div class="presentation">    
+        <h2>A quel niveau estimez-vous votre connaissance de One Piece ?</h2>
+            <div class="niveau">
+                <div>
+                    <button (click)="onClickButtonDiff(1)">NORMALE</button>
+                    <button (click)="onClickButtonDiff(2)">POUSSÉE</button>
+                    <button (click)="onClickButtonDiff(3)">ENCYCLOPÉDIQUE</button>
+                </div>
+            </div>
+
+        </div>
+        }
+
+
+    @if (tour===0 && isLoading && questionDifficulte == false) {
         <div class="spinner"></div>
         <p colspan="6">Chargement du jeu...</p>
         }

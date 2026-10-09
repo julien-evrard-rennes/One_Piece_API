@@ -19,7 +19,7 @@ export class JeuEquipageComponent implements OnInit {
   private readonly router = inject(Router);
   private cdr = inject(ChangeDetectorRef);
 
-
+  questionDifficulte = true;
   isLoading = true;
   personnage!: Personnage;
   personnageShort!: PersonnageShort;
@@ -27,6 +27,7 @@ export class JeuEquipageComponent implements OnInit {
   groupe!: Groupe;
   tableauGroupes!: Groupe[];
   tableauPersos!: PersonnageShort[];
+  difficulte!: number;
 
   nomDuGroupe!:string;
   typequestion!: string;
@@ -39,31 +40,35 @@ export class JeuEquipageComponent implements OnInit {
   scoreTotal = 0;
   tour=0;
 
-  ngOnInit(): void {
-      this.jeuService.tirageTableauEquipage().subscribe(tg => {
+  ngOnInit(): void { }
+
+    /**
+     * Détermine le niveau de difficulté selon l'appui du bouton
+     * @param difficulte 
+     */
+    onClickButtonDiff(difficulte: number): void {
+    this.difficulte = difficulte;
+    this.questionDifficulte=false;
+    this.InitiationduJeu();
+    }
+
+   /**
+    * Initialise les tableaux de jeux sur lesquels la partie va porter
+    */ 
+  InitiationduJeu(){
+      console.log(this.difficulte)
+      this.jeuService.tirageTableauEquipage(this.difficulte).subscribe(tg => {
       this.tableauGroupes = tg;
       this.tableauPersos = this.jeuService.tirageTableauPersosJDE(tg)
       this.tirageGeneral();
       })
     }
 
- /** Première formule du tirage : a garder pour comprendre la logique de base
-  * 
-  *  tirage() {
-    this.jeuService.tiragePerso().subscribe(p => {
-      this.personnage = p;
-      this.tour++;
-      this.isLoading=false;
-    });
-      this.jeuService.tirageGroupe().subscribe(g => {
-      this.groupe = g;
-      this.nomDuGroupe=this.jeuService.lowercaseFirstLetter(this.groupe.name);
-      this.cdr.detectChanges();
-    });
-  }*/ 
-  /**
-   * Détermine si la prochaine question sera sur un personnage ou un capitaine
-   */
+    /**
+     * Détermine si la prochaine question va porter sur un personnage ou un capitaine
+     */
+
+
   tirageGeneral(){
     this.groupe = this.tableauGroupes[this.tour];
     console.log(this.groupe.id)
@@ -78,7 +83,8 @@ export class JeuEquipageComponent implements OnInit {
     } 
   }
 
-  /**
+  /** Choisi si la question va porter sur un capitaine ou non et tire un personnage au hasard
+   * Lance la question
    * 
    */
     tirageCapitaine(){
@@ -158,6 +164,24 @@ export class JeuEquipageComponent implements OnInit {
    }
     });
   }
+
+   /** Première formule du tirage : a garder pour comprendre la logique de base
+  * 
+  *  tirage() {
+    this.jeuService.tiragePerso().subscribe(p => {
+      this.personnage = p;
+      this.tour++;
+      this.isLoading=false;
+    });
+      this.jeuService.tirageGroupe().subscribe(g => {
+      this.groupe = g;
+      this.nomDuGroupe=this.jeuService.lowercaseFirstLetter(this.groupe.name);
+      this.cdr.detectChanges();
+    });
+  }*/ 
+  /**
+   * Détermine si la prochaine question sera sur un personnage ou un capitaine
+   */
 
   }
 }

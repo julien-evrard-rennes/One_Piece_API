@@ -72,14 +72,14 @@ tirageGroupe() : Observable<Groupe> {
  * dont la liste des membres contiennent au moins un membre d'équipage
  * @returns 
  */
-tirageGroupeEquipage() : Observable<Groupe> {
+tirageGroupeEquipage(notoriete: number) : Observable<Groupe> {
     const listSource$ = this.cacheG ? of(this.cacheG)
     : this.fusionGroupeService.getGroupeList().pipe(
         tap(list => this.cacheG = list)
       );
 
   return listSource$.pipe(
-    map(list => list.filter(g => g.membresListe !== null && g.membresListe && g.membresListe.length > 0  )),
+    map(list => list.filter(g => g.membresListe !== null && g.membresListe.length > 0 && g.notoriete <= notoriete )),
     map(list => {
       if (list.length === 0) {
         throw new Error('Aucun groupe avec un équipage trouvé.');
@@ -266,11 +266,11 @@ getScore(resultat:string): number {
  * @param tableauDesEquipages 
  */
 
-tirageTableauEquipage(): Observable<Groupe[]>  {
+tirageTableauEquipage(difficulte : number): Observable<Groupe[]>  {
   const tableauDesEquipages: Observable<Groupe>[] = [];
   
   for (let i = 0; i < 10; i++) {
-            tableauDesEquipages[i] = this.tirageGroupeEquipage();
+            tableauDesEquipages[i] = this.tirageGroupeEquipage(difficulte);
   }
   return forkJoin (tableauDesEquipages);
 }
