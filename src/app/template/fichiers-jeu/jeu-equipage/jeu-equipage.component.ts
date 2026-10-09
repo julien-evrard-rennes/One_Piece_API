@@ -40,7 +40,9 @@ export class JeuEquipageComponent implements OnInit {
   scoreTotal = 0;
   tour=0;
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.questionDifficulte=true;
+  }
 
     /**
      * Détermine le niveau de difficulté selon l'appui du bouton
@@ -96,7 +98,7 @@ export class JeuEquipageComponent implements OnInit {
         this.personnageShort = this.groupe.capitaine;
         }
       else if (D3 == 2){
-        let pif = Math.floor(Math.random() * this.groupe.membresListe.length);
+        const pif = Math.floor(Math.random() * this.groupe.membresListe.length);
         this.personnageShort = this.groupe.membresListe[pif];
       }
       this.fusionPersoService.getPersonnageById(this.personnageShort.id).subscribe({
